@@ -2,310 +2,275 @@
 
 **Date:** July 14, 2026
 **Author:** Claude — founding information architect
-**Origin:** founder ruling following the question-native rendering V1 review.
-**Status:** ARCHITECTURE FOR REVIEW — deliberately unimplemented. No schema
-code, no content, no pages have been changed.
+**Status:** ARCHITECTURE FOR REVIEW — deliberately unimplemented.
+
+**Revision notes (practicing our own discipline):**
+- **R1** introduced the Question Observatory: canonical questions as
+  observed first-class objects, mandatory source provenance, computed
+  coverage, the Client Zero audit mapping.
+- **R2** applies the founder's durable/variable correction. R1's error,
+  preserved for the record: platform names (ChatGPT, Google AI Mode,
+  Copilot, Bing…) appeared in the *schema* — in the source-type enum and
+  as a prominent per-environment structure — which quietly organized the
+  observatory around temporary evaluator implementations. R2 removes every
+  platform name from the schema. **The durable commercial layer organizes
+  the system; evaluators are an observation dimension.** The company is
+  organized around what survives technology change.
 
 ---
 
-## 0. What changes, what doesn't — stated precisely
+## 0. The two layers
 
-Unchanged: the ontology's existing seventeen types and their rules, the
-knowledge graph, the evidence architecture, the tier system, the
-question-native rendering pattern (question → immediate answer →
-explanation → evidence → limitations → related questions), the visual
-language, and the machine interface.
+**THE DURABLE LAYER** — commercial reality, stable across technology
+change. Business problems, buying-committee roles, commercial
+requirements, requirement clusters and gates, evaluation questions,
+underlying uncertainties, evidence requirements, validation requirements,
+confidence states, selection outcomes. These existed before AI evaluators
+and will outlive every system currently observing them.
 
-Changed: the website's organizing purpose. It is no longer a collection of
-research pages; it is **the public interface to the Question Observatory**
-— an instrument whose object of study is *the questions commerce asks*,
-and whose output is comprehensive, measurable coverage of them.
+**THE VARIABLE EVALUATOR LAYER** — the implementations through which the
+durable layer is observed at any moment: Google Search, Google AI Mode,
+ChatGPT, Copilot, Bing, Claude, Perplexity, human buying committees,
+procurement systems, future agents and evaluator classes. **These names
+never appear in the schema.** They are records in the instrument registry
+— data, not structure. They will change; the schema will not notice.
 
-One honest correction to the framing before anything else: the founder's
-brief says "the ontology remains unchanged" and also "each question should
-become a first-class object in the graph." Both cannot be literally true —
-**a first-class object is an ontology extension.** This document proposes
-exactly one new type (§2) and a handful of new edge relations (§7), and
-per the graph's own constitution, extending the closed vocabulary is a
-recorded Method revision, not a silent change. The extension is small,
-additive, and breaks nothing; but it is an extension, and the record
-should say so.
+The test for every future modeling decision: *if every current AI product
+disappeared tomorrow, which parts of the observatory would still be
+correct?* The durable layer must be all of it.
 
-## 1. The fundamental principle
+A canonical question exists independently of any model. *"Which solution
+best supports a regulated healthcare organization with strict data
+residency requirements?"* may be observed in ChatGPT today, Google AI Mode
+tomorrow, a procurement agent later, and human buying committees
+throughout. The question remains. The evaluator changes.
 
-**The purpose of the website is comprehensive question coverage.**
+## 1. The fundamental principle (unchanged from R1)
 
-Not content coverage. Not page coverage. Question coverage.
+The purpose of the website is **comprehensive question coverage** — of
+*durable* questions. Every page exists because a meaningful question
+exists; every answer increases coverage; coverage is measured, not
+asserted (§6). What R2 adds: coverage is counted over the durable layer.
+An answer observed to work in one evaluator does not increase coverage of
+the question — it increases the *evaluator-observation record* of an
+answer whose coverage is assessed against durable evidence requirements.
 
-- Every page exists because a meaningful question exists.
-- Every answer increases the coverage of the Question Observatory.
-- A page without a question behind it is decoration and should not exist.
+## 2. The durable layer — modeled with restraint
 
-This principle is measurable (§6), which is what makes it a principle
-rather than a slogan.
-
-## 2. The Canonical Question — one new type
-
-### 2.1 Why a new type, not a reuse
-
-The existing `question` type (Q-1…Q-3) holds **research questions** — what
-*our instrument* is pointed at. A **canonical question (CQ)** is a
-different kind of object: an **observed phenomenon** — a question the
-market actually asks, discovered through evidence rather than invented
-editorially. Conflating them would blur the observatory's most important
-line: Q-objects are ours; CQ-objects are *data about commerce*. They meet
-(a finding can answer both; a CQ can motivate a Q) but they are not the
-same thing.
-
-### 2.2 The envelope
-
-`CQ-####`, filed under `content/canonical-questions/`. Fields, grouped by
-epistemic character — because a canonical question mixes identity,
-observation, and derived state, and the architecture must keep those
-distinct:
-
-**Identity (curated, versioned):**
+The founder's chain:
 
 ```
-id                     CQ-0042 — permanent, never reused
-canonicalQuestion      the canonical phrasing
-variants[]             observed phrasings that resolve to this question
-underlyingUncertainty  the commercial uncertainty beneath the words —
-                       what the asker is actually trying to resolve
-intent                 understand | compare | validate | troubleshoot |
-                       price | integrate | trust   (closed enum, extensible
-                       by recorded revision)
-buyerStage             problem-aware | solution-seeking | comparison |
-                       validation | post-purchase   (closed enum)
+Business Problem
+  → Buying Committee (role)
+    → Requirement (clusters; gates)
+      → Evaluation Question
+        → Evidence Requirement
+          → Evaluator Observation      ← the variable layer attaches HERE
+            → Confidence
+              → Recommendation
+                → Validation
+                  → Selection
 ```
 
-**Observation (evidence — never hand-written):**
+Eleven durable concepts do not require eleven new types. Each chain node
+is modeled as a **type**, a **field**, a **derived state**, or an
+**existing type** — the ontology grows by five, and the extension is
+recorded as a Method revision per the graph's constitution:
+
+| Chain node | Modeling | Notes |
+|---|---|---|
+| Business problem | **new type** `business-problem` (BP-) | the commercial situation that creates evaluation |
+| Buying committee role | **new type** `buyer-role` (BR-) | economic buyer, technical evaluator, security reviewer, end user, procurement… |
+| Commercial requirement | **new type** `requirement` (RQ-) | field `kind: requirement \| gate`; field `cluster` groups related requirements — clusters and gates are structure on one type, not two more types |
+| Requirement cluster / gate | fields on `requirement` | see above |
+| Evaluation question | **new type** `canonical-question` (CQ-) | §3 |
+| Underlying uncertainty | field on CQ | what the asker is actually resolving |
+| Evidence requirement | **new type** `evidence-requirement` (ER-) | what evidence would satisfy the requirement — declared independently of any evaluator |
+| Validation requirement | field on ER | the conditions under which the evidence counts as validated |
+| Confidence state | **derived** | computed from the evidence chain, never stored (the tier-floor lesson) |
+| Recommendation / selection outcome | **observations** | recorded evaluator/buyer behavior — `observation` objects with kinds `recommendation` and `selection`; real-world selection outcomes are what the apex evidence tier corroborates against |
+
+## 3. The canonical question (CQ), revised
+
+Identity fields (curated, versioned): `canonicalQuestion`,
+`underlyingUncertainty`, `intent`, `buyerStage` — as R1.
+
+Durable edges (the R2 addition — every CQ connects into the chain):
 
 ```
-sources[]              provenance of the question's existence (§3):
-                       { sourceType, environment?, observedAt, note,
-                         evidence → OBS/E object where applicable }
-environmentRecords[]   per retrieval environment (§4):
-                       { environment → Instrument id,
-                         observationFrequency (with N and window),
-                         lastObserved }
+derives-from   → business-problem     the problem that created it
+asked-by       → buyer-role           the role responsible for it
+evaluates      → requirement          the requirement or gate it tests
+requires       → evidence-requirement the evidence needed to answer it
 ```
 
-**Derived (computed at build — never stored by hand, §6):**
+**What moved out of identity: everything evaluator-specific.** R1 gave the
+CQ per-environment records and variant lists as near-identity fields. R2
+demotes them to what they are — observations:
 
-```
-currentCoverage        unanswered | answered-narrated | answered-evidenced
-evidenceCoverage       the tier of the strongest evidence chain behind
-                       the published answer
-linkCoverage           count of independent graph paths into this CQ
-confidence             plain-language, derived from the above
-```
+- **Evaluator expression observations**: how a given evaluator phrases,
+  decomposes, prioritizes, or answers this durable question — including
+  wording variants — recorded as `observation` objects, instrument-stamped
+  (which evaluator, which version, when, sampled how), attached to the CQ
+  via `observed-as` edges. Variants are evaluator *behavior*, not question
+  *identity*. No permanent per-platform question taxonomy exists, or can
+  exist, in this schema.
+- **Frequency and recency** per evaluator: properties of those
+  observations (with N and windows), aggregated at build time — never
+  hand-maintained fields on the question.
 
-**Standard envelope:** created, status, authors, edges, revision history —
-identical to every other object.
+The R1 rules survive intact: a CQ cannot exist without a source record
+(no editorial invention — build-enforced); sources involving people
+inherit consent and named-parties rules; V1's six Philosophy questions
+grandfather visibly as `internal-research` (FD-10).
 
-### 2.3 The rule that keeps the observatory honest
+**Source records, corrected:** R1's source enum mixed *methods* with
+*platforms*. R2 splits them — `method` (evaluator-prompt, search-data,
+interview, customer-conversation, internal-research, finding-derived:
+durable methodology vocabulary) and `instrument →` (a registry reference:
+whichever evaluator or data source it was, as data). New evaluator classes
+require a registry record, never a schema change.
 
-**A canonical question cannot exist without at least one source record.**
-Editorially invented questions are forbidden — by build failure, not
-policy. If we believe a question matters but have not observed it, the
-honest path exists already: observe it (run the evaluation prompt, check
-the search data, interview the buyer) and record the observation. The
-observatory publishes what commerce asks, not what we wish it asked.
+## 4. The variable layer — the instrument registry
 
-*(Bootstrap honesty: the six questions on the current Philosophy page were
-editorially composed during V1. Under this architecture they are
-grandfathered as `source: internal-research` with a dated note saying
-exactly that — visible, not laundered.)*
+Every evaluator implementation — each AI system and version, each search
+surface, each procurement platform, *and human buying committees as an
+evaluator class* — registers as an **Instrument** (existing type; no
+extension). Instruments carry identity, version, access mode, known
+limitations, observation windows. Evaluator observations point at them.
 
-## 3. Question sources
+This yields the founder's requirement mechanically: we record how each
+evaluator *expresses, prioritizes, decomposes, or answers the same durable
+commercial questions* — as dated, stamped observations attached to durable
+objects — and when an evaluator dies, its observations remain valid
+history rather than orphaned taxonomy.
 
-Closed source-type vocabulary (extensible by recorded revision):
+## 5. The standing research questions
 
-```
-evaluator-prompt       observed AI evaluation prompts (our own instruments)
-search-console         Google Search Console query data
-google-ai-mode         Google AI Mode observations
-chatgpt                ChatGPT observations
-copilot                Copilot observations
-bing                   Bing observations
-perplexity             Perplexity observations
-claude                 Claude observations
-buyer-interview        direct buyer conversations
-customer-conversation  client engagements (consent required — see below)
-internal-research      our own program (incl. grandfathered V1 questions)
-finding-derived        questions created by previous findings
-```
+The observatory's own instrument panel must eventually distinguish
+(each of these is a measured research output, never an assumption):
 
-Rules:
+1. Which requirements remain stable across evaluator changes?
+2. Which questions are universal across buying environments?
+3. Which question formulations are evaluator-specific?
+4. Which evidence works across evaluators?
+5. Which evidence is environment-dependent?
+6. Which requirement gates are durable even when recommendation behavior
+   changes?
 
-- Every canonical question is traceable to *why it exists*. Source records
-  answer it.
-- Sources that involve people (`buyer-interview`, `customer-conversation`)
-  inherit the consent and named-parties rules already in the architecture:
-  no identifiable data without documented consent, anonymization declared.
-- Search Console and observation-platform sources require accounts and
-  access the founder controls — flagged as **FD-9** (which sources are
-  actually available to us today, and under whose credentials).
+Proposed registration: **H-3, generalized** — *evaluator implementations
+differ materially in how they express, prioritize, and answer durable
+commercial questions, and in which evidence they accept* — with the six
+distinctions above as its measured sub-questions. Refutation condition:
+cross-evaluator observation shows expression, prioritization, and evidence
+acceptance statistically indistinguishable at meaningful sample sizes.
+Nothing in the rendering or coverage model may assume the answer.
 
-## 4. Retrieval environments — an elegant reuse
+## 6. Coverage — computed over the durable layer
 
-The brief lists environments (Google Search, Google AI Mode, ChatGPT,
-Copilot, Bing, Perplexity, Claude, future ones) as things questions are
-observed *through*. The ontology already has a type for "the thing
-observation happens through": **Instrument**. Retrieval environments
-register as Instrument records — versioned, dated, with known limitations
-— and CQ environment-records point at them.
-
-No new type needed; the instrument registry stops being empty; and every
-environment-frequency claim automatically inherits instrument-stamp
-discipline (which environment, which version, observed when, sampled how).
-
-## 5. The environment-distribution hypothesis — registered, not assumed
-
-The brief's critical realization — *there is probably not one universal
-question graph* — enters the observatory the only way a belief can:
-
-**H-3 (proposed): Question distributions differ materially across
-retrieval environments.**
-
-Predictions: the same commercial domain will show measurably different
-canonical-question frequency rankings across environments; some questions
-will be environment-exclusive. Refutation: cross-environment observation
-shows distributions statistically indistinguishable at meaningful sample
-sizes. Until measured, nothing in the rendering or coverage model may
-*assume* environment differences — the per-environment records exist
-precisely so the answer can be measured rather than presumed.
-
-## 6. Coverage — the observatory's instrument panel
-
-Six coverages, all **computed from the graph at build time**, never
-maintained by hand (the lesson of the tier floor: honesty enforced by
-computation survives deadline pressure; honesty maintained by editing does
-not):
+All computed at build; never stored (unchanged discipline). R2 re-bases
+the denominators on durable objects:
 
 | Coverage | Definition (computed) |
 |---|---|
-| Question | CQs published ÷ CQs observed (the backlog is visible) |
+| Question | durable CQs published ÷ durable CQs observed |
 | Answer | CQs with a published resolved-question rendering |
-| Evidence | distribution of answer evidence tiers (how much of the map is Narrated vs. evidenced) |
-| Retrieval | CQs with ≥1 environment record ÷ all CQs |
-| Environment | environments actively observed ÷ environments registered |
-| Link | mean independent graph paths into each CQ (the connectivity objective, §7) |
+| Evidence | distribution of answers' tiers **against their evidence requirements** — an answer covers a question only as far as the declared ER is satisfied |
+| Requirement | requirements ÷ gates with at least one evaluating CQ answered |
+| Evaluator | instruments with active observation ÷ instruments registered — an observation-freshness measure, not an organizing dimension |
+| Link | mean independent graph paths into each durable object |
 
-At launch every number is zero or near-zero, and the coverage board prints
-that — the observatory opens with an honest empty sky map, exactly as the
-site opened at First Light. **"Which questions matter most" is a measured
-claim** (frequency × environment spread × buyer stage), never an editorial
-one, and carries the same tier discipline as everything else.
+At launch every number is zero or near-zero, printed honestly.
 
-## 7. Connectivity — multiple independent retrieval paths
+## 7. Rendering integration (pattern unchanged)
 
-Every answer intentionally increases graph connectivity. New edge
-relations (the recorded vocabulary extension, with `answers` being the
-load-bearing one):
+The V1 six-part pattern stands. R2 changes only what organizes the map:
 
-```
-answers          resolved rendering / finding → CQ
-asked-in         CQ → Instrument (retrieval environment)
-motivated        CQ → Q (a market question motivating a research question)
-variant-of       CQ → CQ (variant consolidation)
-```
+- **CQ pages are the resolved-question pages**; the human sitemap organizes
+  by business problem and buyer role — durable categories — never by
+  evaluator. There is no "/chatgpt-questions" page in this architecture,
+  and there never will be.
+- Evaluator-specific expression appears *inside* a question's Evidence
+  section as instrument-stamped observation ("ChatGPT (I-12, 2026-07)
+  decomposes this question into…"), exactly as dated and superseded as any
+  other observation.
+- Unanswered observed questions publish honestly with their observation
+  records — the telescope log, not just the discoveries.
+- Humans navigate questions; machines navigate entities; both interfaces
+  are organized around the durable layer.
 
-Plus the existing vocabulary doing its normal work (`supports`, `cites`,
-`derives-from`…). Linking rules for every published answer: related
-questions (≥2 where they exist), supporting findings / methods /
-experiments / evidence / claims / observations wherever the graph holds
-them. Orphan CQs (no inbound path but the index) are build *warnings* —
-visible debt, not silent gaps.
+## 8. Client Zero and the audit
 
-## 8. Rendering integration
-
-Nothing about the V1 pattern changes. What changes is where questions come
-from and how they are organized:
-
-- **CQ pages are resolved-question pages.** The six-part pattern renders
-  each canonical question; the CQ object supplies the question, variants
-  (rendered for machines; humans see the canonical phrasing), and the
-  evidence section draws from the graph as V1 already does.
-- **The question index becomes the human sitemap** — organized by
-  underlying uncertainty and buyer stage, not by our internal categories.
-  Humans navigate questions; machines navigate entities. Ontology pages
-  remain fully addressable but become the machine's front door, not the
-  human's.
-- **Unanswered questions are published too.** A CQ observed but not yet
-  answered renders honestly as an open question with its observation
-  record — the observatory showing its telescope log, not just its
-  discoveries. (This is also the strongest possible demonstration that
-  questions come from evidence, not editorial invention.)
-
-## 9. Client Zero — the observatory audits itself first, then customers
-
-The same system that determines our publishing priorities becomes the
-customer audit. The mapping is exact:
+The audit mapping sharpens under R2 — it becomes a **requirement-coverage
+map organized by buying role**, with evaluator behavior as the observation
+detail:
 
 | Audit question | Observatory operation |
 |---|---|
-| Which important questions exist in your market? | CQ set filtered to the market, ranked by measured frequency × environment spread |
-| Which environments ask them? | environment records per CQ |
-| Which questions does your company answer? | coverage computation with the customer's content as the answer corpus |
-| Which do competitors answer? | same computation, competitor corpus |
-| Which remain uncovered? | set difference — the gap map |
-| Which lack sufficient evidence? | evidence-coverage distribution over their answered set |
+| Which questions exist in your market? | durable CQ set for your business problems and buyer roles, ranked by measured observation frequency |
+| Which environments ask them? | evaluator observations per CQ (instrument-stamped) |
+| Which questions do you answer? | coverage computation, your corpus as answer set |
+| Which do competitors answer? | same, competitor corpus |
+| Which remain uncovered? | the gap map, by requirement and gate |
+| Which lack sufficient evidence? | ER-satisfaction distribution over your answered set |
 
-Coverage becomes measurable — which converts the commercial wedge from
-diagnosis-by-judgment to **diagnosis-by-instrument**. The firewall is
-unaffected and worth restating: an audit reports coverage; it does not
-promise evaluator behavior. Existing capabilities (CAP-1, CAP-2) gain
-their eventual `derives-from` path through the observatory's methods —
-this is how the capabilities finally earn `operational`.
+Because the audit is organized on the durable layer, **it survives
+evaluator turnover** — a customer's coverage map remains meaningful when
+the next evaluator class arrives; only the observation records refresh.
+That durability is precisely what makes the audit worth paying for, and it
+is the same property that makes the research program credible. The
+firewall is unchanged: audits report coverage; they never promise
+evaluator behavior.
 
-## 10. Epistemics and open problems
+## 9. Epistemics and open problems (carried from R1, re-based)
 
-- CQ observation records are **behavioral observations** about retrieval
-  environments and buyers — they carry N, windows, and instrument stamps
-  like any observation. Frequency claims without sample sizes do not ship.
-- **The ingestion pipeline is the hard unsolved problem** (the same class
-  as FRICTION_LOG FR-8): what procedure turns a raw sighting (a Search
-  Console row, an evaluator prompt, an interview note) into a source
-  record — who observes, how it is verified, how variants are consolidated
-  into canonical questions without editorial invention sneaking in through
-  the consolidation step. This needs a Method (proposed: M-4, "canonical
-  question ingestion") before the first non-grandfathered CQ ships.
-- Variant consolidation is itself a judgment; the method must make it
-  auditable (variants preserved verbatim, consolidation reasoning
-  recorded).
+- Evaluator observations carry N, windows, instrument stamps; frequency
+  claims without sample sizes do not ship.
+- **The ingestion pipeline (proposed M-4) remains the hard problem**, now
+  with a sharper statement: consolidation must map observed expressions to
+  durable questions — and deciding that two evaluator expressions are "the
+  same durable question" is a judgment that must be auditable (expressions
+  preserved verbatim, consolidation reasoning recorded) so editorial
+  invention cannot re-enter through the mapping step.
+- Declaring evidence requirements (ER objects) is itself research — what
+  evidence *should* satisfy a requirement is a hypothesis until selection
+  outcomes corroborate it. ERs carry tiers like everything else.
 
-## 11. Founder decisions this architecture surfaces
+## 10. Founder decisions
 
-- **FD-9 · Source access.** Which sources are actually available today
-  (Search Console property? platform observation accounts?) and under
+- **FD-9 · Source access** — which observation sources exist today, under
   whose credentials.
-- **FD-10 · The bootstrap set.** Approve grandfathering V1's six
-  Philosophy questions as `internal-research`-sourced CQs, or require
-  observed sources before they enter the observatory.
-- **FD-11 · M-4 ingestion method.** The consolidation and verification
-  procedure needs founder review before first use — it is where editorial
-  invention could quietly re-enter.
+- **FD-10 · The bootstrap set** — grandfather V1's six questions as
+  `internal-research`-sourced, or require observed sources first.
+- **FD-11 · M-4 ingestion method** — consolidation procedure needs founder
+  review before the first real CQ ships.
+- **FD-12 · Durable-layer seeds** *(new in R2)* — the first business
+  problems, buyer roles, and requirement clusters to model. The durable
+  layer should be seeded from evidence (interviews, engagements, observed
+  prompts) like everything else; the founder decides which market to map
+  first.
 
-## 12. Rollout (proposed, not begun)
+## 11. Rollout (proposed, not begun)
 
-1. Vocabulary amendment: CQ type + four edge relations + source enum —
-   recorded as a Method revision.
-2. Instrument registry: register retrieval environments.
-3. H-3 registered as a hypothesis object.
-4. M-4 drafted; FD-9/10/11 resolved.
-5. Seed CQs **from real observations only**; publish the question index
-   with honest coverage zeros.
-6. Apply question-native rendering site-wide, with CQs as the source of
-   truth for what gets a page.
-7. Coverage board on the Observatory home.
-8. Audit tooling (Client Zero first, per the founding rule).
+1. Vocabulary amendment recorded: five durable types
+   (`business-problem`, `buyer-role`, `requirement`,
+   `canonical-question`, `evidence-requirement`) + durable edge relations
+   (`asked-by`, `evaluates`, `requires`, `observed-as`, `answers`,
+   `motivated`) + method/source split.
+2. Instrument registry seeded with evaluator implementations — including
+   human buying committees as an evaluator class.
+3. H-3 (generalized) registered; the six standing distinctions recorded as
+   its sub-questions.
+4. M-4 drafted; FD-9…FD-12 resolved.
+5. Durable layer seeded from real evidence for one market (FD-12).
+6. CQs published with honest coverage zeros; question index organized by
+   business problem and buyer role.
+7. Question-native rendering applied site-wide.
+8. Coverage board; then audit tooling (Client Zero first).
 
 ---
 
-*Architecture complete; nothing implemented. Awaiting founder review —
-particularly §0's honest correction (this is a small ontology extension
-and should be recorded as one), §2.3's no-invented-questions build rule,
-§4's environments-as-instruments reuse, and the three new founder
-decisions in §11.*
+*Architecture revised; nothing implemented. The organizing test, restated:
+the company is organized around what survives technology change. Current
+models live inside Evaluator Observation. They do not sit at the top of
+the system — and in this schema, they cannot.*
