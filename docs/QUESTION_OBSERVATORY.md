@@ -3,263 +3,324 @@
 **Date:** July 14, 2026
 **Author:** Claude — founding information architect
 **Status:** ARCHITECTURE FOR REVIEW — deliberately unimplemented.
-**Implementation gate:** nothing ships until M-4 is designed, reviewed,
-and explicitly frozen by the founder (§10, docs/M-4_PROPOSAL.md).
+**Implementation gate:** M-4 (docs/M-4_PROPOSAL.md, v0.2 draft) must be
+explicitly frozen by the founder before anything ships.
 
-**Revision notes (practicing our own discipline):**
-- **R1** introduced the Question Observatory: canonical questions as
-  observed first-class objects, mandatory source provenance, computed
-  coverage, the Client Zero audit mapping.
-- **R2** applied the durable/variable correction: platform names removed
-  from the schema; the durable commercial chain organizes the system.
-- **R3** applies three founder corrections. R2's errors, preserved for the
-  record: **(a)** it registered evaluator environments as Instruments —
-  conflating *what is studied* with *how we observe it* (the telescope is
-  not the star); **(b)** it treated the canonical question as if directly
-  observed, when canonicalization is interpretation performed on raw
-  expressions; **(c)** its no-invented-questions rule was too absolute,
-  prohibiting legitimately research-derived and navigational questions
-  instead of typing them honestly.
+**Revision notes:**
+- **R1** — the Question Observatory: observed canonical questions,
+  computed coverage, the audit mapping.
+- **R2** — durable/variable separation; platform names removed from the
+  schema.
+- **R3** — observer/observed separation; expressions vs. canonicalization;
+  honest question classes.
+- **R4** — the founder-ratified correction back toward the founding model:
+  **requirements become the durable organizing spine.** Canonical
+  questions demote to derived linguistic projections; requirement gates
+  earn first-class status; requirements carry the same evidence-class
+  discipline as questions; research confidence and evaluator confidence
+  separate; requirement coverage becomes the headline metric. R3's
+  residual error, preserved: it kept the canonical question as the
+  organizing center when the founding documents ("buying committees apply
+  requirements; requirements shape confidence…") had named the spine all
+  along.
+
+**The four-line constitution of this architecture:**
+
+> Requirements are the commercial spine.
+> Questions are the human interface.
+> The graph is the machine interface.
+> Evaluator environments are variable observation dimensions.
 
 ---
 
-## 0. The two layers (unchanged in R3)
-
-**THE DURABLE LAYER** — commercial reality, stable across technology
-change: business problems, buying roles, requirements and gates,
-underlying uncertainties, evidence and validation needs, confidence,
-selection.
-
-**THE VARIABLE EVALUATOR LAYER** — the implementations through which the
-durable layer is expressed at any moment: current AI systems, search
-surfaces, procurement systems, human buying committees, future evaluator
-classes. Platform names never appear in the schema; they are registry
-data. The organizing test stands: *if every current AI product disappeared
-tomorrow, the schema would not notice.* The Observatory must never become
-a prompt-monitoring system organized around current platforms.
-
-## 1. Observer and observed — the R3 separation
-
-**Evaluator / Evaluation Environment = what is being studied.**
-ChatGPT, Google AI Mode, Copilot, Bing, Claude, Perplexity, human buying
-committees, procurement agents: these are the *subjects* of observation.
-New type: `evaluator-environment` (EE-), carrying identity, class
-(ai-assistant, search-surface, procurement-system, human-committee, …),
-version/variant where applicable, and validity windows.
-
-**Instrument / Method = how Upstream Zero observes and measures.**
-The Instrument type returns to its true meaning: *our* observation
-procedures — each instrument version specifying prompt or interaction
-protocol, sampling method, session controls, model/version capture,
-date and validity window, extraction method, scoring or coding procedure,
-replication rules, and raw-output capture. An instrument observes an
-environment; it is never the environment.
-
-**The observation chain, fully separated:**
-
-```
-Canonical Question
-  → Evaluator Environment        (what was studied)
-    → Observation Event          (when and what happened)
-      → Instrument Version       (how we observed it)
-        → Raw Evidence           (verbatim capture, content-hashed)
-          → Coding               (our interpretation, versioned)
-```
-
-Every claim about an evaluator's behavior is therefore stamped twice: with
-the environment it describes and the instrument that produced it — so
-"ChatGPT decomposes this question into X" is always, precisely, "under
-protocol I-n vN, environment EE-m exhibited X, raw output E-k."
-
-## 2. The three question layers — observation vs. interpretation
-
-R3's second correction, modeled explicitly:
-
-**Layer 1 — Observed Expression** (`observed-expression`, OE-): the raw,
-verbatim artifact — a prompt, search query, buyer wording, evaluator
-follow-up, interview statement. Immutable once captured; content-hashed;
-stamped with source, evaluator environment, instrument, and date;
-preserved permanently. **Canonicalization never destroys expressions.**
-
-**Layer 2 — Canonical Question** (`canonical-question`, CQ-): a **derived
-research object** — the normalized question that groups expressions
-believed to resolve the same underlying uncertainty. The grouping is
-interpretation, and the object says so on its face. Every CQ carries:
-
-```
-supporting expressions        edges → OE objects (mandatory for the
-                              observed-commercial class, §3)
-consolidation method+version  → M-4 vN (the procedure that produced it)
-consolidation confidence      coded per M-4
-competing canonicalizations   edges → rival CQs, status: contested —
-                              disagreements preserved, never silently merged
-first / last observed         derived from expression dates
-evaluator distribution        derived from expression stamps
-uncertainty / requirement     edges → UN / RQ objects
-revision history              splits and merges are recorded Revisions
-```
-
-The canonical *wording* is chosen, not observed, and is never presented as
-a direct observation.
-
-**Layer 3 — Underlying Uncertainty** (`uncertainty`, UN-): the durable
-structure that explains why the question exists — what the asker is
-actually trying to resolve. Links upward to the requirement or gate it
-concerns; multiple CQs may resolve the same uncertainty.
-
-**The durable sequence (R3-final):**
+## 1. The durable spine
 
 ```
 Business Problem
   → Buying Role
-    → Requirement (clusters; gates)
-      → Underlying Uncertainty
-        → Canonical Question            [derived research object]
-          → Observed Expression          [raw data]
-            → Evaluator Observation      [environment × instrument × event]
-              → Evidence
-                → Confidence             [derived, never stored]
-                  → Recommendation / Selection   [observations]
+    → Requirement
+      → Requirement Gate
+        → Underlying Uncertainty
+          → Observed Expression
+            → Canonical Question
+              → Evidence Requirement
+                → Evaluator Observation
+                  → Evaluator Confidence
+                    → Recommendation
+                      → Validation
+                        → Selection
 ```
 
-The evaluator-specific wording is the most variable thing in the system;
-the requirement and underlying uncertainty are the most durable.
+**The chain is the full model, not a mandatory workflow.** No object is
+forced through every node. It expresses the durability gradient (business
+problems outlive requirements; requirements outlive question wordings;
+wordings outlive evaluator versions) and the evidence direction (raw
+expressions below, derived objects above, outcomes corroborating at the
+end).
 
-## 3. Question classes — the refined invention rule
+### 1.1 The pre-requirement region
 
-R2's absolute rule ("no editorially invented questions") replaced with
-honest typing. Every CQ carries a `class`, each with its own integrity
-rule:
+Not every commercial question begins with a crystallized requirement.
+Early, problem-aware activity is first-class:
 
-| Class | Claim it makes | Integrity rule (build-enforced where possible) |
+```
+Business Problem
+  → Uncertainty
+    → Observed Expressions
+      → Emerging Requirement        (formation is itself observable)
+```
+
+Uncertainties may attach directly to a business problem, an unresolved
+objective, or a buying role when no requirement exists. **A requirement is
+never retrofitted where the evidence supports only an unresolved problem
+or uncertainty.** Requirement *formation* — the crystallization of an
+uncertainty into a stated requirement — is an observable event, recorded
+as requirement objects entering with status `emerging` plus the
+observations that evidence the formation.
+
+## 2. Requirements require evidence too
+
+Durability does not confer observedness. Every requirement carries a
+**source class** and evidence status; the laundering discipline applies
+to requirements exactly as to questions:
+
+| Source class | Claim | Integrity rule |
 |---|---|---|
-| **observed-commercial** | "the market asks this" | requires supporting observed expressions via M-4; cannot exist without them |
-| **research-derived** | "the program generated this" | requires provenance edges to the findings, theory, mechanism competition, unexplained observations, or framework gaps that generated it; explicitly labeled |
-| **editorial-navigation** | none — "this helps humans navigate existing knowledge" | makes no market-demand claim, renders with a visible class label, excluded from all market-coverage denominators |
+| **observed** | directly stated in admissible evidence (RFPs, security questionnaires, procurement checklists, direct buyer statements) | requires the evidencing artifacts as edges |
+| **inferred** | derived from observed expressions or behavior | requires the declared inference method (M-4) + the generating cluster; provenance marked as shared with that cluster (§12.3) |
+| **research-derived** | proposed by the program | provenance edges to the findings/theory that generated it; never counted as observed market behavior |
+| **editorial** | navigation/explanation only | visible label; excluded from all market-coverage metrics |
 
-Consequences:
+## 3. Requirement gates — first-class, with the reasoning documented
 
-- **The Philosophy page's six V1 questions are `editorial-navigation`**
-  (institution-facing), not grandfathered into the commercial class. If
-  external observations later show buyers actually ask them, they can be
-  re-classed — with the expressions as evidence, through M-4, as a
-  recorded revision. This is the anti-laundering rule: our preferred
-  framing never masquerades as observed market behavior. (Supersedes
-  FD-10 as previously framed; the founder decision is now simply to
-  confirm this classification.)
-- Research-derived questions are first-class citizens of the observatory
-  — findings legitimately generate questions — they are simply never
-  counted as market demand.
+**A requirement describes what must be true. A gate describes how that
+requirement affects evaluation.**
 
-## 4. The variable layer — the environment registry
+The decision test: does the gate have independent state, behavior,
+provenance, and relationships that need to be queried or revised
+separately from its requirement? **Yes — first-class type `requirement-gate`
+(RG-).** The losslessness argument for why a field cannot represent it:
 
-Evaluator environments (EE-) register with class, identity, version
-lineage, and validity windows — including **human buying committees as an
-evaluator class**. Instruments (our procedures) version separately.
-Observation events join the two. When an environment dies, its
-observations remain valid history; when our procedure changes, the
-instrument version records it. Neither change touches the durable layer.
+- **Multiplicity:** one requirement may gate differently per buying role
+  and stage (data residency is a hard gate for the security reviewer at
+  validation, a soft differentiator for the economic buyer at comparison).
+  A field on the requirement holds one gate; reality holds several.
+- **Independent behavior:** gates carry their own observed states —
+  firing, inactivity, qualification, differentiation, saturation,
+  recommendation-set compression (or failure to compress), stage
+  dependence, evaluator variation, flip-test sensitivity. These are
+  observations *about the gate*, instrument-stamped, needing their own
+  attachment point.
+- **Independent revision:** a gate can saturate (everyone passes; it stops
+  differentiating) while the requirement remains true and important. The
+  gate's state changed; the requirement's didn't.
+- **Independent provenance:** gate behavior is evidenced by flip tests and
+  recommendation-set observations; requirement existence is evidenced by
+  RFPs and statements. Different evidence, different chains.
 
-## 5. The standing research questions (unchanged from R2)
+Honesty note: this first-class status is granted largely on *expected*
+observations — see §12.1.
 
-The Observatory's measured distinctions: questions durable across
-evaluators; expressions specific to one evaluator; requirements stable
-across technology change; evidence that transfers across evaluators;
-evidence that is environment-dependent; evaluator-specific decomposition
-and prioritization. Registered under generalized H-3 with refutation
-conditions; never assumed.
+Gates inherit the §2 source-class discipline (an asserted gate is not an
+observed gate until firing behavior is evidenced).
 
-## 6. Coverage — computed over the durable layer (re-based in R3)
+## 4. Canonical questions — projections, not the spine
+
+**A canonical question is a derived linguistic projection of:**
+
+```
+(Requirement | Underlying Uncertainty) × Buying Role × Buyer Stage × Intent
+```
+
+It helps humans navigate and normalizes observed expressions. It never
+replaces the requirement or uncertainty that produced it. Wording may
+vary across evaluator environments, channels, languages, buyer stages,
+market maturity, and time — while the underlying requirement remains
+stable; that divergence is itself a measured quantity (H-3).
+
+Carried unchanged from R3: the three question classes
+(observed-commercial / research-derived / editorial-navigation) with
+their integrity rules; the V1 Philosophy questions as
+`editorial-navigation`; canonical wording entailed by expressions;
+competing canonicalizations preserved as `contested`; consolidation
+method, version, and confidence on every CQ.
+
+## 5. Two confidences, never conflated
+
+**Research confidence** — how strongly *Upstream Zero* should believe an
+observation, canonicalization, requirement, gate, finding, or mechanism.
+Derived from evidence quality, replication, scope, method, and
+corroboration. Computed, never stored (the tier-floor discipline).
+
+**Evaluator confidence** — part of the *phenomenon*: the state expressed
+or behaviorally demonstrated by an evaluator during commercial
+evaluation. Always instrument-stamped, and internally typed per the
+standing C-0002 ruling:
+
+- `expressed` — what the evaluator *says* about its confidence
+  (narration; capped evidence about mechanism), vs.
+- `behavioral` — what re-sampling stability, flip-test resistance, and
+  recommendation-set behavior *demonstrate*.
+
+An evaluator loudly certain and behaviorally unstable is exactly the kind
+of finding this distinction exists to catch.
+
+## 6. Observer, observed, and the raw layer (carried from R3)
+
+Evaluator environments (`evaluator-environment`, EE- — including human
+buying committees) are the studied systems. Instruments are Upstream
+Zero's observation procedures (protocol, sampling, session controls,
+version capture, extraction, coding, replication, raw capture). Every
+behavioral claim is double-stamped (environment × instrument). Observed
+expressions (OE-) are verbatim, immutable, content-hashed, permanently
+preserved; canonicalization never destroys them.
+
+## 7. Coverage — requirement coverage leads; ten more follow
 
 All computed at build, never stored. Market-coverage denominators count
-**observed-commercial CQs only**; editorial-navigation questions never
-inflate coverage claims; research-derived questions count toward program
-coverage, reported separately.
+only `observed` + `inferred` (declared-method) objects; editorial and
+research-derived objects are reported separately and never inflate market
+claims.
 
-| Coverage | Definition (computed) |
+| Metric | Definition (computed) |
 |---|---|
-| Question | observed-commercial CQs published ÷ observed |
-| Answer | CQs with a published resolved-question rendering |
-| Evidence | answers' tiers against their declared evidence requirements |
-| Requirement | requirements/gates with ≥1 evaluating CQ answered |
-| Environment | environments with fresh observation ÷ environments registered |
-| Link | mean independent graph paths into each durable object |
+| **Requirement coverage** *(headline)* | requirements with ≥1 answered evaluating question ÷ requirements mapped |
+| Business-problem coverage | business problems with mapped requirement/uncertainty structure |
+| Requirement-gate coverage | gates with observed firing behavior ÷ gates asserted |
+| Question coverage | observed-commercial CQs published ÷ observed (downstream of requirement coverage, reported as linguistic surface) |
+| Answer coverage | CQs with a published resolved rendering |
+| Evidence coverage | answers' tiers against their declared evidence requirements |
+| Validation coverage | evidence requirements with validation conditions defined and testable |
+| Evaluator-environment coverage | environments with fresh observation ÷ registered |
+| Cross-evaluator stability | measured H-3 outputs: requirement/gate stability, expression variation |
+| Linkage coverage | mean independent graph paths into each durable object |
+| Provenance completeness | objects whose full chain (to raw evidence or declared gap) resolves |
 
-## 7. Rendering integration (pattern unchanged; labels added)
+## 8. H-3 — the architecture does not assume its own result
 
-The V1 six-part pattern stands. R3 adds: every question page displays its
-**class** in the apparatus voice (an editorial-navigation page says so — 
-"editorial · written for navigation, not observed demand"), and
-evaluator-specific expression appears inside Evidence as
-double-stamped observation (environment × instrument), dated like
-everything else. The human sitemap organizes by business problem and
-buying role. There will never be a per-platform question page.
+The observatory is built around requirements as the *durable candidate*.
+That durability is a hypothesis, and the architecture must be able to
+weaken or refute it:
 
-## 8. Client Zero and the audit (unchanged from R2, one addition)
+**H-3: Durable commercial structure (requirements, gates) is more stable
+across evaluator environments than its linguistic and behavioral surface
+(question expressions, decomposition, prioritization, evidence
+acceptance).**
 
-The audit remains a requirement-coverage map organized by buying role,
-surviving evaluator turnover. R3 addition: audit outputs inherit the
-class discipline — an audit can only claim "your market asks X" from
-observed-commercial CQs with expression support; everything else is
-labeled as derived or navigational. The firewall is unchanged.
+Measured sub-tests: requirement stability across evaluators;
+question-expression variation; gate stability; evidence transferability;
+environment-dependent evidence; role and stage effects; requirement
+formation differences across environments. Refutation condition: observed
+requirement/gate structure proves as evaluator-volatile as its
+expressions — in which case the spine reorganizes and this document gets
+its most interesting revision.
 
-## 9. The ontology extension, tallied honestly (R3-final)
+## 9. Rendering — the public experience stays question-led
 
-Recorded as a Method revision upon approval:
+For humans, unchanged: Question → Immediate Answer → Explanation →
+Evidence → Limitations → Related Questions, with class labels visible.
+The human sitemap organizes by business problem and buying role.
 
-- **New types (8):** `business-problem`, `buyer-role`, `requirement`,
-  `uncertainty`, `canonical-question`, `observed-expression`,
-  `evidence-requirement`, `evaluator-environment`.
-- **Amended type (1):** `instrument` — meaning narrowed to Upstream Zero
-  observation procedures only.
-- **New edge relations:** `asked-by`, `evaluates`, `resolves`
-  (CQ → uncertainty), `expressed-as` (CQ → OE), `observed-in`
-  (OE → evaluator-environment), `captured-with` (OE → instrument),
-  `requires` (CQ → evidence-requirement), `answers`, `motivated`,
-  `contests` (CQ ↔ CQ, competing canonicalizations).
-- **New enums:** question class; expression source method; environment
-  class. Platform names appear in none of them.
+For machines: the graph reads requirement-led — Business Problem →
+Requirement/Uncertainty → Evidence → Evaluator Observation → Outcome —
+through the object JSON, `/graph.json`, and `/llms.txt`.
 
-This is a materially larger extension than R2 admitted (eight types, not
-five). The restraint principle survives in what did *not* become types:
-clusters and gates (fields on requirement), validation needs (fields on
-evidence-requirement), confidence (derived), recommendation/selection
-(observations).
+The ontological demotion of questions changes nothing about how curiosity
+is served. It changes what the answers are *organized by* underneath.
 
-## 10. M-4 — the gate
+## 10. Client Zero and the audit
 
-M-4 (canonical question ingestion and consolidation) is the unresolved
-core, and it now gates everything: **no Canonical Question may be
-implemented or published until M-4 is designed, reviewed, and explicitly
-frozen.** A proposed outline exists at `docs/M-4_PROPOSAL.md` — it is a
-draft for review, not an approved method, and says so in its header.
+The audit is a **requirement gap map organized by buying role** — which
+requirements you substantiate, which gates you fail or never fire, where
+evidence is missing — with question-level and evaluator-level detail
+beneath. Because the map is requirement-led it survives evaluator
+turnover. Early-funnel honesty (§12.4): audits also report *uncertainty
+coverage*, so problem-aware demand that has not crystallized into
+requirements is not invisible to customers. Class discipline applies to
+audit outputs; the firewall is unchanged.
 
-## 11. Founder decisions
+## 11. The ontology extension, tallied (R4-final)
 
-- **FD-9 · Source access** — which observation sources exist today, under
-  whose credentials.
-- **FD-10 (reframed) · V1 classification** — confirm the Philosophy six as
+- **New types (9):** `business-problem`, `buyer-role`, `requirement`,
+  `requirement-gate`, `uncertainty`, `canonical-question`,
+  `observed-expression`, `evidence-requirement`, `evaluator-environment`.
+- **Amended (1):** `instrument` — narrowed to Upstream Zero observation
+  procedures.
+- **Edges:** `asked-by`, `evaluates`, `gates` (RG→RQ), `resolves`
+  (CQ→UN), `attaches-to` (UN→RQ | BP | BR), `expressed-as` (CQ→OE),
+  `observed-in` (OE→EE), `captured-with` (OE→I), `requires` (CQ→ER),
+  `answers`, `motivated`, `contests`, `formed-from` (RQ→UN, requirement
+  formation).
+- **Enums:** question class; requirement/gate source class; expression
+  source method; environment class; evaluator-confidence kind
+  (expressed | behavioral). Platform names appear in none of them.
+- **Not types (restraint preserved):** clusters (field on requirement),
+  validation conditions (fields on evidence-requirement), both
+  confidences (derived / observation data), recommendation & selection
+  (observations).
+
+## 12. New tensions the requirement-centered model creates — the honest register
+
+1. **Gate status granted on expected evidence.** RG- is first-class
+   because of behaviors (firing, saturation, flip sensitivity) that we
+   have not yet observed — the schema anticipates its hypothesis.
+   Mitigation: the *type* exists; *instances* require observed gate
+   behavior or an honest non-observed source class. Still, recorded.
+2. **The headline metric is the last one measurable.** Requirement
+   coverage needs a mapped requirement space (FD-12); at N=0 the
+   observatory's most important number is undefined, not zero. The
+   coverage board must render "unmapped" honestly rather than print zero.
+3. **The inference loop.** Inferred requirements are derived from
+   expression clusters; canonical questions are consolidated from the
+   same clusters and then linked to those requirements. Evidence can be
+   silently counted twice, and one coder decision can manufacture two
+   apparently independent objects. Mitigation (binding on M-4): inferred
+   requirements carry `provenance-shared` markers with their generating
+   cluster; stability and coverage claims for inferred requirements
+   require evidence *independent of* the founding cluster.
+4. **Requirement-led audits under-represent the early funnel.** Where
+   demand is problem-aware and requirements haven't formed, a
+   requirement gap map shows nothing. Mitigation: uncertainty coverage is
+   a first-class audit output (§10).
+5. **Evaluator confidence meets C-0002.** "Confidence expressed by the
+   evaluator" is narration; treating it as demonstrated state would
+   violate the standing rationale ruling. Resolved by typing evaluator
+   confidence `expressed | behavioral` (§5) — recorded here because the
+   founder's constraint needed this refinement to stay consistent with
+   the company's own epistemics.
+6. **The name.** "Question Observatory" names the interface, not the
+   spine. Truthful, but expect the question "isn't it really a
+   Requirement Observatory?" — the answer (§9) belongs in the public
+   FAQ… as an editorial-navigation question, properly labeled.
+
+## 13. Founder-decision register
+
+- **FD-9 · Source access** — which observation sources exist today, whose
+  credentials.
+- **FD-10 · V1 classification** — confirm the Philosophy six as
   `editorial-navigation`.
-- **FD-11 · M-4** — review, amend, and explicitly freeze the method.
-- **FD-12 · Durable-layer seeds** — which market's business problems,
-  buying roles, and requirement clusters to map first, from evidence.
+- **FD-11 · M-4 freeze** — review and explicitly freeze v0.2, including
+  its open parameters (§14 of the proposal).
+- **FD-12 · Durable-layer seed** — the first market's business problems,
+  roles, and requirement clusters, from evidence.
+- **FD-13 · Requirement-inference thresholds** *(new)* — how much
+  expression support, of what diversity, licenses an inferred
+  requirement (feeds M-4 §14).
+- **FD-14 · Gate-instance evidence policy** *(new)* — what observed
+  behavior licenses creating a gate instance vs. recording gate-like
+  behavior on the requirement.
 
-## 12. Rollout (proposed, not begun; M-4-gated)
+## 14. Rollout (proposed; M-4-gated; unchanged in shape)
 
-1. M-4 reviewed and frozen (FD-11). Nothing below happens first.
-2. Vocabulary amendment recorded (§9).
-3. Environment registry seeded (including human committees); first
-   instrument versions specified per M-4.
-4. Generalized H-3 registered.
-5. Durable layer seeded from evidence for one market (FD-12).
-6. First observed expressions captured; first CQs consolidated through
-   M-4; published with class labels and honest coverage zeros.
-7. Question-native rendering applied site-wide; V1 questions re-labeled
-   `editorial-navigation` (FD-10).
-8. Coverage board; then audit tooling (Client Zero first).
+M-4 frozen → vocabulary amendment recorded → environment registry +
+instrument versions → H-3 registered → durable layer seeded from evidence
+(FD-12) → expressions captured, requirements and CQs produced through
+M-4 → site-wide question-led rendering with requirement-led graph →
+coverage board (with "unmapped" honesty, §12.2) → audit tooling, Client
+Zero first.
 
 ---
 
-*Architecture revised per the founder's corrections; nothing implemented.
-The observer is not the observed; the canonical is not the raw; the
-invented is not the observed — and the schema now knows all three.*
+*R4 complete; nothing implemented. The correction is recorded as what it
+is: not a new direction, but the observatory finding its way back to the
+founding sentence — buying committees apply requirements.*
