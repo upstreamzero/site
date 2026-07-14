@@ -29,10 +29,15 @@
   never hand-maintained. Full architecture: docs/QUESTION_OBSERVATORY.md.
   Rendering (docs/RENDERING_MODEL.md) and all existing types unchanged.
   **R2 of that architecture** adds the durable/variable separation: the
-  durable commercial chain (business problem → buyer role → requirement →
-  evaluation question → evidence requirement) organizes the system;
-  evaluator implementations are observation records only — platform names
-  never appear in the schema.
+  durable commercial chain organizes the system; evaluator implementations
+  are observation records only — platform names never appear in the schema.
+  **R3** separates observer from observed (evaluator environments are the
+  studied systems; Instruments are Upstream Zero's observation procedures —
+  correcting R5's earlier note above), models canonical questions as
+  derived research objects over immutable observed expressions, and types
+  questions honestly (observed-commercial / research-derived /
+  editorial-navigation). Implementation is gated on M-4
+  (docs/M-4_PROPOSAL.md — draft, not frozen).
 
 ---
 
