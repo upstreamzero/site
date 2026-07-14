@@ -14,6 +14,9 @@ theoretical criticism — only what implementation surfaced.
   a public remote + a founder decision on what is public (FD-7), the
   strongest verification guarantee in the architecture is unimplemented.
   *Severity: high. Fix: infrastructure + founder decision, not code.*
+  **RESOLVED 2026-07-14:** the public repository exists
+  (github.com/upstreamzero/site); commit 5195458 is the first entry in the
+  provenance record. Pre-registration claims date from that commit.
 
 - **FR-2 · `<url>.json` machine renderings collide with App Router
   segment rules.** Dots in dynamic segments don't route cleanly, so the
