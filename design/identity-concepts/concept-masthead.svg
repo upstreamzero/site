@@ -1,0 +1,17 @@
+<svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+  <!-- D8 The Masthead: typographic identity with the datum-zero as the single
+       ownable gesture. Type here is a placeholder serif; the final cut is a
+       Phase 3/4 decision. Geometry study, not final art. -->
+  <!-- the plate carries its own paper so the study is self-contained -->
+  <rect width="600" height="360" fill="#FCFCFA"/>
+  <!-- the datum-zero glyph study -->
+  <g>
+    <ellipse cx="300" cy="130" rx="52" ry="64" fill="none" stroke="#1a1a1a" stroke-width="7"/>
+    <!-- the datum line: hairline level through the counter, extending beyond -->
+    <line x1="220" y1="130" x2="380" y2="130" stroke="#1a1a1a" stroke-width="1.25"/>
+  </g>
+  <!-- the wordmark, placeholder cut -->
+  <text x="300" y="268" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="34"
+        letter-spacing="10" fill="#1a1a1a">UPSTREAM ZERO</text>
+</svg>

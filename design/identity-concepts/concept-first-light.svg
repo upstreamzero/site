@@ -1,0 +1,16 @@
+<svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+  <!-- D3+D4 merged, "First Light / Origin": a zero whose ring carries a precise
+       aperture at upper right, set on hairline datum axes crossing at the origin.
+       Simultaneously: the numeral 0, an opening dome shutter, a coordinate origin.
+       Geometry study, not final art. -->
+  <!-- the plate carries its own paper so the study is self-contained -->
+  <rect width="600" height="360" fill="#FCFCFA"/>
+  <!-- datum axes -->
+  <line x1="140" y1="180" x2="460" y2="180" stroke="#1a1a1a" stroke-width="0.75" opacity="0.45"/>
+  <line x1="300" y1="40" x2="300" y2="320" stroke="#1a1a1a" stroke-width="0.75" opacity="0.45"/>
+  <!-- the ring with aperture (gap from -60deg to -15deg, upper right) -->
+  <path d="M 377.3 159.3 A 80 80 0 1 1 340 110.7"
+        fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- the datum point at origin -->
+  <circle cx="300" cy="180" r="4" fill="#1a1a1a"/>
+</svg>

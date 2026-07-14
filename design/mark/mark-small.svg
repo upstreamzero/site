@@ -1,0 +1,7 @@
+<svg viewBox="-120 -120 480 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Upstream Zero — the mark, small cut (≤24px render).
+       Ring stroke D/6.5≈18.5; datum weight D/24=5; datum shortened to 1.8D.
+       Weight contrast narrows at reduction (ledger R-07). -->
+  <circle cx="0" cy="0" r="50.75" fill="none" stroke="#1A1A18" stroke-width="18.5"/>
+  <line x1="60" y1="0" x2="276" y2="0" stroke="#1A1A18" stroke-width="5"/>
+</svg>

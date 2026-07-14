@@ -1,0 +1,19 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Upstream Zero — stacked institutional lockup (ledger R-43).
+       Mark centered above; name in content serif caps; descriptor in the
+       apparatus voice. The descriptor is detachable (introduction contexts
+       only); the name sheds later; the mark stands alone last (R-24 logic).
+       Face shown is the interim serif stack; final cut STIX Two Text 500. -->
+  <g transform="translate(130,80)">
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#1A1A18" stroke-width="8"/>
+    <line x1="30" y1="0" x2="220" y2="0" stroke="#1A1A18" stroke-width="1.2"/>
+  </g>
+  <text x="240" y="182" text-anchor="middle"
+        font-family="'STIX Two Text','Iowan Old Style',Palatino,Georgia,serif"
+        font-size="28" font-weight="500" letter-spacing="4.5"
+        fill="#1A1A18">UPSTREAM ZERO</text>
+  <text x="240" y="222" text-anchor="middle"
+        font-family="ui-monospace,'SF Mono',Menlo,monospace"
+        font-size="10.5" letter-spacing="3.2"
+        fill="#1A1A18" opacity="0.62">COMMERCIAL EVALUATION OBSERVATORY</text>
+</svg>

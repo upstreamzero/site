@@ -1,0 +1,16 @@
+# local toolchain — downloaded Node runtime, machine-specific
+.tools/
+
+# machine-specific launcher config (absolute paths)
+.claude/
+
+# website build artifacts and dependencies
+website/node_modules/
+website/.next/
+website/out/
+website/next-env.d.ts
+
+# OS/editor noise
+.DS_Store
+*.log
+nohup.out

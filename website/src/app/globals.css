@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* ── Upstream Zero tokens (DESIGN_SYSTEM.md §4) ─────────────────────── */
+:root {
+  --paper: #fafaf7;
+  --ink: #1a1a18;
+  --ink-60: rgba(26, 26, 24, 0.6);
+  --ink-40: rgba(26, 26, 24, 0.4);
+  --ink-18: rgba(26, 26, 24, 0.18);
+  --plate: #fcfcfa;
+  --plate-rule: rgba(26, 26, 24, 0.35);
+  --needle: #b5432a;
+
+  --font-serif: "STIX Two Text", "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #161614;
+    --ink: #e8e6e0;
+    --ink-60: rgba(232, 230, 224, 0.6);
+    --ink-40: rgba(232, 230, 224, 0.4);
+    --ink-18: rgba(232, 230, 224, 0.18);
+    --plate: #fcfcfa; /* plates stay paper in both themes */
+    --plate-rule: rgba(26, 26, 24, 0.35);
+    --needle: #d06a4f;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-60: var(--ink-60);
+  --color-ink-40: var(--ink-40);
+  --color-ink-18: var(--ink-18);
+  --color-plate: var(--plate);
+  --color-plate-rule: var(--plate-rule);
+  --color-needle: var(--needle);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* The apparatus voice (DESIGN_LANGUAGE §3) */
+.voice-mono {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.voice-mono-data {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Links: ink, hairline underline (DESIGN_SYSTEM §4) */
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-40);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.measure {
+  max-width: 65ch;
+}
+
+/* Prose defaults for object bodies */
+.prose-uz p {
+  margin: 0 0 1.1rem;
+  max-width: 65ch;
+}
+.prose-uz p:last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

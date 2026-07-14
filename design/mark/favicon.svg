@@ -1,0 +1,7 @@
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- Upstream Zero — favicon cut, 16px grid (ledger R-45).
+       Ring Ø10 at the origin (left), datum trailing to the frame edge.
+       Ship hinted rasters at 16/32/48; never scale the display cut. -->
+  <circle cx="6" cy="8" r="4" fill="none" stroke="#1A1A18" stroke-width="2"/>
+  <rect x="10" y="7.5" width="5.5" height="1" fill="#1A1A18"/>
+</svg>
