@@ -38,6 +38,16 @@
   questions honestly (observed-commercial / research-derived /
   editorial-navigation). Implementation is gated on M-4
   (docs/M-4_PROPOSAL.md — draft, not frozen).
+  **Observatory R4 (founder-ratified):** requirements become the durable
+  organizing spine — a correction back toward the founding model ("buying
+  committees apply requirements"). Canonical questions demote to derived
+  linguistic projections of (requirement | uncertainty) × role × stage ×
+  intent; requirement gates earn first-class status by the
+  independent-state test; requirements, gates, and business problems
+  inherit the evidence-class discipline; research confidence and evaluator
+  confidence separate; requirement coverage becomes the headline metric.
+  The public experience remains question-led; the graph reads
+  requirement-led. M-4 v0.2 rebuilt around the spine; still not frozen.
 
 ---
 
