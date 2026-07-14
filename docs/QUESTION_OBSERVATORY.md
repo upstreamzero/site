@@ -4,9 +4,16 @@
 **Author:** Claude — founding information architect
 **Status:** METHODOLOGY v1 — consolidated after the falsification review
 (docs/ARCHITECTURE_REVIEW_V1.md), findings F-1–F-7 accepted and applied.
-**Change policy from this revision forward:** architectural changes
-require observed evidence, protocol failure, or demonstrated
-contradiction. Intuition is no longer sufficient cause.
+**Change policy from this revision forward:** the default question for
+any new idea is *"can this be represented within the existing method?"*
+Architectural change requires one of exactly three conditions:
+(1) the frozen method cannot faithfully represent an observed
+phenomenon; (2) a contradiction emerges that cannot be resolved without
+changing the method; (3) multiple independent observations consistently
+expose the same structural weakness. Preference always goes to improving
+observations, experiments, and findings before expanding architecture.
+The observatory exists to produce evidence, not framework revisions.
+Intuition is no longer sufficient cause.
 
 **Revision history:**
 - **R1** — canonical questions, coverage, the audit mapping.
