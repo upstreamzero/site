@@ -22,6 +22,12 @@
   eventually standardize and measure. §0.2 reframed as an identity sequence;
   §3.6 Commercial Relevance formalized to the founder's five-field structure.
 **Status:** Approved direction; Phase 3 gated on visual references
+- **R5 (2026-07-14):** the Question Observatory. The website's organizing
+  purpose becomes comprehensive question coverage; canonical questions
+  (observed, never editorially invented) become a first-class type;
+  retrieval environments register as Instruments; coverage is computed,
+  never hand-maintained. Full architecture: docs/QUESTION_OBSERVATORY.md.
+  Rendering (docs/RENDERING_MODEL.md) and all existing types unchanged.
 
 ---
 
