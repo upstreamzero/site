@@ -50,3 +50,9 @@ build-enforced ontology rules. Only the shape of human experience changed.
   unsimplified — it demonstrates the architecture for review.
 - **Pending founder review** before the model is applied across the rest
   of the site (Home, Research, Methods, Claims Ledger, Services, Contact).
+- **V1.1 (2026-07-14, F-7):** question classes are part of the rendering
+  contract. Every question page displays its sourceClass; the Philosophy
+  page's six questions are `editorial-navigation`, its title makes no
+  market-demand claim ("Questions we think an institution like this
+  should answer"), and its machine-readable Q&A block carries the same
+  classification.

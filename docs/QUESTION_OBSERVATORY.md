@@ -1,30 +1,27 @@
-# The Question Observatory — Architecture
+# The Question Observatory — Architecture (R5-FINAL)
 
-**Date:** July 14, 2026
+**Date frozen:** July 14, 2026
 **Author:** Claude — founding information architect
-**Status:** ARCHITECTURE FOR REVIEW — deliberately unimplemented.
-**Implementation gate:** M-4 (docs/M-4_PROPOSAL.md, v0.2 draft) must be
-explicitly frozen by the founder before anything ships.
+**Status:** METHODOLOGY v1 — consolidated after the falsification review
+(docs/ARCHITECTURE_REVIEW_V1.md), findings F-1–F-7 accepted and applied.
+**Change policy from this revision forward:** architectural changes
+require observed evidence, protocol failure, or demonstrated
+contradiction. Intuition is no longer sufficient cause.
 
-**Revision notes:**
-- **R1** — the Question Observatory: observed canonical questions,
-  computed coverage, the audit mapping.
-- **R2** — durable/variable separation; platform names removed from the
-  schema.
-- **R3** — observer/observed separation; expressions vs. canonicalization;
+**Revision history:**
+- **R1** — canonical questions, coverage, the audit mapping.
+- **R2** — durable/variable separation; platforms out of the schema.
+- **R3** — observer/observed split; expressions vs. canonicalization;
   honest question classes.
-- **R4** — the founder-ratified correction back toward the founding model:
-  **requirements become the durable organizing spine.** Canonical
-  questions demote to derived linguistic projections; requirement gates
-  earn first-class status; requirements carry the same evidence-class
-  discipline as questions; research confidence and evaluator confidence
-  separate; requirement coverage becomes the headline metric. R3's
-  residual error, preserved: it kept the canonical question as the
-  organizing center when the founding documents ("buying committees apply
-  requirements; requirements shape confidence…") had named the spine all
-  along.
+- **R4** — requirements become the durable spine (founder-ratified).
+- **R5-final** — falsification consolidation: `evidence-requirement`
+  removed as a type (F-1); one shared sourceClass vocabulary with
+  type-specific integrity rules (F-2); three active coverage metrics
+  (F-3); assignment failure feeds H-3 as evidence (F-4);
+  baseline-before-publication rule (F-5); versioned coverage
+  denominators (F-6); the live Philosophy title corrected (F-7).
 
-**The four-line constitution of this architecture:**
+**The four-line constitution:**
 
 > Requirements are the commercial spine.
 > Questions are the human interface.
@@ -38,289 +35,169 @@ explicitly frozen by the founder before anything ships.
 ```
 Business Problem
   → Buying Role
-    → Requirement
+    → Requirement            (carries its own evidence needs — §2.1)
       → Requirement Gate
         → Underlying Uncertainty
           → Observed Expression
             → Canonical Question
-              → Evidence Requirement
-                → Evaluator Observation
-                  → Evaluator Confidence
-                    → Recommendation
-                      → Validation
-                        → Selection
+              → Evaluator Observation
+                → Evaluator Confidence
+                  → Recommendation
+                    → Validation
+                      → Selection
 ```
 
-**The chain is the full model, not a mandatory workflow.** No object is
-forced through every node. It expresses the durability gradient (business
-problems outlive requirements; requirements outlive question wordings;
-wordings outlive evaluator versions) and the evidence direction (raw
-expressions below, derived objects above, outcomes corroborating at the
-end).
+The full model, not a mandatory workflow; no object is forced through
+every node. The pre-requirement region is first-class: uncertainties
+attach directly to business problems, objectives, or roles; requirements
+are never retrofitted; requirement formation is an observable event
+(`emerging` status + `formed-from` provenance).
 
-### 1.1 The pre-requirement region
+## 2. The object model — Version 1 final
 
-Not every commercial question begins with a crystallized requirement.
-Early, problem-aware activity is first-class:
+**Types to be added to the graph (8):**
 
-```
-Business Problem
-  → Uncertainty
-    → Observed Expressions
-      → Emerging Requirement        (formation is itself observable)
-```
-
-Uncertainties may attach directly to a business problem, an unresolved
-objective, or a buying role when no requirement exists. **A requirement is
-never retrofitted where the evidence supports only an unresolved problem
-or uncertainty.** Requirement *formation* — the crystallization of an
-uncertainty into a stated requirement — is an observable event, recorded
-as requirement objects entering with status `emerging` plus the
-observations that evidence the formation.
-
-## 2. Requirements require evidence too
-
-Durability does not confer observedness. Every requirement carries a
-**source class** and evidence status; the laundering discipline applies
-to requirements exactly as to questions:
-
-| Source class | Claim | Integrity rule |
+| Type | ID | Role |
 |---|---|---|
-| **observed** | directly stated in admissible evidence (RFPs, security questionnaires, procurement checklists, direct buyer statements) | requires the evidencing artifacts as edges |
-| **inferred** | derived from observed expressions or behavior | requires the declared inference method (M-4) + the generating cluster; provenance marked as shared with that cluster (§12.3) |
-| **research-derived** | proposed by the program | provenance edges to the findings/theory that generated it; never counted as observed market behavior |
-| **editorial** | navigation/explanation only | visible label; excluded from all market-coverage metrics |
+| `business-problem` | BP- | the commercial situation creating evaluation |
+| `buyer-role` | BR- | who evaluates (economic buyer, security reviewer, …) |
+| `requirement` | RQ- | what must be true; clusters as fields; **evidence needs, admissible evidence forms, validation conditions, current evidence coverage, and known evidence gaps as fields** (F-1 — the former `evidence-requirement` type is removed, not shelled; reason recorded here and in the review) |
+| `requirement-gate` | RG- | how a requirement affects evaluation; instances evidence-gated |
+| `uncertainty` | UN- | the open question beneath; may attach to BP/BR when no requirement exists |
+| `canonical-question` | CQ- | derived projection: (RQ \| UN) × role × stage × intent |
+| `observed-expression` | OE- | verbatim raw artifact; immutable, hashed, permanent |
+| `evaluator-environment` | EE- | the studied systems, incl. human committees |
 
-## 3. Requirement gates — first-class, with the reasoning documented
+**Amended (1):** `instrument` — Upstream Zero observation procedures only.
 
-**A requirement describes what must be true. A gate describes how that
-requirement affects evaluation.**
+**Edges:** `asked-by`, `evaluates`, `gates`, `resolves`, `attaches-to`,
+`expressed-as`, `observed-in`, `captured-with`, `answers`, `motivated`,
+`contests`, `formed-from`. (F-1 removed `requires`.)
 
-The decision test: does the gate have independent state, behavior,
-provenance, and relationships that need to be queried or revised
-separately from its requirement? **Yes — first-class type `requirement-gate`
-(RG-).** The losslessness argument for why a field cannot represent it:
+**Not types (restraint):** clusters, evidence needs, validation
+conditions (requirement fields); both confidences (derived / observation
+data); recommendation & selection (observations).
 
-- **Multiplicity:** one requirement may gate differently per buying role
-  and stage (data residency is a hard gate for the security reviewer at
-  validation, a soft differentiator for the economic buyer at comparison).
-  A field on the requirement holds one gate; reality holds several.
-- **Independent behavior:** gates carry their own observed states —
-  firing, inactivity, qualification, differentiation, saturation,
-  recommendation-set compression (or failure to compress), stage
-  dependence, evaluator variation, flip-test sensitivity. These are
-  observations *about the gate*, instrument-stamped, needing their own
-  attachment point.
-- **Independent revision:** a gate can saturate (everyone passes; it stops
-  differentiating) while the requirement remains true and important. The
-  gate's state changed; the requirement's didn't.
-- **Independent provenance:** gate behavior is evidenced by flip tests and
-  recommendation-set observations; requirement existence is evidenced by
-  RFPs and statements. Different evidence, different chains.
+## 3. Source classes — one vocabulary, type-specific tests (F-2)
 
-Honesty note: this first-class status is granted largely on *expected*
-observations — see §12.1.
+One shared `sourceClass` for all derived durable objects:
+**observed · inferred · research-derived · editorial** — with
+type-specific admissibility tests:
 
-Gates inherit the §2 source-class discipline (an asserted gate is not an
-observed gate until firing behavior is evidenced).
-
-## 4. Canonical questions — projections, not the spine
-
-**A canonical question is a derived linguistic projection of:**
-
-```
-(Requirement | Underlying Uncertainty) × Buying Role × Buyer Stage × Intent
-```
-
-It helps humans navigate and normalizes observed expressions. It never
-replaces the requirement or uncertainty that produced it. Wording may
-vary across evaluator environments, channels, languages, buyer stages,
-market maturity, and time — while the underlying requirement remains
-stable; that divergence is itself a measured quantity (H-3).
-
-Carried unchanged from R3: the three question classes
-(observed-commercial / research-derived / editorial-navigation) with
-their integrity rules; the V1 Philosophy questions as
-`editorial-navigation`; canonical wording entailed by expressions;
-competing canonicalizations preserved as `contested`; consolidation
-method, version, and confidence on every CQ.
-
-## 5. Two confidences, never conflated
-
-**Research confidence** — how strongly *Upstream Zero* should believe an
-observation, canonicalization, requirement, gate, finding, or mechanism.
-Derived from evidence quality, replication, scope, method, and
-corroboration. Computed, never stored (the tier-floor discipline).
-
-**Evaluator confidence** — part of the *phenomenon*: the state expressed
-or behaviorally demonstrated by an evaluator during commercial
-evaluation. Always instrument-stamped, and internally typed per the
-standing C-0002 ruling:
-
-- `expressed` — what the evaluator *says* about its confidence
-  (narration; capped evidence about mechanism), vs.
-- `behavioral` — what re-sampling stability, flip-test resistance, and
-  recommendation-set behavior *demonstrate*.
-
-An evaluator loudly certain and behaviorally unstable is exactly the kind
-of finding this distinction exists to catch.
-
-## 6. Observer, observed, and the raw layer (carried from R3)
-
-Evaluator environments (`evaluator-environment`, EE- — including human
-buying committees) are the studied systems. Instruments are Upstream
-Zero's observation procedures (protocol, sampling, session controls,
-version capture, extraction, coding, replication, raw capture). Every
-behavioral claim is double-stamped (environment × instrument). Observed
-expressions (OE-) are verbatim, immutable, content-hashed, permanently
-preserved; canonicalization never destroys them.
-
-## 7. Coverage — requirement coverage leads; ten more follow
-
-All computed at build, never stored. Market-coverage denominators count
-only `observed` + `inferred` (declared-method) objects; editorial and
-research-derived objects are reported separately and never inflate market
-claims.
-
-| Metric | Definition (computed) |
+| Object | `observed` requires |
 |---|---|
-| **Requirement coverage** *(headline)* | requirements with ≥1 answered evaluating question ÷ requirements mapped |
-| Business-problem coverage | business problems with mapped requirement/uncertainty structure |
-| Requirement-gate coverage | gates with observed firing behavior ÷ gates asserted |
-| Question coverage | observed-commercial CQs published ÷ observed (downstream of requirement coverage, reported as linguistic surface) |
-| Answer coverage | CQs with a published resolved rendering |
-| Evidence coverage | answers' tiers against their declared evidence requirements |
-| Validation coverage | evidence requirements with validation conditions defined and testable |
-| Evaluator-environment coverage | environments with fresh observation ÷ registered |
-| Cross-evaluator stability | measured H-3 outputs: requirement/gate stability, expression variation |
-| Linkage coverage | mean independent graph paths into each durable object |
-| Provenance completeness | objects whose full chain (to raw evidence or declared gap) resolves |
+| business problem | directly stated or clearly documented in admissible source material |
+| requirement | directly stated as a condition, criterion, mandate, preference, or constraint (RFPs, questionnaires, checklists, direct buyer statements; evaluator-asserted requirements recorded as narration-derived per C-0002) |
+| gate behavior | behaviorally demonstrated — evaluator observation under protocol, controlled test (flip test), or real procurement outcome |
+| canonical question (observed-commercial) | supporting observed expressions via the frozen M-4 |
 
-## 8. H-3 — the architecture does not assume its own result
+`inferred` always means: derived through the frozen M-4 procedure,
+supporting expressions preserved, `provenance-shared` marker with the
+generating cluster. `research-derived` and `editorial` carry their labels
+visibly; editorial objects never enter market-coverage denominators.
 
-The observatory is built around requirements as the *durable candidate*.
-That durability is a hypothesis, and the architecture must be able to
-weaken or refute it:
+## 4. Canonical questions, confidences, observer/observed (carried, final)
 
-**H-3: Durable commercial structure (requirements, gates) is more stable
-across evaluator environments than its linguistic and behavioral surface
-(question expressions, decomposition, prioritization, evidence
-acceptance).**
+- CQ = derived linguistic projection of (requirement | uncertainty) ×
+  buying role × buyer stage × intent; wording varies across environments,
+  channels, languages, stages, and time; entailment rule binds wording to
+  expressions; contested canonicalizations preserved. The projection
+  lattice is instantiated sparsely by observed expressions — never
+  enumerated.
+- Research confidence (ours; derived, recomputable) and evaluator
+  confidence (the phenomenon; instrument-stamped; typed
+  `expressed | behavioral` per C-0002) remain strictly separate.
+- Evaluator environments are the studied systems; instruments are our
+  procedures; every behavioral claim is double-stamped; raw expressions
+  are permanent.
 
-Measured sub-tests: requirement stability across evaluators;
-question-expression variation; gate stability; evidence transferability;
-environment-dependent evidence; role and stage effects; requirement
-formation differences across environments. Refutation condition: observed
-requirement/gate structure proves as evaluator-volatile as its
-expressions — in which case the spine reorganizes and this document gets
-its most interesting revision.
+## 5. Coverage — three active, eight defined (F-3, F-6)
 
-## 9. Rendering — the public experience stays question-led
+**Active in Version 1:**
 
-For humans, unchanged: Question → Immediate Answer → Explanation →
-Evidence → Limitations → Related Questions, with class labels visible.
-The human sitemap organizes by business problem and buying role.
+1. **Requirement coverage** *(headline)* — requirements with ≥1 answered
+   evaluating question ÷ requirements mapped.
+2. **Question coverage** — observed-commercial CQs published ÷ observed.
+3. **Provenance completeness** — objects whose full chain resolves to raw
+   evidence or a declared gap.
 
-For machines: the graph reads requirement-led — Business Problem →
-Requirement/Uncertainty → Evidence → Evaluator Observation → Outcome —
-through the object JSON, `/graph.json`, and `/llms.txt`.
+**Defined for future activation** (each activation is a recorded
+revision, triggered by its inputs existing): business-problem coverage,
+requirement-gate coverage, answer coverage, evidence coverage, validation
+coverage, evaluator-environment coverage, cross-evaluator stability,
+linkage coverage.
 
-The ontological demotion of questions changes nothing about how curiosity
-is served. It changes what the answers are *organized by* underneath.
+**Rendering rule:** an inactive metric renders as *"not yet measurable"*
+or *"awaiting required inputs"* — never as zero, and never as an empty
+chart, gauge, or placeholder visualization.
 
-## 10. Client Zero and the audit
+**Denominator versioning (F-6):** every coverage claim names its exact
+map version and validity date —
+`Requirement coverage: 12 of 31 · map RM-HEALTHCARE v0.3 · 2026-07-14`.
+When a map changes, historical measurements remain valid against their
+original versions; history is never silently recalculated.
 
-The audit is a **requirement gap map organized by buying role** — which
-requirements you substantiate, which gates you fail or never fire, where
-evidence is missing — with question-level and evaluator-level detail
-beneath. Because the map is requirement-led it survives evaluator
-turnover. Early-funnel honesty (§12.4): audits also report *uncertainty
-coverage*, so problem-aware demand that has not crystallized into
-requirements is not invisible to customers. Class discipline applies to
-audit outputs; the firewall is unchanged.
+## 6. H-3 — with its refutation channel wired open (F-4)
 
-## 11. The ontology extension, tallied (R4-final)
+**H-3:** durable commercial structure (requirements, gates) is more
+stable across evaluator environments than its linguistic and behavioral
+surface.
 
-- **New types (9):** `business-problem`, `buyer-role`, `requirement`,
-  `requirement-gate`, `uncertainty`, `canonical-question`,
-  `observed-expression`, `evidence-requirement`, `evaluator-environment`.
-- **Amended (1):** `instrument` — narrowed to Upstream Zero observation
-  procedures.
-- **Edges:** `asked-by`, `evaluates`, `gates` (RG→RQ), `resolves`
-  (CQ→UN), `attaches-to` (UN→RQ | BP | BR), `expressed-as` (CQ→OE),
-  `observed-in` (OE→EE), `captured-with` (OE→I), `requires` (CQ→ER),
-  `answers`, `motivated`, `contests`, `formed-from` (RQ→UN, requirement
-  formation).
-- **Enums:** question class; requirement/gate source class; expression
-  source method; environment class; evaluator-confidence kind
-  (expressed | behavioral). Platform names appear in none of them.
-- **Not types (restraint preserved):** clusters (field on requirement),
-  validation conditions (fields on evidence-requirement), both
-  confidences (derived / observation data), recommendation & selection
-  (observations).
+The architecture is built around the durable *candidate* and must be able
+to refute it. Accordingly — binding on M-4 — coder disagreement,
+assignment difficulty, unresolved multi-requirement ambiguity,
+unassigned-pool growth, and repeated splits/merges are **observations
+relevant to H-3**, not merely instrument health. Both interpretations
+(instrument noise vs. hypothesis failure) remain visible as competing
+explanations until evidence distinguishes them, and M-4 defines the
+review triggers at which assignment failure becomes evidence against
+requirement identifiability, requirement stability, the
+requirement/uncertainty distinction, or the durability assumption itself.
 
-## 12. New tensions the requirement-centered model creates — the honest register
+## 7. Baselines before publication (F-5)
 
-1. **Gate status granted on expected evidence.** RG- is first-class
-   because of behaviors (firing, saturation, flip sensitivity) that we
-   have not yet observed — the schema anticipates its hypothesis.
-   Mitigation: the *type* exists; *instances* require observed gate
-   behavior or an honest non-observed source class. Still, recorded.
-2. **The headline metric is the last one measurable.** Requirement
-   coverage needs a mapped requirement space (FD-12); at N=0 the
-   observatory's most important number is undefined, not zero. The
-   coverage board must render "unmapped" honestly rather than print zero.
-3. **The inference loop.** Inferred requirements are derived from
-   expression clusters; canonical questions are consolidated from the
-   same clusters and then linked to those requirements. Evidence can be
-   silently counted twice, and one coder decision can manufacture two
-   apparently independent objects. Mitigation (binding on M-4): inferred
-   requirements carry `provenance-shared` markers with their generating
-   cluster; stability and coverage claims for inferred requirements
-   require evidence *independent of* the founding cluster.
-4. **Requirement-led audits under-represent the early funnel.** Where
-   demand is problem-aware and requirements haven't formed, a
-   requirement gap map shows nothing. Mitigation: uncertainty coverage is
-   a first-class audit output (§10).
-5. **Evaluator confidence meets C-0002.** "Confidence expressed by the
-   evaluator" is narration; treating it as demonstrated state would
-   violate the standing rationale ruling. Resolved by typing evaluator
-   confidence `expressed | behavioral` (§5) — recorded here because the
-   founder's constraint needed this refinement to stay consistent with
-   the company's own epistemics.
-6. **The name.** "Question Observatory" names the interface, not the
-   spine. Truthful, but expect the question "isn't it really a
-   Requirement Observatory?" — the answer (§9) belongs in the public
-   FAQ… as an editorial-navigation question, properly labeled.
+For every new market or category, **before** its requirement map or
+question coverage is published: capture baseline evaluator observations;
+freeze protocols and evaluator versions; preserve raw outputs; record
+dates and sampling conditions. All subsequent observations carry an
+exposure label: `pre-publication baseline` · `post-publication
+observation` · `potentially exposed` · `exposure status unknown`.
+H-3 stability claims cite pre-publication baselines or declare their
+absence. Client Zero participation is measured, never hidden.
 
-## 13. Founder-decision register
+## 8. Rendering (question-led public experience; F-7 applied)
 
-- **FD-9 · Source access** — which observation sources exist today, whose
-  credentials.
-- **FD-10 · V1 classification** — confirm the Philosophy six as
-  `editorial-navigation`.
-- **FD-11 · M-4 freeze** — review and explicitly freeze v0.2, including
-  its open parameters (§14 of the proposal).
-- **FD-12 · Durable-layer seed** — the first market's business problems,
-  roles, and requirement clusters, from evidence.
-- **FD-13 · Requirement-inference thresholds** *(new)* — how much
-  expression support, of what diversity, licenses an inferred
-  requirement (feeds M-4 §14).
-- **FD-14 · Gate-instance evidence policy** *(new)* — what observed
-  behavior licenses creating a gate instance vs. recording gate-like
-  behavior on the requirement.
+The human pattern is unchanged: Question → Immediate Answer →
+Explanation → Evidence → Limitations → Related Questions, with class
+labels visible. The Philosophy page's six questions are
+`editorial-navigation`; the page is titled to make no market-demand
+claim (*"Questions we think an institution like this should answer"*)
+and its machine rendering carries the same classification. The graph
+reads requirement-led for machines.
 
-## 14. Rollout (proposed; M-4-gated; unchanged in shape)
+## 9. The audit (carried, final)
 
-M-4 frozen → vocabulary amendment recorded → environment registry +
-instrument versions → H-3 registered → durable layer seeded from evidence
-(FD-12) → expressions captured, requirements and CQs produced through
-M-4 → site-wide question-led rendering with requirement-led graph →
-coverage board (with "unmapped" honesty, §12.2) → audit tooling, Client
-Zero first.
+A requirement gap map organized by buying role, with uncertainty coverage
+reported alongside so early-funnel demand is never invisible; question
+and evaluator detail beneath; class discipline on all outputs; coverage
+claims map-versioned (F-6); the firewall unchanged.
 
----
+## 10. Founder-decision register (final state)
 
-*R4 complete; nothing implemented. The correction is recorded as what it
-is: not a new direction, but the observatory finding its way back to the
-founding sentence — buying committees apply requirements.*
+| FD | Subject | Status |
+|---|---|---|
+| FD-9 | Source access (which sources, whose credentials) | **open — pilot scoping** |
+| FD-10 | V1 Philosophy questions as editorial-navigation | **resolved 2026-07-14** (F-7 executed) |
+| FD-11 | M-4 freeze | **resolved 2026-07-14** — frozen as Method v1.0 |
+| FD-12 | First market to map | **open — pilot scoping** |
+| FD-13 | Requirement-inference thresholds | **converted to pilot parameters** (declare before pilot; M-4 §16) |
+| FD-14 | Gate-instance evidence policy | **converted to pilot parameters** (declare before pilot; M-4 §16) |
+
+## 11. What happens next
+
+Architectural expansion stops here. The next work is the first
+controlled pilot using the frozen method: FD-9 and FD-12 scope it; the
+pilot parameters (M-4 §16) are declared before it begins; F-4's data
+stream produces the first evidence that will either strengthen or begin
+to refute the spine this architecture stands on. Either result is the
+observatory working.

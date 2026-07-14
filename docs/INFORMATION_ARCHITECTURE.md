@@ -37,7 +37,7 @@
   derived research objects over immutable observed expressions, and types
   questions honestly (observed-commercial / research-derived /
   editorial-navigation). Implementation is gated on M-4
-  (docs/M-4_PROPOSAL.md — draft, not frozen).
+  (docs/M-4_PROPOSAL.md — draft; since frozen and moved to content/methods/M-4.mdx).
   **Observatory R4 (founder-ratified):** requirements become the durable
   organizing spine — a correction back toward the founding model ("buying
   committees apply requirements"). Canonical questions demote to derived
@@ -48,6 +48,16 @@
   confidence separate; requirement coverage becomes the headline metric.
   The public experience remains question-led; the graph reads
   requirement-led. M-4 v0.2 rebuilt around the spine; still not frozen.
+  **R5-final (2026-07-14):** falsification consolidation (findings
+  F-1..F-7 accepted): evidence-requirement removed as a type (demoted to
+  requirement fields); one shared sourceClass vocabulary with
+  type-specific integrity tests; three active coverage metrics (inactive
+  metrics render "not yet measurable", never zero); assignment failure
+  feeds H-3 as evidence; baselines captured before publication with
+  exposure labeling; coverage denominators map-versioned; live Philosophy
+  title corrected. **M-4 frozen as Method v1.0 (content/methods/M-4.mdx);
+  architectural changes now require observed evidence, protocol failure,
+  or demonstrated contradiction.**
 
 ---
 

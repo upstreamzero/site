@@ -52,6 +52,8 @@ export default function Philosophy() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    description:
+      "Editorial-navigation questions: written by Upstream Zero to help humans navigate its knowledge. Not claimed as observed commercial or market questions; excluded from all market-question coverage metrics. Classification: editorial-navigation (Question Observatory architecture, sourceClass discipline).",
     mainEntity: QA_PLAIN.map((x) => ({
       "@type": "Question",
       name: x.q,
@@ -64,12 +66,12 @@ export default function Philosophy() {
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
           <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
-            Philosophy · rendered as resolved questions — the graph remains
-            the machine interface. Everything here is Narrated: the
-            institution answering for itself.
+            Philosophy · editorial-navigation questions — written to help
+            you navigate, not claimed as observed market demand. Everything
+            here is Narrated: the institution answering for itself.
           </p>
-          <h1 className="mt-3 text-[1.75rem]">
-            The questions we are actually asked
+          <h1 className="mt-3 max-w-[28ch] text-[1.75rem]">
+            Questions we think an institution like this should answer
           </h1>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>

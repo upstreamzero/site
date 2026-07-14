@@ -1,0 +1,202 @@
+---
+id: M-4
+type: method
+title: "Ingestion & consolidation for the requirement-led observatory"
+created: "2026-07-14"
+status: "frozen — Method v1.0 (2026-07-14)"
+---
+
+**Method v1.0 — FROZEN 2026-07-14.** Future changes require observed
+evidence, protocol failure, or demonstrated contradiction — recorded as
+versioned revisions. Changelog: v0.1 (question-centered draft) → v0.2
+(rebuilt around the requirement spine) → v0.3 (falsification
+consolidation, findings F-2/F-4/F-5/F-6 applied) → **v1.0 (frozen)**.
+All prior drafts are preserved in the public git history.
+
+## 0. The ingestion path
+
+Raw Source → Observed Expression → Business Problem / Buying Role
+assignment → Requirement or Uncertainty assignment → source class and
+research confidence → Canonical-question consolidation →
+Evaluator-environment observation → Revision / split / merge. Stages
+apply as evidence permits; this is the full model, not a mandatory
+conveyor.
+
+## 1. Observed expressions — admissibility
+
+Verbatim interaction artifacts only: raw prompts, search queries, buyer
+wordings, evaluator follow-ups, interview statements. Mandatory capture:
+verbatim text, timestamp, evaluator-environment (EE-), instrument
+version (I-), source method, consent state for human sources.
+Inadmissible: hearsay, recollected paraphrase, expressions invented to
+illustrate, model output generated on request as "typical questions."
+
+## 2. Type-specific `observed` tests (one shared vocabulary)
+
+One sourceClass vocabulary — observed · inferred · research-derived ·
+editorial — with object-specific admissibility:
+
+- **Business problem — observed:** directly stated or clearly documented
+  in admissible source material.
+- **Requirement — observed:** directly stated as a condition, criterion,
+  mandate, preference, or constraint (RFP, security questionnaire,
+  procurement checklist, direct buyer statement). Evaluator-asserted
+  requirements are recorded as narration-derived (C-0002): evidence that
+  the *evaluator applies* the requirement, not that buyers hold it.
+- **Gate behavior — observed:** behaviorally demonstrated through an
+  evaluator observation under protocol, a controlled test (flip test),
+  or a real procurement outcome.
+- **Canonical question — observed-commercial:** supporting observed
+  expressions consolidated under this method.
+- **Inferred (any type):** derived through this method with supporting
+  expressions preserved and a `provenance-shared` marker naming the
+  generating cluster.
+
+Editorial objects carry visible labels and never enter market-coverage
+denominators.
+
+## 3. Raw permanence
+
+Expressions and requirement artifacts are immutable, content-hashed,
+permanently preserved; PII redaction on capture with declared
+redactions; no downstream step edits, deletes, or overwrites the raw
+layer. Splits, merges, and re-classifications re-point edges only.
+Canonicalization never destroys observations.
+
+## 4. Assignment
+
+Each expression is assigned a business problem and, where determinable,
+a buying role — with written rationale; `unassigned` where genuinely
+indeterminate, never guessed. Requirement-or-uncertainty assignment:
+observed requirement if §2 evidence exists; inferred requirement if the
+cluster meets the pilot thresholds (§16); **otherwise the expression
+stops at an uncertainty attached to the business problem** — a
+requirement is never retrofitted. The distinguisher: a requirement is a
+falsifiable statement about what a solution must satisfy; an uncertainty
+is an open question about the problem or world.
+
+## 5. Assignment failure is evidence, not just noise (binding)
+
+Coder disagreement, assignment difficulty, unresolved multi-requirement
+ambiguity, unassigned-pool growth, repeated requirement splits, repeated
+merges, and instability across coders, markets, or evaluator
+environments are recorded **both** as instrument-health data **and** as
+observations relevant to H-3. The two interpretations — instrument noise
+vs. hypothesis failure — remain visible as competing explanations on
+every affected report until evidence distinguishes them.
+
+**Review triggers (thresholds set as pilot parameters, §16):** sustained
+breach of any trigger opens a recorded review in which assignment
+failure is weighed as evidence against, respectively: requirement
+identifiability; requirement stability; the requirement/uncertainty
+distinction; and the assumption that requirements are the durable
+organizing object. The architecture is not permitted to explain away its
+own refutation.
+
+## 6. Inferred requirements
+
+Created only when: the cluster meets support thresholds (§16); the
+requirement statement is entailed by the cluster (no scope beyond what
+the expressions imply); method, coder, and rationale recorded;
+`provenance-shared` marker attached. **Anti-double-counting:** evidence
+shared between an inferred requirement and its cluster's canonical
+questions counts once in any metric; stability or breadth claims for
+inferred requirements require evidence independent of the founding
+cluster (§16 defines independence).
+
+## 7. Requirement formation
+
+Formation — an uncertainty crystallizing into a requirement — is
+recorded when time-separated evidence shows the transition; the
+requirement enters `emerging` with a `formed-from` edge and the dated
+evidence. Formation events are publishable observations.
+
+## 8. Canonical-question consolidation
+
+A CQ is consolidated as a projection of its assigned
+requirement-or-uncertainty × buying role × buyer stage × intent. The
+resolution test: two expressions share a cluster only if a complete
+answer to one would fully resolve the other, for the same role at the
+same stage. Default-to-separate under doubt. Canonical wording is
+entailed by its expressions — never beyond them; wording is versioned;
+multilingual expression sets record the working language of the
+canonical wording (§16.8). Competing canonicalizations persist as
+`contested` objects linked by `contests` edges; contests resolve only by
+new evidence or a documented methodological ruling, and the disagreement
+history survives resolution.
+
+## 9. Ambiguity and multiplicity
+
+An expression may evidence multiple requirements (edges with rationale;
+evidence weight divides, never duplicates). Genuinely unresolvable
+expressions live in the visible `unassigned` pool — ambiguity is data
+(§5) and may itself evidence an unformed requirement.
+
+## 10. Evaluator-environment observation
+
+Every expression and observation carries EE- and I- stamps; evaluator
+confidence records are typed `expressed | behavioral`; distribution
+statistics are computed from stamps, never asserted. Gate instances are
+created only from observed gate behavior under a declared protocol —
+flip tests (vary one requirement's satisfaction; observe
+recommendation-set change), firing/inactivity across matched scenarios,
+saturation checks, stage and role variation — or exist under an honest
+non-observed source class per the gate policy parameter (§16.6).
+
+## 11. Baselines and exposure labeling
+
+Before a market's requirement map or coverage is published: baseline
+evaluator observations captured; protocols and evaluator versions
+frozen; raw outputs preserved; dates and sampling conditions recorded.
+Every subsequent observation carries an exposure label:
+`pre-publication baseline` · `post-publication observation` ·
+`potentially exposed` · `exposure status unknown`. H-3 claims cite
+baselines or declare their absence. Client Zero participation is
+measured, never hidden.
+
+## 12. Coverage denominators
+
+Every coverage claim names its map version and validity date; historical
+measurements remain valid against their original map versions; history
+is never silently recalculated under a new denominator.
+
+## 13. Revision, split, and merge
+
+Splits and merges of requirements, gates, uncertainties, and CQs are
+Revision objects with reasons and impact; IDs never reused; superseded
+objects remain published with forward pointers; expressions re-point;
+class changes are revisions carrying their new evidence. Split/merge
+frequency feeds §5.
+
+## 14. Safeguards against editorial invention
+
+The unified class discipline with type-specific tests (§2); entailment
+rules (canonical wording ≤ expressions; inferred requirements ≤
+clusters); the audit trail (every derived object resolves to verbatim
+raw evidence or a declared gap); periodic laundering checks sampling
+derived objects for drift, with drift findings published as revisions;
+`provenance-shared` markers keeping the inference loop visible.
+
+## 15. Replication and coder discipline
+
+Independent re-coding at the target agreement rate (§16.2); single-coder
+periods declared on every affected object, with time-separated
+self-agreement substituting, honestly labeled; agreement rates published
+as instrument health *and* as §5 data.
+
+## 16. Pilot parameters — declared before the first pilot begins
+
+Frozen as parameters, not blockers; each must be declared and recorded
+before the pilot starts:
+
+1. N / M support thresholds — per confidence grade, for
+   observed-commercial CQ admission, and for inferred-requirement
+   creation.
+2. Coder-agreement targets and re-coding cadence.
+3. §5 review-trigger thresholds (disagreement rate, unassigned-pool
+   share, split/merge frequency).
+4. Redaction and consent policy details for human-derived material.
+5. Search-frequency admission gates.
+6. Gate-instance evidence policy (minimum observed behaviors).
+7. Independence criterion for the anti-double-counting rule.
+8. Working-language policy for canonical wording.
