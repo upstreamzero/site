@@ -34,7 +34,7 @@ export default function Contact() {
               plainly.
             </li>
             <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
-              <strong>Whether we should work together yet</strong> — sometimes
+              <strong>Whether we should work together yet</strong>{" — "}sometimes
               the honest answer is &quot;not until the instrument is
               further along,&quot; and you deserve that answer in the first
               conversation, not the last.

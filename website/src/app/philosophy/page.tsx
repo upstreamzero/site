@@ -134,7 +134,7 @@ export default function Philosophy() {
               evaluators. Human buying committees remain as opaque as ever.
               Everything we learn generalizes to commercial evaluation at
               large only through the bridge hypothesis{" "}
-              <Link href="/hypotheses/H-1">H-1</Link> — that AI evaluation
+              <Link href="/hypotheses/H-1">H-1</Link>{" — "}that AI evaluation
               influences and increasingly mediates human evaluation. If H-1
               fails, the program&apos;s honest scope shrinks to AI-mediated
               commerce, and we would say so.
