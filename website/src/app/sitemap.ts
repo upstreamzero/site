@@ -7,6 +7,10 @@ const BASE = "https://upstreamzero.com";
 
 const STATIC_ROUTES = [
   "",
+  "/questions",
+  "/questions/why-are-some-companies-recommended",
+  "/faq",
+  "/about",
   "/philosophy",
   "/research",
   "/methods",

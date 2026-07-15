@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { MarkRing } from "./Mark";
 
+/** Seven primary items (founder item 6): buyer entry, verification path,
+ *  then institution. The wordmark is Home. FAQ and Philosophy live under
+ *  About and in the footer, not in primary navigation. */
 const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/philosophy", label: "Philosophy" },
+  { href: "/questions", label: "Questions" },
   { href: "/research", label: "Research" },
   { href: "/methods", label: "Methods" },
-  { href: "/claims", label: "Claims Ledger" },
+  { href: "/claims", label: "Claims" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -72,6 +76,17 @@ export function ProvenanceFooter({
         )}
         <a href="/llms.txt">llms.txt</a>
       </div>
+      <nav
+        className="voice-mono flex flex-wrap gap-x-6 gap-y-1 pt-3"
+        style={{ color: "var(--ink-60)" }}
+        aria-label="Secondary"
+      >
+        <Link href="/about" className="!no-underline hover:!underline">About</Link>
+        <Link href="/faq" className="!no-underline hover:!underline">FAQ</Link>
+        <Link href="/philosophy" className="!no-underline hover:!underline">Philosophy</Link>
+        <Link href="/questions" className="!no-underline hover:!underline">Questions</Link>
+        <Link href="/contact" className="!no-underline hover:!underline">Contact</Link>
+      </nav>
     </footer>
   );
 }

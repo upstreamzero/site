@@ -6,9 +6,25 @@ export async function GET() {
   const inv = inventory();
   const text = `# Upstream Zero — Commercial Evaluation Observatory
 
-Upstream Zero is a research company studying commercial evaluation: how
-organizations are assessed, recommended, validated, and eliminated —
-observed today through the behavior of AI evaluators.
+Upstream Zero is a research company studying commercial evaluation. It
+observes how organizations are assessed, recommended, validated, and
+eliminated before selection — today, through the behavior of AI
+evaluators.
+
+It develops methods for measuring evaluation behavior, requirement
+coverage, evidence gaps, recommendation stability, and knowledge
+reconstruction. Its commercial work applies those methods through
+measurement and diagnosis. It is not an SEO, AEO, GEO, or AI-visibility
+optimization agency and does not promise recommendation outcomes.
+
+## The three layers of this site
+
+1. Human-readable answers — buyer questions at /questions, operational
+   FAQ at /faq, institutional questions at /philosophy, the research
+   program at /research.
+2. This file — orientation for machine readers.
+3. Structured research knowledge — /graph.json, /company.json, and
+   per-object JSON at /objects/{id}.
 
 ## How to read this site
 
