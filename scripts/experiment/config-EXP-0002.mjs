@@ -1,17 +1,17 @@
-/** Capture-mechanics config for EXP-0001. The FROZEN protocol data
- *  (prompts, rubric, predictions, refutation) lives in protocol/EXP-0001/
+/** Capture-mechanics config for EXP-0002. The FROZEN protocol data
+ *  (prompts, rubric, predictions, refutation) lives in protocol/EXP-0002/
  *  and is the single source of truth, bound by the freeze receipt. This
  *  file reads the frozen prompt-set so guided capture can only ever show
  *  exactly what was frozen; changing prompts means re-freezing. */
 import fs from "node:fs";
 import path from "node:path";
 
-const pdir = path.resolve(new URL("../../protocol/EXP-0001", import.meta.url).pathname);
+const pdir = path.resolve(new URL("../../protocol/EXP-0002", import.meta.url).pathname);
 const promptSet = JSON.parse(fs.readFileSync(path.join(pdir, "prompts.json"), "utf8"));
 
 export default {
-  experimentId: "EXP-0001",
-  protocolVersion: "EXP-0001 v1.0",
+  experimentId: "EXP-0002",
+  protocolVersion: "EXP-0002 v1.0",
   runsPerPrompt: promptSet.runsPerPromptPerEnvironment,
   sessionConditions:
     "fresh session; verbatim prompt; first response captured; no regeneration; no suggestion clicks (except P8 frozen follow-up)",

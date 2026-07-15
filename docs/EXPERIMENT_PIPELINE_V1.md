@@ -83,7 +83,7 @@ non-sensitive work-in-progress.
 ## 6. Scoring
 
 `scripts/templates/score-sheet.template.json` — versioned, references the
-raw hash, records scorer, timestamp, rubric version (EXP-0001 §5, S1–S9),
+raw hash, records scorer, timestamp, rubric version (EXP-0002 §5, S1–S9),
 per-dimension values with supporting excerpts, uncertainty notes,
 disagreements, adjudication status. **Scores are observations. Evidence
 tiers are never computed from scores; interpretation and promotion remain
@@ -103,17 +103,17 @@ The founder never edits files. The lifecycle commands (run from the
 repository root):
 
 ```
-npm run experiment:freeze -- EXP-0001 --founder "Name"
+npm run experiment:freeze -- EXP-0002 --founder "Name"
     THE PROTOCOL-APPROVAL ACT (pre-registration). Requires the protocol
-    doc and the frozen source files (protocol/EXP-0001/{rubric,prompts,
+    doc and the frozen source files (protocol/EXP-0002/{rubric,prompts,
     predictions,refutation}.json) to be committed and unmodified. Writes
-    protocol/EXP-0001/FREEZE_RECEIPT.json: SHA-256 of each frozen file,
+    protocol/EXP-0002/FREEZE_RECEIPT.json: SHA-256 of each frozen file,
     approval timestamp, founder identity, the git commit that contains
     the frozen protocol, status "frozen". Commit that receipt — its
     commit is the pre-registration timestamp. Capture cannot begin until
     the protocol is frozen.
 
-npm run experiment:capture -- EXP-0001
+npm run experiment:capture -- EXP-0002
     Guided capture: presents each frozen prompt (environment x prompt x
     repetition), operator pastes the response ONCE plus model string and
     citations; the system assigns run IDs and filenames, writes raw +
@@ -122,7 +122,7 @@ npm run experiment:capture -- EXP-0001
     Agent/programmatic form: --from-file r.txt --env EE-2 --prompt P1
     --model "…" [--citations …] [--next-turns …] [--screenshot …]
 
-npm run experiment:prepare -- EXP-0001
+npm run experiment:prepare -- EXP-0002
     Drafts heuristic rubric scores (with excerpts and per-dimension
     uncertainty; judgment dimensions left explicitly to the human),
     scans for sensitive content, flags deviations and ambiguity,
@@ -133,7 +133,7 @@ npm run experiment:prepare -- EXP-0001
     / existing relationships / proposed public claims (always: none).
     Publishes nothing; never touches content/; never runs git.
 
-npm run experiment:approve -- EXP-0001 --runs R-001,R-002
+npm run experiment:approve -- EXP-0002 --runs R-001,R-002
     THE FOUNDER APPROVAL ACT. Runs the full safety battery (blocks on
     missing raw, hash mismatch, missing metadata, unresolved deviations
     unless --accept-deviations, rejected runs, missing drafts,
@@ -144,11 +144,11 @@ npm run experiment:approve -- EXP-0001 --runs R-001,R-002
     new public pages and machine objects, reports. --dry-run performs
     everything through build validation and then restores the tree.
 
-npm run experiment:reject -- EXP-0001 --runs R-003 --reason "…"
+npm run experiment:reject -- EXP-0002 --runs R-003 --reason "…"
     Marks runs rejected; removes their drafts; publishes nothing; raw
     evidence remains preserved and immutable.
 
-npm run experiment:backup -- EXP-0001
+npm run experiment:backup -- EXP-0002
     Manual re-backup (also runs automatically during capture).
 ```
 

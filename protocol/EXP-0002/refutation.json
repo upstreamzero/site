@@ -1,6 +1,6 @@
 {
-  "frozenSet": "EXP-0001 refutation conditions v1.0",
-  "source": "docs/EXP-0001_PROTOCOL.md §6, §7",
+  "frozenSet": "EXP-0002 refutation conditions v1.0",
+  "source": "docs/EXP-0002_PROTOCOL.md §6, §7",
   "perPredictionRefutedIf": {
     "PR1": "no environment retrieves the site at all",
     "PR2": "mean S3 ≥ 1.0 (tiers survive better than we fear)",

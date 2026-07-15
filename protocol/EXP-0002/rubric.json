@@ -1,6 +1,6 @@
 {
-  "frozenSet": "EXP-0001 scoring rubric v1.0",
-  "source": "docs/EXP-0001_PROTOCOL.md §5",
+  "frozenSet": "EXP-0002 scoring rubric v1.0",
+  "source": "docs/EXP-0002_PROTOCOL.md §5",
   "scale": [0, 1, 2],
   "singleCoderDeclared": true,
   "recodeSampleFraction": 0.30,

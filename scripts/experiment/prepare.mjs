@@ -115,7 +115,7 @@ for (const r of runs) {
 
   const scoreFile = `scores/${r.runId}.score.json`;
   fs.writeFileSync(path.join(base, scoreFile), JSON.stringify({
-    scoreSheetVersion: 1, rubricVersion: "EXP-0001 protocol v1.0 §5 (S1–S9)",
+    scoreSheetVersion: 1, rubricVersion: `${m.protocolVersion ?? cfg.protocolVersion} §5 (S1–S9)`,
     runId: r.runId, rawOutputSha256: r.sha256[r.rawOutputFile],
     scorer: "claude (heuristic draft — requires human confirmation)",
     scoringTimestampUtc: nowIso(), scores, uncertaintyNotes: flags.join("; "),

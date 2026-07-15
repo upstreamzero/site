@@ -217,7 +217,7 @@ export function verifyFrozen(expId, { fixture = false } = {}) {
 
 // ── evidence channels ───────────────────────────────────────────────────
 
-/** The channels EXP-0001 requires per response. Status vocabulary:
+/** The evidence channels an experiment requires per response. Status vocabulary:
  *  captured | absent | unavailable | operator-error | unknown.
  *  "absent"    = evaluator produced none (a valid, explicit answer).
  *  "unavailable" = surface did not expose it.

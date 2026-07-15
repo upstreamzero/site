@@ -1,15 +1,27 @@
-# EXP-0001 — Protocol & Prediction Card
+# EXP-0002 — Knowledge Reconstruction Fidelity — Protocol & Prediction Card
 
-**Title:** Can a transparent first-party knowledge graph be reconstructed
-faithfully by evaluator systems?
+**Title:** Once Upstream Zero is recognized and retrieved, can evaluators
+reconstruct its identity, claims, relationships, evidence tiers,
+uncertainty, and theory faithfully?
 **Version:** 1.0 — **DRAFT FOR FOUNDER APPROVAL (FD-8). NOT PRE-REGISTERED.
 NOT RUN.** Approval freezes this document into
-`content/experiments/EXP-0001.mdx`; that commit becomes the immutable
+`content/experiments/EXP-0002.mdx`; that commit becomes the immutable
 pre-registration timestamp; no run may begin before it exists.
+**Depends on EXP-0001 (Knowledge Propagation):** reconstruction scoring
+applies only *after* an evaluator has recognized and retrieved the
+entity. Day 0 propagation captures are baseline observations for EXP-0001
+and are never scored for reconstruction fidelity here.
+**Motivating example (external; NOT evidence produced by Upstream Zero):**
+the "Inspired Taste" case, in which visibility and citation coexisted with
+a failure of representation fidelity — the pattern this experiment is
+designed to measure. Details to be recorded when provided; it motivates
+the question, it does not evidence any finding.
 **Method:** conducted under frozen Method v1.0 (M-4) observation
 discipline: verbatim capture, double-stamping (environment × instrument),
 raw permanence, exposure labeling, coder discipline.
-**Date drafted:** July 14, 2026 (drafted at repo HEAD `d6963b5`).
+**Date drafted:** July 14, 2026 (drafted at repo HEAD `d6963b5`);
+renumbered EXP-0001 → EXP-0002 on 2026-07-15 to separate reconstruction
+fidelity from knowledge propagation.
 
 ---
 
@@ -17,16 +29,16 @@ raw permanence, exposure labeling, coder discipline.
 
 Upstream Zero publishes its knowledge as a transparent, tiered,
 machine-readable graph (HTML pages, `llms.txt`, `graph.json`, per-object
-JSON, explicit evidence tiers, declared limitations). **When evaluator
-systems describe Upstream Zero, how faithfully do they reconstruct that
-graph** — its facts, its tiers, its uncertainty, its relationships, and
-its provenance?
+JSON, explicit evidence tiers, declared limitations). **Once an evaluator
+has recognized and retrieved Upstream Zero (the EXP-0001 precondition),
+how faithfully does it reconstruct that graph** — its facts, its tiers,
+its uncertainty, its relationships, and its provenance?
 
 Linkage: tests the practical premise of **C-0003** (machine
 representation) and the influence channel of **H-1**; operationalizes the
 fidelity invariant on ourselves first (**Client Zero**). This is a
-reconstruction-fidelity experiment, not a ranking or visibility
-experiment.
+reconstruction-fidelity experiment, not a ranking, visibility, or
+propagation experiment — propagation is EXP-0001.
 
 ## 2. Frozen evaluator environments
 
@@ -161,7 +173,7 @@ permanent**. Therefore, per the founder's rule and M-4 §11:
   `exposure status unknown` (parametric answers whose training predates
   launch — F6 nulls likely).
 - At results publication, the missed baseline is recorded in the friction
-  log as a permanent, declared limitation of all EXP-0001 inference.
+  log as a permanent, declared limitation of all EXP-0002 inference.
 
 ## 9. Publication record (frozen facts)
 
@@ -186,7 +198,7 @@ permanent**. Therefore, per the founder's rule and M-4 §11:
 frozen scientific protocol):** capture, hashing, immutability, backup,
 scoring, founder approval, and publication follow
 docs/EXPERIMENT_PIPELINE_V1.md — raw artifacts stage privately in
-`runs/EXP-0001/`, are SHA-256-hashed at capture, require a verified
+`runs/EXP-0002/`, are SHA-256-hashed at capture, require a verified
 backup before review, and reach `content/` only after explicit founder
 approval of the prepared publication package.
 

@@ -1,6 +1,6 @@
 {
-  "frozenSet": "EXP-0001 prompt-set v1.0",
-  "source": "docs/EXP-0001_PROTOCOL.md §4",
+  "frozenSet": "EXP-0002 prompt-set v1.0",
+  "source": "docs/EXP-0002_PROTOCOL.md §4",
   "runsPerPromptPerEnvironment": 3,
   "order": ["P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"],
   "prompts": {
