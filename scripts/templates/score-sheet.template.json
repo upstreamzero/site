@@ -1,0 +1,23 @@
+{
+  "scoreSheetVersion": 1,
+  "rubricVersion": "EXP-0001 protocol v1.0 §5 (S1–S9)",
+  "runId": "",
+  "rawOutputSha256": "",
+  "scorer": "",
+  "scoringTimestampUtc": "",
+  "scores": {
+    "S1_coherence": { "value": null, "excerpts": [], "notes": "" },
+    "S2_completeness": { "value": null, "excerpts": [], "notes": "" },
+    "S3_evidenceTierPreservation": { "value": null, "excerpts": [], "notes": "" },
+    "S4_uncertaintyPreservation": { "value": null, "excerpts": [], "notes": "" },
+    "S5_relationshipFidelity": { "value": null, "excerpts": [], "notes": "" },
+    "S6_unsupportedAdditions": { "value": null, "excerpts": [], "notes": "" },
+    "S7_omissions": { "value": null, "excerpts": [], "notes": "" },
+    "S8_citationBehavior": { "value": null, "excerpts": [], "notes": "" },
+    "S9_provenanceRecovery": { "value": null, "excerpts": [], "notes": "" }
+  },
+  "uncertaintyNotes": "",
+  "disagreements": [],
+  "adjudicationStatus": "none | pending | adjudicated",
+  "_rules": "Scores are observations. Evidence tiers are NOT computed from scores; interpretation and promotion remain human-reviewed."
+}

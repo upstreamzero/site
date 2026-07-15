@@ -100,6 +100,48 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
               </section>
             )}
 
+            {obj.runLog && obj.runLog.length > 0 && (
+              <section className="mt-10">
+                <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>
+                  Run log — append-only
+                </h2>
+                <ul className="mt-3 max-w-[65ch] list-none space-y-4 p-0">
+                  {obj.runLog.map((r) => (
+                    <li
+                      key={r.runId}
+                      className="border-l pl-4"
+                      style={{ borderColor: "var(--ink-18)" }}
+                    >
+                      <span className="voice-mono-data" style={{ color: "var(--ink-60)" }}>
+                        {r.runId} · {r.date} · {r.environment} · {r.status}
+                        {r.supersedes ? ` · supersedes ${r.supersedes}` : ""}
+                      </span>
+                      {r.evidence.length > 0 && (
+                        <div className="voice-mono-data mt-1">
+                          evidence:{" "}
+                          {r.evidence.map((eid, i) => {
+                            const t = byId(eid);
+                            return (
+                              <span key={eid}>
+                                {i > 0 && " · "}
+                                {t ? <Link href={urlFor(t)}>{eid}</Link> : eid}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      )}
+                      {r.deviations.length > 0 && (
+                        <p className="mt-1 text-[0.9rem]" style={{ color: "var(--ink-60)" }}>
+                          Deviations: {r.deviations.join("; ")}
+                        </p>
+                      )}
+                      {r.note && <p className="mt-1 text-[0.9rem]">{r.note}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {obj.commercialRelevance && (
               <section className="mt-10 max-w-[62ch] border p-5" style={{ borderColor: "var(--ink-18)" }}>
                 <span className="voice-mono" style={{ color: "var(--ink-60)" }}>

@@ -128,34 +128,68 @@ export function loadGraph(): Map<string, UZObject> {
       throw new Error(`[tier] ${obj.id}: unknown tier ${obj.tier}`);
   }
 
+  // Publication-state consistency (second pass): a public object may
+  // never edge to a non-public one — publishing must not create dangling
+  // public links or leak the existence of unreviewed material.
+  for (const obj of objects.values()) {
+    if (!isPublic(obj)) continue;
+    for (const edge of obj.edges) {
+      const target = objects.get(edge.to);
+      if (target && !isPublic(target))
+        throw new Error(
+          `[pub-state] public object ${obj.id} edges to non-public ${edge.to} (pubState: ${target.pubState})`,
+        );
+    }
+  }
+
   cache = objects;
   return objects;
 }
 
+/** Public-graph membership: published and superseded objects only.
+ *  Draft and approved-but-unpublished objects never reach pages, the
+ *  sitemap, graph.json, llms.txt, object JSON, or counts. */
+export function isPublic(o: UZObject): boolean {
+  return o.pubState === "published" || o.pubState === "superseded";
+}
+
+/** The public graph — the only view rendering surfaces may use. */
+export function publicObjects(): UZObject[] {
+  return [...loadGraph().values()].filter(isPublic);
+}
+
 export function byType(type: ObjectType): UZObject[] {
-  return [...loadGraph().values()]
+  return publicObjects()
     .filter((o) => o.type === type)
     .sort((a, b) => a.id.localeCompare(b.id));
 }
 
-export function byId(id: string): UZObject | undefined {
-  return loadGraph().get(id);
+/** Lookup by id. Public objects only unless includeNonPublic is set
+ *  (validation/internal use). */
+export function byId(
+  id: string,
+  opts?: { includeNonPublic?: boolean },
+): UZObject | undefined {
+  const o = loadGraph().get(id);
+  if (!o) return undefined;
+  if (!opts?.includeNonPublic && !isPublic(o)) return undefined;
+  return o;
 }
 
-/** Back-edges: who points at this object (IA §3.6 derivation symmetry). */
+/** Back-edges: who points at this object (IA §3.6 derivation symmetry).
+ *  Public referencing objects only — rendering surface. */
 export function backEdges(id: string): { from: UZObject; rel: string }[] {
   const out: { from: UZObject; rel: string }[] = [];
-  for (const o of loadGraph().values())
+  for (const o of publicObjects())
     for (const e of o.edges) if (e.to === id) out.push({ from: o, rel: e.rel });
   return out;
 }
 
-/** The honest inventory for the Observatory status board. */
+/** The honest inventory for the Observatory status board (public only). */
 export function inventory() {
-  const g = loadGraph();
-  const count = (t: ObjectType) =>
-    [...g.values()].filter((o) => o.type === t).length;
-  const claims = [...g.values()].filter((o) => o.type === "claim");
+  const g = publicObjects();
+  const count = (t: ObjectType) => g.filter((o) => o.type === t).length;
+  const claims = g.filter((o) => o.type === "claim");
   return {
     observations: count("observation"),
     experiments: count("experiment"),

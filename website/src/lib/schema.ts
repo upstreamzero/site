@@ -110,6 +110,32 @@ export const objectSchema = z.object({
 
   // Founder-decision gating: visible placeholder, never silent fill
   founderDecision: z.string().optional(),
+
+  // Publication lifecycle (docs/EXPERIMENT_PIPELINE_V1.md). Only
+  // "published" and "superseded" objects enter the public graph, pages,
+  // sitemap, JSON, and counts. Existing objects default to "published".
+  // Sensitive raw evidence stays outside git entirely — never committed
+  // as "draft".
+  pubState: z
+    .enum(["draft", "approved", "published", "superseded"])
+    .default("published"),
+
+  // Experiment only: append-only run log. Later runs append; corrections
+  // supersede or annotate earlier entries, never replace them.
+  runLog: z
+    .array(
+      z.object({
+        runId: z.string(),
+        date: z.string(),
+        environment: z.string(),
+        status: z.string(),
+        evidence: z.array(z.string()).default([]),
+        deviations: z.array(z.string()).default([]),
+        note: z.string().optional(),
+        supersedes: z.string().optional(),
+      }),
+    )
+    .optional(),
 });
 
 export type UZObject = z.infer<typeof objectSchema> & { body: string };

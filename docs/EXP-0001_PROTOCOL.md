@@ -182,6 +182,15 @@ permanent**. Therefore, per the founder's rule and M-4 §11:
 
 ## 10. Raw preservation
 
+**Capture and publication workflow (added 2026-07-15; does not alter the
+frozen scientific protocol):** capture, hashing, immutability, backup,
+scoring, founder approval, and publication follow
+docs/EXPERIMENT_PIPELINE_V1.md — raw artifacts stage privately in
+`runs/EXP-0001/`, are SHA-256-hashed at capture, require a verified
+backup before review, and reach `content/` only after explicit founder
+approval of the prepared publication package.
+
+
 Every response is preserved verbatim and content-hashed as an Evidence
 artifact (text + citations + offered next turns + metadata), screenshots
 archived alongside; nothing summarized in place of raw; redactions (none

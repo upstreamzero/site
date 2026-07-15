@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { loadGraph, urlFor } from "@/lib/content";
+import { publicObjects, urlFor } from "@/lib/content";
 
 export const dynamic = "force-static";
 
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
     url: `${BASE}${r}`,
   }));
-  for (const obj of loadGraph().values()) {
+  for (const obj of publicObjects()) {
     pages.push({ url: `${BASE}${urlFor(obj)}` });
   }
   return pages;

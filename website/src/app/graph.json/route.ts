@@ -1,10 +1,11 @@
 export const dynamic = "force-static";
-import { loadGraph, urlFor } from "@/lib/content";
+import { publicObjects, urlFor } from "@/lib/content";
 import { TIERS, EDGE_RELS, TYPES } from "@/lib/schema";
 
-/** The full typed graph in one export (IA §4.4). */
+/** The full typed PUBLIC graph in one export (IA §4.4). Draft and
+ *  approved-but-unpublished objects never appear here. */
 export async function GET() {
-  const objects = [...loadGraph().values()].map((o) => {
+  const objects = publicObjects().map((o) => {
     const { body, ...envelope } = o;
     void body;
     return { ...envelope, url: urlFor(o), machineUrl: `/objects/${o.id}` };

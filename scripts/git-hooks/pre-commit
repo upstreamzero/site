@@ -1,0 +1,16 @@
+#!/bin/sh
+# Pre-commit safety: block any commit that stages private staging or
+# sensitive artifacts. Install with scripts/install-hooks.sh.
+staged=$(git diff --cached --name-only)
+
+block=$(printf '%s\n' "$staged" | grep -E '^(runs/|backups/)' || true)
+sensitive=$(printf '%s\n' "$staged" | grep -E '(^|/)\.env(\.|$)|\.pem$|\.key$|\.p12$|\.har$|(^|/)cookies.*\.txt$|[Ss]ession.*\.json$|credentials|\.sqlite$' || true)
+
+if [ -n "$block$sensitive" ]; then
+  echo "COMMIT BLOCKED — private staging or sensitive files are staged:" >&2
+  printf '%s\n%s\n' "$block" "$sensitive" | sed '/^$/d;s/^/  /' >&2
+  echo "Raw experiment evidence must never enter the public repository." >&2
+  echo "Unstage with: git restore --staged <file>" >&2
+  exit 1
+fi
+exit 0

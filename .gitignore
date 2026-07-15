@@ -10,6 +10,26 @@ website/.next/
 website/out/
 website/next-env.d.ts
 
+# ── EXPERIMENT STAGING — PRIVATE, NEVER COMMITTED ──────────────────────
+# Raw experiment evidence lives in runs/ until founder-approved artifacts
+# are deliberately copied into content/. Enforced additionally by the
+# pre-commit hook (scripts/git-hooks/pre-commit) and the prebuild safety
+# check (scripts/check-staging-safety.mjs). Do not weaken this section.
+runs/
+backups/
+
+# sensitive artifacts — never committed regardless of location
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.har
+cookies*.txt
+*session*.json
+*credentials*
+*.sqlite
+
 # OS/editor noise
 .DS_Store
 *.log
