@@ -1,0 +1,12 @@
+{
+  "name": "upstream-zero-ops",
+  "private": true,
+  "description": "Operations commands for the Upstream Zero observatory. The website builds independently from website/.",
+  "scripts": {
+    "experiment:capture": "node scripts/experiment/capture.mjs",
+    "experiment:backup": "node scripts/experiment/backup.mjs",
+    "experiment:prepare": "node scripts/experiment/prepare.mjs",
+    "experiment:approve": "node scripts/experiment/approve.mjs",
+    "experiment:reject": "node scripts/experiment/reject.mjs"
+  }
+}

@@ -97,7 +97,52 @@ evidence IDs, deviations, optional note, optional `supersedes`. Later
 runs append; corrections supersede or annotate earlier entries — git
 history and the public record preserve every prior state.
 
-## 8. Exact commands
+## 8. Exact commands (v1.1 — single-founder approval model)
+
+The founder never edits files. Three commands cover the whole lifecycle
+(run from the repository root):
+
+```
+npm run experiment:capture -- EXP-0001
+    Guided capture: presents each frozen prompt (environment x prompt x
+    repetition), operator pastes the response ONCE plus model string and
+    citations; the system assigns run IDs and filenames, writes raw +
+    metadata, computes SHA-256 hashes, updates and validates the
+    manifest, and creates the encrypted private backup automatically.
+    Agent/programmatic form: --from-file r.txt --env EE-2 --prompt P1
+    --model "…" [--citations …] [--next-turns …] [--screenshot …]
+
+npm run experiment:prepare -- EXP-0001
+    Drafts heuristic rubric scores (with excerpts and per-dimension
+    uncertainty; judgment dimensions left explicitly to the human),
+    scans for sensitive content, flags deviations and ambiguity,
+    generates the proposed evidence/observation objects and run-log
+    entries as drafts, and produces ONE review artifact
+    (publication-package/REVIEW.md + REVIEW.html) separating: raw
+    observation / agent-proposed coding / agent-proposed interpretation
+    / existing relationships / proposed public claims (always: none).
+    Publishes nothing; never touches content/; never runs git.
+
+npm run experiment:approve -- EXP-0001 --runs R-001,R-002
+    THE FOUNDER APPROVAL ACT. Runs the full safety battery (blocks on
+    missing raw, hash mismatch, missing metadata, unresolved deviations
+    unless --accept-deviations, rejected runs, missing drafts,
+    nonexistent edge targets, drafts not marked published), then: copies
+    drafts into content/, appends the append-only run log, validates via
+    full site build (ontology + pub-state + routes + sitemap), commits
+    ONLY content paths, pushes, waits for Cloudflare, curl-verifies the
+    new public pages and machine objects, reports. --dry-run performs
+    everything through build validation and then restores the tree.
+
+npm run experiment:reject -- EXP-0001 --runs R-003 --reason "…"
+    Marks runs rejected; removes their drafts; publishes nothing; raw
+    evidence remains preserved and immutable.
+
+npm run experiment:backup -- EXP-0001
+    Manual re-backup (also runs automatically during capture).
+```
+
+## 8b. Legacy manual commands
 
 ```
 sh scripts/install-hooks.sh                      # once per clone
