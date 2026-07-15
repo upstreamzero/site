@@ -36,7 +36,11 @@ export const COMMERCIAL_TYPES = [
 export const TYPES = [...RESEARCH_TYPES, ...COMMERCIAL_TYPES] as const;
 export type ObjectType = (typeof TYPES)[number];
 
-/** Closed edge vocabulary (IA §4.2). Extending it is a Method revision. */
+/** Closed edge vocabulary (IA §4.2). Extending it is a Method revision.
+ *  Method revisions:
+ *   - 2026-07-15: added `observes` — the discipline→invariant relation
+ *     (a concept that studies an enduring structure, e.g. commercial
+ *     evaluation observes requirements). See docs/CHANGELOG.md. */
 export const EDGE_RELS = [
   "supports",
   "weakens",
@@ -44,6 +48,7 @@ export const EDGE_RELS = [
   "tests",
   "derives-from",
   "depends-on",
+  "observes",
   "supersedes",
   "revises",
   "made-with",

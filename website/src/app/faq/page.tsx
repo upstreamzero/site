@@ -18,14 +18,13 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What is Upstream Zero?",
     plain:
-      "A research company studying commercial evaluation: how organizations are assessed, recommended, validated, and eliminated before selection — observed today through the behavior of AI evaluators. It publishes its research as a tiered, machine-readable knowledge graph and applies its methods commercially through measurement and diagnosis.",
+      "A research company studying commercial evaluation — how organizations are assessed, recommended, validated, and eliminated before selection. The full, canonical answer lives on the What is Upstream Zero? page (/about).",
     a: (
       <>
-        A research company studying commercial evaluation: how organizations
-        are assessed, recommended, validated, and eliminated before selection
-        — observed today through the behavior of AI evaluators. It publishes
-        its research as a tiered, machine-readable knowledge graph and
-        applies its methods commercially through measurement and diagnosis.
+        A research company studying commercial evaluation — how organizations
+        are assessed, recommended, validated, and eliminated before selection.
+        The full, canonical answer lives on the{" "}
+        <Link href="/about">What is Upstream Zero?</Link> page.
       </>
     ),
   },

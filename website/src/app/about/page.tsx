@@ -4,85 +4,111 @@ import { pageMeta } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "What is Upstream Zero?",
   description:
-    "What kind of institution Upstream Zero is, how it works, how corrections and conflicts of interest are handled, and where to find its philosophy, FAQ, and institutional questions.",
+    "Upstream Zero is a research company studying commercial evaluation. This is its canonical identity page: what it is, what it studies, what it publishes, what it offers commercially, and what it does not claim.",
   ...pageMeta("/about"),
 };
 
-/** Institutional hub (founder item 6): keeps Philosophy and FAQ reachable
- *  without occupying scarce primary navigation. Links, not new claims. */
+/** Canonical institutional identity page (the single home for "What is
+ *  Upstream Zero?"). The institution sits behind the discipline: the site
+ *  progresses from the buyer's problem through commercial evaluation,
+ *  requirements, evidence, and commercial application, and arrives here.
+ *  Other pages summarize identity in one line and link back to this page. */
 export default function About() {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
-          <h1 className="text-[1.75rem]">About Upstream Zero</h1>
-          <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            Upstream Zero is a research company studying commercial evaluation
-            — how organizations are assessed, recommended, validated, and
-            eliminated before selection, observed today through the behavior
-            of AI evaluators. It publishes its research as a tiered,
-            machine-readable knowledge graph and applies its methods
-            commercially through measurement and diagnosis. Today it is,
-            honestly, an <strong>observatory</strong>: it discovers; the
-            institute organizes and the laboratory measures come later, and
-            it claims only the stage it has earned.
+          <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
+            The institution conducting the work
+          </p>
+          <h1 className="mt-3 text-[1.75rem]">What is Upstream Zero?</h1>
+          <p className="measure mt-4 text-[1.05rem]">
+            Upstream Zero is a research company studying{" "}
+            <Link href="/concepts/commercial-evaluation">commercial evaluation</Link> —
+            how organizations are assessed, recommended, validated, and
+            eliminated before they are selected. It exists because the
+            discipline comes first: the institution is simply who conducts it.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
 
         <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>How this institution works</h2>
-          <ul className="mt-3 list-none space-y-3 p-0">
-            <li className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/philosophy">Philosophy</Link> — why the site publishes
-              its own uncertainty, why every claim carries an evidence tier,
-              and why you should not have to trust it.
-            </li>
-            <li className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/philosophy#when-wrong">Corrections</Link> — published
-              with the same dignity as findings; nothing is silently edited,
-              and the public git history makes every change diffable.
-            </li>
-            <li className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/philosophy#neutrality">Conflicts of interest</Link> —
-              how paid work stays structurally separate from research (the
-              build fails if research objects cite commercial ones).
-            </li>
-            <li className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/concepts/client-zero">Client Zero</Link> — the
-              observatory runs its methods on itself first.
-            </li>
-          </ul>
-        </section>
-
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Practical &amp; institutional questions</h2>
-          <p className="measure mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            The <Link href="/faq">FAQ</Link> answers practical questions — what
-            Upstream Zero is, who it is for, how it differs from SEO/AEO/GEO
-            tools, what an engagement includes. Institutional questions (how
-            the epistemics, corrections, and identity work) are answered in
-            full on the <Link href="/philosophy">Philosophy page</Link> and
-            indexed under <Link href="/questions">Questions</Link>.
+          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What kind of organization</h2>
+          <p className="measure mt-2 text-[0.98rem]">
+            Today, honestly, an <strong>observatory</strong>: it discovers.
+            The institute organizes and the laboratory measures come later,
+            and it claims only the stage it has earned. Why that sequence, and
+            why it publishes its own uncertainty, is the{" "}
+            <Link href="/philosophy">Philosophy</Link>.
           </p>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Verify without trusting us</h2>
-          <p className="measure mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            Every answer traces to inspectable objects:{" "}
-            <Link href="/research">research</Link> ·{" "}
-            <Link href="/methods">methods</Link> ·{" "}
-            <Link href="/claims">claims ledger</Link> ·{" "}
-            <a href="/graph.json">graph.json</a> ·{" "}
-            <a href="/company.json">company.json</a> ·{" "}
-            <a href="/llms.txt">llms.txt</a>
+        <section className="mt-8">
+          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it studies</h2>
+          <p className="measure mt-2 text-[0.98rem]">
+            Commercial evaluation — the discipline — and the invariant beneath
+            it, <Link href="/concepts/requirements">requirements</Link>. Models
+            and interfaces change; the requirements a buyer must see satisfied
+            persist, which is what makes the process worth an observatory. The
+            open questions it is pointed at live in{" "}
+            <Link href="/research">Research</Link>.
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it publishes</h2>
+          <p className="measure mt-2 text-[0.98rem]">
+            A tiered, inspectable knowledge graph — claims, questions,
+            hypotheses, experiments, methods, and (as they accrue)
+            observations and findings. Every claim carries an{" "}
+            <Link href="/concepts/evidence-tier">evidence tier</Link> and is
+            never shown above it. The evidence is public; the machinery that
+            produces it is not. Start at the{" "}
+            <Link href="/claims">Claims Ledger</Link>.
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it offers commercially</h2>
+          <p className="measure mt-2 text-[0.98rem]">
+            Measurement and diagnosis of how an organization is evaluated —
+            never optimization promises. The commercial work applies the
+            research; it does not redefine the institution as an agency.{" "}
+            <Link href="/services">Services</Link>.
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it does not claim</h2>
+          <p className="measure mt-2 text-[0.98rem]">
+            It is <strong>not</strong> an SEO, AEO, GEO, or AI-visibility
+            optimization agency, <strong>not</strong> an AI consultancy, and{" "}
+            <strong>not</strong> a software company selling a product. It does
+            not promise better rankings, recommendations, visibility, or
+            selection. It measures evaluation; it does not sell standing with
+            evaluators. The distinction, and why it is enforced structurally,
+            is in the <Link href="/faq">FAQ</Link> and on{" "}
+            <Link href="/services">Services</Link>.
+          </p>
+        </section>
+
+        <section className="mt-10 max-w-[62ch] border p-5" style={{ borderColor: "var(--ink-18)" }}>
+          <h2 className="voice-mono m-0" style={{ color: "var(--ink-60)" }}>Verify without trusting us</h2>
+          <p className="mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
+            The machine-readable counterpart of this page is{" "}
+            <a href="/company.json">company.json</a>. The full graph is{" "}
+            <a href="/graph.json">graph.json</a>; orientation for machine
+            readers is <a href="/llms.txt">llms.txt</a>. Corrections and
+            conflicts of interest:{" "}
+            <Link href="/philosophy#when-wrong">how we handle being wrong</Link>{" "}
+            · <Link href="/philosophy#neutrality">neutrality</Link> ·{" "}
+            <Link href="/concepts/client-zero">Client Zero</Link>.
           </p>
         </section>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph", "editorial (buyer revision v1)"]} />
+      <ProvenanceFooter renderedFrom={["content graph", "canonical identity page"]} machineUrl="/company.json" />
     </>
   );
 }

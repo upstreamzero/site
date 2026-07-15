@@ -7,18 +7,19 @@ import { TierScale } from "@/components/TierScale";
 import { QPart, RelatedQuestions } from "@/components/ResolvedQuestion";
 
 export const metadata: Metadata = {
-  title: "Why are some companies recommended while others are left out?",
+  title: "Why do some companies consistently make the shortlist while others are never evaluated?",
   description:
-    "Because being visible is not the same as being selected: recommendations are shaped by how an evaluator interprets your fit, evidence, and ability to satisfy the requirements of the situation. The current answer, its evidence tier, and its limitations.",
+    "Because evaluation runs on requirements: companies whose fit can't be verified against the requirements of the situation are filtered out before anyone compares them. The current answer, its evidence tier, and its limitations.",
   ...pageMeta("/questions/why-are-some-companies-recommended"),
 };
 
-/** The first full buyer question page (buyer revision v1).
- *  Rendering model: QUESTION → DIRECT ANSWER → EXPLANATION → EVIDENCE →
- *  LIMITATIONS → RELATED QUESTIONS → RELATED RESEARCH → COMMERCIAL NEXT
- *  STEP. Classification: editorial navigation (not an observed question). */
+/** Buyer journey template (buyer revision v2 — discipline-first).
+ *  Spine: buyer problem → commercial evaluation (the discipline) →
+ *  requirements (the invariant) → evidence → commercial application →
+ *  Upstream Zero (the institution, last). Buyer language first; concepts
+ *  linked, never re-defined; Requirements introduced only once the problem
+ *  makes it necessary. Classification: editorial navigation. */
 export default function Page() {
-  const h1 = byId("H-1");
   const c1 = byId("C-0001");
   const c3 = byId("C-0003");
 
@@ -30,51 +31,69 @@ export default function Page() {
             Buyer question · editorial navigation · answered at the evidence
             tier shown below
           </p>
-          <h1 className="mt-3 max-w-[30ch] text-[1.75rem] leading-tight">
-            Why are some companies recommended while others are left out?
+          <h1 className="mt-3 max-w-[32ch] text-[1.75rem] leading-tight">
+            Why do some companies consistently make the shortlist while others
+            are never evaluated?
           </h1>
+          {/* direct answer, first sentence, buyer language */}
           <p className="measure mt-5 text-[1.05rem]">
             <strong className="font-semibold">
-              Because being visible is not the same as being selected.
+              Companies make the shortlist when evaluators can connect what
+              they offer to the requirements that matter — and when that
+              connection is missing, weak, or unsupported by evidence, a
+              company may never enter the evaluation set at all.
             </strong>{" "}
-            Recommendations are shaped by how an evaluator interprets your
-            fit, your evidence, and your ability to satisfy the requirements
-            of the situation. Ranking and visibility can get you retrieved and
-            considered; they do not, on their own, explain whether you are
-            recommended.
+            The company may genuinely satisfy the requirement; what decides its
+            fate earlier is whether an evaluator can establish that from the
+            representation and evidence available to it. Being left out is not
+            proof that a company fell short — often it is proof only that its
+            fit could not be reconstructed.
           </p>
           <div className="-ml-5 mt-6 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
 
-        <QPart label="Explanation">
+        {/* the discipline */}
+        <QPart label="What is actually happening">
           <p>
-            Rankings matter — they are not irrelevant. Visibility and
-            authority affect whether an evaluator retrieves you at all, and a
-            company that is never retrieved is rarely recommended. But
-            retrieval does not guarantee recommendation. Once you are in
-            view, the evaluator does something further: it interprets whether
-            you satisfy the requirements of the specific situation, weighs the
-            evidence available for each, and forms a recommendation. Rankings
-            and visibility do not fully explain that step.
-          </p>
-          <p>
-            The exact mechanisms and weights — how much source availability,
-            authority, phrasing, and evidence each contribute, and how they
-            interact — remain under investigation. Upstream Zero measures the
-            resulting behavior rather than claiming the mechanism is settled.
-            That is why rankings, visibility, citations, and recommendations
-            can produce different results: they are different measurements,
-            and moving one does not reliably move another.
+            Making the shortlist is not a ranking outcome; it is the output of
+            an evaluation. That process — surfacing, screening, comparison,
+            validation — is{" "}
+            <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
+            the discipline this observatory studies. Visibility can get you
+            surfaced; it does not carry you through the screening that decides
+            whether you are evaluated at all.
           </p>
         </QPart>
 
+        {/* the invariant — introduced only now that the problem needs it */}
+        <QPart label="The structure beneath it">
+          <p>
+            Run enough of those evaluations and the same layer keeps
+            appearing underneath them:{" "}
+            <Link href="/concepts/requirements">requirements</Link> — the
+            specific conditions a buyer needs satisfied. An RFP is a
+            requirements list; a procurement workflow is a requirements
+            filter; an AI screening a vendor is matching it against inferred
+            requirements. The interfaces differ; the structure does not.
+          </p>
+          <p>
+            This is why the pattern is consistent rather than random. The
+            companies that recur on shortlists are the ones whose fit against
+            the operative requirements is easy to recognize and verify; the
+            ones that are never evaluated are the ones whose fit cannot be
+            reconstructed from what an evaluator can reach. Models and
+            interfaces change; the requirements persist — which is what makes
+            this worth studying rather than chasing.
+          </p>
+        </QPart>
+
+        {/* evidence — honest tier */}
         <QPart label="Evidence — and its current tier">
           <p>
-            Honestly: this answer is currently a <strong>founding
-            position</strong>, not a demonstrated result. The observatory has
-            published zero observations (the front page prints its zeros).
-            The claims beneath this answer are on the public ledger at the
-            lowest evidence tier:
+            Honestly, this answer is a <strong>founding position</strong>, not
+            a demonstrated result. The observatory has published zero
+            observations, and the claims beneath this answer sit at the lowest{" "}
+            <Link href="/concepts/evidence-tier">evidence tier</Link>:
           </p>
           <ul className="m-0 list-none space-y-4 p-0">
             {[c1, c3].filter(Boolean).map((c) => (
@@ -85,79 +104,78 @@ export default function Page() {
             ))}
           </ul>
           <p>
-            The first experiment against this framing is pre-registered in
-            draft: <Link href="/experiments/EXP-0001">EXP-0001</Link>,
-            observing whether and how this site&apos;s own published objects
-            propagate into evaluator behavior (Client Zero — we run the
-            method on ourselves first).
+            Whether AI evaluation reaches human shortlists at all runs through
+            the open bridge hypothesis{" "}
+            <Link href="/hypotheses/H-1">H-1</Link>, and the first experiment
+            against this framing is pre-registered in draft as{" "}
+            <Link href="/experiments/EXP-0001">EXP-0001</Link>. The full ledger
+            is at <Link href="/claims">Claims</Link>.
           </p>
         </QPart>
 
-        <QPart label="Limitations — what this answer does not establish">
+        <QPart label="Limitations — what this does not establish">
           <p>
-            It does not establish that AI evaluation resembles or influences
-            human buying-committee evaluation — that is the open bridge
-            hypothesis (<Link href="/hypotheses/H-1">{h1 ? h1.title : "H-1"}</Link>),
-            held as a hypothesis, not a finding. It does not establish which
-            requirements dominate eliminations in any category, nor that
-            changing evidence changes recommendations. No intervention effect
-            of any kind has been measured.
+            It does not establish which requirements dominate any specific
+            category, that AI evaluation resembles or drives human committee
+            evaluation (that is H-1, held as a hypothesis), or that changing
+            what an evaluator can verify changes the outcome. No intervention
+            effect has been measured. What would change the answer: published
+            observations of evaluator screening that contradict the
+            requirement framing, or stability results too noisy to attribute
+            to evaluation at all (<Link href="/questions/Q-3">Q-3</Link>).
           </p>
+        </QPart>
+
+        {/* commercial application */}
+        <QPart label="Commercial next step">
           <p>
-            What would change this answer: published observations of
-            evaluator inclusion/exclusion behavior contradicting the
-            requirement-and-evidence framing; stability measurements showing
-            recommendation outcomes too noisy to attribute to evaluation at
-            all (<Link href="/questions/Q-3">Q-3</Link>); or failure of the
-            propagation experiment&apos;s predictions. Corrections publish as
-            recorded revisions, not silent edits.
+            If this is your situation, the measurable starting point is
+            observation, not optimization: capture how evaluators currently
+            assess you, which requirements they appear to credit, and where
+            the gaps are that keep you from being evaluated. That is what{" "}
+            <Link href="/services">an engagement measures</Link>{" — "}it does not
+            promise to change any evaluator&apos;s behavior, and the answer
+            above is meant to be useful even if you never work with us.
+          </p>
+        </QPart>
+
+        {/* the institution, last */}
+        <QPart label="Who is behind this">
+          <p>
+            <Link href="/about">Upstream Zero</Link> is the research company
+            conducting this work — the institution behind the discipline, not
+            the subject of it.
+          </p>
+        </QPart>
+
+        {/* this page is editorial navigation, not a research object — its
+            answer is informed by the graph, it is not identical to any node */}
+        <QPart label="Related research objects">
+          <p>
+            This is an editorial navigation page, not a research object. Its
+            answer is informed by the claim{" "}
+            <Link href="/claims/C-0001">C-0001</Link> and relates to{" "}
+            <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
+            which <em>observes</em>{" "}
+            <Link href="/concepts/requirements">requirements</Link>. The bridge
+            hypothesis <Link href="/hypotheses/H-1">H-1</Link> and experiment{" "}
+            <Link href="/experiments/EXP-0001">EXP-0001</Link> carry the open
+            evidence. The full machine graph is{" "}
+            <a href="/graph.json">graph.json</a>.
           </p>
         </QPart>
 
         <RelatedQuestions
           items={[
             { href: "/questions#requirements", label: "Which requirements are eliminating us from consideration?" },
-            { href: "/questions#stability", label: "Why do rankings, visibility, citations, and recommendations produce different results?" },
-            { href: "/questions#misrepresentation", label: "How do we know whether our commercial representation is faithful to the real company?" },
+            { href: "/questions#misrepresentation", label: "Why are we difficult for AI systems to understand?" },
             { href: "/questions/Q-2", label: "What is the relationship between AI evaluation and human buying-committee evaluation?" },
           ]}
         />
-
-        <QPart label="Related research">
-          <ul className="m-0 list-none space-y-2 p-0">
-            <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/hypotheses/H-1">H-1 — the bridge claim</Link>
-            </li>
-            <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/experiments/EXP-0001">EXP-0001 — Client Zero propagation baseline</Link>
-            </li>
-            <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/methods/M-1">M-1 — evidence tier definitions</Link>
-            </li>
-            <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
-              <Link href="/concepts/commercial-evaluation">Concept — commercial evaluation</Link>
-            </li>
-            <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
-              <a href="/objects/C-0001">machine rendering — /objects/C-0001</a>
-            </li>
-          </ul>
-        </QPart>
-
-        <QPart label="Commercial next step">
-          <p>
-            If this is your situation, the measurable starting point is
-            observation, not optimization: capture how evaluators currently
-            assess your organization, which requirements they believe you
-            satisfy, and where evidence gaps eliminate you. That is what{" "}
-            <Link href="/services">an engagement measures</Link>{" — "}it does not
-            promise to change any evaluator&apos;s behavior. This answer is
-            meant to be useful even if you never work with us.
-          </p>
-        </QPart>
       </main>
       <ProvenanceFooter
-        renderedFrom={["content graph", "editorial answer (buyer revision v1)"]}
-        machineUrl="/objects/C-0001"
+        renderedFrom={["editorial navigation page (discipline-first buyer journey)", "informed by C-0001, commercial-evaluation, requirements"]}
+        machineUrl="/graph.json"
       />
     </>
   );

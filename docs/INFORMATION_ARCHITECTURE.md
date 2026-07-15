@@ -344,9 +344,15 @@ maturity (Capability only)
 ### 4.2 Edge vocabulary (closed; extending it is a Method revision)
 
 Research: `supports · weakens · refutes · tests · derives-from · depends-on ·
-supersedes · revises · made-with · part-of · follows · defines · cites ·
-propagates · corroborated-by · evidenced-by`
+observes · supersedes · revises · made-with · part-of · follows · defines ·
+cites · propagates · corroborated-by · evidenced-by · investigated-by`
 Commercial: `exercises · produces · delivered-by · measured-by`
+
+**Method revision — 2026-07-15:** added `observes`, the discipline→invariant
+relation (a discipline concept that studies an enduring commercial
+structure). First use: `commercial-evaluation — observes → requirements`.
+This is distinct from `depends-on` (structural prerequisite): the discipline
+does not merely rest on requirements, it studies them. See docs/CHANGELOG.md.
 
 ### 4.3 Identity and URLs (the DOI discipline)
 

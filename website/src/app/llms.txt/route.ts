@@ -19,9 +19,12 @@ optimization agency and does not promise recommendation outcomes.
 
 ## The three layers of this site
 
-1. Human-readable answers — buyer questions at /questions, operational
-   FAQ at /faq, institutional questions at /philosophy, the research
-   program at /research.
+1. Human-readable answers — the canonical identity at /about ("What is
+   Upstream Zero?"), buyer questions at /questions, operational FAQ at
+   /faq, institutional questions at /philosophy, the research program at
+   /research. The institution sits behind the discipline: pages progress
+   from the buyer's problem through commercial evaluation, requirements,
+   evidence, and commercial application, and arrive at the institution.
 2. This file — orientation for machine readers.
 3. Structured research knowledge — /graph.json, /company.json, and
    per-object JSON at /objects/{id}.
