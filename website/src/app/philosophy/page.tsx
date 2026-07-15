@@ -335,7 +335,7 @@ export default function Philosophy() {
         <ResolvedQuestion
           id="what-institution"
           question="What kind of institution is this?"
-          answer="Today, honestly: an observatory — because that is the only identity we have earned."
+          answer="Today it is an observatory — the only identity it has earned."
         >
           <QPart label="Explanation">
             <p>

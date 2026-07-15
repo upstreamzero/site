@@ -23,11 +23,10 @@ export default function Services() {
         <header className="mt-12">
           <h1 className="text-[1.75rem]">Working with Upstream Zero</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            This is a company, and this page is its commercial wing —
-            structured as the seven questions a serious buyer asks, each
-            answered by inspectable objects rather than copy. The register
-            never changes: we measure and diagnose; we do not promise
-            evaluator behavior.
+            This is a company, and this is its commercial side — built around
+            the seven questions a serious buyer asks, each answered by
+            inspectable objects rather than copy. The line never moves: we
+            measure and diagnose; we don&apos;t promise evaluator behavior.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>

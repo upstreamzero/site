@@ -69,12 +69,12 @@ export default function Observatory() {
               What we measure
             </h2>
             <p className="measure mt-2 text-[0.95rem]">
-              Evaluation behavior rather than visibility: which requirements
-              evaluators believe an organization satisfies, where evidence
-              gaps eliminate it, how stable recommendations are across
-              evaluators, prompts, and time, and how faithfully its
-              representation is reconstructed. Method and instruments are
-              public: <Link href="/methods">/methods</Link>.
+              What evaluators actually do, not whether you show up: which
+              requirements they credit you with, where an evidence gap rules
+              you out, how much their recommendations hold up across
+              evaluators and time, and how faithfully they reconstruct what
+              you do. Our method and instruments are public:{" "}
+              <Link href="/methods">/methods</Link>.
             </p>
           </div>
           <div className="p-5" style={{ background: "var(--paper)" }}>
@@ -82,11 +82,11 @@ export default function Observatory() {
               What we do not promise
             </h2>
             <p className="measure mt-2 text-[0.95rem]">
-              Better rankings, recommendations, visibility, or selection. This
-              is not an SEO, AEO, GEO, or AI-visibility agency. Engagements
-              promise deliverables — measurements, diagnoses, evidence-gap
-              analyses — never evaluator behavior.{" "}
-              <Link href="/faq">More in the FAQ</Link>.
+              Better rankings, recommendations, visibility, or selection. We
+              measure and diagnose; we don&apos;t sell standing with
+              evaluators. An engagement promises deliverables — measurements,
+              diagnoses, evidence-gap analyses — never a change in evaluator
+              behavior. <Link href="/faq">More in the FAQ</Link>.
             </p>
           </div>
         </section>

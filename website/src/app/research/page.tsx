@@ -23,10 +23,12 @@ export default function Research() {
         <header className="mt-12">
           <h1 className="text-[1.75rem]">Research</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            The pipeline runs questions → hypotheses → experiments →
-            observations → findings. Pre-registered-but-unrun experiments are
-            content, not embarrassment. The discipline&apos;s first job is
-            testing its own premise — see H-1.
+            Every project starts with a question. If the question survives
+            scrutiny, it becomes a hypothesis — then an experiment we can run.
+            Observations accumulate from there; findings come last, if they
+            come at all. An experiment we have registered but not yet run
+            still belongs here. And the first thing we test is our own
+            premise — see H-1.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>

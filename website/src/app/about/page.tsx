@@ -25,11 +25,11 @@ export default function About() {
           </p>
           <h1 className="mt-3 text-[1.75rem]">What is Upstream Zero?</h1>
           <p className="measure mt-4 text-[1.05rem]">
-            Upstream Zero is a research company studying{" "}
-            <Link href="/concepts/commercial-evaluation">commercial evaluation</Link> —
-            how organizations are assessed, recommended, validated, and
-            eliminated before they are selected. It exists because the
-            discipline comes first: the institution is simply who conducts it.
+            Every company is assessed, recommended, validated, and ruled out
+            before it is selected. Studying how that happens is{" "}
+            <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
+            and it is the work Upstream Zero exists to do. The work comes
+            first. Upstream Zero is the institution conducting it.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -37,10 +37,10 @@ export default function About() {
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What kind of organization</h2>
           <p className="measure mt-2 text-[0.98rem]">
-            Today, honestly, an <strong>observatory</strong>: it discovers.
-            The institute organizes and the laboratory measures come later,
-            and it claims only the stage it has earned. Why that sequence, and
-            why it publishes its own uncertainty, is the{" "}
+            Today it is an <strong>observatory</strong>: it discovers. The
+            institute that organizes and the laboratory that measures come
+            later — it claims only the stage it has earned. Why that sequence,
+            and why it publishes its own uncertainty, is the{" "}
             <Link href="/philosophy">Philosophy</Link>.
           </p>
         </section>
@@ -48,11 +48,11 @@ export default function About() {
         <section className="mt-8">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it studies</h2>
           <p className="measure mt-2 text-[0.98rem]">
-            Commercial evaluation — the discipline — and the invariant beneath
-            it, <Link href="/concepts/requirements">requirements</Link>. Models
-            and interfaces change; the requirements a buyer must see satisfied
-            persist, which is what makes the process worth an observatory. The
-            open questions it is pointed at live in{" "}
+            Commercial evaluation, and the enduring structure beneath it —{" "}
+            <Link href="/concepts/requirements">requirements</Link>. Models
+            change and interfaces change. The requirements a buyer needs
+            satisfied don't. That persistence is what makes the work worth an
+            observatory. The open questions it is pointed at live in{" "}
             <Link href="/research">Research</Link>.
           </p>
         </section>
@@ -64,9 +64,8 @@ export default function About() {
             hypotheses, experiments, methods, and (as they accrue)
             observations and findings. Every claim carries an{" "}
             <Link href="/concepts/evidence-tier">evidence tier</Link> and is
-            never shown above it. The evidence is public; the machinery that
-            produces it is not. Start at the{" "}
-            <Link href="/claims">Claims Ledger</Link>.
+            never shown above it. The evidence is public. How we produce it is
+            not. Start at the <Link href="/claims">Claims Ledger</Link>.
           </p>
         </section>
 
@@ -88,8 +87,8 @@ export default function About() {
             <strong>not</strong> a software company selling a product. It does
             not promise better rankings, recommendations, visibility, or
             selection. It measures evaluation; it does not sell standing with
-            evaluators. The distinction, and why it is enforced structurally,
-            is in the <Link href="/faq">FAQ</Link> and on{" "}
+            evaluators. Why the build itself enforces that line is in the{" "}
+            <Link href="/faq">FAQ</Link> and on{" "}
             <Link href="/services">Services</Link>.
           </p>
         </section>

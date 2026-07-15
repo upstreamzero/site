@@ -41,8 +41,8 @@ export default function Methods() {
             ))}
           </ol>
           <p className="measure mt-3 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            The order is settled. The operational definitions are not — see
-            M-1 below.
+            The order is settled. What each tier requires is not — see M-1
+            below.
           </p>
         </section>
 
@@ -57,11 +57,11 @@ export default function Methods() {
             ))}
           </ul>
           <FounderDecision id="FD-1">
-            M-1&apos;s operational tier definitions — what qualifies a claim
-            for each tier, how many runs constitute replication, what counts
-            as real-world corroboration — are a founder decision under active
-            development. Until they exist, every claim on this site is
-            presented at Narrated.
+            M-1&apos;s tier definitions — what qualifies a claim for each tier,
+            how many runs count as replication, what counts as real-world
+            corroboration — are a founder decision, still being worked out.
+            Until they exist, every claim on this site is presented at
+            Narrated.
           </FounderDecision>
         </section>
 

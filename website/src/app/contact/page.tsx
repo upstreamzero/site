@@ -19,8 +19,8 @@ export default function Contact() {
 
         <section className="mt-8 max-w-[62ch]">
           <p>
-            No forms, no qualification theater, no calendar ambush. A first
-            conversation covers three things:
+            A first conversation covers three things. There is no form and no
+            funnel — just the conversation:
           </p>
           <ul className="mt-4 list-none space-y-3 p-0">
             <li className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
