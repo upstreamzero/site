@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { byId, byType, inventory } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { TierScale } from "@/components/TierScale";
@@ -10,7 +11,10 @@ import {
   FDInline,
 } from "@/components/ResolvedQuestion";
 
-export const metadata: Metadata = { title: "Philosophy" };
+export const metadata: Metadata = {
+  title: "Philosophy",
+  ...pageMeta("/philosophy"),
+};
 
 /** Question-native rendering, V1 (docs/RENDERING_MODEL.md).
  *  Humans arrive with questions; the graph answers them quietly.
@@ -52,6 +56,7 @@ export default function Philosophy() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    url: "https://upstreamzero.com/philosophy",
     description:
       "Editorial-navigation questions: written by Upstream Zero to help humans navigate its knowledge. Not claimed as observed commercial or market questions; excluded from all market-question coverage metrics. Classification: editorial-navigation (Question Observatory architecture, sourceClass discipline).",
     mainEntity: QA_PLAIN.map((x) => ({

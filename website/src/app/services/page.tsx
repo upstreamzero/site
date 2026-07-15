@@ -1,11 +1,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { EmptyState } from "@/components/EmptyState";
 import { FounderDecision } from "@/components/FounderDecision";
 
-export const metadata: Metadata = { title: "Services" };
+export const metadata: Metadata = {
+  title: "Services",
+  ...pageMeta("/services"),
+};
 
 export default function Services() {
   const capabilities = byType("capability");

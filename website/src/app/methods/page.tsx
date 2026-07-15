@@ -1,12 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { EmptyState } from "@/components/EmptyState";
 import { FounderDecision } from "@/components/FounderDecision";
 import { TIERS } from "@/lib/schema";
 
-export const metadata: Metadata = { title: "Methods" };
+export const metadata: Metadata = {
+  title: "Methods",
+  ...pageMeta("/methods"),
+};
 
 export default function Methods() {
   const methods = byType("method");

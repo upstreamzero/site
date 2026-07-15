@@ -1,7 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { byType, inventory, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { TierScale } from "@/components/TierScale";
+
+export const metadata: Metadata = pageMeta("/");
 
 export default function Observatory() {
   const inv = inventory();

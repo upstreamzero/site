@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { FounderDecision } from "@/components/FounderDecision";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = {
+  title: "Contact",
+  ...pageMeta("/contact"),
+};
 
 export default function Contact() {
   return (

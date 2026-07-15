@@ -1,10 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { TierScale } from "@/components/TierScale";
 
-export const metadata: Metadata = { title: "Claims" };
+export const metadata: Metadata = {
+  title: "Claims",
+  ...pageMeta("/claims"),
+};
 
 export default function Claims() {
   const claims = byType("claim");

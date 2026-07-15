@@ -3,6 +3,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://upstreamzero.com"),
   title: {
     default: "Upstream Zero — Commercial Evaluation Observatory",
     template: "%s · Upstream Zero",

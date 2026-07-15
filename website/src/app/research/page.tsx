@@ -1,10 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { EmptyState } from "@/components/EmptyState";
 
-export const metadata: Metadata = { title: "Research" };
+export const metadata: Metadata = {
+  title: "Research",
+  ...pageMeta("/research"),
+};
 
 export default function Research() {
   const questions = byType("question");
