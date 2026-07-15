@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "node ../scripts/check-staging-safety.mjs"
+    "prebuild": "node scripts/check-staging-safety.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

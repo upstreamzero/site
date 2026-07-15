@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 /**
  * Safety check: fails the build if private staging or sensitive files are
- * TRACKED by git. Runs as `prebuild` for the website (locally and in
- * Cloudflare Pages CI), so an accidental commit of runs/ can never reach
- * a deployment — the build that would publish it fails instead.
+ * TRACKED by git. Runs as the website `prebuild` (locally and in Cloudflare
+ * Pages CI), so an accidental commit of private artifacts can never reach a
+ * deployment — the build that would publish it fails instead.
+ *
+ * Lives inside website/ so the public repo builds standalone, with no
+ * dependency on the private operations repository. It scans the whole repo
+ * (cwd = repo root = website/..).
  */
 import { execSync } from "node:child_process";
 
@@ -25,7 +29,7 @@ const FORBIDDEN_PATTERNS = [
 let tracked;
 try {
   tracked = execSync("git ls-files", {
-    cwd: new URL("..", import.meta.url).pathname,
+    cwd: new URL("../..", import.meta.url).pathname,
     encoding: "utf8",
   })
     .split("\n")

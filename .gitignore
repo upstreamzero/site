@@ -14,12 +14,39 @@ website/next-env.d.ts
 # Raw experiment evidence lives in runs/ until founder-approved artifacts
 # are deliberately copied into content/. Enforced additionally by the
 # pre-commit hook (scripts/git-hooks/pre-commit) and the prebuild safety
-# check (scripts/check-staging-safety.mjs). Do not weaken this section.
+# check (website/scripts/check-staging-safety.mjs). Do not weaken this section.
 runs/
 backups/
+*.uzenc
 # fixture protocol trees are synthetic test data — never committed
 protocol/EXP-TEST/
 protocol/*FIXTURE*/
+
+# ── LAYER B — PRIVATE OPERATING SYSTEM (lives in upstreamzero/operations) ──
+# Extracted 2026-07-15 (docs/CHANGELOG.md). These paths must never return
+# to the public repository. Public science, private operations.
+/package.json
+scripts/experiment/
+scripts/prepare-publication.mjs
+scripts/validate-manifest.mjs
+scripts/templates/
+protocol/
+# private planning & operational documentation
+docs/EXPERIMENT_PIPELINE_V1.md
+docs/EXP-0002_PROTOCOL.md
+docs/ARCHITECTURE_REVIEW_V1.md
+docs/WEBSITE_BUYER_REVISION_V1.md
+docs/QUESTION_OBSERVATORY.md
+docs/RENDERING_MODEL.md
+docs/REQUIREMENTS_AS_CENTER.md
+docs/THE_INVARIANT.md
+docs/REPOSITORY_INTEGRATION_PLAN.md
+docs/FRICTION_LOG.md
+docs/DESIGN_LANGUAGE.md
+docs/DESIGN_SYSTEM.md
+docs/IDENTITY_SPACE.md
+docs/VISUAL_IDENTITY.md
+references/visual-notes.md
 
 # sensitive artifacts — never committed regardless of location
 .env
