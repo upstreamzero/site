@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-/** The question-native rendering model, V1 (docs/RENDERING_MODEL.md).
+/** The question-native rendering model, V1.
  *
  *  The atomic unit of the human-facing site is a RESOLVED QUESTION:
  *  question → direct answer in the first sentence → explanation →

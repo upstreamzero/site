@@ -19,7 +19,7 @@ function RailEntry({ label, children }: { label: string; children: React.ReactNo
 
 /** The shared object renderer: title, datum, apparatus rail, body,
  *  commercial-relevance block, provenance footer. One geometry for all
- *  seventeen types (FRICTION_LOG FR-5 records the route-file tax). */
+ *  seventeen types. */
 export function ObjectPage({ obj }: { obj: UZObject }) {
   const incoming = backEdges(obj.id);
   return (

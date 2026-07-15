@@ -2,7 +2,7 @@ export const dynamic = "force-static";
 import { publicObjects, urlFor } from "@/lib/content";
 import { TIERS, EDGE_RELS, TYPES } from "@/lib/schema";
 
-/** The full typed PUBLIC graph in one export (IA §4.4). Draft and
+/** The full typed PUBLIC graph in one export. Draft and
  *  approved-but-unpublished objects never appear here. */
 export async function GET() {
   const objects = publicObjects().map((o) => {

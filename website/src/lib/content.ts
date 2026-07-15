@@ -12,8 +12,8 @@ import {
 
 /**
  * Content lives OUTSIDE the app root, at <repo>/content — the website is
- * one rendering of the company's knowledge, not its container (IA §0).
- * See FRICTION_LOG.md FR-7 for the dev-reload cost of this choice.
+ * one rendering of the company's knowledge, not its container. (This
+ * choice has a dev-reload cost.)
  */
 const CONTENT_DIR = [
   path.resolve(process.cwd(), "..", "content"),
@@ -50,7 +50,7 @@ const RESEARCH = new Set<string>(RESEARCH_TYPES);
 let cache: Map<string, UZObject> | null = null;
 
 /** Load, validate, and cross-check the whole graph. Throws on violation:
- *  the operating system as a compiler error (IA §7). */
+ *  the operating system as a compiler error. */
 export function loadGraph(): Map<string, UZObject> {
   if (cache) return cache;
   const objects = new Map<string, UZObject>();
@@ -87,7 +87,7 @@ export function loadGraph(): Map<string, UZObject> {
     }
   }
 
-  // ── Graph rules (IA §3.5, §5) — build fails on violation ──
+  // ── Graph rules — build fails on violation ──
   for (const obj of objects.values()) {
     for (const edge of obj.edges) {
       const target = objects.get(edge.to);
@@ -103,7 +103,7 @@ export function loadGraph(): Map<string, UZObject> {
     }
 
     // Tier floor: a claim with no supporting evidence is Narrated. Full
-    // stop. (Untested by real evidence at N=0 — FRICTION_LOG FR-6.)
+    // stop. (Untested by real evidence at N=0.)
     if (obj.type === "claim") {
       const hasSupport = obj.edges.some((e) => e.rel === "supports");
       const supported = [...objects.values()].some((o) =>
@@ -176,7 +176,7 @@ export function byId(
   return o;
 }
 
-/** Back-edges: who points at this object (IA §3.6 derivation symmetry).
+/** Back-edges: who points at this object.
  *  Public referencing objects only — rendering surface. */
 export function backEdges(id: string): { from: UZObject; rel: string }[] {
   const out: { from: UZObject; rel: string }[] = [];
@@ -204,7 +204,7 @@ export function inventory() {
   };
 }
 
-/** Object URL (FRICTION_LOG FR-2: machine rendering lives at /objects/{id}). */
+/** Object URL — machine rendering lives at /objects/{id}. */
 export function urlFor(obj: UZObject): string {
   return `/${TYPE_TO_DIR[obj.type]}/${obj.id}`;
 }

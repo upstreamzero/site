@@ -1,7 +1,7 @@
 export const dynamic = "force-static";
 import { inventory } from "@/lib/content";
 
-/** Orientation for machine readers (IA §4.4). */
+/** Orientation for machine readers. */
 export async function GET() {
   const inv = inventory();
   const text = `# Upstream Zero — Commercial Evaluation Observatory

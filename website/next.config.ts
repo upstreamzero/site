@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Fully static export: the whole graph is knowable at build time
-  // (IA §6 — static rendering), and Cloudflare Pages serves it as files.
+  // (static rendering), and Cloudflare Pages serves it as files.
   output: "export",
 };
 

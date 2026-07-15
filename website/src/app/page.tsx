@@ -214,7 +214,7 @@ export default function Observatory() {
           </p>
         </section>
 
-        {/* the company, acknowledged plainly (IA §5) */}
+        {/* the company, acknowledged plainly */}
         <section className="mt-8 max-w-[62ch] border p-5" style={{ borderColor: "var(--ink-18)" }}>
           <p className="m-0" style={{ color: "var(--ink-60)" }}>
             Upstream Zero works with organizations navigating AI-mediated

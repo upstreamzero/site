@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-/** The evidence hierarchy (HOW_WE_WORK.md), lowest to highest. */
+/** The evidence hierarchy, lowest to highest. */
 export const TIERS = [
   "Narrated",
   "Observed",
@@ -11,7 +11,7 @@ export const TIERS = [
 ] as const;
 export type Tier = (typeof TIERS)[number];
 
-/** Object types (INFORMATION_ARCHITECTURE.md §2–3). */
+/** Object types. */
 export const RESEARCH_TYPES = [
   "claim",
   "question",
@@ -36,11 +36,12 @@ export const COMMERCIAL_TYPES = [
 export const TYPES = [...RESEARCH_TYPES, ...COMMERCIAL_TYPES] as const;
 export type ObjectType = (typeof TYPES)[number];
 
-/** Closed edge vocabulary (IA §4.2). Extending it is a Method revision.
+/** Closed edge vocabulary — this list is the authoritative source, and
+ *  extending it is a Method revision (see docs/CHANGELOG.md).
  *  Method revisions:
  *   - 2026-07-15: added `observes` — the discipline→invariant relation
  *     (a concept that studies an enduring structure, e.g. commercial
- *     evaluation observes requirements). See docs/CHANGELOG.md. */
+ *     evaluation observes requirements). */
 export const EDGE_RELS = [
   "supports",
   "weakens",
@@ -79,7 +80,7 @@ export const commercialRelevanceSchema = z.object({
   currentConfidence: z.string(),
 });
 
-/** The common envelope (IA §4.1) plus type-specific optionals. */
+/** The common envelope plus type-specific optionals. */
 export const objectSchema = z.object({
   id: z.string().min(1),
   type: z.enum(TYPES),
@@ -95,10 +96,10 @@ export const objectSchema = z.object({
   // Capability only
   maturity: z.enum(["experimental", "operational"]).optional(),
 
-  // Research objects may carry the translation block (IA §3.6)
+  // Research objects may carry the translation block
   commercialRelevance: commercialRelevanceSchema.optional(),
 
-  // Observation only: the epistemically loaded type (IA §2.4)
+  // Observation only: the epistemically loaded type
   observationType: z.enum(["behavioral", "rationale"]).optional(),
 
   // Question only
@@ -108,7 +109,7 @@ export const objectSchema = z.object({
   predictions: z.array(z.string()).optional(),
   refutationConditions: z.array(z.string()).optional(),
 
-  // Engagement only (IA §3.2: promises are deliverables, never outcomes)
+  // Engagement only: promises are deliverables, never outcomes
   serves: z.string().optional(),
   requiresFromClient: z.string().optional(),
   nonPromises: z.array(z.string()).optional(),
@@ -116,11 +117,10 @@ export const objectSchema = z.object({
   // Founder-decision gating: visible placeholder, never silent fill
   founderDecision: z.string().optional(),
 
-  // Publication lifecycle (docs/EXPERIMENT_PIPELINE_V1.md). Only
-  // "published" and "superseded" objects enter the public graph, pages,
-  // sitemap, JSON, and counts. Existing objects default to "published".
-  // Sensitive raw evidence stays outside git entirely — never committed
-  // as "draft".
+  // Publication lifecycle. Only "published" and "superseded" objects
+  // enter the public graph, pages, sitemap, JSON, and counts. Existing
+  // objects default to "published". Sensitive raw evidence stays outside
+  // git entirely — never committed as "draft".
   pubState: z
     .enum(["draft", "approved", "published", "superseded"])
     .default("published"),

@@ -49,7 +49,7 @@ export function SiteHeader() {
   );
 }
 
-/** Every page ends with its instrument stamp (DESIGN_LANGUAGE §6). */
+/** Every page ends with its instrument stamp. */
 export function ProvenanceFooter({
   renderedFrom,
   machineUrl,

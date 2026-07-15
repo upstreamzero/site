@@ -3,8 +3,7 @@ import { byId, byType, backEdges, urlFor } from "@/lib/content";
 import { TYPES } from "@/lib/schema";
 
 /** Machine rendering of any object: the full envelope, traversable by
- *  following URLs. See FRICTION_LOG FR-2 for why this lives at
- *  /objects/{id} rather than {url}.json. */
+ *  following URLs. Lives at /objects/{id} rather than {url}.json. */
 export async function generateStaticParams() {
   return TYPES.flatMap((t) => byType(t).map((o) => ({ id: o.id })));
 }

@@ -13,7 +13,7 @@ import { pageMeta } from "./meta";
  *  passes, and first publication Just Works with no 404s. */
 const EMPTY_SENTINEL = "none-published-yet";
 
-/** One factory for all flat-by-type object routes (FRICTION_LOG FR-5). */
+/** One factory for all flat-by-type object routes. */
 export function makeObjectRoute(type: ObjectType) {
   async function Page({ params }: { params: Promise<{ id: string }> }) {
     const { id: rawId } = await params;
@@ -30,8 +30,7 @@ export function makeObjectRoute(type: ObjectType) {
           <EmptyState>
             This register exists and is wired into the graph, the machine
             layer, and the sitemap — it is simply empty. Objects appear
-            here only after founder-approved publication
-            (docs/EXPERIMENT_PIPELINE_V1.md).
+            here only after founder-approved publication.
           </EmptyState>
         </main>
       );

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ── Upstream Zero tokens (DESIGN_SYSTEM.md §4) ─────────────────────── */
+/* ── Upstream Zero tokens ─────────────────────── */
 :root {
   --paper: #fafaf7;
   --ink: #1a1a18;
@@ -50,7 +50,7 @@ body {
   line-height: 1.65;
 }
 
-/* The apparatus voice (DESIGN_LANGUAGE §3) */
+/* The apparatus voice */
 .voice-mono {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -64,7 +64,7 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Links: ink, hairline underline (DESIGN_SYSTEM §4) */
+/* Links: ink, hairline underline */
 a {
   color: var(--ink);
   text-decoration: underline;

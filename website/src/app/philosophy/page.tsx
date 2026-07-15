@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ...pageMeta("/philosophy"),
 };
 
-/** Question-native rendering, V1 (docs/RENDERING_MODEL.md).
+/** Question-native rendering, V1.
  *  Humans arrive with questions; the graph answers them quietly.
  *  Plain-text answers below feed the machine-readable Q&A block. */
 const QA_PLAIN: { q: string; a: string }[] = [

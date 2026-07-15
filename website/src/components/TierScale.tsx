@@ -1,6 +1,6 @@
 import { TIERS, type Tier } from "@/lib/schema";
 
-/** The graduated tier scale (DESIGN_SYSTEM §6): earned positions solid,
+/** The graduated tier scale: earned positions solid,
  *  unearned outlined. Always labeled — instruments are labeled. */
 export function TierScale({ tier }: { tier: Tier }) {
   const idx = TIERS.indexOf(tier);

@@ -1,4 +1,4 @@
-/** The mark — origin composition (DESIGN_SYSTEM.md §1, R-39..R-47).
+/** The mark — origin composition.
  *  The zero at the origin; the datum flowing downstream. Never tilted,
  *  never broken, never filled, never red. */
 export function Mark({ height = 28 }: { height?: number }) {

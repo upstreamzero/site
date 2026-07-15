@@ -1,4 +1,4 @@
-/** The N=0 register: a designed truth, not an apology (DESIGN_SYSTEM §8). */
+/** The N=0 register: a designed truth, not an apology. */
 export function EmptyState({ children }: { children: React.ReactNode }) {
   return (
     <div
