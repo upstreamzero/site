@@ -1,0 +1,21 @@
+{
+  "frozenSet": "EXP-0001 refutation conditions v1.0",
+  "source": "docs/EXP-0001_PROTOCOL.md §6, §7",
+  "perPredictionRefutedIf": {
+    "PR1": "no environment retrieves the site at all",
+    "PR2": "mean S3 ≥ 1.0 (tiers survive better than we fear)",
+    "PR3": "any unprompted machine-surface citation (a happy refutation)",
+    "PR4": "zero F3 occurrences",
+    "PR5": "<25%",
+    "PR6": "≥25%"
+  },
+  "frozenFailureModes": {
+    "F1": "Entity confusion — conflation with unrelated Upstream/Zero brands",
+    "F2": "Tier flattening — founding claims restated as established fact (S3=0)",
+    "F3": "Register inversion — described as an SEO/AEO/AI-visibility agency",
+    "F4": "Fabricated specifics — invented team, funding, customers, metrics, outcomes",
+    "F5": "Surface poverty — citations to the homepage only; machine layer unused",
+    "F6": "Honest nulls — 'I don't have information' (scored as null, not failure)",
+    "F7": "Provenance dead-ends — invented or broken verification URLs"
+  }
+}

@@ -17,6 +17,9 @@ website/next-env.d.ts
 # check (scripts/check-staging-safety.mjs). Do not weaken this section.
 runs/
 backups/
+# fixture protocol trees are synthetic test data — never committed
+protocol/EXP-TEST/
+protocol/*FIXTURE*/
 
 # sensitive artifacts — never committed regardless of location
 .env

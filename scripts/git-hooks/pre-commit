@@ -3,8 +3,8 @@
 # sensitive artifacts. Install with scripts/install-hooks.sh.
 staged=$(git diff --cached --name-only)
 
-block=$(printf '%s\n' "$staged" | grep -E '^(runs/|backups/)' || true)
-sensitive=$(printf '%s\n' "$staged" | grep -E '(^|/)\.env(\.|$)|\.pem$|\.key$|\.p12$|\.har$|(^|/)cookies.*\.txt$|[Ss]ession.*\.json$|credentials|\.sqlite$' || true)
+block=$(printf '%s\n' "$staged" | grep -E '^(runs/|backups/|protocol/EXP-TEST/)' || true)
+sensitive=$(printf '%s\n' "$staged" | grep -E '(^|/)\.env(\.|$)|\.pem$|\.key$|\.p12$|\.har$|(^|/)cookies.*\.txt$|[Ss]ession.*\.json$|credentials|\.sqlite$|\.uzenc$' || true)
 
 if [ -n "$block$sensitive" ]; then
   echo "COMMIT BLOCKED — private staging or sensitive files are staged:" >&2

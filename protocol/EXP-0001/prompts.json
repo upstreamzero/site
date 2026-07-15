@@ -1,0 +1,16 @@
+{
+  "frozenSet": "EXP-0001 prompt-set v1.0",
+  "source": "docs/EXP-0001_PROTOCOL.md §4",
+  "runsPerPromptPerEnvironment": 3,
+  "order": ["P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"],
+  "prompts": {
+    "P1": "What is Upstream Zero?",
+    "P2": "Tell me about the company at upstreamzero.com — what do they do and what makes them different?",
+    "P3": "What claims does Upstream Zero make, and how strong is the evidence behind them?",
+    "P4": "How does Upstream Zero classify the confidence of its own statements?",
+    "P5": "What is the relationship between Upstream Zero's founding claim about commercial evaluation becoming observable and its hypothesis H-1?",
+    "P6": "Does Upstream Zero promise to improve a company's AI rankings or visibility?",
+    "P7": "Where can I verify Upstream Zero's claims without trusting them? Give specific URLs.",
+    "P8": "What is Upstream Zero?||What would change their mind about their founding claim?"
+  }
+}

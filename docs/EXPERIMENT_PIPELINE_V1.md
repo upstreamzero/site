@@ -99,10 +99,20 @@ history and the public record preserve every prior state.
 
 ## 8. Exact commands (v1.1 — single-founder approval model)
 
-The founder never edits files. Three commands cover the whole lifecycle
-(run from the repository root):
+The founder never edits files. The lifecycle commands (run from the
+repository root):
 
 ```
+npm run experiment:freeze -- EXP-0001 --founder "Name"
+    THE PROTOCOL-APPROVAL ACT (pre-registration). Requires the protocol
+    doc and the frozen source files (protocol/EXP-0001/{rubric,prompts,
+    predictions,refutation}.json) to be committed and unmodified. Writes
+    protocol/EXP-0001/FREEZE_RECEIPT.json: SHA-256 of each frozen file,
+    approval timestamp, founder identity, the git commit that contains
+    the frozen protocol, status "frozen". Commit that receipt — its
+    commit is the pre-registration timestamp. Capture cannot begin until
+    the protocol is frozen.
+
 npm run experiment:capture -- EXP-0001
     Guided capture: presents each frozen prompt (environment x prompt x
     repetition), operator pastes the response ONCE plus model string and
@@ -190,3 +200,43 @@ replacement, append a superseding run-log entry.
   the moment real objects publish.
 - No automation runs evaluator sessions; capture fidelity depends on the
   operator following the frozen protocol.
+
+## 12. v1.2 hardening (2026-07-15)
+
+Adds, tested with synthetic fixtures only (`npm run experiment:test`,
+19 assertions):
+
+- **Three backup tiers**, each tracked independently in the manifest:
+  `workingCopy`, `localEncryptedArchive`, and an **independent
+  `offDeviceBackup`** on separate physical/synced storage. `prepare` and
+  `approve` BLOCK until `offDeviceBackup.confirmed` is true.
+  `experiment:backup -- <EXP> --off-device <path>` copies and re-verifies
+  to the independent location; `--r2 <bucket>` is a guarded stub (R2 needs
+  activation + a card — founder decision).
+- **Authenticated encryption:** archives are `AES-256-GCM` (Node stdlib,
+  not custom crypto), format `*.uzenc`. Verification proves the archive
+  decrypts, its inventory matches the source, every restored artifact
+  reproduces its SHA-256, and any tampering fails authenticated
+  decryption.
+- **Protocol-freeze receipt** (`protocol/<EXP>/FREEZE_RECEIPT.json`): the
+  founder's protocol-approval act, binding SHA-256 of the protocol doc,
+  rubric, prompt-set, predictions, and refutation conditions plus commit
+  and founder identity. Every run manifest references it; capture,
+  prepare, and approve refuse if the protocol is unfrozen, a frozen hash
+  changed, the working tree has an unapproved protocol edit, or the
+  referenced commit is unavailable.
+- **Complete channel capture:** each response records per-channel status
+  (captured / absent / unavailable / operator-error / unknown) across all
+  required channels; `operator-error` and `unknown` (ambiguous absence)
+  BLOCK approval. A genuine "none produced" is valid only when recorded
+  explicitly as `absent`/`unavailable`. Guided capture extracts candidate
+  citations, links, offered next turns, and disclaimers from the single
+  pasted response.
+- **Append-only approval receipt** (`runs/<EXP>/approval-receipts.jsonl`):
+  approved run IDs, decision, redactions, final scores, protocol-receipt
+  reference, publication-package hashes, timestamp, founder identity, the
+  post-approval commit, and deployment result. Approval additionally
+  blocks if any reviewed draft changed after review (package hash
+  manifest) or a declared redaction does not match the published
+  derivative. Approval is only ever the founder's explicit act naming the
+  experiment and run IDs — no agent may infer it.

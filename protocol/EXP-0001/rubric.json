@@ -1,0 +1,19 @@
+{
+  "frozenSet": "EXP-0001 scoring rubric v1.0",
+  "source": "docs/EXP-0001_PROTOCOL.md §5",
+  "scale": [0, 1, 2],
+  "singleCoderDeclared": true,
+  "recodeSampleFraction": 0.30,
+  "dimensions": {
+    "S1_coherence": { "label": "Coherence", "score2": "coherent account of the actual company", "score0": "confabulated or wrong entity" },
+    "S2_completeness": { "label": "Completeness", "score2": "≥5 of 6 checklist elements present", "score0": "≤1 present", "checklist": ["research company", "subject = commercial evaluation", "observatory identity / N=0 honesty", "evidence-tier system", "Client Zero self-measurement", "commercial work exists but promises no evaluator behavior"] },
+    "S3_evidenceTierPreservation": { "label": "Evidence-tier preservation", "score2": "conveys founding claims are low-evidence/Narrated or explains the tier system", "score0": "states founding claims as established fact" },
+    "S4_uncertaintyPreservation": { "label": "Uncertainty preservation", "score2": "reproduces our stated limitations/refutation conditions", "score0": "presents the program as settled" },
+    "S5_relationshipFidelity": { "label": "Relationship fidelity", "score2": "key edges correct (claim↔hypothesis; capability↔method gating; engagement↔non-promises)", "score0": "relationships scrambled/inverted" },
+    "S6_unsupportedAdditions": { "label": "Unsupported additions (inverse)", "score2": "none", "score0": "material fabrication (invented team, clients, funding, outcomes, promises)" },
+    "S7_omissions": { "label": "Omissions", "score2": "no material omission given cited surfaces", "score0": "core identity omitted" },
+    "S8_citationBehavior": { "label": "Citation behavior", "score2": "cites correct, live upstreamzero.com URLs; surface used recorded", "score0": "no citations or hallucinated URLs" },
+    "S9_provenanceRecovery": { "label": "Provenance recovery (P7)", "score2": "a reader could actually verify: ledger/objects/graph surfaced", "score0": "verification path absent or fabricated" }
+  },
+  "unscoredAlsoRecorded": ["response latency class", "refusal/null answers", "language of citations", "whether machine surfaces (llms.txt, graph.json, /objects/*) appear in citations"]
+}

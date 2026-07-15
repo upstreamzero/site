@@ -15,6 +15,7 @@ import path from "node:path";
 import {
   ROOT, loadConfig, loadManifest, saveManifest, runsDir,
   nextObjectId, sensitiveScan, nowIso, validateManifest, sha256,
+  backupFullyConfirmed, CHANNELS, BLOCKING_CHANNEL_STATUS, verifyFrozen,
 } from "./lib.mjs";
 
 const expId = process.argv[2];
@@ -23,7 +24,20 @@ const cfg = await loadConfig(expId);
 const base = runsDir(expId);
 const m = loadManifest(expId);
 validateManifest(expId);
-if (!m.backup.confirmed) { console.error("BLOCKED: backup not confirmed."); process.exit(1); }
+
+// protocol must still be frozen and unaltered
+const fz = verifyFrozen(expId, { fixture: Boolean(cfg.fixture) });
+if (!fz.ok) { console.error("BLOCKED — protocol freeze check failed:\n" + fz.errors.map((e) => "  - " + e).join("\n")); process.exit(1); }
+
+// all three backup tiers, including the INDEPENDENT off-device copy
+if (!backupFullyConfirmed(m)) {
+  const b = m.backup ?? {};
+  console.error("BLOCKED — backup not fully confirmed:\n"
+    + `  - workingCopy: ${b.workingCopy?.confirmed ? "ok" : "MISSING"}\n`
+    + `  - localEncryptedArchive: ${b.localEncryptedArchive?.confirmed ? "ok" : "MISSING"}\n`
+    + `  - offDeviceBackup: ${b.offDeviceBackup?.confirmed ? "ok" : "MISSING — run: npm run experiment:backup -- " + expId + " --off-device <independent path>"}`);
+  process.exit(1);
+}
 const runs = m.runs.filter((r) => ["captured", "scored", "reviewed"].includes(r.reviewStatus));
 if (!runs.length) { console.error("no runs to prepare"); process.exit(1); }
 
@@ -86,8 +100,13 @@ for (const r of runs) {
   const meta = JSON.parse(fs.readFileSync(path.join(base, `metadata/${r.runId}.json`), "utf8"));
   const scores = draftScore(raw, meta.citations ?? []);
   const flags = [];
-  if (!r.evaluatorReportedModel || r.evaluatorReportedModel === "(not reported)")
-    flags.push("missing evaluator model string");
+  // channel-capture status: operator-error / unknown are BLOCKING
+  const channels = r.channels ?? {};
+  for (const name of CHANNELS) {
+    const st = channels[name]?.status ?? "unknown";
+    if (BLOCKING_CHANNEL_STATUS.includes(st))
+      flags.push(`BLOCKING channel "${name}" is "${st}" — resolve before approval (operator-error or ambiguous absence)`);
+  }
   if (r.knownDeviations.length) flags.push(`protocol deviations: ${r.knownDeviations.join("; ")}`);
   for (const h of sensitiveScan(raw))
     flags.push(`possible sensitive content: ${h.label} (${h.examples.join(", ")})`);
@@ -186,6 +205,14 @@ for (const p of proposals) {
     `- model: ${p.run.evaluatorReportedModel} · ${p.run.runDateTimeUtc} · exposure: ${p.run.exposureClassification}`,
     `- citations: ${p.meta.citations?.join(", ") || "(none)"}`,
     `- offered next turns: ${p.meta.offeredNextTurns?.join(" || ") || "(none)"}`,
+    `- disclaimers: ${p.meta.disclaimers?.join(" · ") || "(none)"}`,
+    "",
+    `**Evidence-channel capture status:**`,
+    ...CHANNELS.map((name) => {
+      const c = p.run.channels?.[name] ?? { status: "unknown" };
+      const blocking = BLOCKING_CHANNEL_STATUS.includes(c.status) ? " ⚑" : "";
+      return `- ${name}: **${c.status}**${blocking}`;
+    }),
     "", "> " + fs.readFileSync(path.join(base, p.run.rawOutputFile), "utf8").trim().split("\n").join("\n> "), "",
     `### 2 · AGENT-PROPOSED CODING (heuristic drafts — your judgment required)`,
     ...Object.entries(p.scores).map(([k, v]) =>
@@ -217,6 +244,31 @@ fs.writeFileSync(path.join(pkg, "REVIEW.html"),
   .flag{color:#b5432a} hr{border:0;border-top:1px solid rgba(26,26,24,.18);margin:2.5rem 0}
   </style><pre style="white-space:pre-wrap;font-family:inherit">${esc(md.join("\n"))}</pre>`);
 
+// ── package hash manifest: binds the exact reviewed drafts so approval
+//    can detect any change made after review but before approval ──
+function hashTree(dir) {
+  const out = {};
+  (function walk(d) {
+    for (const f of fs.readdirSync(d)) {
+      const p = path.join(d, f);
+      if (fs.statSync(p).isDirectory()) walk(p);
+      else out[path.relative(pkg, p)] = sha256(p);
+    }
+  })(dir);
+  return out;
+}
+const packageManifest = {
+  preparedAt: nowIso(),
+  protocolReceiptSha256: fz.receiptSha256,
+  files: hashTree(pkg),
+};
+fs.writeFileSync(path.join(pkg, "package-manifest.json"),
+  JSON.stringify(packageManifest, null, 2));
+// the package-manifest hashes itself out (it is written last, after hashing)
+packageManifest.selfExcluded = true;
+
 console.log(`review package ready: runs/${expId}/publication-package/`);
 console.log(`  REVIEW.md / REVIEW.html · ${proposals.length} runs · drafts for ${proposals.length} observations + ${proposals.length} evidence objects`);
+const blocking = proposals.flatMap((p) => p.flags.filter((f) => f.startsWith("BLOCKING")));
+if (blocking.length) console.log(`  ⚑ ${blocking.length} BLOCKING channel issue(s) — approval will refuse until resolved.`);
 console.log("NOTHING has been published. Founder approval command is printed inside REVIEW.md.");

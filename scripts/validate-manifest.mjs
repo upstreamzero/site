@@ -24,10 +24,18 @@ const errs = [];
 const REVIEW = ["captured", "scored", "reviewed", "approved", "rejected"];
 const PUB = ["unpublished", "published"];
 
-if (m.manifestVersion !== 1) errs.push("manifestVersion must be 1");
+if (m.manifestVersion !== 2) errs.push("manifestVersion must be 2");
 if (!m.experimentId) errs.push("experimentId missing");
-if (!m.backup || typeof m.backup.confirmed !== "boolean")
-  errs.push("backup.confirmed missing");
+
+const tier = (name) => m.backup?.[name]?.confirmed === true;
+for (const t of ["workingCopy", "localEncryptedArchive", "offDeviceBackup"])
+  if (!m.backup || typeof m.backup[t]?.confirmed !== "boolean")
+    errs.push(`backup.${t}.confirmed missing`);
+const backupFullyConfirmed =
+  tier("workingCopy") && tier("localEncryptedArchive") && tier("offDeviceBackup");
+if (m.backup?.localEncryptedArchive?.confirmed &&
+    m.backup.localEncryptedArchive.method !== "AES-256-GCM")
+  errs.push("localEncryptedArchive.method must be AES-256-GCM (authenticated encryption)");
 
 const sha256 = (p) =>
   crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex");
@@ -46,10 +54,10 @@ for (const r of m.runs ?? []) {
     errs.push(`${id}: bad publicationStatus "${r.publicationStatus}"`);
   if (
     ["reviewed", "approved"].includes(r.reviewStatus) &&
-    !m.backup.confirmed
+    !backupFullyConfirmed
   )
     errs.push(
-      `${id}: reviewStatus "${r.reviewStatus}" requires backup.confirmed=true (verified second copy outside the public repo)`,
+      `${id}: reviewStatus "${r.reviewStatus}" requires all three backup tiers confirmed, including the independent off-device copy`,
     );
   if (r.publicationStatus === "published" && r.reviewStatus !== "approved")
     errs.push(`${id}: published without founder approval`);
@@ -80,5 +88,5 @@ if (errs.length) {
   process.exit(1);
 }
 console.log(
-  `manifest OK: ${m.runs?.length ?? 0} runs, backup.confirmed=${m.backup.confirmed}`,
+  `manifest OK: ${m.runs?.length ?? 0} runs, backup[working=${tier("workingCopy")} local=${tier("localEncryptedArchive")} offDevice=${tier("offDeviceBackup")}]`,
 );

@@ -7,7 +7,7 @@
  */
 import { execSync } from "node:child_process";
 
-const FORBIDDEN_PATH_PREFIXES = ["runs/", "backups/"];
+const FORBIDDEN_PATH_PREFIXES = ["runs/", "backups/", "protocol/EXP-TEST/"];
 const FORBIDDEN_PATTERNS = [
   /(^|\/)\.env(\.|$)/,
   /\.pem$/,
@@ -18,6 +18,8 @@ const FORBIDDEN_PATTERNS = [
   /session.*\.json$/i,
   /credentials/i,
   /\.sqlite$/,
+  /(^|\/)protocol\/.*FIXTURE.*\//i,
+  /\.uzenc$/,
 ];
 
 let tracked;

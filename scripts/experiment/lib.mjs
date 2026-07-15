@@ -30,19 +30,45 @@ export function ensureRunDirs(expId) {
   return base;
 }
 
+export function emptyBackup() {
+  return {
+    required: true,
+    workingCopy: { confirmed: false, location: null, confirmedAt: null },
+    localEncryptedArchive: {
+      confirmed: false, location: null, sha256: null,
+      method: "AES-256-GCM", confirmedAt: null,
+    },
+    offDeviceBackup: {
+      confirmed: false, destinationType: null, location: null,
+      verifiedHash: null, confirmedAt: null,
+    },
+  };
+}
+
 export function loadManifest(expId) {
   const p = path.join(runsDir(expId), "manifest.json");
   if (!fs.existsSync(p)) {
     return {
-      manifestVersion: 1,
+      manifestVersion: 2,
       experimentId: expId,
       protocolVersion: null,
-      backup: { required: true, confirmed: false, location: null, confirmedAt: null },
+      protocolReceipt: null,
+      backup: emptyBackup(),
       runs: [],
       derivatives: [],
     };
   }
   return JSON.parse(fs.readFileSync(p, "utf8"));
+}
+
+/** Every backup tier confirmed, including the independent off-device copy. */
+export function backupFullyConfirmed(m) {
+  const b = m.backup ?? {};
+  return Boolean(
+    b.workingCopy?.confirmed &&
+    b.localEncryptedArchive?.confirmed &&
+    b.offDeviceBackup?.confirmed,
+  );
 }
 
 export function saveManifest(expId, m) {
@@ -103,4 +129,116 @@ export function sensitiveScan(text) {
 
 export function nowIso() {
   return new Date().toISOString();
+}
+
+// ── protocol freeze support ─────────────────────────────────────────────
+
+/** The canonical frozen source files for an experiment's protocol. Each is
+ *  hashed independently into the freeze receipt. Fixture configs point at a
+ *  parallel protocol/<EXP-ID>/ tree so tests can exercise the real freeze. */
+export function frozenFiles(expId) {
+  const pdir = path.join(ROOT, "protocol", expId);
+  // Real experiments keep the protocol doc in committed docs/; fixtures
+  // keep a self-contained PROTOCOL.md inside their (gitignored) tree.
+  const localDoc = path.join(pdir, "PROTOCOL.md");
+  return {
+    protocol: fs.existsSync(localDoc) ? localDoc : path.join(ROOT, "docs", `${expId}_PROTOCOL.md`),
+    rubric: path.join(pdir, "rubric.json"),
+    prompts: path.join(pdir, "prompts.json"),
+    predictions: path.join(pdir, "predictions.json"),
+    refutation: path.join(pdir, "refutation.json"),
+  };
+}
+
+export function receiptPath(expId) {
+  return path.join(ROOT, "protocol", expId, "FREEZE_RECEIPT.json");
+}
+
+export function loadReceipt(expId) {
+  const p = receiptPath(expId);
+  return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, "utf8")) : null;
+}
+
+/** Recompute the SHA-256 of each frozen file; returns {name: hash|null}. */
+export function frozenHashes(expId) {
+  const out = {};
+  for (const [name, p] of Object.entries(frozenFiles(expId)))
+    out[name] = fs.existsSync(p) ? sha256(p) : null;
+  return out;
+}
+
+export function git(cmd) {
+  return execSync(`git ${cmd}`, { cwd: ROOT, encoding: "utf8" }).trim();
+}
+
+export function gitHead() {
+  return git("rev-parse HEAD");
+}
+
+export function gitCommitExists(hash) {
+  try { git(`cat-file -e ${hash}^{commit}`); return true; }
+  catch { return false; }
+}
+
+/** True if none of the given repo-relative paths has uncommitted changes. */
+export function gitPathsClean(paths) {
+  const out = git(`status --porcelain -- ${paths.map((p) => `"${p}"`).join(" ")}`);
+  return out === "";
+}
+
+/** Verify the protocol is frozen and unaltered. Returns {ok, errors,
+ *  receipt, receiptSha256}. Capture and approval both gate on this. */
+export function verifyFrozen(expId, { fixture = false } = {}) {
+  const errors = [];
+  const receipt = loadReceipt(expId);
+  if (!receipt) return { ok: false, errors: ["protocol is not frozen (no FREEZE_RECEIPT.json — run experiment:freeze)"], receipt: null };
+  if (receipt.status !== "frozen") errors.push(`protocol receipt status is "${receipt.status}", not "frozen"`);
+
+  const now = frozenHashes(expId);
+  const map = {
+    protocol: "protocolSha256", rubric: "rubricSha256", prompts: "promptSetSha256",
+    predictions: "predictionsSha256", refutation: "refutationConditionsSha256",
+  };
+  for (const [name, key] of Object.entries(map)) {
+    if (now[name] !== receipt.hashes[key])
+      errors.push(`frozen file "${name}" hash changed since freeze — protocol was modified after approval`);
+  }
+
+  if (!fixture) {
+    const relPaths = Object.values(frozenFiles(expId)).map((p) => path.relative(ROOT, p));
+    if (!gitPathsClean(relPaths))
+      errors.push("working tree contains an unapproved protocol modification");
+    if (!receipt.protocolCommit || !gitCommitExists(receipt.protocolCommit))
+      errors.push(`referenced protocol commit ${receipt.protocolCommit} is unavailable`);
+  }
+
+  return { ok: errors.length === 0, errors, receipt, receiptSha256: sha256(receiptPath(expId)) };
+}
+
+// ── evidence channels ───────────────────────────────────────────────────
+
+/** The channels EXP-0001 requires per response. Status vocabulary:
+ *  captured | absent | unavailable | operator-error | unknown.
+ *  "absent"    = evaluator produced none (a valid, explicit answer).
+ *  "unavailable" = surface did not expose it.
+ *  "operator-error" | "unknown" = BLOCKS approval (ambiguous absence). */
+export const CHANNELS = [
+  "rawResponse", "citations", "offeredNextTurns", "screenshots",
+  "evaluatorName", "productSurface", "modelNameVersion", "dateTime",
+  "sessionState", "promptWording", "promptOrder", "deviations",
+  "disclaimers", "responseBoundaries",
+];
+export const CHANNEL_STATUS = ["captured", "absent", "unavailable", "operator-error", "unknown"];
+export const BLOCKING_CHANNEL_STATUS = ["operator-error", "unknown"];
+
+/** Auto-extract candidate channel values from the single pasted response. */
+export function extractChannels(text) {
+  const urls = [...new Set((text.match(/https?:\/\/[^\s)>\]"']+/g) ?? [])
+    .map((u) => u.replace(/[.,;]+$/, "")))];
+  const disclaimers = (text.match(
+    /[^.\n]*\b(I (don't|do not) have|I'm not (sure|certain)|may (be|not be)|as an AI|I cannot verify|no (public )?information|might be outdated|based on( my)? (training|available))\b[^.\n]*[.]/gi,
+  ) ?? []).map((s) => s.trim()).slice(0, 8);
+  const nextTurns = (text.match(/(?:^|\n)\s*(?:[-*•]|\d+\.)\s*(?:Would you like|Do you want|Should I|I can|Want me to)[^\n]*/gi) ?? [])
+    .map((s) => s.replace(/^[\s\-*•\d.]+/, "").trim()).slice(0, 8);
+  return { citations: urls, disclaimers, offeredNextTurns: nextTurns };
 }
