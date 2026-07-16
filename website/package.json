@@ -10,6 +10,7 @@
     "prebuild": "node scripts/check-staging-safety.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.10",
     "gray-matter": "^4.0.3",
     "next": "16.2.10",
     "next-mdx-remote": "^6.0.0",

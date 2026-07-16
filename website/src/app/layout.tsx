@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteChrome";
+
+/** GA4 loads only in production and only when the Measurement ID env var
+ *  is present. The official @next/third-parties component injects gtag via
+ *  next/script (afterInteractive), so it does not affect static generation
+ *  or first-paint, and it sends page_view on App Router navigation. */
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GA_ENABLED = process.env.NODE_ENV === "production" && Boolean(GA_ID);
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://upstreamzero.com"),
@@ -59,6 +67,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
       </body>
+      {GA_ENABLED && <GoogleAnalytics gaId={GA_ID!} />}
     </html>
   );
 }
