@@ -21,12 +21,16 @@ export default function Services() {
     <>
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
-          <h1 className="text-[1.75rem]">Working with Upstream Zero</h1>
+          <h1>Working with Upstream Zero</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            This is a company, and this is its commercial side — built around
-            the seven questions a serious buyer asks, each answered by
-            inspectable objects rather than copy. The line never moves: we
-            measure and diagnose; we don&apos;t promise evaluator behavior.
+            Deals are being decided in evaluations you never see, before your
+            team is in the room. If an evaluator can&apos;t verify what you do,
+            you are not the recommendation, and you never find out why. This is
+            how we help you understand why, and what would have to become true
+            for you to be the logical recommendation, laid out as the seven
+            questions a serious buyer asks. The rule behind all of them never
+            moves: we measure and diagnose, and we never promise to change what
+            an evaluator does.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -34,9 +38,9 @@ export default function Services() {
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>1 · What do you study?</h2>
           <p className="measure mt-2">
-            <Link href="/concepts/commercial-evaluation">Commercial evaluation</Link> —
-            how organizations are assessed, recommended, validated, and
-            eliminated — observed today through AI evaluators. The research
+            <Link href="/concepts/commercial-evaluation">Commercial evaluation</Link>.
+            That is how organizations are assessed, recommended, validated,
+            and eliminated, observed today through AI evaluators. The research
             program lives at <Link href="/research">/research</Link>.
           </p>
         </section>
@@ -44,7 +48,7 @@ export default function Services() {
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>2 · What have you observed?</h2>
           <p className="measure mt-2" style={{ color: "var(--ink-60)" }}>
-            Honestly: nothing yet. The observatory is at First Light — zero
+            Nothing yet. The observatory is at First Light, with zero
             published observations, and the front page prints that number.
             What exists is the instrument and its rules. Buyers deserve that
             answer straight.
@@ -59,7 +63,7 @@ export default function Services() {
             then unverifiable claims and invisible capabilities cost you
             consideration you never knew you lost. Each research object
             carries a Commercial Relevance block translating it into buyer
-            terms — without borrowing the object&apos;s evidence tier.
+            terms without borrowing the object&apos;s evidence tier.
           </p>
         </section>
 
@@ -74,7 +78,7 @@ export default function Services() {
             ))}
           </ul>
           <p className="measure mt-3 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            Every capability is currently <strong>experimental</strong> — the
+            Every capability is currently <strong>experimental</strong>. The
             build itself forbids marking a capability operational until it
             derives from published method. That enforcement is not a promise;
             it is a compiler error.
@@ -102,7 +106,7 @@ export default function Services() {
                 <Link href={urlFor(d)}>{d.title}</Link>
               </span>
             ))}
-            . Engagements promise artifacts, never outcomes — the object
+            . Engagements promise artifacts, never outcomes. The object
             model has no field an outcome-promise could live in.
           </p>
           <FounderDecision id="FD-6">
@@ -115,14 +119,14 @@ export default function Services() {
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>6 · What is still experimental?</h2>
           <p className="measure mt-2" style={{ color: "var(--ink-60)" }}>
-            Everything commercial, currently — see the maturity labels above.
+            Everything commercial, currently. See the maturity labels above.
             And the measured-outcome register is empty:
           </p>
           {outcomes.length === 0 && (
             <EmptyState>
               No measured outcomes yet. Engagement results will publish here
               as tiered evidence, with client consent, as they are measured.
-              There are no testimonials or logo walls on this site — this
+              There are no testimonials or logo walls on this site. This
               register is what replaces them. Slower, and worth more.
             </EmptyState>
           )}
@@ -131,11 +135,17 @@ export default function Services() {
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>7 · How do we start?</h2>
           <p className="measure mt-2">
-            A calm, specific path: <Link href="/contact">what to bring and what a first conversation covers →</Link>
+            A calm, specific path: what to bring, and what a first
+            conversation covers.
+          </p>
+          <p className="mt-5">
+            <Link href="/contact" className="btn">
+              Start the conversation
+            </Link>
           </p>
         </section>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph"]} />
+      <ProvenanceFooter />
     </>
   );
 }

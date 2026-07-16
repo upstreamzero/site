@@ -28,26 +28,26 @@ export default function Page() {
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
           <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
-            Buyer question · editorial navigation · answered at the evidence
-            tier shown below
+            A buyer question, answered at the evidence tier shown below
           </p>
-          <h1 className="mt-3 max-w-[32ch] text-[1.75rem] leading-tight">
+          <h1 className="mt-3 max-w-[28ch]">
             Why do some companies consistently make the shortlist while others
             are never evaluated?
           </h1>
           {/* direct answer, first sentence, buyer language */}
           <p className="measure mt-5 text-[1.05rem]">
             <strong className="font-semibold">
-              Companies make the shortlist when evaluators can connect what
-              they offer to the requirements that matter — and when that
-              connection is missing, weak, or unsupported by evidence, a
-              company may never enter the evaluation set at all.
+              You can lose before anyone compares you to a competitor.
             </strong>{" "}
-            The company may genuinely satisfy the requirement; what decides its
-            fate earlier is whether an evaluator can establish that from the
-            representation and evidence available to it. Being left out is not
-            proof that a company fell short — often it is proof only that its
-            fit could not be reconstructed.
+            More and more, the first thing evaluating you is a language model.
+            It reads what it can find, decides whether you fit, and builds a
+            shortlist. You make that shortlist when the evaluator can connect
+            what you do to the requirements that matter. When that link is
+            missing, weak, or unbacked by evidence, you drop out before the
+            real comparison starts. You might genuinely meet the requirement.
+            What decides it this early is whether the evaluator can tell, from
+            what it can see. Getting left out doesn&apos;t mean you fell short.
+            Often it just means nobody could piece together why you fit.
           </p>
           <div className="-ml-5 mt-6 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -55,43 +55,42 @@ export default function Page() {
         {/* the discipline */}
         <QPart label="What is actually happening">
           <p>
-            Making the shortlist is not a ranking outcome; it is the output of
-            an evaluation. That process — surfacing, screening, comparison,
-            validation — is{" "}
+            Making the shortlist isn&apos;t about rankings. It&apos;s the
+            result of an evaluation. That process is{" "}
             <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
-            the discipline this observatory studies. Visibility can get you
-            surfaced; it does not carry you through the screening that decides
-            whether you are evaluated at all.
+            what this observatory studies. It runs through surfacing,
+            screening, comparison, and validation. Visibility can get you
+            surfaced. It won&apos;t carry you through the screening that
+            decides whether you&apos;re really in the running.
           </p>
         </QPart>
 
         {/* the invariant — introduced only now that the problem needs it */}
         <QPart label="The structure beneath it">
           <p>
-            Run enough of those evaluations and the same layer keeps
-            appearing underneath them:{" "}
-            <Link href="/concepts/requirements">requirements</Link> — the
-            specific conditions a buyer needs satisfied. An RFP is a
-            requirements list; a procurement workflow is a requirements
-            filter; an AI screening a vendor is matching it against inferred
-            requirements. The interfaces differ; the structure does not.
+            Run enough of these evaluations and you keep hitting the same
+            layer underneath:{" "}
+            <Link href="/concepts/requirements">requirements</Link>, the
+            specific things a buyer needs to be true. An RFP is a list of them.
+            A procurement process filters for them. An AI screening a vendor is
+            checking it against the ones it thinks apply. Different surfaces,
+            same structure.
           </p>
           <p>
-            This is why the pattern is consistent rather than random. The
-            companies that recur on shortlists are the ones whose fit against
-            the operative requirements is easy to recognize and verify; the
-            ones that are never evaluated are the ones whose fit cannot be
-            reconstructed from what an evaluator can reach. Models and
-            interfaces change; the requirements persist — which is what makes
-            this worth studying rather than chasing.
+            That&apos;s why the pattern holds up instead of being random. The
+            companies that keep showing up on shortlists are the ones whose fit
+            is easy to see and check. The ones that never get evaluated are the
+            ones whose fit an evaluator can&apos;t piece together from what it
+            can reach. Models and interfaces change; the requirements stay.
+            That&apos;s what makes this worth studying properly.
           </p>
         </QPart>
 
-        {/* evidence — honest tier */}
-        <QPart label="Evidence — and its current tier">
+        {/* evidence, honest tier */}
+        <QPart label="Evidence and its tier">
           <p>
-            Honestly, this answer is a <strong>founding position</strong>, not
-            a demonstrated result. The observatory has published zero
+            This answer is a <strong>founding position</strong>, not a
+            demonstrated result. The observatory has published zero
             observations, and the claims beneath this answer sit at the lowest{" "}
             <Link href="/concepts/evidence-tier">evidence tier</Link>:
           </p>
@@ -113,7 +112,7 @@ export default function Page() {
           </p>
         </QPart>
 
-        <QPart label="Limitations — what this does not establish">
+        <QPart label="Limitations">
           <p>
             It does not establish which requirements dominate any specific
             category, that AI evaluation resembles or drives human committee
@@ -129,13 +128,13 @@ export default function Page() {
         {/* commercial application */}
         <QPart label="Commercial next step">
           <p>
-            If this is your situation, the measurable starting point is
-            observation, not optimization: capture how evaluators currently
-            assess you, which requirements they appear to credit, and where
-            the gaps are that keep you from being evaluated. That is what{" "}
-            <Link href="/services">an engagement measures</Link>{" — "}it does not
+            If this is your situation, the place to start is observation:
+            capture how evaluators assess you today, which requirements they
+            seem to credit you with, and where the gaps are that keep you out.
+            That is what{" "}
+            <Link href="/services">an engagement measures</Link>. It doesn&apos;t
             promise to change any evaluator&apos;s behavior, and the answer
-            above is meant to be useful even if you never work with us.
+            above should be useful even if you never work with us.
           </p>
         </QPart>
 
@@ -143,8 +142,7 @@ export default function Page() {
         <QPart label="Who is behind this">
           <p>
             <Link href="/about">Upstream Zero</Link> is the research company
-            conducting this work — the institution behind the discipline, not
-            the subject of it.
+            doing this work. The work is what matters here, not the company.
           </p>
         </QPart>
 
@@ -152,8 +150,7 @@ export default function Page() {
             answer is informed by the graph, it is not identical to any node */}
         <QPart label="Related research objects">
           <p>
-            This is an editorial navigation page, not a research object. Its
-            answer is informed by the claim{" "}
+            The answer above is informed by the claim{" "}
             <Link href="/claims/C-0001">C-0001</Link> and relates to{" "}
             <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
             which <em>observes</em>{" "}
@@ -174,7 +171,6 @@ export default function Page() {
         />
       </main>
       <ProvenanceFooter
-        renderedFrom={["editorial navigation page (discipline-first buyer journey)", "informed by C-0001, commercial-evaluation, requirements"]}
         machineUrl="/graph.json"
       />
     </>

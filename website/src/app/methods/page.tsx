@@ -21,11 +21,13 @@ export default function Methods() {
     <>
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
-          <h1 className="text-[1.75rem]">Methods, instruments, and vocabulary</h1>
+          <h1>Methods, instruments, and vocabulary</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            How anything on this site earns its tier. Methods are versioned
-            instruments under development, not standards — the observatory is
-            still discovering what should be measured, and says so.
+            When we say we measure evaluation, this page is what the word
+            measure means. It is how anything on this site earns its tier.
+            Methods are versioned instruments under development, not
+            standards. The observatory is still discovering what should be
+            measured, and says so.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -41,7 +43,7 @@ export default function Methods() {
             ))}
           </ol>
           <p className="measure mt-3 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            The order is settled. What each tier requires is not — see M-1
+            The order is settled. What each tier requires is not. See M-1
             below.
           </p>
         </section>
@@ -57,11 +59,11 @@ export default function Methods() {
             ))}
           </ul>
           <FounderDecision id="FD-1">
-            M-1&apos;s tier definitions — what qualifies a claim for each tier,
-            how many runs count as replication, what counts as real-world
-            corroboration — are a founder decision, still being worked out.
-            Until they exist, every claim on this site is presented at
-            Narrated.
+            M-1&apos;s tier definitions are a founder decision, still being
+            worked out. They cover what qualifies a claim for each tier, how
+            many runs count as replication, and what counts as real-world
+            corroboration. Until they exist, every claim on this site is
+            presented at Narrated.
           </FounderDecision>
         </section>
 
@@ -70,10 +72,10 @@ export default function Methods() {
           {instruments.length === 0 && (
             <EmptyState>
               No instruments are registered. When observation begins, each
-              evaluator — model, version, access mode — becomes a distinct
-              instrument record, and every observation carries its stamp. AI
-              evaluators are the current instrument class; the registry is
-              deliberately not AI-specific.
+              evaluator becomes a distinct instrument record, carrying its
+              model, version, and access mode, and every observation carries
+              that stamp. AI evaluators are the current instrument class. The
+              registry is not AI-specific.
             </EmptyState>
           )}
         </section>
@@ -90,7 +92,7 @@ export default function Methods() {
           </ul>
         </section>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph"]} />
+      <ProvenanceFooter />
     </>
   );
 }

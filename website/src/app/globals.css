@@ -1,36 +1,33 @@
 @import "tailwindcss";
 
-/* ── Upstream Zero tokens ─────────────────────── */
+/* ── Upstream Zero tokens ──────────────────────────────────────────
+ * Light-first identity. A warm paper canvas, near-black type, one
+ * restrained terracotta accent. The observatory lives in typography,
+ * diagrams, and precision — not in darkness. There is deliberately no
+ * dark variant: every reader gets the designed canvas. */
 :root {
-  --paper: #fafaf7;
-  --ink: #1a1a18;
-  --ink-60: rgba(26, 26, 24, 0.6);
-  --ink-40: rgba(26, 26, 24, 0.4);
-  --ink-18: rgba(26, 26, 24, 0.18);
-  --plate: #fcfcfa;
-  --plate-rule: rgba(26, 26, 24, 0.35);
-  --needle: #b5432a;
+  --paper: #f6f4ee; /* warm oat canvas */
+  --surface: #fdfcf8; /* raised card, one step lighter than canvas */
+  --ink: #21201c;
+  --ink-60: rgba(33, 32, 28, 0.7);
+  --ink-40: rgba(33, 32, 28, 0.45);
+  --ink-18: rgba(33, 32, 28, 0.16); /* hairlines and card borders */
+  --plate: #fdfcf8;
+  --plate-rule: rgba(33, 32, 28, 0.35);
+  --needle: #a84b2c; /* the one accent: instrument terracotta */
+  --needle-wash: rgba(168, 75, 44, 0.09); /* accent tint for pills */
 
   --font-serif: "STIX Two Text", "Iowan Old Style", "Palatino Linotype",
     Palatino, Georgia, serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #161614;
-    --ink: #e8e6e0;
-    --ink-60: rgba(232, 230, 224, 0.6);
-    --ink-40: rgba(232, 230, 224, 0.4);
-    --ink-18: rgba(232, 230, 224, 0.18);
-    --plate: #fcfcfa; /* plates stay paper in both themes */
-    --plate-rule: rgba(26, 26, 24, 0.35);
-    --needle: #d06a4f;
-  }
+  --radius-card: 12px;
+  --radius-control: 6px;
 }
 
 @theme inline {
   --color-paper: var(--paper);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-60: var(--ink-60);
   --color-ink-40: var(--ink-40);
@@ -46,34 +43,37 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.7;
 }
 
-/* The apparatus voice */
+/* The apparatus voice: reserved for labels, IDs, and data. Never for
+ * navigation or prose — the instrument speaks in small print, the
+ * institution speaks in serif. */
 .voice-mono {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 .voice-mono-data {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
 }
 
-/* Links: ink, hairline underline */
+/* Links: ink, hairline underline, accent on approach */
 a {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-color: var(--ink-40);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
 }
 a:hover {
-  text-decoration-color: var(--ink);
+  text-decoration-color: var(--needle);
 }
 
 h1,
@@ -84,17 +84,147 @@ h3 {
   text-wrap: balance;
 }
 
+/* Type scale. Class selectors like .voice-mono still win over these,
+ * so mono object labels stay small. Confidence lives in scale: the
+ * important idea gets the room it deserves. */
+h1 {
+  font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: clamp(1.6rem, 1.3rem + 1.1vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Lead paragraph: the sentence after the headline earns a step up. */
+.lead {
+  font-size: 1.16rem;
+  line-height: 1.65;
+}
+
+/* Display numerals: evidence counts set like figures in an annual
+ * report, not counters in a terminal. */
+.figure {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
 .measure {
-  max-width: 65ch;
+  max-width: 58ch;
+}
+
+/* Raised card: the surface for boxes, diagrams, and feature cells. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--ink-18);
+  border-radius: var(--radius-card);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+/* Cards that are destinations lift slightly on approach. */
+.card-lift:hover {
+  border-color: var(--ink-40);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 32, 28, 0.06);
+}
+
+/* Accent pill: the moved steps in diagrams, small moments of warmth. */
+.pill {
+  background: var(--needle-wash);
+  color: var(--needle);
+  border-radius: 5px;
+  padding: 0.2em 0.55em;
+}
+
+/* Entrance: the first screen rises gently into place. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.rise-2 {
+  animation-delay: 0.12s;
+}
+.rise-3 {
+  animation-delay: 0.24s;
 }
 
 /* Prose defaults for object bodies */
 .prose-uz p {
-  margin: 0 0 1.1rem;
-  max-width: 65ch;
+  margin: 0 0 1.2rem;
+  max-width: 58ch;
 }
 .prose-uz p:last-child {
   margin-bottom: 0;
+}
+
+/* The one button. Used sparingly: a page's single commercial action. */
+.btn {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1em 1.9em;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-control);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.btn:hover {
+  background: var(--needle);
+  border-color: var(--needle);
+  color: var(--paper);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Navigation speaks serif, not terminal. The header floats on a
+ * translucent wash of the canvas so the datum travels with you. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.nav-link {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.nav-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--needle);
+}
+.wordmark {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -21,14 +21,15 @@ export default function Research() {
     <>
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
-          <h1 className="text-[1.75rem]">Research</h1>
+          <h1>Research</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            Every project starts with a question. If the question survives
-            scrutiny, it becomes a hypothesis — then an experiment we can run.
-            Observations accumulate from there; findings come last, if they
-            come at all. An experiment we have registered but not yet run
-            still belongs here. And the first thing we test is our own
-            premise — see H-1.
+            Everything the rest of this site tells you rests on what is
+            published here. Every project starts with a question. If the
+            question survives scrutiny, it becomes a hypothesis. Then an
+            experiment we can run. Observations accumulate from there;
+            findings come last, if they come at all. An experiment we have
+            registered but not yet run still belongs here. The first thing we
+            test is our own premise. See H-1.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -73,10 +74,10 @@ export default function Research() {
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Observations · {observations.length}</h2>
           {observations.length === 0 && (
             <EmptyState>
-              No observations have been published. The first published
-              observation will carry its instrument stamp — evaluator,
-              version, access mode, date, sampling conditions — and this
-              empty state will be replaced by data, not by copy.
+              No observations have been published. The first one will carry
+              its instrument stamp. That records the evaluator, version,
+              access mode, date, and sampling conditions. This empty state
+              will be replaced by data, not by copy.
             </EmptyState>
           )}
         </section>
@@ -92,7 +93,7 @@ export default function Research() {
           )}
         </section>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph"]} />
+      <ProvenanceFooter />
     </>
   );
 }

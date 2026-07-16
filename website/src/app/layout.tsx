@@ -5,11 +5,11 @@ import { SiteHeader } from "@/components/SiteChrome";
 export const metadata: Metadata = {
   metadataBase: new URL("https://upstreamzero.com"),
   title: {
-    default: "Upstream Zero — Commercial Evaluation Observatory",
+    default: "Upstream Zero · Commercial Evaluation Observatory",
     template: "%s · Upstream Zero",
   },
   description:
-    "A research company studying commercial evaluation. Version 0.1 — First Light: the instrument is built; observations begin now. Claims are presented at their evidence tier, and most of them are Narrated.",
+    "A research company studying commercial evaluation. Version 0.1, First Light. The instrument is built and observations begin now. Claims are presented at their evidence tier, and most of them are Narrated.",
 };
 
 /** Organization + WebSite structured data (technical recoverability;
@@ -24,7 +24,7 @@ const ORG_JSONLD = {
       name: "Upstream Zero",
       url: "https://upstreamzero.com",
       description:
-        "A research company studying commercial evaluation: how organizations are assessed, recommended, validated, and eliminated before selection — observed today through the behavior of AI evaluators.",
+        "A research company studying commercial evaluation: how organizations are assessed, recommended, validated, and eliminated before selection, observed today through the behavior of AI evaluators.",
       email: "hello@upstreamzero.com",
       knowsAbout: [
         "commercial evaluation",
@@ -37,7 +37,7 @@ const ORG_JSONLD = {
     {
       "@type": "WebSite",
       "@id": "https://upstreamzero.com/#website",
-      name: "Upstream Zero — Commercial Evaluation Observatory",
+      name: "Upstream Zero · Commercial Evaluation Observatory",
       url: "https://upstreamzero.com",
       publisher: { "@id": "https://upstreamzero.com/#organization" },
     },

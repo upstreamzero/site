@@ -17,8 +17,8 @@ export function FounderDecision({
           "repeating-linear-gradient(45deg, transparent 0 6px, rgba(181,67,42,0.05) 6px 12px)",
       }}
     >
-      <span className="voice-mono" style={{ color: "var(--needle)" }}>
-        Founder decision pending · {id}
+      <span className="voice-mono" style={{ color: "var(--needle)" }} data-decision={id}>
+        Open founder decision
       </span>
       <div className="mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
         {children}

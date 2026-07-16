@@ -33,7 +33,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
               <span>{obj.created}</span>
               <span>status · {obj.status}</span>
             </div>
-            <h1 className="mt-3 max-w-[30ch] text-[1.75rem]">{obj.title}</h1>
+            <h1 className="mt-3 max-w-[30ch]">{obj.title}</h1>
             <div className="-ml-5 mt-4 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
           </header>
 
@@ -49,7 +49,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
                 className="voice-mono mb-4 border border-dashed p-3"
                 style={{ borderColor: "var(--ink-40)", color: "var(--ink-60)" }}
               >
-                Evaluator rationale — observed narration, not mechanism.
+                Evaluator rationale: observed narration, not mechanism.
                 Capped at Narrated for mechanism claims.
               </p>
             )}
@@ -60,9 +60,9 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
             {obj.predictions && obj.predictions.length > 0 && (
               <section className="mt-8">
                 <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>
-                  Predictions — registered before results
+                  Predictions, registered before results
                 </h2>
-                <ul className="mt-2 max-w-[65ch] list-none space-y-2 p-0">
+                <ul className="mt-2 max-w-[58ch] list-none space-y-2 p-0">
                   {obj.predictions.map((p) => (
                     <li key={p} className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
                       {p}
@@ -76,7 +76,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
                 <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>
                   What would refute this
                 </h2>
-                <ul className="mt-2 max-w-[65ch] list-none space-y-2 p-0">
+                <ul className="mt-2 max-w-[58ch] list-none space-y-2 p-0">
                   {obj.refutationConditions.map((p) => (
                     <li key={p} className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
                       {p}
@@ -90,7 +90,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
                 <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>
                   Explicit non-promises
                 </h2>
-                <ul className="mt-2 max-w-[65ch] list-none space-y-2 p-0">
+                <ul className="mt-2 max-w-[58ch] list-none space-y-2 p-0">
                   {obj.nonPromises.map((p) => (
                     <li key={p} className="border-l pl-4" style={{ borderColor: "var(--ink-18)" }}>
                       {p}
@@ -103,9 +103,9 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
             {obj.runLog && obj.runLog.length > 0 && (
               <section className="mt-10">
                 <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>
-                  Run log — append-only
+                  Run log
                 </h2>
-                <ul className="mt-3 max-w-[65ch] list-none space-y-4 p-0">
+                <ul className="mt-3 max-w-[58ch] list-none space-y-4 p-0">
                   {obj.runLog.map((r) => (
                     <li
                       key={r.runId}
@@ -145,7 +145,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
             {obj.commercialRelevance && (
               <section className="mt-10 max-w-[62ch] border p-5" style={{ borderColor: "var(--ink-18)" }}>
                 <span className="voice-mono" style={{ color: "var(--ink-60)" }}>
-                  Commercial relevance — narrated translation
+                  What this means commercially
                 </span>
                 <dl className="mt-3 grid grid-cols-[max-content_1fr] gap-x-6 gap-y-2 text-[0.95rem]">
                   <dt style={{ color: "var(--ink-60)" }}>Affected buyers</dt>
@@ -199,7 +199,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
               )}
               <RailEntry label="Authors">{obj.authors.join(", ")}</RailEntry>
               <RailEntry label="Revisions">
-                None — this object has not been revised.
+                None. This object has not been revised.
               </RailEntry>
               <RailEntry label="Machine rendering">
                 <a href={`/objects/${obj.id}`}>{obj.id}.json</a>
@@ -208,7 +208,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
           </aside>
         </div>
       </main>
-      <ProvenanceFooter renderedFrom={[obj.id]} machineUrl={`/objects/${obj.id}`} />
+      <ProvenanceFooter machineUrl={`/objects/${obj.id}`} />
     </>
   );
 }

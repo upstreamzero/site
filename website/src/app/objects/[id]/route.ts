@@ -28,7 +28,7 @@ export async function GET(
       rel: r.rel,
     })),
     _meta: {
-      site: "Upstream Zero — Commercial Evaluation Observatory",
+      site: "Upstream Zero · Commercial Evaluation Observatory",
       version: "0.1",
       note: "Claims are presented at their evidence tier; Narrated is the lowest. Verify by walking edges, not by trusting us.",
     },

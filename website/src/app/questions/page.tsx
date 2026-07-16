@@ -8,7 +8,7 @@ import { PROBLEM_AREAS } from "@/lib/buyerQuestions";
 export const metadata: Metadata = {
   title: "Questions",
   description:
-    "The human entry point into the knowledge graph: buyer questions, research questions, and institutional questions — kept distinct, each labeled by how it earned its place.",
+    "The problems executives bring to Upstream Zero: why competitors get recommended, why buyers arrive already decided, which requirements are ruling you out. Plus the open research questions behind them.",
   ...pageMeta("/questions"),
 };
 
@@ -29,15 +29,14 @@ export default function Questions() {
     <>
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
-          <h1 className="text-[1.75rem]">Questions</h1>
+          <h1>Questions</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            Questions are the human interface to this site; the graph is the
-            machine interface. Three kinds live here, kept deliberately
-            distinct: <strong>buyer questions</strong> (the commercial
-            problems this work exists to address), <strong>research
-            questions</strong> (what the observatory is investigating), and{" "}
-            <strong>institutional questions</strong> (how Upstream Zero
-            itself works). Each is labeled by how it earned its place.
+            Every one of these starts as the same executive problem: you are
+            being evaluated before buyers engage you directly, and you cannot
+            see how. Below are the specific versions of that problem we are
+            built to investigate, then the open research questions behind
+            them, and the questions people ask about how Upstream Zero itself
+            works.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -48,15 +47,8 @@ export default function Questions() {
             1 · Buyer questions
           </h2>
           <p className="measure mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            These are questions that represent the commercial problems
-            Upstream Zero is currently built to investigate. Classification
-            honesty: they are <strong>editorial navigation</strong>, not
-            observed in captured buyer or evaluator behavior — no claim is
-            made that they are frequently asked, common, or top buyer
-            questions. When admissible evidence shows a question actually
-            arising in evaluation, it will be reclassified in a recorded
-            revision. Answer pages are rolling out; questions without one yet
-            are marked.
+            The commercial problems Upstream Zero is built to investigate.
+            Answer pages are rolling out; questions without one yet are marked.
           </p>
           {PROBLEM_AREAS.map((area) => (
             <div key={area.anchor} id={area.anchor} className="mt-8 scroll-mt-8">
@@ -83,6 +75,12 @@ export default function Questions() {
               </ul>
             </div>
           ))}
+          <p className="measure mt-8 text-[0.85rem]" style={{ color: "var(--ink-60)" }}>
+            A note on how these earned their place: we wrote them to help you
+            find your problem. None is yet backed by captured evidence that
+            buyers actually ask it. When that evidence exists, the question
+            moves to observed in a recorded revision.
+          </p>
         </section>
 
         {/* 2 · research questions */}
@@ -91,9 +89,9 @@ export default function Questions() {
             2 · Research questions
           </h2>
           <p className="measure mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            Open questions the observatory is actively investigating — graph
-            objects with declared answer conditions, commercial relevance,
-            and machine renderings. The full pipeline lives at{" "}
+            Open questions the observatory is actively investigating. Each is
+            a graph object with declared answer conditions, commercial
+            relevance, and machine renderings. The full pipeline lives at{" "}
             <Link href="/research">/research</Link>.
           </p>
           <ul className="mt-4 list-none space-y-4 p-0">
@@ -130,12 +128,12 @@ export default function Questions() {
             ))}
           </ul>
           <p className="measure mt-4 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            Practical questions — what Upstream Zero is, who it is for, what
-            an engagement includes — live on the <Link href="/faq">FAQ</Link>.
+            Practical questions live on the <Link href="/faq">FAQ</Link>: what
+            Upstream Zero is, who it is for, what an engagement includes.
           </p>
         </section>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph", "editorial problem map (buyer revision v1)"]} />
+      <ProvenanceFooter />
     </>
   );
 }

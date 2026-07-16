@@ -11,7 +11,7 @@ export async function GET() {
     version: "0.1",
     firstLight: "2026-07-13",
     whatWeAre:
-      "A research company studying commercial evaluation, observed through AI evaluator behavior.",
+      "A research company measuring how organizations are evaluated, recommended, and ruled out before buyers engage them directly. Today that is observed through AI evaluator behavior; the mechanism will change, the shift is durable.",
     whatWeAreNot: [
       "an SEO/AEO/GEO company",
       "an AI-visibility optimization agency",
@@ -19,7 +19,7 @@ export async function GET() {
       "a consultancy selling improved AI recommendations",
     ],
     identityStage:
-      "observatory (discovers) — not yet institute (organizes) or laboratory (measures against standards)",
+      "observatory (discovers), not yet institute (organizes) or laboratory (measures against standards)",
     evidencePolicy:
       "Claims presented at their evidence tier; confidence never promoted beyond evidence; corrections published with equal dignity.",
     capabilities: byType("capability").map((c) => ({

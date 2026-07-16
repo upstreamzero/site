@@ -6,7 +6,7 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 export const metadata: Metadata = {
   title: "What is Upstream Zero?",
   description:
-    "Upstream Zero is a research company studying commercial evaluation. This is its canonical identity page: what it is, what it studies, what it publishes, what it offers commercially, and what it does not claim.",
+    "Upstream Zero measures how organizations are evaluated, recommended, and ruled out before buyers engage them directly. What the company is, what it studies, what it publishes, what it offers, and what it refuses to claim.",
   ...pageMeta("/about"),
 };
 
@@ -21,15 +21,19 @@ export default function About() {
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
           <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
-            The institution conducting the work
+            The company behind the work
           </p>
-          <h1 className="mt-3 text-[1.75rem]">What is Upstream Zero?</h1>
+          <h1 className="mt-3">What is Upstream Zero?</h1>
           <p className="measure mt-4 text-[1.05rem]">
-            Every company is assessed, recommended, validated, and ruled out
-            before it is selected. Studying how that happens is{" "}
+            Every commercial outcome is preceded by an evaluation. More and
+            more often, that evaluation concludes before a buyer engages
+            anyone directly. Today the mechanism is a language model; tomorrow
+            it may be something else. The process it performs is{" "}
             <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
-            and it is the work Upstream Zero exists to do. The work comes
-            first. Upstream Zero is the institution conducting it.
+            and it is what Upstream Zero measures: why organizations are, or
+            are not, becoming the logical recommendation, and what would have
+            to become true for that to change. The work comes first; the
+            company exists to do it.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
@@ -37,10 +41,11 @@ export default function About() {
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What kind of organization</h2>
           <p className="measure mt-2 text-[0.98rem]">
-            Today it is an <strong>observatory</strong>: it discovers. The
-            institute that organizes and the laboratory that measures come
-            later — it claims only the stage it has earned. Why that sequence,
-            and why it publishes its own uncertainty, is the{" "}
+            Right now it&apos;s an <strong>observatory</strong>: its job is to
+            discover. The institute that will organize what it finds, and the
+            laboratory that will run the measurements, come later. It only
+            claims the stage it has actually reached. Why it works in that
+            order, and why it publishes its own uncertainty, is the{" "}
             <Link href="/philosophy">Philosophy</Link>.
           </p>
         </section>
@@ -48,11 +53,11 @@ export default function About() {
         <section className="mt-8">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it studies</h2>
           <p className="measure mt-2 text-[0.98rem]">
-            Commercial evaluation, and the enduring structure beneath it —{" "}
-            <Link href="/concepts/requirements">requirements</Link>. Models
-            change and interfaces change. The requirements a buyer needs
-            satisfied don't. That persistence is what makes the work worth an
-            observatory. The open questions it is pointed at live in{" "}
+            Commercial evaluation, and the{" "}
+            <Link href="/concepts/requirements">requirements</Link> underneath
+            it. Models change, interfaces change. What a buyer needs to see
+            satisfied doesn&apos;t. That&apos;s what makes it worth studying
+            properly. The open questions it&apos;s pointed at live in{" "}
             <Link href="/research">Research</Link>.
           </p>
         </section>
@@ -60,8 +65,8 @@ export default function About() {
         <section className="mt-8">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it publishes</h2>
           <p className="measure mt-2 text-[0.98rem]">
-            A tiered, inspectable knowledge graph — claims, questions,
-            hypotheses, experiments, methods, and (as they accrue)
+            A tiered, inspectable knowledge graph. It holds claims,
+            questions, hypotheses, experiments, methods, and (as they accrue)
             observations and findings. Every claim carries an{" "}
             <Link href="/concepts/evidence-tier">evidence tier</Link> and is
             never shown above it. The evidence is public. How we produce it is
@@ -72,9 +77,9 @@ export default function About() {
         <section className="mt-8">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it offers commercially</h2>
           <p className="measure mt-2 text-[0.98rem]">
-            Measurement and diagnosis of how an organization is evaluated —
-            never optimization promises. The commercial work applies the
-            research; it does not redefine the institution as an agency.{" "}
+            Measurement and diagnosis of how an organization is evaluated.
+            Never optimization promises. The commercial work applies the
+            research. It does not redefine Upstream Zero as an agency.{" "}
             <Link href="/services">Services</Link>.
           </p>
         </section>
@@ -107,7 +112,7 @@ export default function About() {
           </p>
         </section>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph", "canonical identity page"]} machineUrl="/company.json" />
+      <ProvenanceFooter machineUrl="/company.json" />
     </>
   );
 }

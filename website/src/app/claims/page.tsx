@@ -16,11 +16,11 @@ export default function Claims() {
     <>
       <main className="mx-auto max-w-[1080px] px-5">
         <header className="mt-12">
-          <h1 className="text-[1.75rem]">The Claim Ledger</h1>
+          <h1>The Claim Ledger</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
             Every claim Upstream Zero publicly stands behind, presented at its
-            evidence tier — including the founding claims, which are Narrated
-            and say so. A claim&apos;s displayed tier is a floor function: it
+            evidence tier. That includes the founding claims, which are
+            Narrated and say so. A claim&apos;s displayed tier is a floor function: it
             cannot exceed what its evidence edges justify, and the build fails
             if it tries. Confidence is never promoted beyond available
             evidence.
@@ -47,11 +47,11 @@ export default function Claims() {
           published yet, and by our own rules a claim with no evidence edges
           is Narrated by construction. The ledger is designed to be doubted:
           walk any claim&apos;s edges, check its revision history, fetch its{" "}
-          <a href="/graph.json">machine rendering</a> — verification should
-          not depend on trusting us.
+          <a href="/graph.json">machine rendering</a>. Verification should not
+          depend on trusting us.
         </p>
       </main>
-      <ProvenanceFooter renderedFrom={["content graph"]} />
+      <ProvenanceFooter />
     </>
   );
 }

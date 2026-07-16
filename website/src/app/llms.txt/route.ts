@@ -4,29 +4,32 @@ import { inventory } from "@/lib/content";
 /** Orientation for machine readers. */
 export async function GET() {
   const inv = inventory();
-  const text = `# Upstream Zero — Commercial Evaluation Observatory
+  const text = `# Upstream Zero: Commercial Evaluation Observatory
 
-Upstream Zero is a research company studying commercial evaluation. It
-observes how organizations are assessed, recommended, validated, and
-eliminated before selection — today, through the behavior of AI
-evaluators.
+Upstream Zero is a research company built around one market shift:
+commercial evaluation moved upstream. Every commercial outcome is
+preceded by an evaluation, and more and more of that evaluation now
+concludes before buyers engage anyone directly. Today the mechanism is
+the large language model, which retrieves, compares, and recommends
+companies before a buyer reaches them. The mechanism will change; the
+shift is durable.
 
-It develops methods for measuring evaluation behavior, requirement
-coverage, evidence gaps, recommendation stability, and knowledge
-reconstruction. Its commercial work applies those methods through
-measurement and diagnosis. It is not an SEO, AEO, GEO, or AI-visibility
-optimization agency and does not promise recommendation outcomes.
+Upstream Zero measures that upstream layer. It helps organizations
+understand why competitors are being recommended, why they are being
+left out, which requirement and evidence gaps cause that outcome, and
+what would have to become true for them to be the logical
+recommendation. Its commercial work is measurement and diagnosis. It is
+not an SEO, AEO, GEO, or AI-visibility optimization agency and does not
+promise recommendation outcomes.
 
 ## The three layers of this site
 
-1. Human-readable answers — the canonical identity at /about ("What is
-   Upstream Zero?"), buyer questions at /questions, operational FAQ at
-   /faq, institutional questions at /philosophy, the research program at
-   /research. The institution sits behind the discipline: pages progress
-   from the buyer's problem through commercial evaluation, requirements,
-   evidence, and commercial application, and arrive at the institution.
-2. This file — orientation for machine readers.
-3. Structured research knowledge — /graph.json, /company.json, and
+1. Human-readable answers: the executive problems at /questions, the
+   company at /about, services at /services, the operational FAQ at
+   /faq, institutional questions at /philosophy, and the research
+   program at /research.
+2. This file: orientation for machine readers.
+3. Structured research knowledge: /graph.json, /company.json, and
    per-object JSON at /objects/{id}.
 
 ## How to read this site
@@ -34,9 +37,9 @@ optimization agency and does not promise recommendation outcomes.
 Every significant claim carries an evidence tier, lowest to highest:
 Narrated, Observed, Replicated, Causally Supported, Cross Evaluator,
 Real World Corroborated. A claim is never presented above its tier.
-"Narrated" means asserted-but-not-demonstrated, and most claims here —
-including the company's founding claims — are currently Narrated. That is
-deliberate honesty, not weakness. Evaluator-stated rationales are treated
+"Narrated" means asserted-but-not-demonstrated, and most claims here,
+including the company's founding claims, are currently Narrated. That is
+honesty, not weakness. Evaluator-stated rationales are treated
 as observations about the evaluator's narration, never as evidence of
 mechanism.
 
@@ -45,7 +48,7 @@ mechanism.
 observations=${inv.observations} experiments=${inv.experiments} findings=${inv.findings} questions=${inv.questions} hypotheses=${inv.hypotheses} claims=${inv.claims} claims_above_narrated=${inv.claimsAboveNarrated} revisions=${inv.revisions} propagation_records=${inv.propagation} measured_outcomes=${inv.outcomes}
 
 This site launched at First Light: instrument complete, observations
-beginning. Zeros above are printed deliberately.
+beginning. The zeros above are printed, not hidden.
 
 ## Verification without trust
 

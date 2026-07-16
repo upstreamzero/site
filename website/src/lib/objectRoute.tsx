@@ -29,8 +29,8 @@ export function makeObjectRoute(type: ObjectType) {
           </header>
           <EmptyState>
             This register exists and is wired into the graph, the machine
-            layer, and the sitemap — it is simply empty. Objects appear
-            here only after founder-approved publication.
+            layer, and the sitemap. It is simply empty. Objects appear here
+            only after founder-approved publication.
           </EmptyState>
         </main>
       );
