@@ -2,6 +2,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import type { UZObject } from "@/lib/schema";
 import { backEdges, byId, urlFor } from "@/lib/content";
+import { objectLd } from "@/lib/meta";
 import { TierScale } from "./TierScale";
 import { ProvenanceFooter } from "./SiteChrome";
 import { FounderDecision } from "./FounderDecision";
@@ -25,6 +26,10 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: objectLd(obj, urlFor(obj)) }}
+        />
         <div className="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-[minmax(0,1fr)_220px]">
           <header className="md:col-span-2">
             <div className="voice-mono flex flex-wrap gap-x-6" style={{ color: "var(--ink-60)" }}>

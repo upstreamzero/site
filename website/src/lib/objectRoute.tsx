@@ -4,7 +4,7 @@ import { byId, byType, urlFor } from "./content";
 import type { ObjectType } from "./schema";
 import { ObjectPage } from "@/components/ObjectPage";
 import { EmptyState } from "@/components/EmptyState";
-import { pageMeta } from "./meta";
+import { objectDescription, pageMeta } from "./meta";
 
 /** Static export cannot build a dynamic route with zero params (empty
  *  generateStaticParams is an ISR-only pattern). When a register has no
@@ -53,11 +53,9 @@ export function makeObjectRoute(type: ObjectType) {
       };
     const obj = byId(id);
     if (!obj) return {};
-    const typeLabel = obj.type.charAt(0).toUpperCase() + obj.type.slice(1);
-    const tierNote = obj.tier ? ` Presented at evidence tier: ${obj.tier}.` : "";
     return {
       title: obj.title,
-      description: `${typeLabel} ${obj.id} in the Upstream Zero commercial evaluation research graph. Status: ${obj.status}.${tierNote}`,
+      description: objectDescription(obj),
       ...pageMeta(urlFor(obj)),
     };
   }
