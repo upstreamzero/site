@@ -12,7 +12,9 @@ import {
 } from "@/components/ResolvedQuestion";
 
 export const metadata: Metadata = {
-  title: "Philosophy",
+  title: { absolute: "Philosophy and Epistemics | Upstream Zero" },
+  description:
+    "How Upstream Zero separates observation from optimization: evidence tiers, corrections, conflicts of interest, and the questions it answers about itself.",
   ...pageMeta("/philosophy"),
 };
 

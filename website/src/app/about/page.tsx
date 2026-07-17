@@ -1,12 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/meta";
+import { pageLd, pageMeta } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "What is Upstream Zero?",
+  title: { absolute: "About Upstream Zero | Commercial Evaluation Research" },
   description:
-    "Upstream Zero measures how organizations are evaluated, recommended, and ruled out before buyers engage them directly. What the company is, what it studies, what it publishes, what it offers, and what it refuses to claim.",
+    "Upstream Zero observes how commercial evaluations are formed, including requirement sets, evidence, reasoning, validation, and recommendation outcomes.",
   ...pageMeta("/about"),
 };
 
@@ -19,6 +19,12 @@ export default function About() {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: pageLd("AboutPage", "About Upstream Zero | Commercial Evaluation Research", "/about", "Upstream Zero observes how commercial evaluations are formed, including requirement sets, evidence, reasoning, validation, and recommendation outcomes."),
+          }}
+        />
         <header className="mt-12">
           <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
             The company behind the work

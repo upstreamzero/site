@@ -1,12 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/meta";
+import { pageLd, pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { TierScale } from "@/components/TierScale";
 
 export const metadata: Metadata = {
-  title: "Claims",
+  title: { absolute: "Claims Ledger and Evidence Tiers | Upstream Zero" },
+  description:
+    "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings.",
   ...pageMeta("/claims"),
 };
 
@@ -15,6 +17,12 @@ export default function Claims() {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: pageLd("CollectionPage", "Claims Ledger and Evidence Tiers | Upstream Zero", "/claims", "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings."),
+          }}
+        />
         <header className="mt-12">
           <h1>The Claim Ledger</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>

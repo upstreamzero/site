@@ -7,7 +7,9 @@ import { EmptyState } from "@/components/EmptyState";
 import { FounderDecision } from "@/components/FounderDecision";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: { absolute: "Commercial Evaluation Services | Upstream Zero" },
+  description:
+    "Observed commercial evaluation research and diagnosis for organizations seeking to understand how AI systems evaluate, recommend, and rule out companies.",
   ...pageMeta("/services"),
 };
 

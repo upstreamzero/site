@@ -4,9 +4,9 @@ import { pageMeta } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: { absolute: "FAQ | Upstream Zero Commercial Evaluation Observatory" },
   description:
-    "Practical questions about Upstream Zero: what it is, who it is for, what an engagement includes, and how it differs from SEO, AEO, GEO, and AI-visibility tools.",
+    "Answers about Upstream Zero, commercial evaluation, AI-mediated vendor selection, evidence tiers, research methods, and the limits of current findings.",
   ...pageMeta("/faq"),
 };
 

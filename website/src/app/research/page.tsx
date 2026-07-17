@@ -1,12 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/meta";
+import { pageLd, pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { EmptyState } from "@/components/EmptyState";
 
 export const metadata: Metadata = {
-  title: "Research",
+  title: { absolute: "Commercial Evaluation Research | Upstream Zero" },
+  description:
+    "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations.",
   ...pageMeta("/research"),
 };
 
@@ -20,6 +22,12 @@ export default function Research() {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: pageLd("CollectionPage", "Commercial Evaluation Research | Upstream Zero", "/research", "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations."),
+          }}
+        />
         <header className="mt-12">
           <h1>Research</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>

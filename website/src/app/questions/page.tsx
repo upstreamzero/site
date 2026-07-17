@@ -1,14 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/meta";
+import { pageLd, pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { PROBLEM_AREAS } from "@/lib/buyerQuestions";
 
 export const metadata: Metadata = {
-  title: "Questions",
+  title: { absolute: "Research Questions | Upstream Zero" },
   description:
-    "The problems executives bring to Upstream Zero: why competitors get recommended, why buyers arrive already decided, which requirements are ruling you out. Plus the open research questions behind them.",
+    "The questions guiding Upstream Zero research into AI retrieval, requirement formation, evidence use, recommendation stability, and commercial evaluation.",
   ...pageMeta("/questions"),
 };
 
@@ -28,6 +28,12 @@ export default function Questions() {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: pageLd("CollectionPage", "Research Questions | Upstream Zero", "/questions", "The questions guiding Upstream Zero research into AI retrieval, requirement formation, evidence use, recommendation stability, and commercial evaluation."),
+          }}
+        />
         <header className="mt-12">
           <h1>Questions</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>

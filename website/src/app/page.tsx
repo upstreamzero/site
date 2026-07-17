@@ -8,8 +8,9 @@ import { JourneyShift } from "@/components/JourneyShift";
 import { PROBLEM_AREAS } from "@/lib/buyerQuestions";
 
 export const metadata: Metadata = {
+  title: { absolute: "Upstream Zero | Commercial Evaluation Observatory" },
   description:
-    "Competitors recommended before you. Buyers arriving already decided. Deals lost before you knew they existed. More and more of commercial evaluation happens before buyers engage directly. Upstream Zero measures why organizations do or don't become the logical recommendation.",
+    "Upstream Zero studies commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out across AI-mediated buying environments.",
   ...pageMeta("/"),
 };
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/meta";
+import { pageLd, pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { EmptyState } from "@/components/EmptyState";
@@ -8,7 +8,9 @@ import { FounderDecision } from "@/components/FounderDecision";
 import { TIERS } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Methods",
+  title: { absolute: "Research Methodology | Upstream Zero" },
+  description:
+    "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization.",
   ...pageMeta("/methods"),
 };
 
@@ -20,6 +22,12 @@ export default function Methods() {
   return (
     <>
       <main className="mx-auto max-w-[1080px] px-5">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: pageLd("CollectionPage", "Research Methodology | Upstream Zero", "/methods", "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization."),
+          }}
+        />
         <header className="mt-12">
           <h1>Methods, instruments, and vocabulary</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>

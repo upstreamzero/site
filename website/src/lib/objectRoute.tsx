@@ -53,7 +53,13 @@ export function makeObjectRoute(type: ObjectType) {
       };
     const obj = byId(id);
     if (!obj) return {};
-    return { title: obj.title, ...pageMeta(urlFor(obj)) };
+    const typeLabel = obj.type.charAt(0).toUpperCase() + obj.type.slice(1);
+    const tierNote = obj.tier ? ` Presented at evidence tier: ${obj.tier}.` : "";
+    return {
+      title: obj.title,
+      description: `${typeLabel} ${obj.id} in the Upstream Zero commercial evaluation research graph. Status: ${obj.status}.${tierNote}`,
+      ...pageMeta(urlFor(obj)),
+    };
   }
   function generateStaticParams() {
     const items = byType(type).map((o) => ({ id: o.id }));

@@ -4,7 +4,9 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 import { FounderDecision } from "@/components/FounderDecision";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: { absolute: "Contact Upstream Zero" },
+  description:
+    "Contact Upstream Zero regarding commercial evaluation research, observed recommendation behavior, methodology, experiments, and institutional collaboration.",
   ...pageMeta("/contact"),
 };
 
