@@ -54,3 +54,6 @@ cookies*.txt
 .DS_Store
 *.log
 nohup.out
+
+# wrangler CLI cache (contains account metadata)
+.wrangler/
