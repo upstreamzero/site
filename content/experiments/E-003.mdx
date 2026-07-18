@@ -1,0 +1,65 @@
+---
+id: E-003
+type: experiment
+title: "Generic HRIS in editorial mode: ads discovered inside the instrument"
+created: "2026-07-11"
+status: Closed
+outcome: Baseline Complete
+---
+
+## Research question
+
+What does the evaluator do when given no buyer context at all?
+
+## Why it mattered
+
+Every other run supplied a buyer profile. This one established the
+editorial-mode baseline: turn-one behavior on an ungated, context-free
+category query, against which later gated runs can be compared.
+
+## Method
+
+Evaluator: Google AI Mode, signed in, retrieval on. A single query, "Best
+HRIS company?", followed by the extraction question. Sample: one draw. No
+predictions were frozen; this was an editorial-mode baseline. Sponsored
+units (Rippling, Paycor) appeared inside the recommendation surface, the
+first logged instance of ads inside the instrument.
+
+## Direct observations
+
+- The evaluator narrated persona balancing as an explicit construction rule,
+  unprompted. This is the strongest unprompted committee narration in the
+  registry.
+- Sponsored units appeared inside the recommendation surface.
+
+## Interpretation (not established)
+
+Committee narration is available to the evaluator but deployed
+inconsistently, a tension later sharpened by the narration-and-reasoning
+split at E-014. The monetization layer is a property of the instrument and
+must be logged as metadata, not treated as noise.
+
+## Outcome and remaining uncertainty
+
+Baseline Complete: a valid editorial-mode reference measurement. It does not
+test a prediction and does not generalize on its own; it exists so gated
+runs have something to be measured against.
+
+## Evidence and methods limitations
+
+Single evaluator, one draw, single coder, no codebook. Editorial mode is one
+condition; committee narration was later shown to be mode-conditional
+(E-013).
+
+## Contribution to the research program
+
+Introduced ad presence, format, advertiser, and category as a permanent
+passive column on every run.
+
+## Follow-on
+
+E-009 measured segmentation stability; E-014 showed input grammar can starve
+context the same way an empty prompt does.
+
+*Created from the canonical Upstream Zero research archive (July 2026). Raw
+outputs are retained privately and are not published.*

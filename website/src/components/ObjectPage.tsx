@@ -37,6 +37,9 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
               <span>{obj.id}</span>
               <span>{obj.created}</span>
               <span>status · {obj.status}</span>
+              {obj.outcome && (
+                <span style={{ color: "var(--needle)" }}>outcome · {obj.outcome}</span>
+              )}
             </div>
             <h1 className="mt-3 max-w-[30ch]">{obj.title}</h1>
             <div className="-ml-5 mt-4 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />

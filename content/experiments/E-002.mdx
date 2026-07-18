@@ -1,0 +1,82 @@
+---
+id: E-002
+type: experiment
+title: "Healthcare CDP and the HIPAA flip: the program's one causally verified gate"
+created: "2026-07-11"
+status: Closed
+outcome: Supported
+predictions:
+  - "Healthcare will show single-cluster risk dominance (HIT)"
+  - "BAA and identity resolution will be the top gates (HIT)"
+  - "BAA will lead the kill order (HIT)"
+---
+
+## Evidence scope
+
+This experiment contains **one causally verified observation**: removing the
+stated HIPAA and BAA requirement changed the recommendation set. That single
+relationship is causally supported, in this evaluator, in this category, in
+this run. Every other observation on this page, and across the program,
+remains at its recorded evidence level, which is narrated. Do not read the
+experiment as a whole as causal evidence. It is the program's only causally
+verified gate, and one verified gate is a finding about one gate, not about
+evaluation in general.
+
+## Research question
+
+Does a narrated implicit gate actually drive the recommendation, or is the
+narration decorative?
+
+## Why it mattered
+
+The whole extraction program rests on reading narrated requirements. If
+narration does not move outcomes, the readout is decorative. This is the one
+test that removed a gate and watched what happened.
+
+## Method
+
+Evaluator: Google AI Mode, signed in, retrieval on. A baseline healthcare
+CDP run using the four-turn protocol, then a separate, fresh session with
+the HIPAA requirement removed rather than added. The flip ran in a fresh
+session so the model could not honor its own earlier narration. Sample: one
+baseline draw and one flip draw.
+
+## Direct observations
+
+- Removing a stated compliance requirement changed the recommendation set.
+- Personas absent under the compliance condition reappeared without it.
+
+## Interpretation (not established)
+
+The BAA gate is causally live in this evaluator, category, and run. It is
+not merely narrated. Compliance dictatorship is one of at least three
+observed owner-distribution topologies: distributed (E-001), monopolized
+(here), and fused (E-005).
+
+## Outcome and remaining uncertainty
+
+Supported: all three frozen predictions held, and the flip moved the output.
+The scope is narrow by design. This is a single gate in a single condition,
+n=1 baseline and n=1 flip. It does not establish that other narrated gates
+are causal, and the program treats it as the exception that proves how rare
+verification is.
+
+## Evidence and methods limitations
+
+Single evaluator, one baseline and one flip, a single coder with a strong
+prior toward the frameworks under test, and no codebook. The causal claim is
+scoped to this evaluator, category, and run.
+
+## Contribution to the research program
+
+Established flip-testing as the program's truth-oracle and the verification
+ratio as a health metric: roughly one verified gate against all narrated
+ones.
+
+## Follow-on
+
+E-007 replicated the category on a second evaluator. E-008, E-009, and E-019
+band the surrounding channels.
+
+*Created from the canonical Upstream Zero research archive (July 2026). Raw
+outputs are retained privately and are not published.*

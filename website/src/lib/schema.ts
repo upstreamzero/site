@@ -114,6 +114,23 @@ export const objectSchema = z.object({
   requiresFromClient: z.string().optional(),
   nonPromises: z.array(z.string()).optional(),
 
+  // Experiment only: closeout outcome, deliberately separate from the
+  // lifecycle `status`. Status answers where the experiment is (Proposed /
+  // Running / Closed / Archived); outcome answers what happened. Present
+  // only once an experiment is closed; a proposed experiment has none.
+  // Outcome is not an evidence tier — a Supported experiment can still rest
+  // on narrated evidence, and an Inconclusive one can hold real observations.
+  outcome: z
+    .enum([
+      "Supported",
+      "Not Supported",
+      "Inconclusive",
+      "Methods Revision Required",
+      "Baseline Complete",
+      "Null Result",
+    ])
+    .optional(),
+
   // Founder-decision gating: visible placeholder, never silent fill
   founderDecision: z.string().optional(),
 
