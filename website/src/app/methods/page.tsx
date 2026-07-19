@@ -33,9 +33,10 @@ export default function Methods() {
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
             When we say we measure evaluation, this page is what the word
             measure means. It is how anything on this site earns its tier.
-            Methods are versioned instruments under development, not
-            standards. The observatory is still discovering what should be
-            measured, and says so.
+            Methods are versioned, standardized instruments under active
+            validation, not yet settled standards. The observatory runs
+            standardized instruments now and is still validating them rather
+            than certifying their results, and says so.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
         </header>
