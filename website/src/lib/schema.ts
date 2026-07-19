@@ -131,6 +131,20 @@ export const objectSchema = z.object({
     ])
     .optional(),
 
+  // ── Business framing (all optional, purely additive) ──
+  // The executive summary every experiment opens with. These are stored as
+  // structured fields rather than prose so that (a) every future object
+  // inherits the presentation with no redesign, and (b) the business framing
+  // is machine-readable in graph.json and /objects/{id}, not trapped in
+  // markdown. No object type, ID, route, edge, or evidence rule changes.
+  category: z.string().optional(), // eyebrow, e.g. "Clinical trial management software"
+  question: z.string().optional(), // the bounded question the run answers
+  businessProblem: z.string().optional(), // why a company should care
+  observedResult: z.string().optional(), // what was observed, scoped
+  // Role tags. The tag is navigation; a deeper per-role explanation is the
+  // future destination, so this stays a list rather than free text.
+  roles: z.array(z.string()).optional(),
+
   // Founder-decision gating: visible placeholder, never silent fill
   founderDecision: z.string().optional(),
 

@@ -8,7 +8,7 @@ import { FounderDecision } from "@/components/FounderDecision";
 import { TIERS } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: { absolute: "Research Methodology | Upstream Zero" },
+  title: { absolute: "How We Work | Upstream Zero" },
   description:
     "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization.",
   ...pageMeta("/methods"),
@@ -21,25 +21,28 @@ export default function Methods() {
 
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
+      <main id="main" className="shell section-tight">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: pageLd("CollectionPage", "Research Methodology | Upstream Zero", "/methods", "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization."),
+            __html: pageLd("CollectionPage", "How We Work | Upstream Zero", "/methods", "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization."),
           }}
         />
-        <header className="mt-12">
-          <h1>Methods, instruments, and vocabulary</h1>
-          <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            When we say we measure evaluation, this page is what the word
-            measure means. It is how anything on this site earns its tier.
-            Methods are versioned, standardized instruments under active
-            validation, not yet settled standards. The observatory runs
-            standardized instruments now and is still validating them rather
-            than certifying their results, and says so.
+        <div className="mt-2">
+          <p className="eyebrow">How we work</p>
+          <h1 className="mt-5 max-w-[20ch]">The experiments are the evidence.</h1>
+          <p className="lede mt-7">
+            Our method decides what that evidence can support. We record the
+            exact question, the evaluator, and the conditions, we keep the
+            original output, and we keep what happened separate from what we
+            think it means.
+          </p>
+          <p className="lede mt-5">
+            The instruments are standardized and still being validated. That
+            means we report what we observed. It does not mean we certify it.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
+        </div>
 
         <section className="mt-10">
           <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>The evidence hierarchy</h2>

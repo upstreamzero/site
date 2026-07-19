@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
-        <header className="mt-12">
+      <main id="main" className="shell section-tight">
+        <div className="mt-2">
           <h1>Contact</h1>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
+        </div>
 
         <section className="mt-8 max-w-[62ch]">
           <p>

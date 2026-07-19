@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteChrome";
+
+/** Self-hosted at build time by next/font: no external requests, no
+ *  layout shift, and nothing added to the client bundle. */
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
 /** GA4 loads only in production and only when the Measurement ID env var
  *  is present. The official @next/third-parties component injects gtag via
@@ -13,11 +22,11 @@ const GA_ENABLED = process.env.NODE_ENV === "production" && Boolean(GA_ID);
 export const metadata: Metadata = {
   metadataBase: new URL("https://upstreamzero.com"),
   title: {
-    default: "Upstream Zero · Commercial Evaluation Observatory",
+    default: "Upstream Zero · Commercial Evaluation Research",
     template: "%s · Upstream Zero",
   },
   description:
-    "A research company studying commercial evaluation. Version 0.1, First Light. The instrument is built and observations begin now. Claims are presented at their evidence tier, and most of them are Narrated.",
+    "Upstream Zero is a research company that studies and measures commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out before buyers ever make contact.",
 };
 
 /** Organization + WebSite structured data (technical recoverability;
@@ -32,7 +41,7 @@ const ORG_JSONLD = {
       name: "Upstream Zero",
       url: "https://upstreamzero.com",
       description:
-        "Upstream Zero is a research company and commercial evaluation observatory studying how organizations are evaluated, recommended, validated, and ruled out, including within AI-mediated buying environments.",
+        "Upstream Zero is a research company that studies and measures commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out, including within AI-mediated buying environments.",
       email: "hello@upstreamzero.com",
       knowsAbout: [
         "Commercial evaluation",
@@ -63,12 +72,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className={`h-full antialiased ${geistSans.variable} ${geistMono.variable}`}
+    >
       <body className="flex min-h-full flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }}
         />
+        <a className="skip-link" href="#main">
+          Skip to main content
+        </a>
         <SiteHeader />
         {children}
       </body>

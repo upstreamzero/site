@@ -7,7 +7,7 @@ export async function GET() {
   const inv = inventory();
   return Response.json({
     name: "Upstream Zero",
-    descriptor: "Commercial Evaluation Observatory",
+    descriptor: "Commercial Evaluation Research",
     version: "0.1",
     firstLight: "2026-07-13",
     whatWeAre:
@@ -19,7 +19,7 @@ export async function GET() {
       "a consultancy selling improved AI recommendations",
     ],
     identityStage:
-      "observatory (discovers), not yet institute (organizes) or laboratory (measures against standards)",
+      "early: the instrument is built and evidence is accumulating. No finding has been accepted as settled.",
     evidencePolicy:
       "Claims presented at their evidence tier; confidence never promoted beyond evidence; corrections published with equal dignity.",
     capabilities: byType("capability").map((c) => ({

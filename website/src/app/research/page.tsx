@@ -1,104 +1,190 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { pageLd, pageMeta } from "@/lib/meta";
-import { byType, urlFor } from "@/lib/content";
+import { byId, byType, inventory, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
-import { EmptyState } from "@/components/EmptyState";
+import { ExperimentCard } from "@/components/ExperimentCard";
+import { FEATURED_EXPERIMENT_IDS } from "@/lib/featured";
 
+/** Metadata and structured data are unchanged by the redesign: presentation
+ *  only, so the machine surfaces stay stable and attributable. */
 export const metadata: Metadata = {
-  title: { absolute: "Commercial Evaluation Research | Upstream Zero" },
+  title: { absolute: "What We Study | Upstream Zero" },
   description:
     "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations.",
   ...pageMeta("/research"),
 };
 
 export default function Research() {
+  const experiments = byType("experiment");
+  const inv = inventory();
+
+  /** Featured is a deliberate communication choice, resolved from a small
+   *  ID-only list. The framing fields make an experiment eligible for the
+   *  card format; they do not make it featured, because auto-featuring every
+   *  framed experiment would rebuild the same wall of research as the
+   *  library grows. All content still resolves from canonical frontmatter,
+   *  and anything not featured remains in the generated library below.
+   *  Unresolvable or unpublished IDs are skipped rather than breaking. */
+  const featured = FEATURED_EXPERIMENT_IDS.map((id) => byId(id)).filter(
+    (e): e is NonNullable<typeof e> => Boolean(e) && e!.type === "experiment",
+  );
+
   const questions = byType("question");
   const hypotheses = byType("hypothesis");
-  const experiments = byType("experiment");
-  const findings = byType("finding");
-  const observations = byType("observation");
+  const methods = byType("method");
+  const claims = byType("claim");
 
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
+      <main id="main">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: pageLd("CollectionPage", "Commercial Evaluation Research | Upstream Zero", "/research", "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations."),
+            __html: pageLd(
+              "CollectionPage",
+              "What We Study | Upstream Zero",
+              "/research",
+              "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations.",
+            ),
           }}
         />
-        <header className="mt-12">
-          <h1>Research</h1>
-          <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            Everything the rest of this site tells you rests on what is
-            published here. Every project starts with a question. If the
-            question survives scrutiny, it becomes a hypothesis. Then an
-            experiment we can run. Observations accumulate from there;
-            findings come last, if they come at all. An experiment we have
-            registered but not yet run still belongs here. The first thing we
-            test is our own premise. See H-1.
-          </p>
-          <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Questions · {questions.length}</h2>
-          <ul className="mt-3 list-none space-y-4 p-0">
-            {questions.map((q) => (
-              <li key={q.id} className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-                <span className="voice-mono" style={{ color: "var(--ink-60)" }}>{q.id} · {q.status}</span>
-                <div className="mt-1 max-w-[58ch]"><Link href={urlFor(q)}>{q.title}</Link></div>
-              </li>
-            ))}
-          </ul>
+        {/* ── Intro ───────────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">The research program</p>
+            <h1 className="mt-5 max-w-[16ch]">
+              What are we trying to learn?
+            </h1>
+            <p className="lede mt-7">
+              Each experiment answers one bounded question about how a
+              buyer&apos;s question becomes a commercial recommendation. No
+              single run explains the whole system. Together they build a
+              clearer model of how evaluation works.
+            </p>
+          </div>
         </section>
 
-        <section className="mt-12">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Hypotheses · {hypotheses.length}</h2>
-          <ul className="mt-3 list-none space-y-4 p-0">
-            {hypotheses.map((h) => (
-              <li key={h.id} className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-                <span className="voice-mono" style={{ color: "var(--ink-60)" }}>{h.id} · {h.status}</span>
-                <div className="mt-1 max-w-[58ch]"><Link href={urlFor(h)}>{h.title}</Link></div>
-              </li>
-            ))}
-          </ul>
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── Featured ────────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">Featured experiments</p>
+            <h2 className="mt-5 max-w-[22ch]">
+              The runs that answer the biggest business questions.
+            </h2>
+            {featured.length > 0 ? (
+              <div className="mt-12 grid gap-4 lg:grid-cols-2">
+                {featured.map((e) => (
+                  <ExperimentCard key={e.id} obj={e} />
+                ))}
+              </div>
+            ) : (
+              <p className="lede mt-8">
+                No experiment has been reviewed into the business framing yet.
+                This section fills as experiments are reviewed, not by
+                selection.
+              </p>
+            )}
+          </div>
         </section>
 
-        <section className="mt-12">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Experiments · {experiments.length}</h2>
-          <ul className="mt-3 list-none space-y-4 p-0">
-            {experiments.map((e) => (
-              <li key={e.id} className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-                <span className="voice-mono" style={{ color: "var(--ink-60)" }}>{e.id} · {e.status}</span>
-                <div className="mt-1 max-w-[58ch]"><Link href={urlFor(e)}>{e.title}</Link></div>
-              </li>
-            ))}
-          </ul>
+        {/* ── Browse all ──────────────────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">Browse all experiments</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              The complete library, generated automatically.
+            </h2>
+            <p className="lede mt-6">
+              Every experiment in the program, including the runs still being
+              reviewed into the format above.
+            </p>
+            <ul className="browse mt-10">
+              {experiments.map((e) => (
+                <li key={e.id}>
+                  <Link href={urlFor(e)}>
+                    <span className="browse-id">{e.id}</span>
+                    <span className="browse-title">
+                      {e.category ? `${e.category}: ` : ""}
+                      {e.title}
+                    </span>
+                    <span className="browse-meta">
+                      {e.status}
+                      {e.outcome ? ` · ${e.outcome}` : ""}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="callout mt-12 max-w-[70ch]">
+              <p>
+                <strong>What Closed means.</strong> A completed experiment is
+                evidence of what occurred under its recorded conditions. Closed
+                means the run is finished, not that the result is a universal
+                truth. Replication, causal support, cross-evaluator agreement,
+                and real-world corroboration are what let a conclusion travel
+                further.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section className="mt-12">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Observations · {observations.length}</h2>
-          {observations.length === 0 && (
-            <EmptyState>
-              No observations have been published. The first one will carry
-              its instrument stamp. That records the evaluator, version,
-              access mode, date, and sampling conditions. This empty state
-              will be replaced by data, not by copy.
-            </EmptyState>
-          )}
-        </section>
-
-        <section className="mt-12">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>Findings · {findings.length}</h2>
-          {findings.length === 0 && (
-            <EmptyState>
-              No findings exist. A finding requires observations to derive
-              from, and there are none yet. Nothing on this site will imply
-              otherwise.
-            </EmptyState>
-          )}
+        {/* ── The rest of the library ─────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <hr className="rule" />
+            <p className="eyebrow mt-12">The rest of the library</p>
+            <h2 className="mt-5 max-w-[22ch]">
+              Everything the experiments rest on.
+            </h2>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="card">
+                <div className="stat-n">{questions.length}</div>
+                <div className="stat-label">Open questions</div>
+                <ul className="mt-4 list-none space-y-2 p-0 text-[0.9375rem]">
+                  {questions.map((q) => (
+                    <li key={q.id}>
+                      <Link href={urlFor(q)}>{q.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="card">
+                <div className="stat-n">{hypotheses.length}</div>
+                <div className="stat-label">Hypotheses under test</div>
+                <ul className="mt-4 list-none space-y-2 p-0 text-[0.9375rem]">
+                  {hypotheses.map((h) => (
+                    <li key={h.id}>
+                      <Link href={urlFor(h)}>{h.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="card">
+                <div className="stat-n">{methods.length}</div>
+                <div className="stat-label">Methods</div>
+                <p className="muted mt-4 text-[0.9375rem]">
+                  How anything here earns its evidence tier.{" "}
+                  <Link href="/methods">How we work</Link>
+                </p>
+              </div>
+              <div className="card">
+                <div className="stat-n">{inv.findings}</div>
+                <div className="stat-label">Accepted findings</div>
+                <p className="muted mt-4 text-[0.9375rem]">
+                  Zero, and we print it. A finding requires evidence we have
+                  not yet accumulated. {claims.length} founding claims are
+                  published at their tier in the{" "}
+                  <Link href="/claims">claims ledger</Link>.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
       <ProvenanceFooter />

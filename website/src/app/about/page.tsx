@@ -10,112 +10,137 @@ export const metadata: Metadata = {
   ...pageMeta("/about"),
 };
 
-/** Canonical institutional identity page (the single home for "What is
- *  Upstream Zero?"). The institution sits behind the discipline: the site
- *  progresses from the buyer's problem through commercial evaluation,
- *  requirements, evidence, and commercial application, and arrives here.
- *  Other pages summarize identity in one line and link back to this page. */
+/** The canonical identity page. Every other page summarises identity in one
+ *  line and links back here. */
+const FACTS = [
+  {
+    title: "What we study",
+    body: "Commercial evaluation, and the requirements underneath it. Models change and interfaces change. What a buyer needs to see satisfied does not. That is what makes it worth studying properly.",
+    href: "/concepts/requirements",
+    hrefLabel: "Requirements",
+  },
+  {
+    title: "What we publish",
+    body: "A tiered, inspectable record of claims, questions, hypotheses, experiments, and methods. Every claim carries an evidence tier and is never shown above it. The evidence is public. How we produce it is not.",
+    href: "/claims",
+    hrefLabel: "The claims ledger",
+  },
+  {
+    title: "What we sell",
+    body: "Measurement and diagnosis of how an organization is evaluated. Never optimization promises. The commercial work applies the research; it does not turn us into an agency.",
+    href: "/services",
+    hrefLabel: "For companies",
+  },
+  {
+    title: "What we do not claim",
+    body: "We are not an SEO, AEO, GEO, or AI-visibility agency, not an AI consultancy, and not a software company. We do not promise better rankings, recommendations, visibility, or selection. We measure evaluation; we do not sell standing with evaluators.",
+    href: "/faq",
+    hrefLabel: "Common questions",
+  },
+];
+
 export default function About() {
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
+      <main id="main">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: pageLd("AboutPage", "About Upstream Zero | Commercial Evaluation Research", "/about", "Upstream Zero observes how commercial evaluations are formed, including requirement sets, evidence, reasoning, validation, and recommendation outcomes."),
+            __html: pageLd(
+              "AboutPage",
+              "About Upstream Zero | Commercial Evaluation Research",
+              "/about",
+              "Upstream Zero observes how commercial evaluations are formed, including requirement sets, evidence, reasoning, validation, and recommendation outcomes.",
+            ),
           }}
         />
-        <header className="mt-12">
-          <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
-            The company behind the work
-          </p>
-          <h1 className="mt-3">What is Upstream Zero?</h1>
-          <p className="measure mt-4 text-[1.05rem]">
-            Every commercial outcome is preceded by an evaluation. More and
-            more often, that evaluation concludes before a buyer engages
-            anyone directly. Today the mechanism is a language model; tomorrow
-            it may be something else. The process it performs is{" "}
-            <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
-            and it is what Upstream Zero measures: why organizations are, or
-            are not, becoming the logical recommendation, and what would have
-            to become true for that to change. The work comes first; the
-            company exists to do it.
-          </p>
-          <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What kind of organization</h2>
-          <p className="measure mt-2 text-[0.98rem]">
-            Right now it&apos;s an <strong>observatory</strong>: its job is to
-            discover. The institute that will organize what it finds, and the
-            laboratory that will run the measurements, come later. It only
-            claims the stage it has actually reached. Why it works in that
-            order, and why it publishes its own uncertainty, is the{" "}
-            <Link href="/philosophy">Philosophy</Link>.
-          </p>
+        {/* ── Identity ────────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">The company behind the work</p>
+            <h1 className="mt-5 max-w-[15ch]">What is Upstream Zero?</h1>
+            <p className="lede mt-7">
+              Every commercial outcome is preceded by an evaluation, and more
+              and more often that evaluation concludes before a buyer engages
+              anyone. We measure why organizations are, or are not, becoming
+              the logical recommendation, and what would have to become true
+              for that to change.
+            </p>
+            <p className="lede mt-5">
+              The work comes first. The company exists to do it.
+            </p>
+          </div>
         </section>
 
-        <section className="mt-8">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it studies</h2>
-          <p className="measure mt-2 text-[0.98rem]">
-            Commercial evaluation, and the{" "}
-            <Link href="/concepts/requirements">requirements</Link> underneath
-            it. Models change, interfaces change. What a buyer needs to see
-            satisfied doesn&apos;t. That&apos;s what makes it worth studying
-            properly. The open questions it&apos;s pointed at live in{" "}
-            <Link href="/research">Research</Link>.
-          </p>
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── The facts ──────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {FACTS.map((f) => (
+                <div key={f.title} className="card">
+                  <h2 className="text-[1.375rem] font-medium tracking-[-0.02em]">
+                    {f.title}
+                  </h2>
+                  <p className="muted mt-3">{f.body}</p>
+                  <p className="mt-5">
+                    <Link href={f.href} className="btn-ghost">
+                      {f.hrefLabel}
+                    </Link>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
-        <section className="mt-8">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it publishes</h2>
-          <p className="measure mt-2 text-[0.98rem]">
-            A tiered, inspectable knowledge graph. It holds claims,
-            questions, hypotheses, experiments, methods, and (as they accrue)
-            observations and findings. Every claim carries an{" "}
-            <Link href="/concepts/evidence-tier">evidence tier</Link> and is
-            never shown above it. The evidence is public. How we produce it is
-            not. Start at the <Link href="/claims">Claims Ledger</Link>.
-          </p>
+        {/* ── Honesty about stage ────────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">Where we actually are</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              We only claim the stage we have reached.
+            </h2>
+            <div className="callout mt-10 max-w-[70ch]">
+              <p>
+                <strong>The job right now is to discover.</strong> Organizing
+                what we find, and running measurements against settled
+                standards, come later. Zero findings have been accepted as
+                settled, one gate in the entire program has been causally
+                verified, and we print both numbers rather than rounding them
+                up. Why we work in that order, and why we publish our own
+                uncertainty, is on the{" "}
+                <Link href="/philosophy">philosophy page</Link>.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section className="mt-8">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it offers commercially</h2>
-          <p className="measure mt-2 text-[0.98rem]">
-            Measurement and diagnosis of how an organization is evaluated.
-            Never optimization promises. The commercial work applies the
-            research. It does not redefine Upstream Zero as an agency.{" "}
-            <Link href="/services">Services</Link>.
-          </p>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>What it does not claim</h2>
-          <p className="measure mt-2 text-[0.98rem]">
-            It is <strong>not</strong> an SEO, AEO, GEO, or AI-visibility
-            optimization agency, <strong>not</strong> an AI consultancy, and{" "}
-            <strong>not</strong> a software company selling a product. It does
-            not promise better rankings, recommendations, visibility, or
-            selection. It measures evaluation; it does not sell standing with
-            evaluators. Why the build itself enforces that line is in the{" "}
-            <Link href="/faq">FAQ</Link> and on{" "}
-            <Link href="/services">Services</Link>.
-          </p>
-        </section>
-
-        <section className="mt-10 max-w-[62ch] border p-5" style={{ borderColor: "var(--ink-18)" }}>
-          <h2 className="voice-mono m-0" style={{ color: "var(--ink-60)" }}>Verify without trusting us</h2>
-          <p className="mt-2 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            The machine-readable counterpart of this page is{" "}
-            <a href="/company.json">company.json</a>. The full graph is{" "}
-            <a href="/graph.json">graph.json</a>; orientation for machine
-            readers is <a href="/llms.txt">llms.txt</a>. Corrections and
-            conflicts of interest:{" "}
-            <Link href="/philosophy#when-wrong">how we handle being wrong</Link>{" "}
-            · <Link href="/philosophy#neutrality">neutrality</Link> ·{" "}
-            <Link href="/concepts/client-zero">Client Zero</Link>.
-          </p>
+        {/* ── Verify ─────────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <hr className="rule" />
+            <p className="eyebrow mt-14">Verify without trusting us</p>
+            <h2 className="mt-5 max-w-[22ch]">
+              Everything above is checkable.
+            </h2>
+            <p className="lede mt-6">
+              The machine-readable counterpart of this page is{" "}
+              <a href="/company.json">company.json</a>. The full graph is{" "}
+              <a href="/graph.json">graph.json</a>, and orientation for machine
+              readers is <a href="/llms.txt">llms.txt</a>.
+            </p>
+            <p className="muted mt-6 text-[0.9375rem]">
+              Corrections and conflicts of interest:{" "}
+              <Link href="/philosophy#when-wrong">how we handle being wrong</Link>{" "}
+              · <Link href="/philosophy#neutrality">neutrality</Link> ·{" "}
+              <Link href="/concepts/client-zero">Client Zero</Link>
+            </p>
+          </div>
         </section>
       </main>
       <ProvenanceFooter machineUrl="/company.json" />

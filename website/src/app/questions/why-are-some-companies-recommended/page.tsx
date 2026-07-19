@@ -25,8 +25,8 @@ export default function Page() {
 
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
-        <header className="mt-12">
+      <main id="main" className="shell section-tight">
+        <div className="mt-2">
           <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
             A buyer question, answered at the evidence tier shown below
           </p>
@@ -50,7 +50,7 @@ export default function Page() {
             Often it just means nobody could piece together why you fit.
           </p>
           <div className="-ml-5 mt-6 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
+        </div>
 
         {/* the discipline */}
         <QPart label="What is actually happening">
@@ -58,7 +58,7 @@ export default function Page() {
             Making the shortlist isn&apos;t about rankings. It&apos;s the
             result of an evaluation. That process is{" "}
             <Link href="/concepts/commercial-evaluation">commercial evaluation</Link>,
-            what this observatory studies. It runs through surfacing,
+            what we study. It runs through surfacing,
             screening, comparison, and validation. Visibility can get you
             surfaced. It won&apos;t carry you through the screening that
             decides whether you&apos;re really in the running.
@@ -90,7 +90,7 @@ export default function Page() {
         <QPart label="Evidence and its tier">
           <p>
             This answer is a <strong>founding position</strong>, not a
-            demonstrated result. The observatory has published zero
+            demonstrated result. We have published zero
             observations, and the claims beneath this answer sit at the lowest{" "}
             <Link href="/concepts/evidence-tier">evidence tier</Link>:
           </p>

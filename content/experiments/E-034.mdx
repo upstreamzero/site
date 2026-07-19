@@ -1,75 +1,82 @@
 ---
 id: E-034
 type: experiment
-title: "Clinical trial management software: the recommendation field collapsed to a single vendor"
+title: "When the recommendation set collapses"
+category: "Clinical trial management software"
 created: "2026-07-18"
 status: Closed
 outcome: Supported
+question: "Why does an evaluator sometimes reduce a category to one viable vendor?"
+businessProblem: "A company can disappear before a buyer ever sees a comparison."
+observedResult: "The observed recommendation field collapsed to a single vendor."
+roles:
+  - CEO
+  - CFO
+  - Sales
+  - Marketing
 ---
 
-## Research question
+## Why this matters
 
-When a buyer profile and commercial requirements are introduced in sequence,
-does the evaluator's recommendation field stay plural, or does it narrow?
+Most companies assume that appearing in the answer means being in the
+running. This run tested that assumption and it did not hold.
 
-## Why it mattered
+An evaluator will name several vendors when the question is generic. The
+commercial question is what happens next, once the buyer describes who they
+are and what they need. If the field can resolve to one company at that
+point, then presence in the generic answer is close to meaningless. The
+competition that decides the outcome happens in the step after it, and it
+can finish before a buyer contacts anyone.
 
-Turn-one extraction shows a landscape. This run watched what happened to that
-landscape as a buyer profile and real requirements were added across the
-draws, in clinical trial management software (CTMS).
+For every company in the category except one, that loss is invisible. There
+is no lost deal to review, because there was never a deal.
 
-## Method
+## What we observed
 
-Evaluator: Google AI Mode, single surface. The run began from an unqualified
-category recommendation, then introduced a buyer profile and commercial
-requirements in sequence, observing how the recommendation field changed at
-each step. Three draws. Instrument details and scoring are retained
-internally.
+In clinical trial management software, the field did not stay open.
 
-## Direct observations
+As a buyer profile and commercial requirements were introduced one at a
+time, the recommendation narrowed from several vendors to a single final
+recommendation. **Advarra OnCore was the vendor that persisted, surviving
+all three draws.**
 
-- The recommendation field narrowed from several vendors to a single final
-  recommendation.
-- Advarra OnCore was the vendor that persisted, surviving all three draws.
-- The decisive narrowing appeared once the buyer profile was introduced,
-  earlier in the sequence than the run anticipated.
-- Under the tested condition, the plural field did not hold. It collapsed
-  onto one vendor.
+The narrowing also happened sooner than expected. The decisive move came as
+soon as the buyer profile was introduced, not at the end after every
+requirement had been added. Each requirement after that point was an
+opportunity to be removed, and removal did not require a competitor to be
+better overall.
 
-## Interpretation (not established)
+## Related runs
 
-In this category and on this surface, the opening recommendation reads as
-weakly held: a plural landscape that reduces to a single vendor once a buyer
-profile and requirements are present. Whether the early collapse is a
-property of this category, this surface, this buyer profile, or
-recommendation behavior more broadly is not established here.
+**[E-040](/experiments/E-040)** ran a comparable sequence in project-management software and the
+field did **not** collapse to one vendor. Two categories, two different
+outcomes. Whether that difference is driven by category is an open question,
+not a finding.
 
-## Outcome and remaining uncertainty
+**[E-002](/experiments/E-002)** remains the only run in the program with a causally verified
+result. This one is not causal, and nothing here changes that count.
 
-Supported: the recommendation field collapsed to a single vendor under the
-tested condition, which is the outcome the run was built to detect. The scope
-is narrow. One evaluator, one surface, three draws, one buyer profile, and no
-removal test, so nothing here is causal. It does not generalize beyond this
-category and these conditions on this evidence.
+## How we tested it
 
-## Evidence and methods limitations
+One evaluator, Google AI Mode, on a single surface. The run began from an
+unqualified category recommendation, then introduced a buyer profile and
+commercial requirements in sequence, observing how the field changed at each
+step. Three draws.
 
-One evaluator, one surface (Google AI Mode), three draws, single coder. No
-removal or flip test was run, so no causal claim is made about what forced
-the collapse. The program still holds exactly one causally verified gate
-(E-002), and this run does not add to it.
+Instrument details and scoring are retained internally.
 
-## Contribution to the research program
+## What we cannot say yet
 
-Recorded a category, CTMS, in which the recommendation field collapsed to a
-single vendor once buyer context and requirements were present. The companion
-category is E-040.
+This is a narrow result and should be read narrowly.
 
-## Follow-on
+One evaluator, one surface, three draws, one buyer profile, and no removal
+test. Nothing here is causal: we did not remove a requirement and watch the
+outcome change, so we cannot say what forced the collapse. It does not
+generalize beyond this category and these conditions, and it says nothing
+about how a different evaluator would behave.
 
-E-040 ran a comparable sequence in project-management software and the field
-did not collapse to one vendor. Whether the difference is driven by category
-is an open question, not a finding.
+Closed means the run is complete. It does not mean the result is a universal
+truth.
 
 *Created from the Upstream Zero research record (session 2026-07-18). Raw
 outputs, instrument details, and scoring are retained privately and are not

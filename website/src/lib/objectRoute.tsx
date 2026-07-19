@@ -21,12 +21,12 @@ export function makeObjectRoute(type: ObjectType) {
     if (id === EMPTY_SENTINEL) {
       if (byType(type).length > 0) notFound();
       return (
-        <main className="mx-auto max-w-[1080px] px-5">
-          <header className="mt-12">
+        <main id="main" className="shell section-tight">
+          <div className="mt-2">
             <h1 className="text-[1.75rem]">
               No published {type} objects yet
             </h1>
-          </header>
+          </div>
           <EmptyState>
             This register exists and is wired into the graph, the machine
             layer, and the sitemap. It is simply empty. Objects appear here

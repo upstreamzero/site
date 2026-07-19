@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import matter from "gray-matter";
 import {
   objectSchema,
@@ -47,6 +48,41 @@ export const TYPE_TO_DIR: Record<ObjectType, string> = Object.fromEntries(
 const COMMERCIAL = new Set<string>(COMMERCIAL_TYPES);
 const RESEARCH = new Set<string>(RESEARCH_TYPES);
 
+const REPO_ROOT = path.dirname(CONTENT_DIR);
+
+/**
+ * Publication eligibility mirrors production exactly: content is publicly
+ * eligible only once it is committed (tracked in git).
+ *
+ * On the deploy host every content file on disk is tracked, because the
+ * build starts from a clean clone, so this changes nothing in production.
+ * Locally it stops parked, uncommitted drafts from leaking into pages,
+ * counts, the sitemap, or the machine surfaces, which makes local output
+ * match what will actually deploy.
+ *
+ * If git is unavailable we return null and fall back to reading every file,
+ * which is the correct behaviour in a clean checkout where the two sets are
+ * identical anyway.
+ */
+function trackedContentFiles(): Set<string> | null {
+  try {
+    const out = execFileSync("git", ["ls-files", "--", CONTENT_DIR], {
+      cwd: REPO_ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    });
+    const tracked = new Set(
+      out
+        .split("\n")
+        .filter(Boolean)
+        .map((rel) => path.resolve(REPO_ROOT, rel)),
+    );
+    return tracked.size > 0 ? tracked : null;
+  } catch {
+    return null;
+  }
+}
+
 let cache: Map<string, UZObject> | null = null;
 
 /** Load, validate, and cross-check the whole graph. Throws on violation:
@@ -54,13 +90,17 @@ let cache: Map<string, UZObject> | null = null;
 export function loadGraph(): Map<string, UZObject> {
   if (cache) return cache;
   const objects = new Map<string, UZObject>();
+  const tracked = trackedContentFiles();
 
   for (const dir of Object.keys(TYPE_DIRS)) {
     const abs = path.join(CONTENT_DIR, dir);
     if (!fs.existsSync(abs)) continue;
     for (const file of fs.readdirSync(abs)) {
       if (!file.endsWith(".mdx") && !file.endsWith(".md")) continue;
-      const raw = fs.readFileSync(path.join(abs, file), "utf8");
+      const full = path.join(abs, file);
+      // Uncommitted content is not publicly eligible (see above).
+      if (tracked && !tracked.has(full)) continue;
+      const raw = fs.readFileSync(full, "utf8");
       const { data, content } = matter(raw);
       const parsed = objectSchema.safeParse(data);
       if (!parsed.success) {
@@ -185,7 +225,7 @@ export function backEdges(id: string): { from: UZObject; rel: string }[] {
   return out;
 }
 
-/** The honest inventory for the Observatory status board (public only). */
+/** The honest public inventory (public only). */
 export function inventory() {
   const g = publicObjects();
   const count = (t: ObjectType) => g.filter((o) => o.type === t).length;

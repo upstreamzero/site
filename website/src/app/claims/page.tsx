@@ -6,7 +6,7 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 import { TierScale } from "@/components/TierScale";
 
 export const metadata: Metadata = {
-  title: { absolute: "Claims Ledger and Evidence Tiers | Upstream Zero" },
+  title: { absolute: "What We Claim | Upstream Zero" },
   description:
     "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings.",
   ...pageMeta("/claims"),
@@ -16,25 +16,32 @@ export default function Claims() {
   const claims = byType("claim");
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
+      <main id="main" className="shell section-tight">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: pageLd("CollectionPage", "Claims Ledger and Evidence Tiers | Upstream Zero", "/claims", "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings."),
+            __html: pageLd("CollectionPage", "What We Claim | Upstream Zero", "/claims", "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings."),
           }}
         />
-        <header className="mt-12">
-          <h1>The Claim Ledger</h1>
-          <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            Every claim Upstream Zero publicly stands behind, presented at its
-            evidence tier. That includes the founding claims, which are
-            Narrated and say so. A claim&apos;s displayed tier is a floor function: it
-            cannot exceed what its evidence edges justify, and the build fails
-            if it tries. Confidence is never promoted beyond available
-            evidence.
+        <div className="mt-2">
+          <p className="eyebrow">What we claim</p>
+          <h1 className="mt-5 max-w-[20ch]">
+            Everything we say, and how sure we are.
+          </h1>
+          <p className="lede mt-7">
+            Every claim we publicly stand behind, each one labelled with how
+            strong the evidence for it actually is. That includes our own
+            founding claims, which currently rest on the weakest label we
+            have, and say so.
+          </p>
+          <p className="lede mt-5">
+            A claim can never be shown as stronger than its evidence. That is
+            not a promise we make, it is a rule the site is built to enforce:
+            if a claim ever displayed more confidence than its evidence
+            supports, the build would fail.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
+        </div>
 
         <ul className="mt-10 list-none space-y-8 p-0">
           {claims.map((c) => (

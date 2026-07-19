@@ -4,7 +4,7 @@ import { inventory } from "@/lib/content";
 /** Orientation for machine readers. */
 export async function GET() {
   const inv = inventory();
-  const text = `# Upstream Zero: Commercial Evaluation Observatory
+  const text = `# Upstream Zero: Commercial Evaluation Research
 
 Upstream Zero is a research company built around one market shift:
 commercial evaluation moved upstream. Every commercial outcome is
@@ -26,7 +26,7 @@ promise recommendation outcomes.
 
 1. Human-readable answers: the executive problems at /questions, the
    company at /about, services at /services, the operational FAQ at
-   /faq, institutional questions at /philosophy, and the research
+   /faq, how we work at /philosophy, and the research
    program at /research.
 2. This file: orientation for machine readers.
 3. Structured research knowledge: /graph.json, /company.json, and

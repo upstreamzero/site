@@ -6,12 +6,37 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 import { EmptyState } from "@/components/EmptyState";
 import { FounderDecision } from "@/components/FounderDecision";
 
+/** Metadata unchanged by the redesign: presentation only. */
 export const metadata: Metadata = {
   title: { absolute: "Commercial Evaluation Services | Upstream Zero" },
   description:
     "Observed commercial evaluation research and diagnosis for organizations seeking to understand how AI systems evaluate, recommend, and rule out companies.",
   ...pageMeta("/services"),
 };
+
+/** What an engagement answers. Deliverables, never promised outcomes. */
+const ANSWERS = [
+  {
+    n: "01",
+    title: "How you are evaluated today",
+    body: "How systems currently represent, compare, include, recommend, and eliminate your company.",
+  },
+  {
+    n: "02",
+    title: "Why that result happened",
+    body: "The requirements you are measured against, the evidence gaps, and the competitor differences associated with the outcome.",
+  },
+  {
+    n: "03",
+    title: "What would have to become true",
+    body: "The most important change to test if you want to become a more logical choice.",
+  },
+  {
+    n: "04",
+    title: "Whether anything moved",
+    body: "Repeated measurement to see whether the recommendation changed, and whether the change survived another evaluation.",
+  },
+];
 
 export default function Services() {
   const capabilities = byType("capability");
@@ -21,130 +46,173 @@ export default function Services() {
 
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
-        <header className="mt-12">
-          <h1>Working with Upstream Zero</h1>
-          <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
-            Deals are being decided in evaluations you never see, before your
-            team is in the room. If an evaluator can&apos;t verify what you do,
-            you are not the recommendation, and you never find out why. This is
-            how we help you understand why, and what would have to become true
-            for you to be the logical recommendation, laid out as the seven
-            questions a serious buyer asks. The rule behind all of them never
-            moves: we measure and diagnose, and we never promise to change what
-            an evaluator does.
-          </p>
-          <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
-
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>1 · What do you study?</h2>
-          <p className="measure mt-2">
-            <Link href="/concepts/commercial-evaluation">Commercial evaluation</Link>.
-            That is how organizations are assessed, recommended, validated,
-            and eliminated, observed today through AI evaluators. The research
-            program lives at <Link href="/research">/research</Link>.
-          </p>
+      <main id="main">
+        {/* ── Intro ───────────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">For companies</p>
+            <h1 className="mt-5 max-w-[18ch]">
+              Find out why you are not the recommendation.
+            </h1>
+            <p className="lede mt-7">
+              Deals are being decided in evaluations you never see, before your
+              team is in the room. If a system cannot verify what you do, you
+              are not the recommendation, and you never find out why. We
+              measure what is actually happening and explain what produced it.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Link href="/contact" className="btn">
+                Talk about your category
+              </Link>
+              <Link href="/research" className="btn-ghost">
+                See the research
+              </Link>
+            </div>
+          </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>2 · What have you observed?</h2>
-          <p className="measure mt-2" style={{ color: "var(--ink-60)" }}>
-            Nothing yet. The observatory is at First Light, with zero
-            published observations, and the front page prints that number.
-            What exists is the instrument and its rules. Buyers deserve that
-            answer straight.
-          </p>
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── What an engagement answers ──────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">What an engagement answers</p>
+            <h2 className="mt-5 max-w-[20ch]">
+              Four questions, answered with evidence.
+            </h2>
+            <ol className="steps steps-4 mt-12">
+              {ANSWERS.map((a) => (
+                <li key={a.n} className="step">
+                  <div className="step-n">{a.n}</div>
+                  <h3>{a.title}</h3>
+                  <p>{a.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>3 · How might this affect my company?</h2>
-          <p className="measure mt-2">
-            If AI evaluators mediate what buyers in your category see (the
-            open bridge hypothesis, <Link href="/hypotheses/H-1">H-1</Link>),
-            then unverifiable claims and invisible capabilities cost you
-            consideration you never knew you lost. Each research object
-            carries a Commercial Relevance block translating it into buyer
-            terms without borrowing the object&apos;s evidence tier.
-          </p>
+        {/* ── The one rule ───────────────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <div className="callout max-w-[70ch]">
+              <p>
+                <strong>The rule behind all of it never moves.</strong> We
+                measure and diagnose. We never promise to change what an
+                evaluator does. Engagements deliver artifacts, never outcomes,
+                and the object model has no field a promised outcome could
+                even live in.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>4 · What can you measure for us today?</h2>
-          <ul className="mt-3 list-none space-y-4 p-0">
-            {capabilities.map((c) => (
-              <li key={c.id} className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-                <span className="voice-mono" style={{ color: "var(--needle)" }}>{c.maturity}</span>
-                <div className="mt-1 max-w-[58ch]"><Link href={urlFor(c)}>{c.title}</Link></div>
-              </li>
-            ))}
-          </ul>
-          <p className="measure mt-3 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            Every capability is currently <strong>experimental</strong>. The
-            build itself forbids marking a capability operational until it
-            derives from published method. That enforcement is not a promise;
-            it is a compiler error.
-          </p>
+        {/* ── What we can measure today ──────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">What we can measure today</p>
+            <h2 className="mt-5 max-w-[22ch]">
+              Every capability is still experimental, and we label it.
+            </h2>
+            <ul className="browse mt-10">
+              {capabilities.map((c) => (
+                <li key={c.id}>
+                  <Link href={urlFor(c)}>
+                    <span className="browse-id">{c.maturity}</span>
+                    <span className="browse-title">{c.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="muted mt-6 max-w-[62ch] text-[0.9375rem]">
+              The build itself forbids marking a capability operational until
+              it derives from published method. That is not a promise, it is a
+              compiler error.
+            </p>
+          </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>5 · What would a paid engagement produce?</h2>
-          <ul className="mt-3 list-none space-y-4 p-0">
-            {engagements.map((e) => (
-              <li key={e.id} className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-                <span className="voice-mono" style={{ color: "var(--ink-60)" }}>{e.id} · {e.status}</span>
-                <div className="mt-1 max-w-[58ch]"><Link href={urlFor(e)}>{e.title}</Link></div>
-                {e.serves && (
-                  <p className="mt-1 max-w-[58ch] text-[0.92rem]" style={{ color: "var(--ink-60)" }}>{e.serves}</p>
-                )}
-              </li>
-            ))}
-          </ul>
-          <p className="measure mt-3 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-            Deliverable specifications are inspectable before buying:{" "}
-            {deliverables.map((d, i) => (
-              <span key={d.id}>
-                {i > 0 && " · "}
-                <Link href={urlFor(d)}>{d.title}</Link>
-              </span>
-            ))}
-            . Engagements promise artifacts, never outcomes. The object
-            model has no field an outcome-promise could live in.
-          </p>
-          <FounderDecision id="FD-6">
-            Engagement names, scopes, and pricing are provisional pending
-            founder confirmation. No engagement is bookable until this
-            decision is made.
-          </FounderDecision>
+        {/* ── Engagements ────────────────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">What an engagement produces</p>
+            <h2 className="mt-5 max-w-[22ch]">
+              Artifacts you can inspect before you buy.
+            </h2>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {engagements.map((e) => (
+                <div key={e.id} className="card">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="chip">{e.id}</span>
+                    <span className="chip">{e.status}</span>
+                  </div>
+                  <h3 className="mt-5">
+                    <Link href={urlFor(e)}>{e.title}</Link>
+                  </h3>
+                  {e.serves && <p className="muted mt-3">{e.serves}</p>}
+                </div>
+              ))}
+            </div>
+            <p className="muted mt-8 max-w-[62ch] text-[0.9375rem]">
+              Deliverable specifications are public before you buy:{" "}
+              {deliverables.map((d, i) => (
+                <span key={d.id}>
+                  {i > 0 && " · "}
+                  <Link href={urlFor(d)}>{d.title}</Link>
+                </span>
+              ))}
+              .
+            </p>
+            <div className="mt-8 max-w-[70ch]">
+              <FounderDecision id="FD-6">
+                Engagement names, scopes, and pricing are provisional pending
+                founder confirmation. No engagement is bookable until that
+                decision is made.
+              </FounderDecision>
+            </div>
+          </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>6 · What is still experimental?</h2>
-          <p className="measure mt-2" style={{ color: "var(--ink-60)" }}>
-            Everything commercial, currently. See the maturity labels above.
-            And the measured-outcome register is empty:
-          </p>
-          {outcomes.length === 0 && (
-            <EmptyState>
-              No measured outcomes yet. Engagement results will publish here
-              as tiered evidence, with client consent, as they are measured.
-              There are no testimonials or logo walls on this site. This
-              register is what replaces them. Slower, and worth more.
-            </EmptyState>
-          )}
+        {/* ── Measured outcomes ──────────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">Measured outcomes</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              There are no testimonials on this site.
+            </h2>
+            {outcomes.length === 0 && (
+              <div className="mt-8 max-w-[70ch]">
+                <EmptyState>
+                  No measured outcomes yet. Engagement results will publish
+                  here as tiered evidence, with client consent, as they are
+                  measured. This register is what replaces a logo wall. It is
+                  slower, and it is worth more.
+                </EmptyState>
+              </div>
+            )}
+          </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="voice-mono" style={{ color: "var(--ink-60)" }}>7 · How do we start?</h2>
-          <p className="measure mt-2">
-            A calm, specific path: what to bring, and what a first
-            conversation covers.
-          </p>
-          <p className="mt-5">
-            <Link href="/contact" className="btn">
-              Start the conversation
-            </Link>
-          </p>
+        {/* ── Close ──────────────────────────────────────────── */}
+        <section className="section">
+          <div className="shell">
+            <hr className="rule" />
+            <h2 className="mt-14 max-w-[24ch]">
+              Start with your category, not a pitch.
+            </h2>
+            <p className="lede mt-6">
+              A first conversation covers your evaluation context, what is
+              measurable now, and whether we should work together yet.
+              Sometimes the honest answer is not yet.
+            </p>
+            <p className="mt-9">
+              <Link href="/contact" className="btn">
+                Talk about your category
+              </Link>
+            </p>
+          </div>
         </section>
       </main>
       <ProvenanceFooter />

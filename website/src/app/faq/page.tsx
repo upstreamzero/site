@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "FAQ | Upstream Zero Commercial Evaluation Observatory" },
+  title: { absolute: "FAQ | Upstream Zero" },
   description:
     "Answers about Upstream Zero, commercial evaluation, AI-mediated vendor selection, evidence tiers, research methods, and the limits of current findings.",
   ...pageMeta("/faq"),
@@ -134,10 +134,10 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What is Client Zero?",
     plain:
-      "Upstream Zero itself. The observatory runs its methods on itself first: this site is the first measured subject, its publication is treated as an intervention in the environment it studies, and the first experiment (EXP-0001) observes whether its own published objects propagate into evaluator behavior.",
+      "Upstream Zero itself. We run our methods on ourselves first: this site is the first measured subject, its publication is treated as an intervention in the environment it studies, and the first experiment (EXP-0001) observes whether its own published objects propagate into evaluator behavior.",
     a: (
       <>
-        Upstream Zero itself. The observatory runs its methods on itself
+        Upstream Zero itself. We run our methods on ourselves
         first: this site is the first measured subject, its publication is
         treated as an intervention in the environment it studies, and the
         first experiment (<Link href="/experiments/EXP-0001">EXP-0001</Link>)
@@ -206,12 +206,12 @@ export default function FaqPage() {
 
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
+      <main id="main" className="shell section-tight">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <header className="mt-12">
+        <div className="mt-2">
           <h1>FAQ</h1>
           <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
             Practical questions, answered plainly. Buyer problems live on the{" "}
@@ -220,7 +220,7 @@ export default function FaqPage() {
             page is operational.
           </p>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
+        </div>
 
         {FAQ.map((f) => (
           <section key={f.q} className="mt-10">

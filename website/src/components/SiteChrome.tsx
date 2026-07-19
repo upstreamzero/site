@@ -1,55 +1,71 @@
 import Link from "next/link";
-import { MarkRing } from "./Mark";
 
-/** Seven primary items, ordered as the buyer reads: the problem (Questions),
- *  the commercial path (Services), the proof tier (Research, Methods, Claims),
- *  then the institution (About, Contact). The wordmark is Home. FAQ and
- *  Philosophy live under About and in the footer, not in primary navigation. */
+/** Navigation follows the questions a first-time visitor actually asks,
+ *  not our internal research model. Research, Methods, and Claims are no
+ *  longer primary navigation: they became the research library, reachable
+ *  from the footer and from in-page links. Routes are unchanged, so every
+ *  existing URL, object page, and machine surface keeps working. */
 const NAV = [
-  { href: "/questions", label: "Questions" },
-  { href: "/services", label: "Services" },
-  { href: "/research", label: "Research" },
-  { href: "/methods", label: "Methods" },
-  { href: "/claims", label: "Claims" },
+  { href: "/questions", label: "Why this matters" },
+  { href: "/research", label: "What we study" },
+  { href: "/services", label: "For companies" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
-/** The header enacts R-35: the app's top hairline IS the datum, flowing
- *  out of the ring at the left. */
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="mx-auto max-w-[1080px] px-5">
-      <div className="flex items-end justify-between gap-4 pt-6">
-        <Link
-          href="/"
-          className="wordmark flex items-center gap-2 whitespace-nowrap pb-2"
-          aria-label="Upstream Zero home"
-        >
+      <div className="shell flex items-center justify-between gap-6 py-4">
+        <Link href="/" className="wordmark" aria-label="Upstream Zero home">
           Upstream Zero
         </Link>
-        <nav className="flex flex-wrap gap-x-6 gap-y-1 pb-2">
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-7 md:flex"
+        >
           {NAV.map((n) => (
             <Link key={n.href} href={n.href} className="nav-link">
               {n.label}
             </Link>
           ))}
         </nav>
+        <Link href="/contact" className="btn shrink-0">
+          Talk to us
+        </Link>
       </div>
-      {/* the datum: ring at origin, line to the edge */}
-      <div className="flex items-center pb-3" aria-hidden>
-        <MarkRing size={18} />
-        <div className="h-px flex-1" style={{ background: "var(--ink)" }} />
-      </div>
-      </div>
+      {/* Small screens: primary nav wraps below the wordmark rather than
+          collapsing behind a JavaScript menu. */}
+      <nav
+        aria-label="Primary, compact"
+        className="shell flex flex-wrap gap-x-6 gap-y-1 pb-3 md:hidden"
+      >
+        {NAV.map((n) => (
+          <Link key={n.href} href={n.href} className="nav-link">
+            {n.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }
 
-/** Every page ends with a verification strip: version, then the machine
- *  surfaces a reader can check without trusting us. Production provenance
- *  lives in source and machine routes, not in visible copy. */
+const LIBRARY = [
+  { href: "/research", label: "Research library" },
+  { href: "/methods", label: "Methods" },
+  { href: "/claims", label: "Claims" },
+  { href: "/philosophy", label: "Philosophy" },
+  { href: "/faq", label: "FAQ" },
+];
+
+const MACHINE = [
+  { href: "/graph.json", label: "graph.json" },
+  { href: "/llms.txt", label: "llms.txt" },
+  { href: "/company.json", label: "company.json" },
+];
+
+/** The footer carries the proof layer and the machine surfaces. Anyone who
+ *  wants to check the work can, without it interrupting the commercial
+ *  story above. `machineUrl` is retained for object pages. */
 export function ProvenanceFooter({
   machineUrl,
 }: {
@@ -58,34 +74,62 @@ export function ProvenanceFooter({
   machineUrl?: string;
 }) {
   return (
-    <footer className="mx-auto mt-20 max-w-[1080px] px-5 pb-14">
-      <div className="h-px w-full" style={{ background: "var(--ink-18)" }} />
-      <div
-        className="voice-mono-data flex flex-wrap gap-x-8 gap-y-1 pt-3"
-        style={{ color: "var(--ink-60)" }}
-      >
-        <span>Upstream Zero · Version 0.1 · First Light</span>
-        <span>
-          Verify without trusting us:{" "}
-          {machineUrl ? (
-            <a href={machineUrl}>machine rendering</a>
-          ) : (
-            <a href="/graph.json">graph.json</a>
-          )}{" "}
-          · <a href="/llms.txt">llms.txt</a>
-        </span>
+    <footer className="site-footer mt-auto">
+      <div className="shell grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <p className="eyebrow">Upstream Zero</p>
+          <p className="mt-3 max-w-[32ch]">
+            We study how commercial evaluation happens before a buyer ever
+            contacts you.
+          </p>
+        </div>
+        <nav aria-label="Research library">
+          <p className="eyebrow">Research library</p>
+          <ul className="mt-3 list-none space-y-1 p-0">
+            {LIBRARY.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href}>{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label="Machine readable">
+          <p className="eyebrow">Machine readable</p>
+          <ul className="mt-3 list-none space-y-1 p-0">
+            {machineUrl && (
+              <li>
+                <a href={machineUrl}>This page as JSON</a>
+              </li>
+            )}
+            {MACHINE.map((m) => (
+              <li key={m.href}>
+                <a href={m.href}>{m.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label="Company">
+          <p className="eyebrow">Company</p>
+          <ul className="mt-3 list-none space-y-1 p-0">
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/services">For companies</Link>
+            </li>
+            <li>
+              <Link href="/contact">Talk to us</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav
-        className="voice-mono flex flex-wrap gap-x-6 gap-y-1 pt-3"
-        style={{ color: "var(--ink-60)" }}
-        aria-label="Secondary"
-      >
-        <Link href="/about" className="!no-underline hover:!underline">About</Link>
-        <Link href="/faq" className="!no-underline hover:!underline">FAQ</Link>
-        <Link href="/philosophy" className="!no-underline hover:!underline">Philosophy</Link>
-        <Link href="/questions" className="!no-underline hover:!underline">Questions</Link>
-        <Link href="/contact" className="!no-underline hover:!underline">Contact</Link>
-      </nav>
+      <div className="shell mt-10">
+        <hr className="rule" />
+        <p className="mt-4 text-[0.875rem]">
+          Version 0.1. Every claim is published at its evidence tier, and the
+          zeros are printed honestly.
+        </p>
+      </div>
     </footer>
   );
 }

@@ -1,230 +1,654 @@
 @import "tailwindcss";
 
-/* ── Upstream Zero tokens ──────────────────────────────────────────
- * Light-first identity. A warm paper canvas, near-black type, one
- * restrained terracotta accent. The observatory lives in typography,
- * diagrams, and precision — not in darkness. There is deliberately no
- * dark variant: every reader gets the designed canvas. */
+/* ═══════════════════════════════════════════════════════════════════
+ * UPSTREAM ZERO DESIGN SYSTEM v2.0
+ *
+ * A calm, modern, premium presentation layer. Bone canvas, near-black
+ * ink, one forest-green accent, one lime highlight. Large display type
+ * at light weight with tight tracking. Squared surfaces, hairline
+ * borders, generous whitespace.
+ *
+ * Accessibility is part of the system, not a later pass: WCAG 2.2 AA
+ * contrast on every token pair, visible focus, 24px targets, skip
+ * link, and sticky-header scroll offsets.
+ *
+ * Legacy class names are retained and retargeted so pages not yet
+ * migrated inherit the new language instead of breaking.
+ * ═══════════════════════════════════════════════════════════════ */
+
 :root {
-  --paper: #f6f4ee; /* warm oat canvas */
-  --surface: #fdfcf8; /* raised card, one step lighter than canvas */
-  --ink: #21201c;
-  --ink-60: rgba(33, 32, 28, 0.7);
-  --ink-40: rgba(33, 32, 28, 0.45);
-  --ink-18: rgba(33, 32, 28, 0.16); /* hairlines and card borders */
-  --plate: #fdfcf8;
-  --plate-rule: rgba(33, 32, 28, 0.35);
-  --needle: #a84b2c; /* the one accent: instrument terracotta */
-  --needle-wash: rgba(168, 75, 44, 0.09); /* accent tint for pills */
+  /* ── Surface ── */
+  --canvas: #f7f7f2;          /* bone */
+  --surface: #ffffff;         /* card */
+  --surface-sunk: #f1f1ea;    /* inset band */
 
-  --font-serif: "STIX Two Text", "Iowan Old Style", "Palatino Linotype",
-    Palatino, Georgia, serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* ── Ink (contrast vs canvas: 17.3:1 / 5.8:1) ── */
+  --ink: #11130f;
+  --ink-muted: #5d6258;
 
-  --radius-card: 12px;
-  --radius-control: 6px;
+  /* ── Accent (9.3:1 vs canvas, safe for small text) ── */
+  --accent: #194b34;          /* forest green */
+  --accent-soft: rgba(25, 75, 52, 0.08);
+  --highlight: #dff28a;       /* lime; ink on lime = 15.3:1 */
+
+  /* ── Lines ── */
+  --line: rgba(17, 19, 15, 0.12);
+  --line-strong: rgba(17, 19, 15, 0.24);
+
+  /* ── Type ── */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo,
+    Consolas, monospace;
+
+  /* ── Geometry ── */
+  --radius: 2px;
+  --shell: 1200px;
+  --sticky-offset: 6.5rem;    /* clears the sticky header for focus/anchors */
+
+  /* ── Legacy aliases (pre-migration pages) ── */
+  --paper: var(--canvas);
+  --ink-60: var(--ink-muted);
+  --ink-40: var(--line-strong);
+  --ink-18: var(--line);
+  --needle: var(--accent);
+  --needle-wash: var(--accent-soft);
+  --plate: var(--surface);
+  --plate-rule: var(--line-strong);
+  --font-serif: var(--font-sans);
+  --radius-card: var(--radius);
+  --radius-control: var(--radius);
 }
 
 @theme inline {
-  --color-paper: var(--paper);
+  --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-ink: var(--ink);
-  --color-ink-60: var(--ink-60);
-  --color-ink-40: var(--ink-40);
-  --color-ink-18: var(--ink-18);
-  --color-plate: var(--plate);
-  --color-plate-rule: var(--plate-rule);
-  --color-needle: var(--needle);
-  --font-serif: var(--font-serif);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --color-line: var(--line);
+  --color-paper: var(--canvas);
+  --color-ink-60: var(--ink-muted);
+  --color-ink-18: var(--line);
+  --color-needle: var(--accent);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-serif: var(--font-sans);
+}
+
+/* ─────────────────────────────────────────── base ── */
+
+html {
+  scroll-padding-top: var(--sticky-offset); /* WCAG 2.4.11 */
 }
 
 body {
-  background: var(--paper);
+  background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 18px;
-  line-height: 1.7;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* The apparatus voice: reserved for labels, IDs, and data. Never for
- * navigation or prose — the instrument speaks in small print, the
- * institution speaks in serif. */
-.voice-mono {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-.voice-mono-data {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
+/* Display type: large, light, tight. Confidence through scale, not weight. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  text-wrap: balance;
+  scroll-margin-top: var(--sticky-offset);
 }
 
-/* Links: ink, hairline underline, accent on approach */
+h1 {
+  font-size: clamp(2.9rem, 1.6rem + 4.4vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.99;
+  letter-spacing: -0.045em;
+}
+h2 {
+  font-size: clamp(2rem, 1.4rem + 2.1vw, 3.125rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+h3 {
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+h4 {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Links: ink, underlined in prose so they never rely on color alone. */
 a {
   color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: var(--ink-40);
+  text-decoration-color: var(--line-strong);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  transition: text-decoration-color 0.15s ease;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 a:hover {
-  text-decoration-color: var(--needle);
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
-h1,
-h2,
-h3 {
-  font-weight: 500;
-  line-height: 1.25;
-  text-wrap: balance;
+/* Visible focus everywhere. WCAG 2.4.7, 3:1+ against canvas and surface. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 1px;
 }
 
-/* Type scale. Class selectors like .voice-mono still win over these,
- * so mono object labels stay small. Confidence lives in scale: the
- * important idea gets the room it deserves. */
-h1 {
-  font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4.2rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-h2 {
-  font-size: clamp(1.6rem, 1.3rem + 1.1vw, 2.1rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-
-/* Lead paragraph: the sentence after the headline earns a step up. */
-.lead {
-  font-size: 1.16rem;
-  line-height: 1.65;
-}
-
-/* Display numerals: evidence counts set like figures in an annual
- * report, not counters in a terminal. */
-.figure {
-  font-family: var(--font-serif);
-  font-size: 2.3rem;
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  font-variant-numeric: tabular-nums;
-}
-
-.measure {
-  max-width: 58ch;
-}
-
-/* Raised card: the surface for boxes, diagrams, and feature cells. */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--ink-18);
-  border-radius: var(--radius-card);
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-/* Cards that are destinations lift slightly on approach. */
-.card-lift:hover {
-  border-color: var(--ink-40);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(33, 32, 28, 0.06);
-}
-
-/* Accent pill: the moved steps in diagrams, small moments of warmth. */
-.pill {
-  background: var(--needle-wash);
-  color: var(--needle);
-  border-radius: 5px;
-  padding: 0.2em 0.55em;
-}
-
-/* Entrance: the first screen rises gently into place. */
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-.rise {
-  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.rise-2 {
-  animation-delay: 0.12s;
-}
-.rise-3 {
-  animation-delay: 0.24s;
-}
-
-/* Prose defaults for object bodies */
-.prose-uz p {
-  margin: 0 0 1.2rem;
-  max-width: 58ch;
-}
-.prose-uz p:last-child {
-  margin-bottom: 0;
-}
-
-/* The one button. Used sparingly: a page's single commercial action. */
-.btn {
-  display: inline-block;
+/* Skip link: WCAG 2.4.1 Bypass Blocks. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
   background: var(--ink);
-  color: var(--paper);
+  color: var(--canvas);
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* ──────────────────────────────────────── layout ── */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: clamp(4rem, 2rem + 7vw, 7.5rem);
+}
+.section-tight {
+  padding-block: clamp(3rem, 1.5rem + 5vw, 5rem);
+}
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+}
+
+/* ───────────────────────────────────── primitives ── */
+
+/* Eyebrow: the small green mono label that opens a section. */
+.eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.12em;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 1em 1.9em;
+  color: var(--accent);
+}
+
+/* Lede: the paragraph under a headline. */
+.lede {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  max-width: 46ch;
+}
+
+.prose-measure {
+  max-width: 62ch;
+}
+.muted {
+  color: var(--ink-muted);
+}
+
+/* Buttons. Squared, confident, one primary per screen. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.8rem 1.5rem;
+  background: var(--ink);
+  color: var(--canvas);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   text-decoration: none;
   border: 1px solid var(--ink);
-  border-radius: var(--radius-control);
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+  border-radius: var(--radius);
+  transition: background 0.18s ease, border-color 0.18s ease;
 }
 .btn:hover {
-  background: var(--needle);
-  border-color: var(--needle);
-  color: var(--paper);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--canvas);
   text-decoration: none;
-  transform: translateY(-1px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.btn-ghost::after {
+  content: "→";
+  transition: transform 0.18s ease;
+}
+.btn-ghost:hover::after {
+  transform: translateX(3px);
 }
 
-/* Navigation speaks serif, not terminal. The header floats on a
- * translucent wash of the canvas so the datum travels with you. */
+/* Card: white, hairline, squared. The one surface. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+.card-link {
+  display: block;
+  text-decoration: none;
+  transition: border-color 0.18s ease;
+}
+.card-link:hover {
+  border-color: var(--line-strong);
+  text-decoration: none;
+}
+.card-lift:hover {
+  border-color: var(--line-strong);
+}
+
+/* Numbered sequence: 01 / label / description. */
+.steps {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .steps-2 { grid-template-columns: repeat(2, 1fr); }
+  .steps-3 { grid-template-columns: repeat(3, 1fr); }
+  .steps-4 { grid-template-columns: repeat(4, 1fr); }
+}
+.step {
+  background: var(--surface);
+  padding: 1.75rem;
+}
+.step-n {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.step h3 {
+  margin-top: 0.6rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+.step p {
+  margin-top: 0.45rem;
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+}
+
+/* Question grid: the things a business cannot see. */
+.qgrid {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border-block: 1px solid var(--line);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 640px) { .qgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .qgrid { grid-template-columns: repeat(3, 1fr); } }
+.qgrid li {
+  background: var(--canvas);
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+.qgrid .step-n { flex-shrink: 0; padding-top: 0.2rem; }
+
+/* Stat / evidence figure. */
+.stat-n {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+/* Callout: an evidence or scope note that must not be missed. */
+.callout {
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+}
+.callout p { margin: 0; }
+.callout p + p { margin-top: 0.75rem; }
+
+/* Chip: status, outcome, tier. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  background: var(--surface);
+}
+.chip-accent {
+  color: var(--accent);
+  border-color: rgba(25, 75, 52, 0.28);
+  background: var(--accent-soft);
+}
+
+/* Executive summary: the scannable Question / Business problem / Observed
+ * result triplet that opens every experiment. Structured, not prose. */
+.summary {
+  margin: 3rem 0 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.summary-row {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.summary-row:last-child {
+  border-bottom: 0;
+}
+.summary-row dd {
+  margin: 0.55rem 0 0;
+  max-width: 62ch;
+  font-size: 1.125rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* Featured experiment card. Same field structure as the experiment page, so
+ * the card and the page read as one system. */
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+}
+.exp-card h3 a {
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.exp-card h3 a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.exp-fields {
+  margin: 1.75rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.exp-fields > div {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.exp-fields > div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.exp-fields dd {
+  margin: 0.45rem 0 0;
+  font-size: 0.9688rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Compact browse row: the complete library, generated automatically. */
+.browse {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.browse > li {
+  border-bottom: 1px solid var(--line);
+}
+.browse a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  padding: 1.15rem 0.25rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.browse a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.browse .browse-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  min-width: 5.5rem;
+}
+.browse .browse-title {
+  flex: 1 1 22ch;
+  letter-spacing: -0.01em;
+}
+.browse .browse-meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Role tag. The tag is the navigation; a per-role explanation is the future
+ * destination, so this is styled to become a link without visual change. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.875rem;
+  color: var(--ink);
+  list-style: none;
+}
+.tag-sm {
+  min-height: 28px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8125rem;
+}
+a.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Persona disclosure: zero JavaScript, native semantics, keyboard-ready. */
+.persona {
+  border-bottom: 1px solid var(--line);
+}
+.persona > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.persona > summary::-webkit-details-marker { display: none; }
+.persona > summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.persona[open] > summary::after { content: "–"; }
+.persona > summary:hover { color: var(--accent); }
+.persona-body {
+  padding-bottom: 1.35rem;
+  max-width: 68ch;
+  color: var(--ink-muted);
+  font-size: 0.9688rem;
+}
+.persona-body p { margin: 0; }
+.persona-body p + p { margin-top: 0.6rem; }
+.persona-body strong { color: var(--ink); font-weight: 500; }
+
+/* ──────────────────────────────────────── chrome ── */
+
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--paper) 90%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.nav-link {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-.nav-link:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--needle);
+  background: color-mix(in srgb, var(--canvas) 96%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
 }
 .wordmark {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 1.08rem;
-  letter-spacing: 0.01em;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   text-decoration: none;
+  color: var(--ink);
+}
+.wordmark:hover { color: var(--ink); text-decoration: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;          /* WCAG 2.5.8 */
+  font-size: 0.9375rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav-link:hover { color: var(--accent); text-decoration: none; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 3rem 3.5rem;
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+}
+.site-footer a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;          /* WCAG 2.5.8 */
+}
+.site-footer a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ───────────────────────────────── object prose ── */
+
+.prose-uz { max-width: 68ch; }
+.prose-uz > * + * { margin-top: 1.15rem; }
+.prose-uz h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin-top: 3rem;
+}
+.prose-uz h3 {
+  font-size: 1.1875rem;
+  margin-top: 2rem;
+}
+.prose-uz ul,
+.prose-uz ol { padding-left: 1.15rem; }
+.prose-uz li + li { margin-top: 0.5rem; }
+.prose-uz li::marker { color: var(--accent); }
+.prose-uz strong { font-weight: 500; }
+.prose-uz em { color: var(--ink-muted); }
+.prose-uz details { margin-top: 0; }
+
+/* ─────────────────────────────────────── legacy ── */
+/* Retained so unmigrated pages inherit the new language. */
+
+.voice-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.voice-mono-data {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.lead {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+.measure { max-width: 62ch; }
+.figure {
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.pill {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: var(--radius);
+  padding: 0.2em 0.55em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -233,5 +657,6 @@ h2 {
   *::after {
     animation: none !important;
     transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

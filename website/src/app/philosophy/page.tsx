@@ -43,8 +43,8 @@ const QA_PLAIN: { q: string; a: string }[] = [
     a: "The separation is built into the site itself. Paid work measures and diagnoses, engagements cannot promise evaluator behavior, and research objects cannot cite commercial ones. The site fails to build if either rule is violated.",
   },
   {
-    q: "What kind of institution is this?",
-    a: "Today it is an observatory. The observatory discovers, the institute organizes, the laboratory measures, and standards emerge later. We claim only the first stage, because it is the only one we have earned.",
+    q: "What kind of company is this?",
+    a: "A company, not an academic institution. We study a commercial problem and publish the evidence so it can be checked.",
   },
 ];
 
@@ -70,17 +70,17 @@ export default function Philosophy() {
 
   return (
     <>
-      <main className="mx-auto max-w-[1080px] px-5">
-        <header className="mt-12">
+      <main id="main" className="shell section-tight">
+        <div className="mt-2">
           <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
             Philosophy · Upstream Zero answering for itself. Everything here
             is Narrated.
           </p>
           <h1 className="mt-3 max-w-[28ch]">
-            Questions we think an institution like this should answer
+            How we work, and why you should doubt us
           </h1>
           <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
-        </header>
+        </div>
 
         {/* Q1 ────────────────────────────────────────────────────────── */}
         <ResolvedQuestion
@@ -119,7 +119,7 @@ export default function Philosophy() {
               {c1?.tier && <TierScale tier={c1.tier} />}
             </p>
             <p>
-              The observatory currently holds {inv.observations} observations,{" "}
+              We currently hold {inv.observations} observations,{" "}
               {inv.experiments} experiment, and {inv.findings} findings. Those
               numbers are printed, not hidden. The instrument came first, and
               the program is active:{" "}
@@ -326,7 +326,7 @@ export default function Philosophy() {
           <RelatedQuestions
             items={[
               { href: "#why-believe", label: "Why should anyone believe what this site says?" },
-              { href: "#what-institution", label: "What kind of institution is this?" },
+              { href: "#what-institution", label: "What kind of company is this?" },
             ]}
           />
         </ResolvedQuestion>
@@ -334,18 +334,17 @@ export default function Philosophy() {
         {/* Q6 ────────────────────────────────────────────────────────── */}
         <ResolvedQuestion
           id="what-institution"
-          question="What kind of institution is this?"
-          answer="Today it is an observatory, the only identity it has earned."
+          question="What kind of company is this?"
+          answer="A company studying a commercial problem, and honest about how early it is."
         >
           <QPart label="Explanation">
             <p>
-              The observatory discovers. The institute organizes. The
-              laboratory measures. Standards emerge later. We are still
-              discovering the structures of commercial evaluation that will
-              eventually be worth measuring, so the descriptor under our name
-              says <em>observatory</em>. It will change only when the next
-              stage is actually reached, as a recorded revision, not a
-              rebrand.
+              A company, not an academic institution. We study one
+              commercial problem: how organizations get evaluated before a
+              buyer ever contacts them. We are early, and we say so. Nothing
+              has been accepted as settled, and the numbers we print are the
+              real ones. What changes that is evidence, recorded as a
+              revision, not a rebrand.
             </p>
           </QPart>
           <QPart label="Evidence">
