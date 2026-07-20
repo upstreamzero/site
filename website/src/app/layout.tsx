@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteChrome";
 
-/** Self-hosted at build time by next/font: no external requests, no
- *  layout shift, and nothing added to the client bundle. */
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
+/** Fonts ship with the `geist` package as local woff2 files, so the build
+ *  makes NO network request. next/font/google fetched these from Google at
+ *  build time, which made deploys dependent on an external host being
+ *  reachable from the build container. The exposed CSS variables
+ *  (--font-geist-sans / --font-geist-mono) are unchanged. */
 
 /** GA4 loads only in production and only when the Measurement ID env var
  *  is present. The official @next/third-parties component injects gtag via
@@ -74,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${geistSans.variable} ${geistMono.variable}`}
+      className={`h-full antialiased ${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="flex min-h-full flex-col">
         <script
