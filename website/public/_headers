@@ -1,0 +1,24 @@
+# Keep non-canonical hostnames out of search indexes.
+#
+# The Pages project is also reachable at upstreamzero.pages.dev and at a
+# fresh alias for every deployment (e.g. 8ac51de4.upstreamzero.pages.dev).
+# Those serve byte-identical content to production, so left alone they
+# compete with the canonical domain in search and split retrieval signals.
+#
+# Cloudflare offers no setting to disable the pages.dev subdomain: the
+# dashboard's "Preview access" control protects preview deployments only,
+# and this project has never created one. Host-matched rules here are the
+# supported static mechanism, and they need no Pages Function.
+#
+# upstreamzero.com is deliberately absent, so production is never tagged.
+
+https://upstreamzero.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:alias.upstreamzero.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# Safety net: www should be 301'd at the zone edge before it reaches Pages,
+# but if that rule is ever removed, www must still not be indexed.
+https://www.upstreamzero.com/*
+  X-Robots-Tag: noindex, nofollow
