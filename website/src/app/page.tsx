@@ -7,11 +7,29 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 /** Metadata, canonical, and structured data are deliberately unchanged by
  *  the redesign: this intervention is presentation only, so the machine
  *  surfaces stay stable and attributable. */
+/** Sharing title is the company name alone. The browser/search title keeps
+ *  the descriptor for context, but link previews must read "Upstream Zero",
+ *  not the descriptor: iMessage strips a site-name prefix from og:title,
+ *  which previously left the bare descriptor on screen. */
+const SHARE_TITLE = "Upstream Zero";
+const SHARE_DESCRIPTION =
+  "We study how AI systems evaluate, recommend, validate, and rule out companies before buyers ever make contact.";
+
 export const metadata: Metadata = {
   title: { absolute: "Upstream Zero | Commercial Evaluation Research" },
-  description:
-    "Upstream Zero studies commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out across AI-mediated buying environments.",
+  description: SHARE_DESCRIPTION,
   ...pageMeta("/"),
+  openGraph: {
+    ...pageMeta("/").openGraph,
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
+    siteName: "Upstream Zero",
+  },
+  twitter: {
+    ...pageMeta("/").twitter,
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
+  },
 };
 
 /** The buyer journey, as it now runs. Four steps, plain language. */

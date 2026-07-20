@@ -8,11 +8,27 @@ export const SITE_URL = "https://upstreamzero.com";
  *  every page with the same URL. og:title/og:description and the Twitter
  *  card are derived by Next from the page's title/description, so pages
  *  only declare those once. */
+/** One branded preview image for the whole site. Nested route segments do
+ *  not inherit a root-segment `opengraph-image` file convention, so the
+ *  image is referenced explicitly here instead: every page that calls
+ *  pageMeta gets it, while keeping its own title and description. */
+const SHARE_IMAGE = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: "Upstream Zero. Commercial Evaluation Research.",
+};
+
 export function pageMeta(path: string): Metadata {
   return {
     alternates: { canonical: path },
-    openGraph: { url: path, siteName: "Upstream Zero", type: "website" },
-    twitter: { card: "summary" },
+    openGraph: {
+      url: path,
+      siteName: "Upstream Zero",
+      type: "website",
+      images: [SHARE_IMAGE],
+    },
+    twitter: { card: "summary_large_image", images: [SHARE_IMAGE] },
   };
 }
 

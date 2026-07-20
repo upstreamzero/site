@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   },
   description:
     "Upstream Zero is a research company that studies and measures commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out before buyers ever make contact.",
+  /** Site-level sharing defaults. "Upstream Zero" is always the company
+   *  name; "Commercial Evaluation Research" is only ever the descriptor,
+   *  and never stands alone as a title. */
+  openGraph: { siteName: "Upstream Zero", type: "website", locale: "en_US" },
 };
 
 /** Organization + WebSite structured data (technical recoverability;
