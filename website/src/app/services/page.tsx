@@ -196,22 +196,21 @@ export default function Services() {
         </section>
 
         {/* ── Close ──────────────────────────────────────────── */}
-        <section className="section">
-          <div className="shell">
-            <hr className="rule" />
-            <h2 className="mt-14 max-w-[24ch]">
-              Start with your category, not a pitch.
-            </h2>
-            <p className="lede mt-6">
-              A first conversation covers your evaluation context, what is
-              measurable now, and whether we should work together yet.
-              Sometimes the honest answer is not yet.
-            </p>
-            <p className="mt-9">
-              <Link href="/contact" className="btn">
-                Talk about your category
-              </Link>
-            </p>
+        <section className="cta-band">
+          <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <div>
+              <h2 className="max-w-[24ch]">
+                Start with your category, not a pitch.
+              </h2>
+              <p className="lede mt-5" style={{ color: "#ffffff", opacity: 0.85 }}>
+                A first conversation covers your evaluation context, what is
+                measurable now, and whether we should work together yet.
+                Sometimes the honest answer is not yet.
+              </p>
+            </div>
+            <Link href="/contact" className="btn-lime">
+              Talk about your category
+            </Link>
           </div>
         </section>
       </main>

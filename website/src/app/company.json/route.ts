@@ -8,6 +8,7 @@ export async function GET() {
   return Response.json({
     name: "Upstream Zero",
     descriptor: "Commercial Evaluation Research",
+    email: "hello@upstreamzero.com",
     version: "0.1",
     firstLight: "2026-07-13",
     whatWeAre:
@@ -49,7 +50,6 @@ export async function GET() {
       "FD-2 firewall statement in prose",
       "FD-3 the name's official reading",
       "FD-4 team and authorship",
-      "FD-5 contact channel",
       "FD-6 engagement names and pricing",
       "FD-7 public content repository",
       "FD-8 Client Zero experiment pre-registration",

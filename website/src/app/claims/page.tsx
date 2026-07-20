@@ -16,55 +16,81 @@ export default function Claims() {
   const claims = byType("claim");
   return (
     <>
-      <main id="main" className="shell section-tight">
+      <main id="main">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: pageLd("CollectionPage", "What We Claim | Upstream Zero", "/claims", "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings."),
+            __html: pageLd(
+              "CollectionPage",
+              "What We Claim | Upstream Zero",
+              "/claims",
+              "A version-controlled ledger of Upstream Zero research claims, evidence tiers, observations, experiment status, uncertainty, and current findings.",
+            ),
           }}
         />
-        <div className="mt-2">
-          <p className="eyebrow">What we claim</p>
-          <h1 className="mt-5 max-w-[20ch]">
-            Everything we say, and how sure we are.
-          </h1>
-          <p className="lede mt-7">
-            Every claim we publicly stand behind, each one labelled with how
-            strong the evidence for it actually is. That includes our own
-            founding claims, which currently rest on the weakest label we
-            have, and say so.
-          </p>
-          <p className="lede mt-5">
-            A claim can never be shown as stronger than its evidence. That is
-            not a promise we make, it is a rule the site is built to enforce:
-            if a claim ever displayed more confidence than its evidence
-            supports, the build would fail.
-          </p>
-          <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
+
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">What we claim</p>
+            <h1 className="mt-5 max-w-[20ch]">
+              Everything we say, and how sure we are.
+            </h1>
+            <p className="lede mt-7">
+              Every claim we publicly stand behind, each one labelled with how
+              strong the evidence for it actually is. That includes our own
+              founding claims, which currently rest on the weakest label we
+              have, and say so.
+            </p>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
         </div>
 
-        <ul className="mt-10 list-none space-y-8 p-0">
-          {claims.map((c) => (
-            <li key={c.id} className="border-l pl-5" style={{ borderColor: "var(--ink-18)" }}>
-              <span className="voice-mono" style={{ color: "var(--ink-60)" }}>
-                {c.id} · {c.status} · {c.created}
-              </span>
-              <div className="mt-1 max-w-[58ch] text-[1.1rem]">
-                <Link href={urlFor(c)}>{c.title}</Link>
-              </div>
-              <div className="mt-2">{c.tier && <TierScale tier={c.tier} />}</div>
-            </li>
-          ))}
-        </ul>
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">The claims</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              Each one carries its evidence level.
+            </h2>
+            <div className="mt-12 grid gap-4 lg:grid-cols-2">
+              {claims.map((c) => (
+                <article key={c.id} className="card">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="chip">{c.id}</span>
+                    <span className="chip">{c.status}</span>
+                    <span className="chip">{c.created}</span>
+                  </div>
+                  <h3 className="mt-5">
+                    <Link href={urlFor(c)}>{c.title}</Link>
+                  </h3>
+                  {c.tier && (
+                    <div className="mt-5">
+                      <TierScale tier={c.tier} />
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <p className="measure mt-10 text-[0.95rem]" style={{ color: "var(--ink-60)" }}>
-          Why is everything Narrated? Because no observation has been
-          published yet, and by our own rules a claim with no evidence edges
-          is Narrated by construction. The ledger is designed to be doubted:
-          walk any claim&apos;s edges, check its revision history, fetch its{" "}
-          <a href="/graph.json">machine rendering</a>. Verification should not
-          depend on trusting us.
-        </p>
+        <section className="section-tight">
+          <div className="shell">
+            <div className="callout max-w-[70ch]">
+              <p>
+                <strong>Why is everything at the weakest level?</strong>{" "}
+                Because no observation has been published yet, and by our own
+                rules a claim with nothing supporting it stays at the bottom of
+                the scale. The list is designed to be doubted: follow any
+                claim to what supports it, check its history, or fetch the{" "}
+                <a href="/graph.json">machine version</a>. Verification should
+                never depend on trusting us.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <ProvenanceFooter />
     </>

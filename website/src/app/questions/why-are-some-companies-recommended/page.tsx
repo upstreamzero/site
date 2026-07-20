@@ -25,9 +25,11 @@ export default function Page() {
 
   return (
     <>
-      <main id="main" className="shell section-tight">
+      <main id="main">
+        <section className="section">
+          <div className="shell">
         <div className="mt-2">
-          <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
+          <p className="eyebrow">
             A buyer question, answered at the evidence tier shown below
           </p>
           <h1 className="mt-3 max-w-[28ch]">
@@ -35,7 +37,7 @@ export default function Page() {
             are never evaluated?
           </h1>
           {/* direct answer, first sentence, buyer language */}
-          <p className="measure mt-5 text-[1.05rem]">
+          <p className="prose-measure mt-5 text-[1.05rem]">
             <strong className="font-semibold">
               You can lose before anyone compares you to a competitor.
             </strong>{" "}
@@ -169,6 +171,8 @@ export default function Page() {
             { href: "/questions/Q-2", label: "What is the relationship between AI evaluation and human buying-committee evaluation?" },
           ]}
         />
+          </div>
+        </section>
       </main>
       <ProvenanceFooter
         machineUrl="/graph.json"

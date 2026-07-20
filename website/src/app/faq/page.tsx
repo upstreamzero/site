@@ -206,28 +206,32 @@ export default function FaqPage() {
 
   return (
     <>
-      <main id="main" className="shell section-tight">
+      <main id="main">
+        <section className="section">
+          <div className="shell">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div className="mt-2">
           <h1>FAQ</h1>
-          <p className="measure mt-3" style={{ color: "var(--ink-60)" }}>
+          <p className="lede mt-5">
             Practical questions, answered plainly. Buyer problems live on the{" "}
             <Link href="/questions">Questions page</Link>; open research
             questions live at <Link href="/research">/research</Link>; this
             page is operational.
           </p>
-          <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
+          <hr className="rule mt-8" />
         </div>
 
         {FAQ.map((f) => (
           <section key={f.q} className="mt-10">
             <h2 className="max-w-[38ch] text-[1.2rem] leading-snug">{f.q}</h2>
-            <p className="measure mt-3 text-[0.98rem]">{f.a}</p>
+            <p className="prose-measure mt-3 text-[0.98rem]">{f.a}</p>
           </section>
         ))}
+          </div>
+        </section>
       </main>
       <ProvenanceFooter />
     </>

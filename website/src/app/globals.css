@@ -43,7 +43,8 @@
 
   /* ── Geometry ── */
   --radius: 2px;
-  --shell: 1200px;
+  --shell: 1280px;
+  --gutter: clamp(2rem, 1rem + 2.6vw, 3.125rem);
   --sticky-offset: 6.5rem;    /* clears the sticky header for focus/anchors */
 
   /* ── Legacy aliases (pre-migration pages) ── */
@@ -176,14 +177,17 @@ a:hover {
   width: 100%;
   max-width: var(--shell);
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  /* The gutter scales with the viewport. A fixed gutter collapsed to 24px
+   * between 768 and 1180, leaving text almost flush to the edge on common
+   * laptop widths. */
+  padding-inline: var(--gutter);
 }
 
 .section {
-  padding-block: clamp(4rem, 2rem + 7vw, 7.5rem);
+  padding-block: clamp(3rem, 2rem + 3vw, 5.5rem);
 }
 .section-tight {
-  padding-block: clamp(3rem, 1.5rem + 5vw, 5rem);
+  padding-block: clamp(2.5rem, 1.75rem + 2.2vw, 4rem);
 }
 .rule {
   height: 1px;
@@ -261,6 +265,64 @@ a:hover {
 }
 .btn-ghost:hover::after {
   transform: translateX(3px);
+}
+
+/* Closing CTA band: full-bleed inverted green. The one moment the page
+ * changes temperature, and the only place the lime accent is used.
+ * White on green is 10.0:1; ink on lime is 15.3:1. */
+.cta-band {
+  background: var(--accent);
+  color: #ffffff;
+  padding-block: clamp(3.5rem, 2rem + 5vw, 5rem);
+}
+.cta-band h2,
+.cta-band p {
+  color: #ffffff;
+}
+.btn-lime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.85rem 1.15rem;
+  background: var(--highlight);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: 1px solid var(--highlight);
+  border-radius: 0;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.btn-lime:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--ink);
+  text-decoration: none;
+}
+.cta-band .eyebrow {
+  color: var(--highlight); /* lime on green = 8.2:1 */
+}
+.cta-band .muted {
+  color: rgba(255, 255, 255, 0.75); /* 6.4:1 on green */
+}
+.cta-band a:not(.btn-lime):not(.btn-ghost) {
+  color: #ffffff;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+}
+.cta-band a:not(.btn-lime):not(.btn-ghost):hover {
+  color: var(--highlight);
+  text-decoration-color: var(--highlight);
+}
+.cta-band .btn-ghost {
+  color: #ffffff;
+}
+.cta-band .btn-ghost:hover {
+  color: var(--highlight);
+}
+.cta-band :focus-visible {
+  outline-color: var(--highlight);
 }
 
 /* Card: white, hairline, squared. The one surface. */
@@ -594,6 +656,31 @@ a.tag:hover {
   min-height: 24px;          /* WCAG 2.5.8 */
 }
 .site-footer a:hover { color: var(--accent); text-decoration: underline; }
+
+
+/* Mobile header: keep the primary nav reachable without letting a sticky
+ * bar eat a fifth of the screen. One row that scrolls sideways instead of
+ * wrapping, so the header stays ~130px rather than ~190px. */
+@media (max-width: 767px) {
+  .nav-compact {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x proximity;
+  }
+  .nav-compact::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-compact .nav-link {
+    min-height: 40px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+  :root {
+    --sticky-offset: 9rem;
+  }
+}
 
 /* ───────────────────────────────── object prose ── */
 

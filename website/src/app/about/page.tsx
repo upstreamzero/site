@@ -121,14 +121,13 @@ export default function About() {
         </section>
 
         {/* ── Verify ─────────────────────────────────────────── */}
-        <section className="section">
+        <section className="cta-band">
           <div className="shell">
-            <hr className="rule" />
-            <p className="eyebrow mt-14">Verify without trusting us</p>
+            <p className="eyebrow">Verify without trusting us</p>
             <h2 className="mt-5 max-w-[22ch]">
               Everything above is checkable.
             </h2>
-            <p className="lede mt-6">
+            <p className="lede mt-6" style={{ color: "#ffffff", opacity: 0.9 }}>
               The machine-readable counterpart of this page is{" "}
               <a href="/company.json">company.json</a>. The full graph is{" "}
               <a href="/graph.json">graph.json</a>, and orientation for machine

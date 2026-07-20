@@ -77,10 +77,10 @@ export default function Home() {
       <main id="main">
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="section">
-          <div className="shell grid items-start gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="shell grid items-start gap-10 lg:grid-cols-[1.93fr_1fr] lg:gap-x-[7rem]">
             <div>
               <p className="eyebrow">Upstream Zero</p>
-              <h1 className="mt-5 max-w-[16ch]">
+              <h1 className="mt-5">
                 Buyers are asking AI which companies they should consider.
               </h1>
               <p className="lede mt-7">
@@ -98,7 +98,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="card lg:mt-4">
+            <div className="card lg:mt-24">
               <p className="eyebrow">A simple example</p>
               <p className="mt-3">
                 A CFO asks an AI system to recommend software for a 500 person
@@ -276,15 +276,14 @@ export default function Home() {
         </section>
 
         {/* ── Close ────────────────────────────────────────────── */}
-        <section className="section">
-          <div className="shell">
-            <hr className="rule" />
-            <h2 className="mt-14 max-w-[24ch]">
+        <section className="cta-band">
+          <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <h2 className="max-w-[24ch]">
               If AI is helping decide who gets considered, you need a way to
               see that decision form.
             </h2>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/contact" className="btn">
+            <div className="flex flex-wrap items-center gap-6">
+              <Link href="/contact" className="btn-lime">
                 Talk about your category
               </Link>
               <Link href="/services" className="btn-ghost">

@@ -175,14 +175,13 @@ export default function Questions() {
         </section>
 
         {/* ── Close ──────────────────────────────────────────── */}
-        <section className="section">
-          <div className="shell">
-            <hr className="rule" />
-            <h2 className="mt-14 max-w-[24ch]">
+        <section className="cta-band">
+          <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <h2 className="max-w-[24ch]">
               If this is already costing you deals, start by measuring it.
             </h2>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/services" className="btn">
+            <div className="flex flex-wrap items-center gap-6">
+              <Link href="/services" className="btn-lime">
                 How this helps your company
               </Link>
               <Link href="/faq" className="btn-ghost">

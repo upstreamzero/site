@@ -50,6 +50,11 @@ observations=${inv.observations} experiments=${inv.experiments} findings=${inv.f
 This site launched at First Light: instrument complete, observations
 beginning. The zeros above are printed, not hidden.
 
+## Contact
+
+hello@upstreamzero.com is the single contact channel. There is no form and
+no intake funnel.
+
 ## Verification without trust
 
 - Full typed graph: /graph.json

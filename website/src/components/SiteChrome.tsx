@@ -37,7 +37,7 @@ export function SiteHeader() {
           collapsing behind a JavaScript menu. */}
       <nav
         aria-label="Primary, compact"
-        className="shell flex flex-wrap gap-x-6 gap-y-1 pb-3 md:hidden"
+        className="nav-compact shell flex gap-x-6 pb-3 md:hidden"
       >
         {NAV.map((n) => (
           <Link key={n.href} href={n.href} className="nav-link">

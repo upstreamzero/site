@@ -70,16 +70,18 @@ export default function Philosophy() {
 
   return (
     <>
-      <main id="main" className="shell section-tight">
+      <main id="main">
+        <section className="section">
+          <div className="shell">
         <div className="mt-2">
-          <p className="voice-mono" style={{ color: "var(--ink-60)" }}>
+          <p className="eyebrow">
             Philosophy · Upstream Zero answering for itself. Everything here
             is Narrated.
           </p>
           <h1 className="mt-3 max-w-[28ch]">
             How we work, and why you should doubt us
           </h1>
-          <div className="-ml-5 mt-5 h-px" style={{ background: "var(--ink)", opacity: 0.65 }} />
+          <hr className="rule mt-8" />
         </div>
 
         {/* Q1 ────────────────────────────────────────────────────────── */}
@@ -371,6 +373,8 @@ export default function Philosophy() {
             ]}
           />
         </ResolvedQuestion>
+          </div>
+        </section>
       </main>
 
       <script
