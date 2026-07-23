@@ -30,14 +30,14 @@ const PRODUCT_HEADLINE: Record<string, string> = {
 const base = pageMeta("/");
 const SHARE_TITLE = "Help Your Business Become the Logical Choice";
 const SHARE_DESC =
-  "Customers evaluate your business before they ever contact you. Understand why you're recommended, why you're eliminated, and what must become true to become the logical choice.";
+  "Your buyers decide whether you make the shortlist before they ever contact you. See why you're recommended, why you're eliminated, and what it takes to become the logical choice.";
 
 export const metadata: Metadata = {
   title: {
     absolute: "Upstream Zero | Help Your Business Become the Logical Choice",
   },
   description:
-    "Customers begin evaluating your business long before they contact you. Upstream Zero helps you understand why you're recommended, why you're eliminated, and what must become true to become the logical choice. We study how AI systems evaluate, compare, recommend, and eliminate businesses before a decision is made.",
+    "Your buyers decide whether you make the shortlist long before they ever contact you. Upstream Zero shows you why you're recommended, why you're eliminated, and what it takes to become the logical choice, by studying how AI systems compare and recommend businesses.",
   ...base,
   openGraph: { ...base.openGraph, title: SHARE_TITLE, description: SHARE_DESC },
   twitter: { ...base.twitter, title: SHARE_TITLE, description: SHARE_DESC },
@@ -107,22 +107,22 @@ export default function Home() {
                 Help Your Business Become the Logical Choice
               </h1>
               <p className="lede mt-7">
-                Customers begin evaluating your business long before they ever
-                contact you. Every question, every requirement, and every
-                comparison changes which businesses remain under consideration.
-                We help you understand why you're recommended, why you're
-                eliminated, and what must become true to become the logical
-                choice.
+                Your buyers decide whether you make the shortlist long before
+                they ever contact you. Every question they ask and every
+                requirement they add quietly removes businesses from the
+                running, and most never learn why. We show you why you're
+                recommended, why you're eliminated, and what it takes to become
+                the logical choice.
               </p>
               <p className="muted mt-5 max-w-[54ch]">
                 Upstream Zero is a commercial intelligence company focused on
-                AI-mediated commercial evaluation. We study how AI systems
-                evaluate, compare, recommend, and eliminate businesses before
-                customers make a decision.
+                AI-mediated evaluation. We study how AI systems compare,
+                recommend, and eliminate businesses before a buyer ever makes a
+                decision.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <BookingButton variant="btn">
-                  Book a 30 Minute Conversation
+                  Find Out Where You Stand
                 </BookingButton>
                 <Link href="/pricing" className="btn-ghost">
                   See products and pricing
@@ -148,8 +148,8 @@ export default function Home() {
                 </div>
               ))}
               <p className="decision-card__foot">
-                By the time you meet the buyer, this has already happened. We
-                show you why it forms the way it does, and what would change it.
+                By the time a buyer talks to you, the shortlist is set. We show
+                you why, and what would change it.
               </p>
             </div>
           </div>
@@ -190,14 +190,13 @@ export default function Home() {
         {/* ── How it works (shown, illustrative) ──────────────── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">How evaluation actually happens</p>
+            <p className="eyebrow">How the shortlist forms</p>
             <h2 className="mt-5 max-w-[24ch]">
-              A recommendation is built one requirement at a time.
+              The shortlist narrows one requirement at a time.
             </h2>
             <p className="lede mt-6">
-              The first answer is only a starting point. Every follow-up adds a
-              requirement, tests the companies already recommended, and changes
-              who remains.
+              The first answer is never the final one. Every follow-up question
+              adds a requirement and quietly changes who stays on the list.
             </p>
             <ol className="steps steps-2 mt-12">
               {FLOW.map((s, i) => (
@@ -223,7 +222,7 @@ export default function Home() {
           <div className="shell">
             <p className="eyebrow">What you can buy</p>
             <h2 className="mt-5 max-w-[22ch]">
-              Fixed-scope products, not open-ended consulting.
+              Three ways to find out where you stand.
             </h2>
             <div className="product-grid mt-14">
               {products.map((p, i) => {
@@ -293,20 +292,20 @@ export default function Home() {
             <div>
               <p className="eyebrow">Why trust the answer</p>
               <h2 className="mt-5 max-w-[20ch]">
-                Research is the engine. The products are the interface.
+                Answers you can stand behind.
               </h2>
             </div>
             <div className="prose-measure">
               <p>
-                Every engagement rests on continuous evaluation research:
-                evidence before opinion, observations recorded with
-                their conditions, and analysis a person has reviewed. We
-                publish what we can defend and print the limits plainly.
+                Every answer rests on evidence, not opinion: what we observed,
+                the conditions it held under, and a human review before it
+                reaches you. We publish what we can defend and state the limits
+                plainly.
               </p>
               <p className="mt-5">
-                {experiments} experiments are public today, each stating what
-                was observed and what it does not prove. That is the standard
-                behind every product.
+                {experiments} experiments are public today, each showing what
+                was seen and what it does not prove. That is the standard
+                behind every engagement.
               </p>
               <p className="mt-5">
                 <Link href="/research" className="btn-ghost">
@@ -322,7 +321,7 @@ export default function Home() {
           <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <h2 className="max-w-[24ch]">
-                Find out how your category is being evaluated.
+                See where you stand in your category.
               </h2>
               <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
                 Tell us your category and who you compete with. We confirm scope
@@ -330,7 +329,7 @@ export default function Home() {
               </p>
             </div>
             <BookingButton variant="btn-lime">
-              Schedule a Conversation
+              Start With Your Category
             </BookingButton>
           </div>
         </section>
