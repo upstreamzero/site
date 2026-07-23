@@ -6,10 +6,19 @@ import { pageMeta, breadcrumbLd, faqLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 
+/** Prices are derived from the canonical engagement objects so the meta
+ *  description can never drift from the on-page table or the Product schema.
+ *  Change a price in the object and the snippet updates with it. */
+const PRICED_PRODUCTS = PRODUCTS.map((p) => byId(p.id)).filter(
+  (o): o is NonNullable<typeof o> => Boolean(o) && o!.type === "engagement",
+);
+const PRICE_SUMMARY = PRICED_PRODUCTS.filter((p) => p.priceStart)
+  .map((p) => `${p.productName ?? p.title} from ${p.priceStart}`)
+  .join(", ");
+
 export const metadata: Metadata = {
   title: { absolute: "Pricing: AI Vendor Evaluation Products | Upstream Zero" },
-  description:
-    "Published starting prices for measuring how AI evaluates your company: Category Intelligence Report ($2,500), Commercial Evaluation Audit ($5,000), and Selection Intelligence ($995/mo). See what each engagement diagnoses.",
+  description: `Published, fixed starting prices for measuring how AI evaluates your company. ${PRICE_SUMMARY}. See what each engagement diagnoses.`,
   ...pageMeta("/pricing"),
 };
 
