@@ -4,9 +4,12 @@ import { pageLd, pageMeta, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "About Upstream Zero | Commercial Evaluation Research" },
+  title: {
+    absolute:
+      "About Upstream Zero | Commercial Intelligence for AI-Mediated Commercial Evaluation",
+  },
   description:
-    "Upstream Zero is a commercial evaluation research company. We identify why AI systems recommend one company over another and turn it into fixed-scope products executives can buy.",
+    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
   ...pageMeta("/about"),
 };
 
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
 const FACTS = [
   {
     title: "What we do",
-    body: "We identify why AI systems recommend one company over another, where you lose consideration during evaluation, and what would have to become true for you to be the logical choice.",
+    body: "We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions, and help you understand why you are recommended, why you are eliminated, and what must become true to become a logical choice.",
     href: "/solutions",
     hrefLabel: "See the products",
   },
@@ -47,9 +50,9 @@ export default function About() {
           dangerouslySetInnerHTML={{
             __html: pageLd(
               "AboutPage",
-              "About Upstream Zero | Commercial Evaluation Research",
+              "About Upstream Zero | Commercial Intelligence for AI-Mediated Commercial Evaluation",
               "/about",
-              "Upstream Zero is a commercial evaluation research company packaging its research into fixed-scope products.",
+              "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation, studying how AI systems evaluate, compare, recommend, and eliminate vendors through observed evidence.",
             ),
           }}
         />
@@ -67,14 +70,23 @@ export default function About() {
         <section className="section">
           <div className="shell">
             <p className="eyebrow">The company</p>
-            <h1 className="mt-5 max-w-[18ch]">
-              A commercial evaluation research company.
+            <h1 className="mt-5 max-w-[22ch]">
+              A commercial intelligence company focused on commercial
+              evaluation.
             </h1>
             <p className="lede mt-7">
-              Every commercial outcome is preceded by an evaluation, and more
-              and more often that evaluation concludes before a buyer engages
-              anyone. Upstream Zero measures it, and packages what it learns
-              into products executives can buy today.
+              We study how AI systems evaluate, compare, recommend, and
+              eliminate vendors during buying decisions, through observed
+              evidence. We help organizations understand why they are
+              recommended, why they are eliminated, and what must become true to
+              become a logical choice.
+            </p>
+            <p className="muted mt-6 max-w-[68ch]">
+              Commercial decisions increasingly begin before a buyer speaks with
+              sales. AI systems are becoming part of how vendors are discovered,
+              compared, and recommended. Upstream Zero exists to make that
+              evaluation process observable, measurable, and understandable
+              through evidence.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link href="/solutions" className="btn">
@@ -94,13 +106,11 @@ export default function About() {
         {/* ── The facts ──────────────────────────────────────── */}
         <section className="section">
           <div className="shell">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-x-[130px] gap-y-[70px] sm:grid-cols-2">
               {FACTS.map((f) => (
-                <div key={f.title} className="card">
-                  <h2 className="text-[1.375rem] font-medium tracking-[-0.02em]">
-                    {f.title}
-                  </h2>
-                  <p className="muted mt-3">{f.body}</p>
+                <div key={f.title}>
+                  <h2>{f.title}</h2>
+                  <p className="muted mt-5 max-w-[46ch]">{f.body}</p>
                   <p className="mt-5">
                     <Link href={f.href} className="btn-ghost">
                       {f.hrefLabel}
@@ -119,14 +129,21 @@ export default function About() {
             <h2 className="mt-5 max-w-[24ch]">
               We only claim the stage we have reached.
             </h2>
-            <div className="callout mt-10 max-w-[70ch]">
+            <div className="callout mt-10 max-w-[72ch]">
               <p>
-                <strong>The register is measurement and diagnosis.</strong> Our
-                findings are published with their supporting evidence,
-                limitations, and confidence level. We distinguish between
-                observed behavior, emerging patterns, and established
-                conclusions so customers can evaluate the evidence for
-                themselves.
+                <strong>
+                  Upstream Zero separates what it observes from what it can
+                  prove.
+                </strong>{" "}
+                We report what an evaluator recommended, eliminated, requested,
+                cited, or changed (observed); the requirements, evidence gaps,
+                trust signals, and reinforcement patterns associated with those
+                results (diagnosed); and the mechanisms most likely to change
+                them (hypothesized). We use causal language only when supported
+                by a controlled before-and-after experiment. Our direct
+                observations are of AI evaluator behavior; where we describe
+                human buying committees or procurement, we are characterizing
+                the broader process, not claiming to have observed it directly.
               </p>
             </div>
           </div>

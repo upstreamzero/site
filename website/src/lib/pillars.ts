@@ -34,7 +34,7 @@ export const PILLARS: Pillar[] = [
     summary:
       "Commercial evaluation is the process that decides which company a buyer considers, validates, and selects. In AI-mediated buying, much of it happens before you know the buyer exists.",
     definition:
-      "Commercial evaluation is the process by which a buyer, or a system acting for a buyer, decides which companies are worth considering, which meet the real requirements, and which is the logical choice. It is older than AI and independent of any one channel.",
+      "Commercial Evaluation is the process through which a buyer, or a system acting on behalf of a buyer, compares, evaluates, and narrows a large field of possible vendors into a smaller recommendation set based on the buyer's requirements.",
     mechanics:
       "A buyer describes a problem. Requirements are inferred and applied. Companies are compared against those requirements. Some are eliminated, one becomes the recommendation. Each new requirement can change who remains.",
     matters:

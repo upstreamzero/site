@@ -8,9 +8,12 @@ import { ProductCard } from "@/components/ProductCard";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
-  title: { absolute: "Upstream Zero | Commercial Evaluation Research" },
+  title: {
+    absolute:
+      "Upstream Zero | Commercial Intelligence for AI-Mediated Commercial Evaluation",
+  },
   description:
-    "Upstream Zero identifies why AI systems recommend one company over another, where you lose consideration during evaluation, and what would have to change. Research is the engine; fixed-scope products are what you buy.",
+    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We help organizations understand how AI systems evaluate, compare, recommend, and eliminate vendors, and what must become true to become the logical choice.",
   ...pageMeta("/"),
 };
 
@@ -69,19 +72,21 @@ export default function Home() {
       <main id="main">
         {/* ── Hero: the problem, why now ──────────────────────── */}
         <section className="section">
-          <div className="shell grid items-start gap-10 lg:grid-cols-[1.9fr_1fr] lg:gap-x-[6rem]">
+          <div className="shell grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_341px] lg:gap-x-[100px]">
             <div>
-              <p className="eyebrow">Commercial Evaluation Research</p>
+              <p className="eyebrow">
+                Commercial intelligence · AI-mediated commercial evaluation
+              </p>
               <h1 className="mt-5">
                 Find out why AI recommends other companies, and what would
                 change it.
               </h1>
               <p className="lede mt-7">
-                Upstream Zero identifies why AI systems recommend one company
-                over another, where you lose consideration during evaluation,
-                and what would have to become true for you to be the logical
-                choice. Research is our engine. Fixed-scope products are what
-                you buy.
+                Upstream Zero is a commercial intelligence company focused on
+                AI-mediated commercial evaluation. Companies can be removed from
+                consideration before a buyer ever speaks with sales. We help you
+                understand why you are recommended, why you are eliminated, and
+                what must become true to become a logical choice.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <BookingButton variant="btn">
@@ -93,16 +98,37 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="card lg:mt-20">
-              <p className="eyebrow">Why now</p>
-              <p className="mt-3">
-                Buyers increasingly ask an AI system which companies to
-                consider, and it answers before you know the buyer exists.
+            <div className="decision-card lg:mt-20">
+              <div className="decision-card__head">
+                <span>The commercial decision</span>
+                <span className="decision-card__live">Before you</span>
+              </div>
+              {[
+                ["01", "Problem", "What does the buyer need to solve?"],
+                ["02", "Require", "What must the right company provide?"],
+                ["03", "Compare", "Which company best fits?"],
+                ["04", "Select", "Who is the logical choice?"],
+              ].map(([n, k, q]) => (
+                <div key={n} className="decision-row">
+                  <span className="decision-row__n">{n}</span>
+                  <span className="decision-row__k">{k}</span>
+                  <span className="decision-row__q">{q}</span>
+                </div>
+              ))}
+              <p className="decision-card__foot">
+                By the time you meet the buyer, this has already happened. We
+                show you why it forms the way it does, and what would change it.
               </p>
-              <p className="mt-3 font-medium" style={{ color: "var(--ink)" }}>
-                By the time you meet the buyer, the evaluation that shaped
-                their shortlist has already happened.
-              </p>
+            </div>
+          </div>
+
+          <div className="shell mt-14 border-t" style={{ borderColor: "var(--line)" }}>
+            <div className="built-for">
+              <span className="built-for__label">Built for</span>
+              <span className="built-for__item">Revenue leaders</span>
+              <span className="built-for__item">Marketing leaders</span>
+              <span className="built-for__item">Category owners</span>
+              <span className="built-for__item">Enterprise teams</span>
             </div>
           </div>
         </section>

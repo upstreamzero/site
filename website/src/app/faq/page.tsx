@@ -18,15 +18,16 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What is Upstream Zero?",
     plain:
-      "A research company built around one market shift: more and more of commercial evaluation happens before buyers engage anyone directly. Upstream Zero measures how organizations are evaluated, recommended, and ruled out in that layer, and helps them understand why they are or are not becoming the logical recommendation. The full answer lives on the What is Upstream Zero? page (/about).",
+      "A commercial intelligence company focused on AI-mediated commercial evaluation. Upstream Zero studies how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence, and helps organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice. The full answer lives on the What is Upstream Zero? page (/about).",
     a: (
       <>
-        A research company built around one market shift: more and more of
-        commercial evaluation happens before buyers engage anyone directly.
-        Upstream Zero measures how organizations are evaluated, recommended,
-        and ruled out in that layer, and helps them understand why they are
-        or are not becoming the logical recommendation. The full answer lives
-        on the <Link href="/about">What is Upstream Zero?</Link> page.
+        A commercial intelligence company focused on AI-mediated commercial
+        evaluation. Upstream Zero studies how AI systems evaluate, compare,
+        recommend, and eliminate vendors during buying decisions through
+        observed evidence, and helps organizations understand why they are
+        recommended, why they are eliminated, and what must become true to
+        become a logical choice. The full answer lives on the{" "}
+        <Link href="/about">What is Upstream Zero?</Link> page.
       </>
     ),
   },

@@ -58,11 +58,33 @@ export default function Research() {
               What are we trying to learn?
             </h1>
             <p className="lede mt-7">
-              Each experiment answers one bounded question about how a
-              buyer&apos;s question becomes a commercial recommendation. No
-              single run explains the whole system. Together they build a
-              clearer model of how evaluation works.
+              Research is the public evidence layer behind Upstream Zero. Every
+              experiment is preserved so observations, limitations, uncertainty,
+              and findings remain transparent.
             </p>
+            <p className="muted mt-5 max-w-[64ch]">
+              We conduct this research to better understand how AI systems
+              evaluate, compare, recommend, and eliminate vendors during
+              commercial buying decisions. Those observations help organizations
+              understand why they are recommended, why they are eliminated, and
+              what must become true to become a logical choice.
+            </p>
+            <dl className="mt-9 grid max-w-[72ch] gap-x-8 gap-y-2 text-[0.9375rem] sm:grid-cols-[max-content_1fr]">
+              <dt className="font-medium">Research</dt>
+              <dd className="muted m-0">contains observed evidence.</dd>
+              <dt className="font-medium">Learn</dt>
+              <dd className="muted m-0">
+                explains concepts and terminology.
+              </dd>
+              <dt className="font-medium">Methodology</dt>
+              <dd className="muted m-0">
+                explains how the evidence is produced.
+              </dd>
+              <dt className="font-medium">Experiments</dt>
+              <dd className="muted m-0">
+                are the individual preserved records that make up the research.
+              </dd>
+            </dl>
           </div>
         </section>
 

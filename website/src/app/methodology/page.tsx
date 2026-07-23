@@ -93,34 +93,39 @@ export default function Methodology() {
           }}
         />
 
-        <section className="section">
+        <section className="section" style={{ paddingBottom: "1.75rem" }}>
           <div className="shell">
             <p className="eyebrow">Methodology</p>
             <h1 className="mt-5 max-w-[20ch]">
               A defensible answer to what your company should do next.
             </h1>
             <p className="lede mt-7">
-              We evaluate your company across the commercial questions real
-              buyers ask, then add requirements through follow-up questions to
-              determine whether the recommendation holds or collapses.
+              Upstream Zero is a commercial intelligence company focused on
+              AI-mediated commercial evaluation. This is how we produce the
+              evidence: we evaluate your company across the commercial questions
+              real buyers ask, then add requirements through follow-up questions
+              to determine whether the recommendation holds or collapses.
+            </p>
+            <p className="muted mt-5 max-w-[64ch]">
+              Methodology explains how the evidence is produced. Research holds
+              the observed evidence itself.
             </p>
           </div>
         </section>
 
-        <div className="shell">
-          <hr className="rule" />
-        </div>
-
-        <section className="section">
+        <section className="section-tight" style={{ paddingTop: 0 }}>
           <div className="shell">
-            <p className="eyebrow">The process</p>
+            <hr className="rule" />
+            <p className="eyebrow mt-12">The process</p>
             <h2 className="mt-5 max-w-[22ch]">Five steps, the same every time.</h2>
-            <ol className="steps steps-3 mt-12">
+            <ol className="method-list mt-8">
               {STEPS.map((s) => (
-                <li key={s.n} className="step">
-                  <div className="step-n">{s.n}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
+                <li key={s.n} className="method-row">
+                  <span className="num-row__n">{s.n}</span>
+                  <div className="method-row__body">
+                    <h3 className="method-row__title">{s.title}</h3>
+                    <p className="method-row__desc">{s.body}</p>
+                  </div>
                 </li>
               ))}
             </ol>

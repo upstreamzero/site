@@ -97,6 +97,13 @@ export default async function ProductPage({
                 &ldquo;{obj.businessProblem}&rdquo;
               </p>
             )}
+            <p className="muted mt-6 max-w-[64ch] text-[0.9375rem]">
+              Commercial Evaluation is the process through which a buyer, or a
+              system acting on behalf of a buyer, compares, evaluates, and
+              narrows a large field of possible vendors into a smaller
+              recommendation set based on the buyer&apos;s requirements. This
+              product measures and diagnoses that process for your company.
+            </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <BookingButton variant="btn">
                 Book a 30 Minute Conversation

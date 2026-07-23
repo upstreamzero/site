@@ -7,7 +7,7 @@ import BookingButton from "@/components/BookingButton";
 export const metadata: Metadata = {
   title: { absolute: "Contact Upstream Zero" },
   description:
-    "Contact Upstream Zero regarding commercial evaluation research, observed recommendation behavior, methodology, experiments, and institutional collaboration.",
+    "Contact Upstream Zero, a commercial intelligence company focused on AI-mediated commercial evaluation. Start a conversation about how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions.",
   ...pageMeta("/contact"),
 };
 

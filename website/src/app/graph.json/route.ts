@@ -11,7 +11,7 @@ export async function GET() {
     return { ...envelope, url: urlFor(o), machineUrl: `/objects/${o.id}` };
   });
   return Response.json({
-    site: "Upstream Zero · Commercial Evaluation Research",
+    site: "Upstream Zero · Commercial Intelligence for AI-Mediated Commercial Evaluation",
     version: "0.1",
     firstLight: "2026-07-13",
     vocabulary: { types: TYPES, tiers: TIERS, edgeRels: EDGE_RELS },

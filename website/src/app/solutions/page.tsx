@@ -1,10 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { byId } from "@/lib/content";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, productSlugFor } from "@/lib/products";
 import { pageMeta, pageLd, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
-import { ProductCard } from "@/components/ProductCard";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
@@ -50,10 +49,11 @@ export default function Solutions() {
               Intelligence you can buy, use, and measure.
             </h1>
             <p className="lede mt-7">
-              Each engagement answers a defined commercial question, follows a
-              repeatable scope, and ends with a clear decision. Understand the
-              market, diagnose why your recommendation fails or survives deeper
-              requirements, and monitor movement over time.
+              Each product helps a company understand how it is evaluated, why
+              it survives or fails specific requirements, and what must become
+              true for it to become a logical choice. Every engagement answers a
+              defined commercial question, follows a repeatable scope, and ends
+              with a clear decision.
             </p>
           </div>
         </section>
@@ -62,13 +62,56 @@ export default function Solutions() {
           <hr className="rule" />
         </div>
 
-        <section className="section">
+        <section className="section-tight">
           <div className="shell">
-            <div className="grid gap-4 lg:grid-cols-3">
-              {products.map((p) => (
-                <ProductCard key={p.id} obj={p} />
-              ))}
-            </div>
+            <ol className="num-list">
+              {products.map((p, i) => {
+                const slug = productSlugFor(p.id);
+                return (
+                  <li key={p.id} className="num-row num-row--rail">
+                    <span className="num-row__n">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="eyebrow">Business problem</p>
+                      <h2 className="num-row__title mt-3">
+                        {p.productName ?? p.title}
+                      </h2>
+                      {p.businessProblem && (
+                        <p className="num-row__quote">
+                          &ldquo;{p.businessProblem}&rdquo;
+                        </p>
+                      )}
+                      {p.businessOutcome && (
+                        <>
+                          <span className="num-row__lead">What this gives you</span>
+                          <p className="num-row__desc">{p.businessOutcome}</p>
+                        </>
+                      )}
+                    </div>
+                    <div className="num-row__rail">
+                      {p.priceStart && (
+                        <>
+                          <p className="rail-label">Starting price</p>
+                          <p className="rail-price">{p.priceStart}</p>
+                        </>
+                      )}
+                      {p.timeline && (
+                        <>
+                          <p className="rail-label">Timeline</p>
+                          <p className="rail-val">{p.timeline}</p>
+                        </>
+                      )}
+                      {slug && (
+                        <Link href={`/solutions/${slug}`} className="btn">
+                          Request {p.productName ?? p.title}
+                        </Link>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
             <p className="mt-10">
               <Link href="/pricing" className="btn-ghost">
                 Compare timelines and pricing

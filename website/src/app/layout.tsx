@@ -21,14 +21,15 @@ const GA_ENABLED = process.env.NODE_ENV === "production" && Boolean(GA_ID);
 export const metadata: Metadata = {
   metadataBase: new URL("https://upstreamzero.com"),
   title: {
-    default: "Upstream Zero · Commercial Evaluation Research",
+    default:
+      "Upstream Zero · Commercial Intelligence for AI-Mediated Commercial Evaluation",
     template: "%s · Upstream Zero",
   },
   description:
-    "Upstream Zero is a research company that studies and measures commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out before buyers ever make contact.",
+    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
   /** Site-level sharing defaults. "Upstream Zero" is always the company
-   *  name; "Commercial Evaluation Research" is only ever the descriptor,
-   *  and never stands alone as a title. */
+   *  name; the descriptor ("Commercial intelligence company focused on
+   *  AI-mediated commercial evaluation") never stands alone as a title. */
   openGraph: { siteName: "Upstream Zero", type: "website", locale: "en_US" },
 };
 
@@ -44,7 +45,7 @@ const ORG_JSONLD = {
       name: "Upstream Zero",
       url: "https://upstreamzero.com",
       description:
-        "Upstream Zero is a research company that studies and measures commercial evaluation: how organizations are evaluated, recommended, validated, and ruled out, including within AI-mediated buying environments.",
+        "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
       email: "hello@upstreamzero.com",
       knowsAbout: [
         "Commercial evaluation",
@@ -63,7 +64,7 @@ const ORG_JSONLD = {
       name: "Upstream Zero",
       url: "https://upstreamzero.com",
       description:
-        "Research into commercial evaluation, requirement sets, evidence, reasoning, validation, and recommendation behavior across AI-mediated buying environments.",
+        "Commercial intelligence on AI-mediated commercial evaluation: how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions, studied through observed evidence.",
       publisher: { "@id": "https://upstreamzero.com/#organization" },
     },
   ],

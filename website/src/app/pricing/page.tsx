@@ -62,9 +62,11 @@ export default function Pricing() {
               A defined question. A fixed scope. A useful answer.
             </h1>
             <p className="lede mt-7">
-              Every price is for one defined category. Starting prices reflect
-              the standard scope for that category. We confirm boundaries,
-              complexity, and timing before work begins.
+              These engagements measure and diagnose how your company performs
+              during AI-mediated commercial evaluation. Every price is for one
+              defined category. Starting prices reflect the standard scope for
+              that category. We confirm boundaries, complexity, and timing
+              before work begins.
             </p>
           </div>
         </section>
@@ -83,9 +85,6 @@ export default function Pricing() {
                   <th scope="col">Best for</th>
                   <th scope="col">Timeline</th>
                   <th scope="col">Starting price</th>
-                  <th scope="col">
-                    <span className="sr-only">Details</span>
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -96,20 +95,15 @@ export default function Pricing() {
                     <tr key={p.id}>
                       <td className="p-name">
                         <Link href={`/solutions/${slug}`}>{name}</Link>
+                        <Link href={`/solutions/${slug}`} className="p-view">
+                          View scope
+                        </Link>
                       </td>
                       <td className="p-best">{p.businessProblem}</td>
                       <td>{p.timeline}</td>
                       <td>
-                        <span className="p-price">{p.priceStart}</span>{" "}
+                        <span className="p-price">{p.priceStart}</span>
                         <span className="p-unit">{p.priceUnit}</span>
-                      </td>
-                      <td>
-                        <Link
-                          href={`/solutions/${slug}`}
-                          className="btn-ghost"
-                        >
-                          View scope
-                        </Link>
                       </td>
                     </tr>
                   );

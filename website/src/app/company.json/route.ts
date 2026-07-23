@@ -7,13 +7,14 @@ export async function GET() {
   const inv = inventory();
   return Response.json({
     name: "Upstream Zero",
-    descriptor: "Commercial Evaluation Research",
+    descriptor:
+      "Commercial intelligence company focused on AI-mediated commercial evaluation",
     booking: "https://calendly.com/skykmeyer/30min",
     email: "hello@upstreamzero.com",
     version: "0.1",
     firstLight: "2026-07-13",
     whatWeAre:
-      "A research company measuring how organizations are evaluated, recommended, and ruled out before buyers engage them directly. Today that is observed through AI evaluator behavior; the mechanism will change, the shift is durable.",
+      "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
     whatWeAreNot: [
       "an SEO/AEO/GEO company",
       "an AI-visibility optimization agency",
@@ -24,6 +25,8 @@ export async function GET() {
       "early: the instrument is built and evidence is accumulating. No finding has been accepted as settled.",
     evidencePolicy:
       "Claims presented at their evidence tier; confidence never promoted beyond evidence; corrections published with equal dignity.",
+    researchIntegrity:
+      "Upstream Zero separates what it observes from what it can prove. We report what an evaluator recommended, eliminated, requested, cited, or changed (observed); the requirements, evidence gaps, trust signals, and reinforcement patterns associated with those results (diagnosed); and the mechanisms most likely to change them (hypothesized). We use causal language only when supported by a controlled before-and-after experiment. Our direct observations are of AI evaluator behavior; where we describe human buying committees or procurement, we are characterizing the broader process, not claiming to have observed it directly.",
     capabilities: byType("capability").map((c) => ({
       id: c.id,
       title: c.title,

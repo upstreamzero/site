@@ -9,8 +9,8 @@ import BookingButton from "@/components/BookingButton";
 const NAV = [
   { href: "/solutions", label: "Solutions" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/methodology", label: "Methodology" },
   { href: "/research", label: "Research" },
+  { href: "/methodology", label: "Methodology" },
   { href: "/about", label: "About" },
 ];
 
@@ -19,7 +19,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell flex items-center justify-between gap-6 py-4">
         <Link href="/" className="wordmark" aria-label="Upstream Zero home">
-          Upstream Zero
+          Upstream <span className="wordmark__zero">Zero</span>
         </Link>
         <nav
           aria-label="Primary"
@@ -39,7 +39,7 @@ export function SiteHeader() {
           collapsing behind a JavaScript menu. */}
       <nav
         aria-label="Primary, compact"
-        className="nav-compact shell flex gap-x-6 pb-3 md:hidden"
+        className="nav-compact shell flex flex-wrap gap-x-6 gap-y-1 pb-3 md:hidden"
       >
         {NAV.map((n) => (
           <Link key={n.href} href={n.href} className="nav-link">

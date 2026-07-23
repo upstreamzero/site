@@ -16,7 +16,7 @@ const SHARE_IMAGE = {
   url: "/og.png",
   width: 1200,
   height: 630,
-  alt: "Upstream Zero. Commercial Evaluation Research.",
+  alt: "Upstream Zero. Commercial intelligence for AI-mediated commercial evaluation.",
 };
 
 export function pageMeta(path: string): Metadata {
@@ -49,7 +49,7 @@ type LdObject = {
 export function objectDescription(obj: LdObject): string {
   const typeLabel = obj.type.charAt(0).toUpperCase() + obj.type.slice(1);
   const tierNote = obj.tier ? ` Presented at evidence tier: ${obj.tier}.` : "";
-  return `${typeLabel} ${obj.id} in the Upstream Zero commercial evaluation research graph. Status: ${obj.status}.${tierNote}`;
+  return `${typeLabel} ${obj.id} in the Upstream Zero commercial evaluation evidence graph. Status: ${obj.status}.${tierNote}`;
 }
 
 /** Object-level WebPage JSON-LD, fully derived from frontmatter.

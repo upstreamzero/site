@@ -11,7 +11,7 @@ import { FounderDecision } from "@/components/FounderDecision";
 export const metadata: Metadata = {
   title: { absolute: "Commercial Evaluation Services | Upstream Zero" },
   description:
-    "Observed commercial evaluation research and diagnosis for organizations seeking to understand how AI systems evaluate, recommend, and rule out companies.",
+    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We help organizations understand how AI systems evaluate, compare, recommend, and eliminate vendors, and what must become true to become a logical choice.",
   ...pageMeta("/services"),
 };
 

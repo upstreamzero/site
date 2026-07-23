@@ -53,6 +53,10 @@ export default function Learn() {
               each one relates to the question underneath them all: how a buyer
               decides which company to choose.
             </p>
+            <p className="muted mt-5 max-w-[64ch]">
+              Learn explains the concepts and terminology of commercial
+              evaluation. Research contains the observed evidence.
+            </p>
             <p className="mt-8">
               <Link
                 href={`/learn/${HUB_PILLAR.slug}`}
