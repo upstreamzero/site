@@ -44,6 +44,8 @@ const ORG_JSONLD = {
       "@id": "https://upstreamzero.com/#organization",
       name: "Upstream Zero",
       url: "https://upstreamzero.com",
+      logo: "https://upstreamzero.com/icon.png",
+      image: "https://upstreamzero.com/og.png",
       description:
         "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
       email: "hello@upstreamzero.com",
