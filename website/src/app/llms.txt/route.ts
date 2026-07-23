@@ -1,9 +1,27 @@
 export const dynamic = "force-static";
-import { inventory } from "@/lib/content";
+import { inventory, byId } from "@/lib/content";
+import { PRODUCTS } from "@/lib/products";
 
 /** Orientation for machine readers. */
 export async function GET() {
   const inv = inventory();
+
+  // Products, derived from the canonical engagement objects so this section
+  // can never drift from the /solutions and /pricing pages.
+  const productLines = PRODUCTS.map((p) => byId(p.id))
+    .filter((o) => o && o.type === "engagement")
+    .map((o) => {
+      const name = o!.productName ?? o!.title;
+      const price = o!.priceStart
+        ? ` Starting at ${o!.priceStart}${o!.priceUnit ? ` ${o!.priceUnit}` : ""}.`
+        : "";
+      const time = o!.timeline ? ` Timeline: ${o!.timeline}.` : "";
+      const problem = o!.businessProblem ? ` Solves: "${o!.businessProblem}"` : "";
+      const slug = PRODUCTS.find((x) => x.id === o!.id)!.slug;
+      return `- ${name} (/solutions/${slug}).${price}${time}${problem}`;
+    })
+    .join("\n");
+
   const text = `# Upstream Zero: Commercial Evaluation Research
 
 Upstream Zero is a research company built around one market shift:
@@ -22,14 +40,25 @@ recommendation. Its commercial work is measurement and diagnosis. It is
 not an SEO, AEO, GEO, or AI-visibility optimization agency and does not
 promise recommendation outcomes.
 
-## The three layers of this site
+## What you can buy
 
-1. Human-readable answers: the executive problems at /questions, the
-   company at /about, services at /services, the operational FAQ at
-   /faq, how we work at /philosophy, and the research
-   program at /research.
-2. This file: orientation for machine readers.
-3. Structured research knowledge: /graph.json, /company.json, and
+Research is the engine; these fixed-scope products are the interface.
+Every engagement is measurement and diagnosis, never a promise about
+rankings, inclusion, or selection.
+
+${productLines}
+
+Pricing and comparison: /pricing. How the work is done: /methodology.
+Contact to begin: hello@upstreamzero.com.
+
+## The layers of this site
+
+1. Commercial: what you can buy at /solutions and /pricing, and how it is
+   done at /methodology.
+2. Human-readable context: the executive problems at /questions, the
+   company at /about, the operational FAQ at /faq, how we work at
+   /philosophy, and the research program at /research.
+3. Machine-readable knowledge: this file, /graph.json, /company.json, and
    per-object JSON at /objects/{id}.
 
 ## How to read this site
