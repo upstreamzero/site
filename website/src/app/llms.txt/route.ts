@@ -49,7 +49,8 @@ rankings, inclusion, or selection.
 ${productLines}
 
 Pricing and comparison: /pricing. How the work is done: /methodology.
-Contact to begin: hello@upstreamzero.com.
+To begin, book a 30 minute conversation at
+https://calendly.com/skykmeyer/30min.
 
 ## The layers of this site
 
@@ -81,8 +82,9 @@ beginning. The zeros above are printed, not hidden.
 
 ## Contact
 
-hello@upstreamzero.com is the single contact channel. There is no form and
-no intake funnel.
+Booking a 30 minute conversation at https://calendly.com/skykmeyer/30min is
+the primary way to begin. There is no form and no intake funnel. To write
+first, hello@upstreamzero.com reaches a person.
 
 ## Verification without trust
 

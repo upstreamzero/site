@@ -5,6 +5,7 @@ import { byId } from "@/lib/content";
 import { PRODUCTS } from "@/lib/products";
 import { pageMeta, productLd, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
+import BookingButton from "@/components/BookingButton";
 
 /** One template for every commercial product page. Each answers a single
  *  executive question and ends with a call to action. All content resolves
@@ -97,12 +98,12 @@ export default async function ProductPage({
               </p>
             )}
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/contact" className="btn">
-                Request this engagement
-              </Link>
-              <Link href="/contact" className="btn-ghost">
-                Talk to an expert
-              </Link>
+              <BookingButton variant="btn">
+                Book a 30 Minute Conversation
+              </BookingButton>
+              <BookingButton variant="btn-ghost">
+                Schedule a Conversation
+              </BookingButton>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               {obj.priceStart && (
@@ -192,9 +193,9 @@ export default async function ProductPage({
                 any work begins.
               </p>
             </div>
-            <Link href="/contact" className="btn-lime">
-              Request {name}
-            </Link>
+            <BookingButton variant="btn-lime">
+              Schedule a Conversation
+            </BookingButton>
           </div>
         </section>
       </main>

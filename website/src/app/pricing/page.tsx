@@ -4,6 +4,7 @@ import { byId } from "@/lib/content";
 import { PRODUCTS } from "@/lib/products";
 import { pageMeta, breadcrumbLd, faqLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
+import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Pricing | Upstream Zero" },
@@ -152,9 +153,9 @@ export default function Pricing() {
             <h2 className="max-w-[24ch]">
               Not sure which one? Start with the map.
             </h2>
-            <Link href="/contact" className="btn-lime">
-              Schedule a strategy session
-            </Link>
+            <BookingButton variant="btn-lime">
+              Schedule a Conversation
+            </BookingButton>
           </div>
         </section>
       </main>

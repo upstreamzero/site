@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import { byType, urlFor } from "@/lib/content";
 import { ProvenanceFooter } from "@/components/SiteChrome";
+import BookingButton from "@/components/BookingButton";
 import { EmptyState } from "@/components/EmptyState";
 import { FounderDecision } from "@/components/FounderDecision";
 
@@ -61,9 +62,9 @@ export default function Services() {
               measure what is actually happening and explain what produced it.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="/contact" className="btn">
-                Talk about your category
-              </Link>
+              <BookingButton variant="btn">
+                Book a 30 Minute Conversation
+              </BookingButton>
               <Link href="/research" className="btn-ghost">
                 See the research
               </Link>
@@ -208,9 +209,9 @@ export default function Services() {
                 Sometimes the honest answer is not yet.
               </p>
             </div>
-            <Link href="/contact" className="btn-lime">
-              Talk about your category
-            </Link>
+            <BookingButton variant="btn-lime">
+              Schedule a Conversation
+            </BookingButton>
           </div>
         </section>
       </main>

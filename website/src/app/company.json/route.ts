@@ -8,6 +8,7 @@ export async function GET() {
   return Response.json({
     name: "Upstream Zero",
     descriptor: "Commercial Evaluation Research",
+    booking: "https://calendly.com/skykmeyer/30min",
     email: "hello@upstreamzero.com",
     version: "0.1",
     firstLight: "2026-07-13",

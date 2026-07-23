@@ -5,6 +5,7 @@ import { PRODUCTS } from "@/lib/products";
 import { pageMeta, pageLd, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
+import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Solutions | Upstream Zero" },
@@ -95,9 +96,9 @@ export default function Solutions() {
             <h2 className="max-w-[24ch]">
               Not sure which fits? Start with your category.
             </h2>
-            <Link href="/contact" className="btn-lime">
-              Schedule a strategy session
-            </Link>
+            <BookingButton variant="btn-lime">
+              Schedule a Conversation
+            </BookingButton>
           </div>
         </section>
       </main>

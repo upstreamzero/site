@@ -5,6 +5,7 @@ import { byId, byType } from "@/lib/content";
 import { PRODUCTS } from "@/lib/products";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
+import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Upstream Zero | Commercial Evaluation Research" },
@@ -83,9 +84,9 @@ export default function Home() {
                 you buy.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <Link href="/contact" className="btn">
-                  Schedule a strategy session
-                </Link>
+                <BookingButton variant="btn">
+                  Book a 30 Minute Conversation
+                </BookingButton>
                 <Link href="/pricing" className="btn-ghost">
                   See products and pricing
                 </Link>
@@ -225,9 +226,9 @@ export default function Home() {
                 and timing, then begin.
               </p>
             </div>
-            <Link href="/contact" className="btn-lime">
-              Schedule a strategy session
-            </Link>
+            <BookingButton variant="btn-lime">
+              Schedule a Conversation
+            </BookingButton>
           </div>
         </section>
       </main>

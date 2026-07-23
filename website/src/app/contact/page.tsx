@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMeta } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
+import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Contact Upstream Zero" },
@@ -40,7 +41,7 @@ export default function Contact() {
             </h1>
             <p className="lede mt-7">
               A first conversation covers three things. There is no form and no
-              funnel. Just the conversation.
+              funnel. Pick a time that works and we talk.
             </p>
           </div>
         </section>
@@ -68,16 +69,23 @@ export default function Contact() {
               prompted the visit.
             </p>
             <div className="card mt-12 max-w-[62ch]">
-              <p className="eyebrow">How to reach us</p>
+              <p className="eyebrow">Book a time</p>
               <p className="mt-4 text-[1.375rem] font-medium tracking-[-0.02em]">
+                A 30 minute conversation, at a time you choose.
+              </p>
+              <div className="mt-6">
+                <BookingButton variant="btn">
+                  Book a 30 Minute Conversation
+                </BookingButton>
+              </div>
+              <p className="muted mt-6 text-[0.9375rem]">
+                Bring your category and what you are seeing, and you will get a
+                straight answer about whether this is measurable yet. Prefer to
+                write first? Reach a person at{" "}
                 <a href="mailto:hello@upstreamzero.com">
                   hello@upstreamzero.com
                 </a>
-              </p>
-              <p className="muted mt-4 text-[0.9375rem]">
-                One address, read by a person. Tell us your category and what
-                you are seeing, and you will get a straight answer about
-                whether this is measurable yet.
+                .
               </p>
             </div>
           </div>

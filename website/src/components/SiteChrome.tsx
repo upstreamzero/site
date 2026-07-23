@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BookingButton from "@/components/BookingButton";
 
 /** Navigation follows the questions a first-time visitor actually asks,
  *  not our internal research model. Research, Methods, and Claims are no
@@ -30,9 +31,9 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link href="/contact" className="btn shrink-0">
-          Talk to us
-        </Link>
+        <BookingButton variant="btn" className="shrink-0">
+          Book Time
+        </BookingButton>
       </div>
       {/* Small screens: primary nav wraps below the wordmark rather than
           collapsing behind a JavaScript menu. */}
