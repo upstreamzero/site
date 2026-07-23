@@ -1,41 +1,40 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageLd, pageMeta } from "@/lib/meta";
+import { pageLd, pageMeta, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "About Upstream Zero | Commercial Evaluation Research" },
   description:
-    "Upstream Zero observes how commercial evaluations are formed, including requirement sets, evidence, reasoning, validation, and recommendation outcomes.",
+    "Upstream Zero is a commercial evaluation research company. We identify why AI systems recommend one company over another and turn it into fixed-scope products executives can buy.",
   ...pageMeta("/about"),
 };
 
-/** The canonical identity page. Every other page summarises identity in one
- *  line and links back here. */
+/** Commercial-first identity, research as the credibility beneath it. */
 const FACTS = [
   {
-    title: "What we study",
-    body: "Commercial evaluation, and the requirements underneath it. Models change and interfaces change. What a buyer needs to see satisfied does not. That is what makes it worth studying properly.",
-    href: "/concepts/requirements",
-    hrefLabel: "Requirements",
+    title: "What we do",
+    body: "We identify why AI systems recommend one company over another, where you lose consideration during evaluation, and what would have to become true for you to be the logical choice.",
+    href: "/solutions",
+    hrefLabel: "See the products",
   },
   {
-    title: "What we publish",
-    body: "A tiered, inspectable record of claims, questions, hypotheses, experiments, and methods. Every claim carries an evidence tier and is never shown above it. The evidence is public. How we produce it is not.",
-    href: "/claims",
-    hrefLabel: "The claims ledger",
+    title: "What you buy",
+    body: "Fixed-scope engagements, not open-ended consulting. A Category Intelligence Report, a Commercial Evaluation Audit, or ongoing Selection Intelligence. Each ends with prioritized decisions.",
+    href: "/pricing",
+    hrefLabel: "Products and pricing",
   },
   {
-    title: "What we sell",
-    body: "Measurement and diagnosis of how an organization is evaluated. Never optimization promises. The commercial work applies the research; it does not turn us into an agency.",
-    href: "/services",
-    hrefLabel: "For companies",
+    title: "What powers it",
+    body: "Continuous commercial evaluation research: evidence before opinion, observations recorded with their conditions, and analysis a person has reviewed. Research is the engine; the products are the interface.",
+    href: "/research",
+    hrefLabel: "The research library",
   },
   {
     title: "What we do not claim",
-    body: "We are not an SEO, AEO, GEO, or AI-visibility agency, not an AI consultancy, and not a software company. We do not promise better rankings, recommendations, visibility, or selection. We measure evaluation; we do not sell standing with evaluators.",
-    href: "/faq",
-    hrefLabel: "Common questions",
+    body: "We are not an SEO, AEO, GEO, or AI-visibility agency, not an AI consultancy, and not a software company. We measure and diagnose. We never promise rankings, inclusion, or selection.",
+    href: "/methodology",
+    hrefLabel: "How we work",
   },
 ];
 
@@ -50,26 +49,41 @@ export default function About() {
               "AboutPage",
               "About Upstream Zero | Commercial Evaluation Research",
               "/about",
-              "Upstream Zero observes how commercial evaluations are formed, including requirement sets, evidence, reasoning, validation, and recommendation outcomes.",
+              "Upstream Zero is a commercial evaluation research company packaging its research into fixed-scope products.",
             ),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: breadcrumbLd([
+              ["Home", "/"],
+              ["About", "/about"],
+            ]),
           }}
         />
 
         {/* ── Identity ────────────────────────────────────────── */}
         <section className="section">
           <div className="shell">
-            <p className="eyebrow">The company behind the work</p>
-            <h1 className="mt-5 max-w-[15ch]">What is Upstream Zero?</h1>
+            <p className="eyebrow">The company</p>
+            <h1 className="mt-5 max-w-[18ch]">
+              A commercial evaluation research company.
+            </h1>
             <p className="lede mt-7">
               Every commercial outcome is preceded by an evaluation, and more
               and more often that evaluation concludes before a buyer engages
-              anyone. We measure why organizations are, or are not, becoming
-              the logical recommendation, and what would have to become true
-              for that to change.
+              anyone. Upstream Zero measures it, and packages what it learns
+              into products executives can buy today.
             </p>
-            <p className="lede mt-5">
-              The work comes first. The company exists to do it.
-            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Link href="/solutions" className="btn">
+                See the products
+              </Link>
+              <Link href="/methodology" className="btn-ghost">
+                How we work
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -107,14 +121,12 @@ export default function About() {
             </h2>
             <div className="callout mt-10 max-w-[70ch]">
               <p>
-                <strong>The job right now is to discover.</strong> Organizing
-                what we find, and running measurements against settled
-                standards, come later. Zero findings have been accepted as
-                settled, one gate in the entire program has been causally
-                verified, and we print both numbers rather than rounding them
-                up. Why we work in that order, and why we publish our own
-                uncertainty, is on the{" "}
-                <Link href="/philosophy">philosophy page</Link>.
+                <strong>The register is measurement and diagnosis.</strong> We
+                publish what we can defend and print the limits plainly. Zero
+                findings have been accepted as settled, one gate in the entire
+                program has been causally verified, and we show both numbers
+                rather than rounding them up. That honesty is the point, and it
+                is what makes a diagnosis worth acting on.
               </p>
             </div>
           </div>
@@ -124,9 +136,7 @@ export default function About() {
         <section className="cta-band">
           <div className="shell">
             <p className="eyebrow">Verify without trusting us</p>
-            <h2 className="mt-5 max-w-[22ch]">
-              Everything above is checkable.
-            </h2>
+            <h2 className="mt-5 max-w-[22ch]">Everything above is checkable.</h2>
             <p className="lede mt-6" style={{ color: "#ffffff", opacity: 0.9 }}>
               The machine-readable counterpart of this page is{" "}
               <a href="/company.json">company.json</a>. The full graph is{" "}

@@ -50,6 +50,20 @@ export function SiteHeader() {
   );
 }
 
+const FOOT_PRODUCTS = [
+  { href: "/solutions", label: "Solutions" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/methodology", label: "Methodology" },
+  { href: "/contact", label: "Talk to us" },
+];
+
+const FOOT_LEARN = [
+  { href: "/learn", label: "Learn" },
+  { href: "/learn/commercial-evaluation", label: "Commercial evaluation" },
+  { href: "/learn/ai-visibility", label: "AI visibility" },
+  { href: "/glossary", label: "Glossary" },
+];
+
 const LIBRARY = [
   { href: "/research", label: "Research library" },
   { href: "/methods", label: "Methods" },
@@ -77,13 +91,26 @@ export function ProvenanceFooter({
   return (
     <footer className="site-footer mt-auto">
       <div className="shell grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <p className="eyebrow">Upstream Zero</p>
-          <p className="mt-3 max-w-[32ch]">
-            We study how commercial evaluation happens before a buyer ever
-            contacts you.
-          </p>
-        </div>
+        <nav aria-label="Products">
+          <p className="eyebrow">Products</p>
+          <ul className="mt-3 list-none space-y-1 p-0">
+            {FOOT_PRODUCTS.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href}>{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label="Learn">
+          <p className="eyebrow">Learn</p>
+          <ul className="mt-3 list-none space-y-1 p-0">
+            {FOOT_LEARN.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href}>{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <nav aria-label="Research library">
           <p className="eyebrow">Research library</p>
           <ul className="mt-3 list-none space-y-1 p-0">
@@ -94,9 +121,15 @@ export function ProvenanceFooter({
             ))}
           </ul>
         </nav>
-        <nav aria-label="Machine readable">
-          <p className="eyebrow">Machine readable</p>
+        <nav aria-label="Company and machine readable">
+          <p className="eyebrow">Company</p>
           <ul className="mt-3 list-none space-y-1 p-0">
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/contact">Talk to us</Link>
+            </li>
             {machineUrl && (
               <li>
                 <a href={machineUrl}>This page as JSON</a>
@@ -107,20 +140,6 @@ export function ProvenanceFooter({
                 <a href={m.href}>{m.label}</a>
               </li>
             ))}
-          </ul>
-        </nav>
-        <nav aria-label="Company">
-          <p className="eyebrow">Company</p>
-          <ul className="mt-3 list-none space-y-1 p-0">
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/services">For companies</Link>
-            </li>
-            <li>
-              <Link href="/contact">Talk to us</Link>
-            </li>
           </ul>
         </nav>
       </div>
