@@ -16,7 +16,7 @@ const SHARE_IMAGE = {
   url: "/og.png",
   width: 1200,
   height: 630,
-  alt: "Upstream Zero. Commercial intelligence for AI-mediated commercial evaluation.",
+  alt: "Upstream Zero. Help your business become the logical choice.",
 };
 
 export function pageMeta(path: string): Metadata {

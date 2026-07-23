@@ -14,14 +14,33 @@ const PRODUCT_CTA: Record<string, string> = {
   "ENG-4": "Discuss Selection Intelligence",
 };
 
+/** Outcome-led headline for each product on the home band. The canonical
+ *  product name still renders as the secondary label, so /solutions,
+ *  /pricing, and the Product schema stay the source of truth for names. */
+const PRODUCT_HEADLINE: Record<string, string> = {
+  "ENG-7": "Understand How AI Sees Your Category",
+  "ENG-1": "Find Out Why You're Recommended or Eliminated",
+  "ENG-4": "Measure Whether You're Becoming the Logical Choice",
+};
+
+/** Home shares a customer-first message. The company classification
+ *  ("commercial intelligence company focused on AI-mediated commercial
+ *  evaluation") is carried by the Organization schema, llms.txt, and
+ *  company.json, so the visible surfaces can lead with the outcome. */
+const base = pageMeta("/");
+const SHARE_TITLE = "Help Your Business Become the Logical Choice";
+const SHARE_DESC =
+  "Customers evaluate your business before they ever contact you. Understand why you're recommended, why you're eliminated, and what must become true to become the logical choice.";
+
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Upstream Zero | Commercial Intelligence for AI-Mediated Commercial Evaluation",
+    absolute: "Upstream Zero | Help Your Business Become the Logical Choice",
   },
   description:
-    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We help organizations understand how AI systems evaluate, compare, recommend, and eliminate vendors, and what must become true to become the logical choice.",
-  ...pageMeta("/"),
+    "Customers begin evaluating your business long before they contact you. Upstream Zero helps you understand why you're recommended, why you're eliminated, and what must become true to become the logical choice. We study how AI systems evaluate, compare, recommend, and eliminate businesses before a decision is made.",
+  ...base,
+  openGraph: { ...base.openGraph, title: SHARE_TITLE, description: SHARE_DESC },
+  twitter: { ...base.twitter, title: SHARE_TITLE, description: SHARE_DESC },
 };
 
 /** The executive questions the products answer. Problems first. */
@@ -82,17 +101,24 @@ export default function Home() {
           <div className="shell grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_341px] lg:gap-x-[100px]">
             <div>
               <p className="eyebrow">
-                Commercial intelligence · AI-mediated commercial evaluation
+                Commercial intelligence · AI-mediated evaluation
               </p>
               <h1 className="mt-5">
-                Help your business become the logical choice.
+                Help Your Business Become the Logical Choice
               </h1>
               <p className="lede mt-7">
+                Customers begin evaluating your business long before they ever
+                contact you. Every question, every requirement, and every
+                comparison changes which businesses remain under consideration.
+                We help you understand why you're recommended, why you're
+                eliminated, and what must become true to become the logical
+                choice.
+              </p>
+              <p className="muted mt-5 max-w-[54ch]">
                 Upstream Zero is a commercial intelligence company focused on
-                AI-mediated commercial evaluation. Companies can be removed from
-                consideration before a buyer ever speaks with sales. We help you
-                understand why you are recommended, why you are eliminated, and
-                what must become true to become a logical choice.
+                AI-mediated commercial evaluation. We study how AI systems
+                evaluate, compare, recommend, and eliminate businesses before
+                customers make a decision.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <BookingButton variant="btn">
@@ -106,7 +132,7 @@ export default function Home() {
 
             <div className="decision-card lg:mt-20">
               <div className="decision-card__head">
-                <span>The commercial decision</span>
+                <span>The buying decision</span>
                 <span className="decision-card__live">Before you</span>
               </div>
               {[
@@ -183,8 +209,8 @@ export default function Home() {
               ))}
             </ol>
             <p className="muted mt-6 max-w-[62ch] text-[0.875rem]">
-              Illustrative example, shown to explain how commercial evaluation
-              narrows. It is not a record of a specific evaluation and names no
+              Illustrative example, shown to explain how evaluation narrows.
+              It is not a record of a specific evaluation and names no
               companies as an observed outcome. See the{" "}
               <Link href="/research">research library</Link> for real,
               condition-specific runs.
@@ -209,8 +235,11 @@ export default function Home() {
                       {p.timeline && <span>{p.timeline}</span>}
                     </div>
                     <h3 className="product-col__name">
-                      {p.productName ?? p.title}
+                      {PRODUCT_HEADLINE[p.id] ?? p.productName ?? p.title}
                     </h3>
+                    <span className="product-col__label">
+                      {p.productName ?? p.title}
+                    </span>
                     {p.businessProblem && (
                       <p className="product-col__quote">
                         &ldquo;{p.businessProblem}&rdquo;
@@ -269,8 +298,8 @@ export default function Home() {
             </div>
             <div className="prose-measure">
               <p>
-                Every engagement rests on continuous commercial evaluation
-                research: evidence before opinion, observations recorded with
+                Every engagement rests on continuous evaluation research:
+                evidence before opinion, observations recorded with
                 their conditions, and analysis a person has reviewed. We
                 publish what we can defend and print the limits plainly.
               </p>

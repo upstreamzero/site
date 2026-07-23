@@ -634,6 +634,14 @@ a:hover {
   line-height: 1.1;
   color: #ffffff;
 }
+.product-col__label {
+  margin-top: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
 .product-col__quote {
   margin-top: 1rem;
   font-size: 1rem;
