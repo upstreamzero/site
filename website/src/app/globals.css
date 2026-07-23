@@ -509,6 +509,82 @@ a:hover {
   color: var(--ink);
 }
 
+/* Pricing table: three products, scannable, same tokens as the cards. */
+.ptable {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--line);
+}
+.ptable th,
+.ptable td {
+  text-align: left;
+  padding: 1.4rem 1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.ptable th:first-child,
+.ptable td:first-child {
+  padding-left: 0;
+}
+.ptable thead th {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding-top: 0;
+}
+.ptable .p-name {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.ptable .p-name a {
+  text-decoration: none;
+}
+.ptable .p-name a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.ptable .p-price {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.ptable .p-unit {
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.ptable .p-best {
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+  max-width: 34ch;
+}
+@media (max-width: 720px) {
+  .ptable,
+  .ptable thead,
+  .ptable tbody,
+  .ptable tr,
+  .ptable th,
+  .ptable td {
+    display: block;
+    border: 0;
+  }
+  .ptable thead {
+    display: none;
+  }
+  .ptable tr {
+    border-bottom: 1px solid var(--line);
+    padding: 1.25rem 0;
+  }
+  .ptable td {
+    padding: 0.2rem 0;
+  }
+}
+
 /* Compact browse row: the complete library, generated automatically. */
 .browse {
   list-style: none;

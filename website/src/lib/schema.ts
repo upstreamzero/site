@@ -114,6 +114,19 @@ export const objectSchema = z.object({
   requiresFromClient: z.string().optional(),
   nonPromises: z.array(z.string()).optional(),
 
+  // ── Commercial product framing (all optional, additive) ──
+  // Present when an engagement is a published, fixed-scope product. These
+  // fields are what the /solutions and /pricing surfaces render, and they
+  // make the offering machine-readable (Product/Offer JSON-LD, llms.txt).
+  // They never touch research objects or the research↔commercial firewall.
+  productName: z.string().optional(), // clean commercial name, no "(provisional)"
+  priceStart: z.string().optional(), // e.g. "$5,000"
+  priceUnit: z.string().optional(), // e.g. "per category" / "per month"
+  timeline: z.string().optional(), // e.g. "3 to 4 weeks"
+  idealCustomer: z.string().optional(),
+  businessOutcome: z.string().optional(), // diagnosis, never a promised result
+  scopeOfWork: z.array(z.string()).optional(),
+
   // Experiment only: closeout outcome, deliberately separate from the
   // lifecycle `status`. Status answers where the experiment is (Proposed /
   // Running / Closed / Archived); outcome answers what happened. Present

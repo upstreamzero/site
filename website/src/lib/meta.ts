@@ -77,6 +77,86 @@ export function objectLd(obj: LdObject, path: string): string {
     .replace(/>/g, "\\u003e");
 }
 
+/** Escape a serialized JSON-LD string so titles/descriptions can never
+ *  break out of the <script> element. */
+function escapeLd(s: string): string {
+  return s
+    .replace(/&/g, "\\u0026")
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e");
+}
+
+/** Product + Offer JSON-LD for a commercial product page, derived from the
+ *  engagement object. Offer carries the starting price truthfully via
+ *  priceSpecification with a "starting from" note; we do not assert a fixed
+ *  price the way a fixed SKU would. */
+export function productLd(p: {
+  name: string;
+  description: string;
+  path: string;
+  priceStart?: string; // "$5,000"
+  priceUnit?: string; // "per category"
+}): string {
+  const amount = p.priceStart ? p.priceStart.replace(/[^0-9.]/g, "") : undefined;
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${SITE_URL}${p.path}#product`,
+    name: p.name,
+    description: p.description,
+    brand: { "@id": `${SITE_URL}/#organization` },
+    url: `${SITE_URL}${p.path}`,
+  };
+  if (amount) {
+    data.offers = {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: amount,
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: amount,
+        priceCurrency: "USD",
+        valueAddedTaxIncluded: false,
+        description: `Starting price${p.priceUnit ? `, ${p.priceUnit}` : ""}. Confirmed before work begins.`,
+      },
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}${p.path}`,
+    };
+  }
+  return escapeLd(JSON.stringify(data));
+}
+
+/** BreadcrumbList JSON-LD. Pass ordered [name, path] pairs, apex-rooted. */
+export function breadcrumbLd(trail: [string, string][]): string {
+  return escapeLd(
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: trail.map(([name, path], i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name,
+        item: `${SITE_URL}${path}`,
+      })),
+    }),
+  );
+}
+
+/** FAQPage JSON-LD from question/answer pairs. */
+export function faqLd(qa: { q: string; a: string }[]): string {
+  return escapeLd(
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: qa.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    }),
+  );
+}
+
 /** Page-type JSON-LD for hub pages, linked to the site-wide Organization
  *  and WebSite nodes declared in the root layout. Truthful typing only:
  *  AboutPage for /about, CollectionPage for object registers. */

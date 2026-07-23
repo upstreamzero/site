@@ -6,9 +6,9 @@ import Link from "next/link";
  *  from the footer and from in-page links. Routes are unchanged, so every
  *  existing URL, object page, and machine surface keeps working. */
 const NAV = [
+  { href: "/pricing", label: "Products" },
   { href: "/questions", label: "Why this matters" },
-  { href: "/research", label: "What we study" },
-  { href: "/services", label: "For companies" },
+  { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
 ];
 
