@@ -2,10 +2,17 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import { byId, byType } from "@/lib/content";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, productSlugFor } from "@/lib/products";
 import { ProvenanceFooter } from "@/components/SiteChrome";
-import { ProductCard } from "@/components/ProductCard";
 import BookingButton from "@/components/BookingButton";
+
+/** Per-product call to action for the dark products band. Keyed by
+ *  engagement id so it stays with the canonical product, not its position. */
+const PRODUCT_CTA: Record<string, string> = {
+  "ENG-7": "Request a Category Report",
+  "ENG-1": "Book an Evaluation Audit",
+  "ENG-4": "Discuss Selection Intelligence",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -187,18 +194,60 @@ export default function Home() {
         </section>
 
         {/* ── What you can buy ────────────────────────────────── */}
-        <section className="section">
+        <section className="dark-band">
           <div className="shell">
             <p className="eyebrow">What you can buy</p>
             <h2 className="mt-5 max-w-[22ch]">
               Fixed-scope products, not open-ended consulting.
             </h2>
-            <div className="mt-12 grid gap-4 lg:grid-cols-3">
-              {products.map((p) => (
-                <ProductCard key={p.id} obj={p} />
-              ))}
+            <div className="product-grid mt-14">
+              {products.map((p, i) => {
+                const slug = productSlugFor(p.id);
+                return (
+                  <div key={p.id} className="product-col">
+                    <div className="product-col__meta">
+                      <span>{String(i + 1).padStart(2, "0")}</span>
+                      {p.timeline && <span>{p.timeline}</span>}
+                    </div>
+                    <h3 className="product-col__name">
+                      {p.productName ?? p.title}
+                    </h3>
+                    {p.businessProblem && (
+                      <p className="product-col__quote">
+                        &ldquo;{p.businessProblem}&rdquo;
+                      </p>
+                    )}
+                    {p.businessOutcome && (
+                      <p className="product-col__desc">{p.businessOutcome}</p>
+                    )}
+                    <div className="product-col__price-row">
+                      <div>
+                        <div className="product-col__price-label">
+                          Starting at
+                        </div>
+                        {p.priceUnit && (
+                          <div className="product-col__price-label">
+                            {p.priceUnit}
+                          </div>
+                        )}
+                      </div>
+                      {p.priceStart && (
+                        <div className="product-col__price">{p.priceStart}</div>
+                      )}
+                    </div>
+                    {slug && (
+                      <Link
+                        href={`/solutions/${slug}`}
+                        className="product-col__cta"
+                      >
+                        {PRODUCT_CTA[p.id] ?? "View scope"}
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-            <p className="mt-10">
+            <p className="mt-12">
               <Link href="/pricing" className="btn-ghost">
                 Compare all products and pricing
               </Link>

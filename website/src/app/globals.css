@@ -579,6 +579,132 @@ a:hover {
   }
 }
 
+/* Dark products band: the mockup's near-black product showcase. Full-bleed
+ * ink, white names and pricing, lime per-product calls to action, a
+ * three-column grid divided by hairlines. */
+.dark-band {
+  background: var(--ink);
+  color: #ffffff;
+  padding-block: clamp(3.5rem, 2rem + 5vw, 6.25rem);
+}
+.dark-band h2 {
+  color: #ffffff;
+}
+.dark-band .eyebrow {
+  color: var(--highlight);
+}
+.dark-band a.btn-ghost {
+  color: #ffffff;
+}
+.dark-band a.btn-ghost:hover {
+  color: var(--highlight);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.product-col {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+.product-col:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.product-col:last-child {
+  padding-right: 0;
+}
+.product-col__meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.product-col__name {
+  margin-top: 1.5rem;
+  font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.625rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #ffffff;
+}
+.product-col__quote {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+}
+.product-col__desc {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.66);
+}
+.product-col__price-row {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.product-col__price-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.product-col__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.product-col__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--highlight);
+  text-decoration: none;
+}
+.product-col__cta::after {
+  content: "\2192";
+  transition: transform 0.18s ease;
+}
+.product-col__cta:hover {
+  text-decoration: none;
+  color: var(--highlight);
+}
+.product-col__cta:hover::after {
+  transform: translateX(3px);
+}
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-col {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 2.25rem 0 0;
+  }
+  .product-col:first-child {
+    border-top: 0;
+  }
+}
+
 /* Card: white, hairline, squared. The one surface. */
 .card {
   background: var(--surface);
