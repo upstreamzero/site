@@ -108,9 +108,9 @@ export default function Home() {
               </h1>
               <p className="lede mt-7">
                 Your buyers decide whether you make the shortlist long before
-                they ever contact you. Every question they ask and every
-                requirement they add quietly removes businesses from the
-                running, and most never learn why. We show you why you're
+                they ever contact you. Every question they ask, every
+                requirement they add, quietly narrows the field. Most businesses
+                are cut without ever knowing why. We show you why you're
                 recommended, why you're eliminated, and what it takes to become
                 the logical choice.
               </p>
@@ -208,11 +208,9 @@ export default function Home() {
               ))}
             </ol>
             <p className="muted mt-6 max-w-[62ch] text-[0.875rem]">
-              Illustrative example, shown to explain how evaluation narrows.
-              It is not a record of a specific evaluation and names no
-              companies as an observed outcome. See the{" "}
-              <Link href="/research">research library</Link> for real,
-              condition-specific runs.
+              An illustration of how the shortlist narrows. It is not a real
+              case, and it names no companies. See the{" "}
+              <Link href="/research">research</Link> for documented runs.
             </p>
           </div>
         </section>
@@ -297,19 +295,19 @@ export default function Home() {
             </div>
             <div className="prose-measure">
               <p>
-                Every answer rests on evidence, not opinion: what we observed,
-                the conditions it held under, and a human review before it
-                reaches you. We publish what we can defend and state the limits
-                plainly.
+                We don't guess. Every answer comes from watching how AI actually
+                decides who gets recommended. We record the conditions it
+                happened under, and a person reviews it before it reaches you.
+                We tell you what we can prove, and where the limits are.
               </p>
               <p className="mt-5">
-                {experiments} experiments are public today, each showing what
-                was seen and what it does not prove. That is the standard
-                behind every engagement.
+                We've done this enough times to make it repeatable, and we
+                publish the work. {experiments} breakdowns are public today,
+                each showing what we saw and what it doesn't prove.
               </p>
               <p className="mt-5">
                 <Link href="/research" className="btn-ghost">
-                  See the research library
+                  See the evidence
                 </Link>
               </p>
             </div>
@@ -324,8 +322,8 @@ export default function Home() {
                 See where you stand in your category.
               </h2>
               <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
-                Tell us your category and who you compete with. We confirm scope
-                and timing, then begin.
+                Tell us your category and who you're up against. We'll show you
+                exactly where you stand, and what it takes to win.
               </p>
             </div>
             <BookingButton variant="btn-lime">
