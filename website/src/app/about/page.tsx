@@ -121,12 +121,12 @@ export default function About() {
             </h2>
             <div className="callout mt-10 max-w-[70ch]">
               <p>
-                <strong>The register is measurement and diagnosis.</strong> We
-                publish what we can defend and print the limits plainly. Zero
-                findings have been accepted as settled, one gate in the entire
-                program has been causally verified, and we show both numbers
-                rather than rounding them up. That honesty is the point, and it
-                is what makes a diagnosis worth acting on.
+                <strong>The register is measurement and diagnosis.</strong> Our
+                findings are published with their supporting evidence,
+                limitations, and confidence level. We distinguish between
+                observed behavior, emerging patterns, and established
+                conclusions so customers can evaluate the evidence for
+                themselves.
               </p>
             </div>
           </div>
