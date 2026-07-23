@@ -16,7 +16,8 @@ const PRODUCT_CTA: Record<string, string> = {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Upstream Zero | Help Your Business Become the Logical Choice",
+    absolute:
+      "Upstream Zero | Commercial Intelligence for AI-Mediated Commercial Evaluation",
   },
   description:
     "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We help organizations understand how AI systems evaluate, compare, recommend, and eliminate vendors, and what must become true to become the logical choice.",
@@ -84,8 +85,7 @@ export default function Home() {
                 Commercial intelligence · AI-mediated commercial evaluation
               </p>
               <h1 className="mt-5">
-                Find out why AI recommends other companies, and what would
-                change it.
+                Help your business become the logical choice.
               </h1>
               <p className="lede mt-7">
                 Upstream Zero is a commercial intelligence company focused on
