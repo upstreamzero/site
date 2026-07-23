@@ -14,6 +14,11 @@ export function ExperimentCard({ obj }: { obj: UZObject }) {
         {obj.outcome && (
           <span className="chip chip-accent">{obj.outcome}</span>
         )}
+        {obj.created && (
+          <time className="chip" dateTime={obj.created}>
+            {obj.created}
+          </time>
+        )}
       </div>
 
       {obj.category && <p className="eyebrow mt-6">{obj.category}</p>}

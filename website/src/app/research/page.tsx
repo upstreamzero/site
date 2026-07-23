@@ -9,9 +9,11 @@ import { FEATURED_EXPERIMENT_IDS } from "@/lib/featured";
 /** Metadata and structured data are unchanged by the redesign: presentation
  *  only, so the machine surfaces stay stable and attributable. */
 export const metadata: Metadata = {
-  title: { absolute: "What We Study | Upstream Zero" },
+  title: {
+    absolute: "Research: How AI Evaluates & Recommends Vendors | Upstream Zero",
+  },
   description:
-    "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations.",
+    "Upstream Zero's public evidence layer: dated experiments on how AI systems evaluate companies, apply requirements, and eliminate or recommend vendors, each with its observations, limitations, and status.",
   ...pageMeta("/research"),
 };
 
@@ -138,6 +140,7 @@ export default function Research() {
                     <span className="browse-meta">
                       {e.status}
                       {e.outcome ? ` · ${e.outcome}` : ""}
+                      {e.created ? ` · ${e.created}` : ""}
                     </span>
                   </Link>
                 </li>

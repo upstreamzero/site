@@ -4,9 +4,9 @@ import { pageMeta, pageLd, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "Methodology | Upstream Zero" },
+  title: { absolute: "How AI Narrows a Vendor Shortlist | Upstream Zero" },
   description:
-    "How Upstream Zero works: define the commercial problem, observe the initial recommendation, apply real buyer requirements, observe how the recommendation evolves, and prioritize evidence-based decisions.",
+    "The method: observe how AI systems recommend vendors, apply real buyer requirements one at a time, and see exactly where a company survives or is eliminated. How requirements change AI recommendations, shown step by step.",
   ...pageMeta("/methodology"),
 };
 

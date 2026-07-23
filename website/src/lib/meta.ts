@@ -41,7 +41,18 @@ type LdObject = {
   title: string;
   status: string;
   tier?: string;
+  created?: string;
+  authors?: string[];
 };
+
+/** Research object types are published as dated Article schema (primary
+ *  evidence AI engines and Google can cite); everything else stays WebPage. */
+const RESEARCH_LD_TYPES = new Set([
+  "experiment",
+  "finding",
+  "observation",
+  "hypothesis",
+]);
 
 /** One derivation for the object description, shared by page metadata and
  *  object-level JSON-LD so the two can never drift apart. Everything comes
@@ -61,20 +72,34 @@ export function objectDescription(obj: LdObject): string {
  *  tier verbatim. Serialization escapes &, <, and > so titles can never
  *  break out of the script element. */
 export function objectLd(obj: LdObject, path: string): string {
-  const data = {
+  const base = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${SITE_URL}${path}#webpage`,
     url: `${SITE_URL}${path}`,
     name: obj.title,
     description: objectDescription(obj),
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#organization` },
   };
-  return JSON.stringify(data)
-    .replace(/&/g, "\\u0026")
-    .replace(/</g, "\\u003c")
-    .replace(/>/g, "\\u003e");
+  const data = RESEARCH_LD_TYPES.has(obj.type)
+    ? {
+        ...base,
+        "@type": "Article",
+        "@id": `${SITE_URL}${path}#article`,
+        headline: obj.title,
+        ...(obj.created
+          ? { datePublished: obj.created, dateModified: obj.created }
+          : {}),
+        author: { "@id": `${SITE_URL}/#organization` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        ...(obj.tier ? { creativeWorkStatus: `Evidence tier: ${obj.tier}` } : {}),
+        isBasedOn: `${SITE_URL}/objects/${obj.id}`,
+      }
+    : {
+        ...base,
+        "@type": "WebPage",
+        "@id": `${SITE_URL}${path}#webpage`,
+      };
+  return escapeLd(JSON.stringify(data));
 }
 
 /** Escape a serialized JSON-LD string so titles/descriptions can never

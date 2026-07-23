@@ -7,9 +7,9 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
-  title: { absolute: "Solutions | Upstream Zero" },
+  title: { absolute: "AI Vendor Evaluation Products | Upstream Zero" },
   description:
-    "Fixed-scope Commercial Evaluation products: understand how AI defines your market, diagnose why your recommendation fails or survives deeper requirements, and monitor movement over time.",
+    "Fixed-scope products to understand how AI systems evaluate, recommend, and eliminate vendors in your category, why you survive or fail requirements, and what must change. See how AI evaluates your category.",
   ...pageMeta("/solutions"),
 };
 

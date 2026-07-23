@@ -7,9 +7,9 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
-  title: { absolute: "Pricing | Upstream Zero" },
+  title: { absolute: "Pricing: AI Vendor Evaluation Products | Upstream Zero" },
   description:
-    "Fixed-scope Commercial Evaluation products with published starting prices: Category Intelligence Report, Commercial Evaluation Audit, and Selection Intelligence.",
+    "Published starting prices for measuring how AI evaluates your company: Category Intelligence Report ($2,500), Commercial Evaluation Audit ($5,000), and Selection Intelligence ($995/mo). See what each engagement diagnoses.",
   ...pageMeta("/pricing"),
 };
 
