@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { publicObjects, urlFor } from "@/lib/content";
 import { PRODUCTS } from "@/lib/products";
 import { PILLARS } from "@/lib/pillars";
+import { BUSINESS_QUESTIONS } from "@/lib/businessQuestions";
 
 export const dynamic = "force-static";
 
@@ -34,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...STATIC_ROUTES,
     ...PRODUCTS.map((p) => `/solutions/${p.slug}`),
     ...PILLARS.map((p) => `/learn/${p.slug}`),
+    ...BUSINESS_QUESTIONS.map((b) => `/questions/${b.slug}`),
   ];
   const pages: MetadataRoute.Sitemap = routes.map((r) => ({
     url: `${BASE}${r}`,

@@ -129,7 +129,9 @@ export default function Research() {
             <div className="mt-12 grid gap-4 lg:grid-cols-2">
               {BUSINESS_QUESTIONS.map((bq) => (
                 <article key={bq.slug} className="card">
-                  <h3 className="text-[1.125rem] max-w-[30ch]">{bq.q}</h3>
+                  <h3 className="text-[1.125rem] max-w-[30ch]">
+                    <Link href={`/questions/${bq.slug}`}>{bq.q}</Link>
+                  </h3>
                   <p className="muted mt-2 text-[0.9375rem]">{bq.framing}</p>
                   <div className="mt-5">
                     <p className="eyebrow">Studied under</p>
