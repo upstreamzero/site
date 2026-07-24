@@ -869,6 +869,15 @@ a:hover {
 .ev-finding {
   --ev-dot: var(--highlight);
 }
+/* Evidence-recommendation worked example: label / value pairs. */
+.exrec dd {
+  margin: 0.4rem 0 0;
+  max-width: 62ch;
+}
+.exrec dt:first-child {
+  margin-top: 0;
+}
+
 /* Research-component state dots (reuse the .ev base). */
 .ev-available {
   --ev-dot: var(--accent);

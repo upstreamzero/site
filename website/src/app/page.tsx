@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import { byId, byType } from "@/lib/content";
 import { PRODUCTS, productSlugFor } from "@/lib/products";
+import { WORKFLOW } from "@/lib/workflow";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 
@@ -162,6 +163,40 @@ export default function Home() {
               <span className="built-for__item">Category owners</span>
               <span className="built-for__item">Enterprise teams</span>
             </div>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── The workflow (observe to measured movement) ─────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">What we do</p>
+            <h2 className="mt-5 max-w-[30ch]">
+              What must become true, the evidence required, and whether it moved
+              the outcome.
+            </h2>
+            <p className="lede mt-6 max-w-[64ch]">
+              Upstream Zero shows companies what must become true to survive
+              AI-mediated evaluation, what evidence is required, and whether the
+              resulting changes improve recommendation outcomes.
+            </p>
+            <ol className="steps steps-2 mt-12">
+              {WORKFLOW.map((s) => (
+                <li key={s.n} className="step">
+                  <div className="step-n">{s.n}</div>
+                  <h3>{s.name}</h3>
+                  <p>{s.plain}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-9">
+              <Link href="/solutions" className="btn-ghost">
+                See the full workflow and products
+              </Link>
+            </p>
           </div>
         </section>
 

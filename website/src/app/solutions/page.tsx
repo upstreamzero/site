@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { byId } from "@/lib/content";
 import { PRODUCTS, productSlugFor } from "@/lib/products";
 import { pageMeta, pageLd, breadcrumbLd } from "@/lib/meta";
+import { WORKFLOW } from "@/lib/workflow";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
   title: { absolute: "AI Vendor Evaluation Products | Upstream Zero" },
   description:
-    "Fixed-scope products to understand how AI systems evaluate, recommend, and eliminate vendors in your category, why you survive or fail requirements, and what must change. See how AI evaluates your category.",
+    "Upstream Zero observes how AI evaluates your company, diagnoses where you are eliminated, defines what must become true and the evidence required, recommends where that evidence should live, and measures whether recommendation behavior changes. Diagnosis and measurement, never a promise about rankings.",
   ...pageMeta("/solutions"),
 };
 
@@ -49,12 +50,43 @@ export default function Solutions() {
               Intelligence you can buy, use, and measure.
             </h1>
             <p className="lede mt-7">
-              Each product helps a company understand how it is evaluated, why
-              it survives or fails specific requirements, and what must become
-              true for it to become a logical choice. Every engagement answers a
-              defined commercial question, follows a repeatable scope, and ends
-              with a clear decision.
+              Upstream Zero connects observed evaluation behavior to the
+              evidence most likely to change it. We observe how AI evaluates
+              your company, diagnose where and why you are eliminated, define
+              what must become true and the evidence required, recommend where
+              that evidence should live, and measure whether recommendation
+              behavior moves. It is diagnosis and measurement, never a promise
+              about rankings.
             </p>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── The commercial workflow ─────────────────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">The workflow</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              From observed behavior to measured movement.
+            </h2>
+            <p className="lede mt-6 max-w-[62ch]">
+              Every engagement follows the same path. Each step is diagnosis or
+              measurement. The recommendations it produces are candidate
+              interventions tied to an observed failure and a specific evidence
+              gap, not guaranteed levers.
+            </p>
+            <ol className="steps steps-2 mt-12">
+              {WORKFLOW.map((s) => (
+                <li key={s.n} className="step">
+                  <div className="step-n">{s.n}</div>
+                  <h3>{s.name}</h3>
+                  <p>{s.plain}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -116,6 +148,164 @@ export default function Solutions() {
               <Link href="/pricing" className="btn-ghost">
                 Compare timelines and pricing
               </Link>
+            </p>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── Evidence-recommendation worked example ──────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">Recommendation output · example</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              From an observed failure to a prioritized set of evidence.
+            </h2>
+            <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
+              Illustrative, not a real company or a promised result. It shows
+              how one observed elimination becomes a specific, prioritized set
+              of candidate interventions.
+            </p>
+
+            <div className="card mt-10 max-w-[74ch]">
+              <dl className="exrec">
+                <dt className="eyebrow">Observed evaluation failure</dt>
+                <dd>
+                  A healthcare software company appears in the initial
+                  recommendation set but disappears when the buyer adds Epic
+                  integration and HIPAA compliance.
+                </dd>
+
+                <dt className="eyebrow mt-6">Evidence diagnosis</dt>
+                <dd>
+                  The company claims Epic compatibility, but the available
+                  evidence does not clearly demonstrate native integration,
+                  implementation depth, or independent validation.
+                </dd>
+
+                <dt className="eyebrow mt-6">What must become true</dt>
+                <dd>
+                  AI evaluators must consistently associate the company with
+                  native Epic integration and successful healthcare deployments.
+                </dd>
+
+                <dt className="eyebrow mt-6">Existing evidence</dt>
+                <dd>
+                  General integrations page, a HIPAA statement, and product
+                  documentation.
+                </dd>
+
+                <dt className="eyebrow mt-6">Missing or weak evidence</dt>
+                <dd>
+                  Dedicated Epic technical documentation, an implementation
+                  walkthrough, healthcare customer proof, and independent
+                  ecosystem validation.
+                </dd>
+
+                <dt className="eyebrow mt-6">Recommended evidence actions</dt>
+                <dd>
+                  <ol className="mt-2 list-none space-y-3 p-0">
+                    <li>
+                      <span className="voice-mono-data muted">Priority 1</span>
+                      <br />
+                      Publish a dedicated Epic integration page with technical
+                      details, supported workflows, architecture, and
+                      implementation requirements.
+                    </li>
+                    <li>
+                      <span className="voice-mono-data muted">Priority 2</span>
+                      <br />
+                      Create a customer case study showing a real Epic
+                      deployment and a measurable outcome.
+                    </li>
+                    <li>
+                      <span className="voice-mono-data muted">Priority 3</span>
+                      <br />
+                      Publish a video walkthrough demonstrating the integration.
+                    </li>
+                    <li>
+                      <span className="voice-mono-data muted">Priority 4</span>
+                      <br />
+                      Secure an ecosystem or partner reference that
+                      independently validates the capability.
+                    </li>
+                  </ol>
+                </dd>
+
+                <dt className="eyebrow mt-6">Recommended placement</dt>
+                <dd>
+                  Canonical technical evidence on the company website, detailed
+                  support in product documentation, a demonstration on YouTube,
+                  independent validation through partner directories, customer
+                  stories, or industry publications, and structured data on the
+                  relevant product and integration pages where appropriate.
+                </dd>
+
+                <dt className="eyebrow mt-6">Measurement</dt>
+                <dd>
+                  Re-run the same requirement sequence and measure
+                  recommendation-set frequency, frontrunner frequency, selection
+                  survivability, competitor displacement, validation failure
+                  points, and before-and-after recommendation movement.
+                </dd>
+              </dl>
+            </div>
+
+            <p className="muted mt-8 max-w-[70ch] text-[0.9375rem]">
+              Evidence recommendations may include technical documentation,
+              product and integration pages, customer case studies, video
+              walkthroughs, partner directories, marketplace listings, PR and
+              industry coverage, review platforms, developer documentation, and
+              structured data. Each is a candidate intervention selected because
+              of an observed failure and a specific evidence gap, not a generic
+              tactic. The system does not recommend every evidence type for
+              every problem.
+            </p>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── How this differs from GEO and AEO ───────────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">How this differs from GEO and AEO</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              Mechanisms, not the category.
+            </h2>
+            <div className="mt-10 grid gap-10 lg:grid-cols-2">
+              <div>
+                <p className="eyebrow">GEO and AEO typically focus on</p>
+                <ul className="mt-3 list-none space-y-2 p-0 text-[0.9375rem]">
+                  <li className="muted">Visibility</li>
+                  <li className="muted">Mentions and citations</li>
+                  <li className="muted">Retrieval</li>
+                  <li className="muted">Content structure</li>
+                  <li className="muted">Schema</li>
+                </ul>
+              </div>
+              <div>
+                <p className="eyebrow">Upstream Zero focuses on</p>
+                <ul className="mt-3 list-none space-y-2 p-0 text-[0.9375rem]">
+                  <li>Recommendation set formation</li>
+                  <li>Vendor elimination</li>
+                  <li>Frontrunner movement</li>
+                  <li>Selection survivability</li>
+                  <li>Evidence gaps</li>
+                  <li>Measured recommendation movement</li>
+                </ul>
+              </div>
+            </div>
+            <p className="muted mt-8 max-w-[70ch] text-[0.9375rem]">
+              Schema, PR, video, documentation, case studies, and third-party
+              validation may be recommended when the evidence supports them.
+              They are candidate mechanisms, not the product category. The
+              platform decides whether a mechanism is relevant based on the
+              observed evaluation evidence.
             </p>
           </div>
         </section>
