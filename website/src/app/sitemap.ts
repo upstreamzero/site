@@ -3,6 +3,7 @@ import { publicObjects, urlFor } from "@/lib/content";
 import { PRODUCTS } from "@/lib/products";
 import { PILLARS } from "@/lib/pillars";
 import { BUSINESS_QUESTIONS } from "@/lib/businessQuestions";
+import { COMPARISONS } from "@/lib/comparisons";
 
 export const dynamic = "force-static";
 
@@ -36,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...PRODUCTS.map((p) => `/solutions/${p.slug}`),
     ...PILLARS.map((p) => `/learn/${p.slug}`),
     ...BUSINESS_QUESTIONS.map((b) => `/questions/${b.slug}`),
+    ...COMPARISONS.map((c) => `/compare/${c.slug}`),
   ];
   const pages: MetadataRoute.Sitemap = routes.map((r) => ({
     url: `${BASE}${r}`,

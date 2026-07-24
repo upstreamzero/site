@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PILLARS, HUB_PILLAR } from "@/lib/pillars";
+import { COMPARISONS } from "@/lib/comparisons";
 import { pageMeta, pageLd, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
@@ -93,6 +94,35 @@ export default function Learn() {
                 </ul>
               </div>
             ))}
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        <section className="section">
+          <div className="shell">
+            <p className="eyebrow">Comparisons</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              How the terms relate, side by side.
+            </h2>
+            <p className="lede mt-6 max-w-[62ch]">
+              The questions buyers actually ask, answered by placing two terms
+              against each other and in the wider evaluation lifecycle.
+            </p>
+            <ul className="browse mt-8">
+              {COMPARISONS.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/compare/${c.slug}`}>
+                    <span className="browse-title">
+                      {c.a} vs {c.b}
+                    </span>
+                    <span className="browse-meta">Comparison</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

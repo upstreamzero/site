@@ -869,6 +869,49 @@ a:hover {
 .ev-finding {
   --ev-dot: var(--highlight);
 }
+/* The commercial evaluation lifecycle, shared across every Learn page. */
+.lifecycle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.15rem;
+}
+.lc-stage {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  padding: 0.3rem 0.55rem;
+  background: var(--surface);
+}
+.lc-stage.lc-on {
+  color: var(--on-lime, #111511);
+  background: var(--highlight);
+  border-color: var(--highlight);
+  font-weight: 700;
+}
+.lc-arrow {
+  color: var(--line-strong);
+  margin-left: 0.15rem;
+  margin-right: -0.15rem;
+}
+.lc-on .lc-arrow {
+  color: var(--ink-muted);
+}
+.lc-loop {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--line-strong);
+  margin-left: 0.35rem;
+}
+
 /* Evidence-recommendation worked example: label / value pairs. */
 .exrec dd {
   margin: 0.4rem 0 0;

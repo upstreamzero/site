@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PILLARS, HUB_PILLAR } from "@/lib/pillars";
+import { byId, urlFor } from "@/lib/content";
 import { pageMeta, breadcrumbLd, faqLd, SITE_URL } from "@/lib/meta";
+import { Lifecycle } from "@/components/Lifecycle";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 /** One template for every authority page. Structure enforces the rule:
@@ -30,20 +32,41 @@ export async function generateMetadata({
   };
 }
 
-function articleLd(slug: string, term: string, summary: string): string {
-  return JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: term,
-    description: summary,
-    url: `${SITE_URL}/learn/${slug}`,
-    isPartOf: { "@id": `${SITE_URL}/#website` },
-    publisher: { "@id": `${SITE_URL}/#organization` },
-    about: { "@id": `${SITE_URL}/#organization` },
-  })
+function escapeLd(s: string): string {
+  return s
     .replace(/&/g, "\\u0026")
     .replace(/</g, "\\u003c")
     .replace(/>/g, "\\u003e");
+}
+
+function articleLd(slug: string, term: string, summary: string): string {
+  return escapeLd(
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: term,
+      description: summary,
+      url: `${SITE_URL}/learn/${slug}`,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      about: { "@id": `${SITE_URL}/#organization` },
+    }),
+  );
+}
+
+/** These are definitional reference pages, so they also declare the term
+ *  itself as a DefinedTerm for entity-level retrieval. */
+function definedTermLd(slug: string, term: string, summary: string): string {
+  return escapeLd(
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      name: term,
+      description: summary,
+      url: `${SITE_URL}/learn/${slug}`,
+      inDefinedTermSet: { "@id": `${SITE_URL}/#website` },
+    }),
+  );
 }
 
 export default async function PillarPage({
@@ -56,7 +79,15 @@ export default async function PillarPage({
   if (!p) notFound();
 
   const title = p.aka ? `${p.term} (${p.aka})` : p.term;
-  const related = PILLARS.filter((x) => x.slug !== p.slug && !x.hub).slice(0, 6);
+  const related =
+    p.relatedTerms && p.relatedTerms.length > 0
+      ? p.relatedTerms
+          .map((s) => PILLARS.find((x) => x.slug === s))
+          .filter((x): x is NonNullable<typeof x> => Boolean(x))
+      : PILLARS.filter((x) => x.slug !== p.slug && !x.hub).slice(0, 6);
+  const relatedComponents = (p.relatedComponents ?? [])
+    .map((s) => byId(s))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (
     <>
@@ -65,6 +96,12 @@ export default async function PillarPage({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: articleLd(p.slug, p.term, p.summary),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: definedTermLd(p.slug, p.term, p.summary),
           }}
         />
         <script
@@ -121,6 +158,17 @@ export default async function PillarPage({
           </div>
         </section>
 
+        {/* ── Limitations ─────────────────────────────────────── */}
+        {p.limitations && (
+          <section className="section-tight">
+            <div className="shell">
+              <p className="eyebrow">Limitations</p>
+              <h2 className="mt-5 max-w-[24ch]">What it does not do.</h2>
+              <p className="mt-6 max-w-[64ch]">{p.limitations}</p>
+            </div>
+          </section>
+        )}
+
         {/* ── The reframe (the honest high ground) ────────────── */}
         {!p.hub && (
           <section className="section-tight">
@@ -161,6 +209,82 @@ export default async function PillarPage({
             </div>
           </section>
         )}
+
+        {/* ── Lifecycle (consistent across every page) ────────── */}
+        {(p.lifecycle ||
+          (p.lifecycleStages && p.lifecycleStages.length > 0)) && (
+          <section className="section-tight">
+            <div className="shell">
+              <hr className="rule" />
+              <p className="eyebrow mt-12">
+                Where it fits in the commercial evaluation lifecycle
+              </p>
+              <div className="mt-6 max-w-[74ch]">
+                <Lifecycle active={p.lifecycleStages ?? []} />
+              </div>
+              {p.lifecycle && (
+                <p className="mt-7 max-w-[66ch]">{p.lifecycle}</p>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ── Commercial outcomes (hedged, never a promise) ───── */}
+        {p.businessLogic && (
+          <section className="section-tight">
+            <div className="shell">
+              <p className="eyebrow">Commercial outcomes</p>
+              <h2 className="mt-5 max-w-[26ch]">
+                Where this touches the business.
+              </h2>
+              <p className="mt-6 max-w-[66ch]">{p.businessLogic}</p>
+            </div>
+          </section>
+        )}
+
+        {/* ── Go deeper: research, methodology, solutions ─────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <hr className="rule" />
+            <p className="eyebrow mt-12">Go deeper</p>
+            <div className="mt-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedComponents.length > 0 && (
+                <div>
+                  <p className="eyebrow">Research components</p>
+                  <ul className="mt-3 list-none space-y-1 p-0 text-[0.9375rem]">
+                    {relatedComponents.map((c) => (
+                      <li key={c.id}>
+                        <Link href={urlFor(c)}>{c.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <div>
+                <p className="eyebrow">How the work is done</p>
+                <ul className="mt-3 list-none space-y-1 p-0 text-[0.9375rem]">
+                  <li>
+                    <Link href="/methodology">Methodology</Link>
+                  </li>
+                  <li>
+                    <Link href="/research">Research evidence</Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="eyebrow">What you can do</p>
+                <ul className="mt-3 list-none space-y-1 p-0 text-[0.9375rem]">
+                  <li>
+                    <Link href="/solutions">Solutions</Link>
+                  </li>
+                  <li>
+                    <Link href="/pricing">Pricing</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── FAQ ─────────────────────────────────────────────── */}
         <section className="section-tight">
