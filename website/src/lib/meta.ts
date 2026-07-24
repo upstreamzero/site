@@ -71,14 +71,84 @@ export function objectDescription(obj: LdObject): string {
  *  description string instead, which already carries type, ID, status, and
  *  tier verbatim. Serialization escapes &, <, and > so titles can never
  *  break out of the script element. */
-export function objectLd(obj: LdObject, path: string): string {
+export type LdLink = { path: string; name: string };
+export type ObjectLdOpts = {
+  /** Emit the research component as a DefinedTerm + CollectionPage with an
+   *  ItemList of its evidence. */
+  isComponent?: boolean;
+  /** One-line definition, for the DefinedTerm description. */
+  summary?: string;
+  /** Components this research object is part of (research objects only). */
+  components?: LdLink[];
+  /** Evidence that is part of this component (component pages only). */
+  members?: LdLink[];
+};
+
+export function objectLd(
+  obj: LdObject,
+  path: string,
+  opts: ObjectLdOpts = {},
+): string {
+  // Research component page: a defined term whose page collects its evidence.
+  if (opts.isComponent) {
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}${path}#collection`,
+      url: `${SITE_URL}${path}`,
+      name: obj.title,
+      description: objectDescription(obj),
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: {
+        "@type": "DefinedTerm",
+        name: obj.title,
+        ...(opts.summary ? { description: opts.summary } : {}),
+        inDefinedTermSet: { "@id": `${SITE_URL}/#website` },
+      },
+      ...(opts.members && opts.members.length
+        ? {
+            mainEntity: {
+              "@type": "ItemList",
+              numberOfItems: opts.members.length,
+              itemListElement: opts.members.map((m, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `${SITE_URL}${m.path}`,
+                name: m.name,
+              })),
+            },
+          }
+        : {}),
+    };
+    return escapeLd(JSON.stringify(data));
+  }
+
+  const components = opts.components ?? [];
   const base = {
     "@context": "https://schema.org",
     url: `${SITE_URL}${path}`,
     name: obj.title,
     description: objectDescription(obj),
-    isPartOf: { "@id": `${SITE_URL}/#website` },
+    isPartOf: components.length
+      ? [
+          { "@id": `${SITE_URL}/#website` },
+          ...components.map((c) => ({
+            "@type": "CollectionPage",
+            url: `${SITE_URL}${c.path}`,
+            name: c.name,
+          })),
+        ]
+      : { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#organization` },
+    ...(components.length
+      ? {
+          mentions: components.map((c) => ({
+            "@type": "DefinedTerm",
+            name: c.name,
+            url: `${SITE_URL}${c.path}`,
+          })),
+        }
+      : {}),
   };
   const data = RESEARCH_LD_TYPES.has(obj.type)
     ? {
@@ -86,6 +156,7 @@ export function objectLd(obj: LdObject, path: string): string {
         "@type": "Article",
         "@id": `${SITE_URL}${path}#article`,
         headline: obj.title,
+        mainEntityOfPage: `${SITE_URL}${path}`,
         ...(obj.created
           ? { datePublished: obj.created, dateModified: obj.created }
           : {}),
