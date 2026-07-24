@@ -837,6 +837,39 @@ a:hover {
   background: var(--accent-soft);
 }
 
+/* Evidence-level tag: a labelled dot that distinguishes evidence types on a
+   listing (what was tested vs only observed vs under investigation). The dot
+   colour is semantic, separate from the page accent, and stays subtle. */
+.ev {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.ev::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: none;
+  background: var(--ev-dot, var(--line-strong));
+}
+.ev-hypothesis {
+  --ev-dot: var(--line-strong);
+}
+.ev-experiment {
+  --ev-dot: var(--accent);
+}
+.ev-observation {
+  --ev-dot: #5f7d8c;
+}
+.ev-finding {
+  --ev-dot: var(--highlight);
+}
+
 /* Executive summary: the scannable Question / Business problem / Observed
  * result triplet that opens every experiment. Structured, not prose. */
 .summary {
