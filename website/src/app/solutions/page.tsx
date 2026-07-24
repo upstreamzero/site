@@ -10,7 +10,7 @@ import BookingButton from "@/components/BookingButton";
 export const metadata: Metadata = {
   title: { absolute: "AI Vendor Evaluation Products | Upstream Zero" },
   description:
-    "Upstream Zero observes how AI evaluates your company, diagnoses where you are eliminated, defines what must become true and the evidence required, recommends where that evidence should live, and measures whether recommendation behavior changes. Diagnosis and measurement, never a promise about rankings.",
+    "Companies are evaluated by AI before a buyer speaks with sales. Upstream Zero shows whether your company enters the recommendation set, which requirements strengthen or eliminate your position, what evidence AI systems rely on, and what must become true to remain a logical choice. It measures the evaluation behavior that may influence pipeline, win rate, and revenue, and does not promise those outcomes.",
   ...pageMeta("/solutions"),
 };
 
@@ -46,18 +46,48 @@ export default function Solutions() {
         <section className="section">
           <div className="shell">
             <p className="eyebrow">Solutions</p>
-            <h1 className="mt-5 max-w-[20ch]">
-              Intelligence you can buy, use, and measure.
+            <h1 className="mt-5 max-w-[24ch]">
+              See how AI evaluates your company before a buyer calls.
             </h1>
             <p className="lede mt-7">
-              Upstream Zero connects observed evaluation behavior to the
-              evidence most likely to change it. We observe how AI evaluates
-              your company, diagnose where and why you are eliminated, define
-              what must become true and the evidence required, recommend where
-              that evidence should live, and measure whether recommendation
-              behavior moves. It is diagnosis and measurement, never a promise
-              about rankings.
+              Companies are increasingly evaluated before a buyer speaks with
+              sales. Upstream Zero shows whether your company enters the
+              recommendation set, which requirements strengthen or eliminate
+              your position, what evidence AI systems rely on, and what must
+              become true for your company to remain a logical choice as the
+              evaluation continues.
             </p>
+            <p className="muted mt-5 max-w-[64ch]">
+              This intelligence can be evaluated alongside qualified pipeline,
+              ICP alignment, win rate, sales-cycle movement, revenue, retention,
+              and expansion. Upstream Zero measures the evaluation behavior that
+              may influence those outcomes. It does not promise that changing
+              recommendation behavior will produce them.
+            </p>
+
+            <dl className="mt-10 grid max-w-[76ch] gap-x-8 gap-y-4 text-[0.9375rem] sm:grid-cols-[max-content_1fr]">
+              <dt className="font-medium">What it solves</dt>
+              <dd className="muted m-0">
+                You cannot see the AI evaluation that decides whether you make
+                the shortlist. This makes it observable.
+              </dd>
+              <dt className="font-medium">What you learn</dt>
+              <dd className="muted m-0">
+                Whether you enter the recommendation set, which requirements
+                move or eliminate you, what evidence the evaluator relies on,
+                and what must become true to remain a logical choice.
+              </dd>
+              <dt className="font-medium">What you can buy</dt>
+              <dd className="muted m-0">
+                Three fixed-scope products, from a first category read to
+                ongoing measurement. See them below.
+              </dd>
+              <dt className="font-medium">Decisions it supports</dt>
+              <dd className="muted m-0">
+                Where to invest evidence, which requirements to prioritize, and
+                whether a change moved your recommendation position over time.
+              </dd>
+            </dl>
           </div>
         </section>
 

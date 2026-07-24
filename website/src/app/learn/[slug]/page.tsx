@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PILLARS, HUB_PILLAR } from "@/lib/pillars";
@@ -37,6 +38,28 @@ function escapeLd(s: string): string {
     .replace(/&/g, "\\u0026")
     .replace(/</g, "\\u003c")
     .replace(/>/g, "\\u003e");
+}
+
+/** Render a prose string, turning authored [label](/path) markdown links into
+ *  in-body internal links so relationships between entities can be stated in
+ *  the explanatory sentence, not only in a related-content block. */
+function renderLinks(text: string) {
+  const out: ReactNode[] = [];
+  const re = /\[([^\]]+)\]\((\/[^)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let k = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push(
+      <Link key={k++} href={m[2]}>
+        {m[1]}
+      </Link>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
 }
 
 function articleLd(slug: string, term: string, summary: string): string {
@@ -164,7 +187,7 @@ export default async function PillarPage({
             <div className="shell">
               <p className="eyebrow">Limitations</p>
               <h2 className="mt-5 max-w-[24ch]">What it does not do.</h2>
-              <p className="mt-6 max-w-[64ch]">{p.limitations}</p>
+              <p className="mt-6 max-w-[64ch]">{renderLinks(p.limitations)}</p>
             </div>
           </section>
         )}
@@ -180,7 +203,7 @@ export default async function PillarPage({
               <div className="prose-measure mt-8">
                 {p.reframe.map((para, i) => (
                   <p key={i} className={i > 0 ? "mt-5" : ""}>
-                    {para}
+                    {renderLinks(para)}
                   </p>
                 ))}
               </div>
@@ -202,7 +225,7 @@ export default async function PillarPage({
               <div className="prose-measure mt-6">
                 {p.reframe.map((para, i) => (
                   <p key={i} className={i > 0 ? "mt-5" : ""}>
-                    {para}
+                    {renderLinks(para)}
                   </p>
                 ))}
               </div>
@@ -223,7 +246,7 @@ export default async function PillarPage({
                 <Lifecycle active={p.lifecycleStages ?? []} />
               </div>
               {p.lifecycle && (
-                <p className="mt-7 max-w-[66ch]">{p.lifecycle}</p>
+                <p className="mt-7 max-w-[66ch]">{renderLinks(p.lifecycle)}</p>
               )}
             </div>
           </section>
@@ -237,7 +260,7 @@ export default async function PillarPage({
               <h2 className="mt-5 max-w-[26ch]">
                 Where this touches the business.
               </h2>
-              <p className="mt-6 max-w-[66ch]">{p.businessLogic}</p>
+              <p className="mt-6 max-w-[66ch]">{renderLinks(p.businessLogic)}</p>
             </div>
           </section>
         )}
