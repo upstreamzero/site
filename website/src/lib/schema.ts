@@ -151,6 +151,7 @@ export const objectSchema = z.object({
   // is machine-readable in graph.json and /objects/{id}, not trapped in
   // markdown. No object type, ID, route, edge, or evidence rule changes.
   category: z.string().optional(), // eyebrow, e.g. "Clinical trial management software"
+  summary: z.string().optional(), // one-line plain-language definition (research components)
   question: z.string().optional(), // the bounded question the run answers
   businessProblem: z.string().optional(), // why a company should care
   observedResult: z.string().optional(), // what was observed, scoped

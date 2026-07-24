@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 import { pageLd, pageMeta } from "@/lib/meta";
 import { byId, byType, inventory, urlFor } from "@/lib/content";
 import { evidenceLevel } from "@/lib/evidence";
+import {
+  RESEARCH_COMPONENTS,
+  componentStateClass,
+} from "@/lib/researchComponents";
+import { BUSINESS_QUESTIONS } from "@/lib/businessQuestions";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import { ExperimentCard } from "@/components/ExperimentCard";
 import { FEATURED_EXPERIMENT_IDS } from "@/lib/featured";
@@ -31,6 +36,9 @@ export default function Research() {
     (e): e is NonNullable<typeof e> => Boolean(e) && e!.type === "experiment",
   );
 
+  const components = RESEARCH_COMPONENTS.map((id) => byId(id)).filter(
+    (c): c is NonNullable<typeof c> => Boolean(c) && c!.type === "concept",
+  );
   const observations = byType("observation");
   const questions = byType("question");
   const hypotheses = byType("hypothesis");
@@ -103,6 +111,79 @@ export default function Research() {
               have replicated. Nothing here implies cause unless a controlled
               test supports it, and we print the zeros.
             </p>
+          </div>
+        </section>
+
+        {/* ── Business questions (the customer entry layer) ───── */}
+        <section className="section-tight">
+          <div className="shell">
+            <hr className="rule" />
+            <p className="eyebrow mt-12">Start with your question</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              Which business question are you trying to answer?
+            </h2>
+            <p className="lede mt-6 max-w-[64ch]">
+              Start from the decision you care about. Each question maps to the
+              research components that study it, and from there to the evidence.
+            </p>
+            <div className="mt-12 grid gap-4 lg:grid-cols-2">
+              {BUSINESS_QUESTIONS.map((bq) => (
+                <article key={bq.slug} className="card">
+                  <h3 className="text-[1.125rem] max-w-[30ch]">{bq.q}</h3>
+                  <p className="muted mt-2 text-[0.9375rem]">{bq.framing}</p>
+                  <div className="mt-5">
+                    <p className="eyebrow">Studied under</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {bq.components.map((slug) => {
+                        const c = byId(slug);
+                        return c ? (
+                          <Link key={slug} href={urlFor(c)} className="chip">
+                            {c.title}
+                          </Link>
+                        ) : null;
+                      })}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Research components (the canonical ontology) ────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <hr className="rule" />
+            <p className="eyebrow mt-12">Research components</p>
+            <h2 className="mt-5 max-w-[28ch]">
+              The components of AI-mediated commercial evaluation we study.
+            </h2>
+            <p className="lede mt-6 max-w-[64ch]">
+              The canonical organization of the evidence. Every experiment
+              reinforces one of these enduring components, so the work builds
+              toward defined questions rather than a stream of one-off tests.
+            </p>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2">
+              {components.map((c) => (
+                <article key={c.id} className="card">
+                  <span className={`ev ${componentStateClass(c.status)}`}>
+                    {c.status}
+                  </span>
+                  <h3 className="mt-4">
+                    <Link href={urlFor(c)}>{c.title}</Link>
+                  </h3>
+                  {c.summary && (
+                    <p className="muted mt-2 text-[0.9375rem]">{c.summary}</p>
+                  )}
+                  {c.question && (
+                    <div className="mt-4">
+                      <p className="eyebrow">Core question</p>
+                      <p className="mt-1 text-[0.9375rem]">{c.question}</p>
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

@@ -1,0 +1,23 @@
+---
+id: recommendation-stability
+type: concept
+title: Recommendation stability
+created: "2026-07-24"
+status: Active research
+summary: "Whether the same inputs produce the same recommendation, and whether unstable outcomes trace to unstable requirement association."
+question: "Are recommendation outcomes stable across repeated runs, and when they are not, is the instability in the recommendation or upstream in how requirements are associated?"
+edges:
+  - rel: part-of
+    to: recommendation-survivability
+  - rel: observes
+    to: requirements
+---
+
+Recommendation stability studies whether the same question and the same
+requirements produce the same recommendation across repeated runs. When
+outcomes move, the instability may sit in the recommendation itself or upstream
+in how the evaluator associates a requirement with a vendor.
+
+The core question is how stable recommendation outcomes are, and where any
+instability originates. What remains open is how much variation is normal and
+what separates unstable requirement association from an unstable recommendation.

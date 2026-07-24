@@ -869,6 +869,19 @@ a:hover {
 .ev-finding {
   --ev-dot: var(--highlight);
 }
+/* Research-component state dots (reuse the .ev base). */
+.ev-available {
+  --ev-dot: var(--accent);
+}
+.ev-active {
+  --ev-dot: #b0714a;
+}
+.ev-defined {
+  --ev-dot: var(--line-strong);
+}
+.ev-none {
+  --ev-dot: var(--line);
+}
 
 /* Executive summary: the scannable Question / Business problem / Observed
  * result triplet that opens every experiment. Structured, not prose. */
