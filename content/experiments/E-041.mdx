@@ -1,0 +1,72 @@
+---
+id: E-041
+type: experiment
+title: "When the recommendation set survives but its members do not"
+category: "CRM software"
+created: "2026-07-19"
+status: Closed
+outcome: Supported
+question: "Does the recommendation field survive sequential buyer and commercial requirements, and if it survives, do the same vendors survive with it?"
+businessProblem: "A company can be replaced without the category ever collapsing, so surviving the count is not the same as surviving."
+observedResult: "The field survived every draw, but almost every vendor was replaced turn by turn, and whichever vendor led the opening list was eliminated at the first commercial requirement."
+roles:
+  - Sales
+  - Marketing
+  - Product
+---
+
+## Research question
+
+When a buyer profile and a sequence of commercial requirements are introduced,
+does the CRM recommendation field survive as a set, and if it does, do the same
+vendors survive with it?
+
+## Why it mattered
+
+The companion to [E-034](/experiments/E-034) and [E-040](/experiments/E-040),
+run in a fourth kind of category: an incumbent-led one. It asked a sharper
+version of the survival question. A field can keep two or more names at the end
+and still replace almost every name along the way, so the count surviving and
+the members surviving are not the same thing.
+
+## Method
+
+Evaluator: Google AI Mode, single surface, logged out. Three draws, each a
+fresh conversation. The run began from an unqualified category recommendation,
+then introduced requirements in sequence: a twelve-person B2B software team
+that cannot dedicate an administrator, then built-in email sequencing rather
+than a paid add-on, then native Gmail and a low per-seat price. Instrument
+details and scoring are retained internally.
+
+## Direct observations
+
+- The field never collapsed to one vendor. It ended with two, two, and four
+  vendors across the three draws.
+- The vendor that led the opening list varied by draw, HubSpot in the first
+  and Salesforce in the other two, yet whichever vendor led was eliminated at
+  the first commercial requirement in all three draws.
+- Membership turned over almost completely. Only one opening vendor,
+  Pipedrive, ever reached the final turn, and only in one draw.
+- One vendor, Close, recurred as a mid-sequence survivor in every draw and was
+  eliminated on price at the final requirement each time.
+- Pricing and adoption cost were volunteered without being asked in every
+  draw.
+
+## Interpretation (not established)
+
+In this category and on this surface, the recommendation read as a set that
+persisted by replacing its members rather than keeping them. The elimination
+of the leader appeared to target the leading position rather than any one
+vendor, since the leader changed between draws but was removed at the same step
+each time. Whether this churn is a property of the category, of the
+requirements used, or of the surface is not established here.
+
+## Outcome and remaining uncertainty
+
+Supported: the recommendation field survived under the tested condition in all
+three draws, which is the outcome the run was built to detect. The scope is
+narrow. One evaluator, one surface, three draws, one buyer profile, and no
+removal test, so nothing here is causal. Whether survival-by-churn is distinct
+from the stable survival seen in a different category, and what drives the
+difference, is taken up as a candidate observation and an open question, not
+settled here.

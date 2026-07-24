@@ -1,0 +1,84 @@
+---
+id: E-044
+type: experiment
+title: "When the same kill repeats on a second evaluator"
+category: "Accounting software"
+created: "2026-07-19"
+status: Closed
+outcome: Supported
+edges:
+  - rel: follows
+    to: E-043
+question: "Does the wipeout-and-migration pattern seen on one evaluator repeat on a different evaluator for the same category?"
+businessProblem: "If elimination depends on the evaluator, a company would have to be measured on each one separately, so whether the effect crosses surfaces matters."
+observedResult: "On a second evaluator, the same two category leaders were eliminated at the same requirement and the recommendation relocated to the same higher-tier anchor. The endpoint shape differed."
+roles:
+  - CFO
+  - Sales
+  - Marketing
+---
+
+## Research question
+
+Does the wipeout-and-migration pattern observed in [E-043](/experiments/E-043)
+on Google AI Mode repeat when the same category and the same requirement
+sequence are run on a different evaluator?
+
+## Why it mattered
+
+Every survivability run before this one used a single evaluator surface, so no
+result could be separated from the surface it came from. This is the program's
+first cross-surface pair: the same category and the same frozen requirement
+sequence as E-043, changing only the evaluator, from Google AI Mode to ChatGPT.
+
+## Method
+
+Evaluator: ChatGPT, logged out and anonymous. Three draws, each a fresh
+conversation. The requirement sequence was identical to E-043: an unqualified
+category recommendation, then an e-commerce company profile, then native
+multi-currency and multi-entity consolidation, then native Shopify and Amazon
+integration with built-in inventory. Instrument details and scoring are
+retained internally.
+
+## Direct observations
+
+- The two category leaders, QuickBooks and Xero, were eliminated at the
+  multi-entity requirement in all three draws, the same kill observed on the
+  other evaluator.
+- The recommendation migrated to a higher-tier ERP field anchored by Oracle
+  NetSuite in all three draws, the same anchor observed on the other
+  evaluator.
+- The endpoint differed. This evaluator kept a broad slate of ERP products at
+  the end rather than collapsing to one, and introduced the higher tier one
+  step earlier.
+- This evaluator refused the strong premise that any product is truly native,
+  stating that all of them rely on connectors, where the other evaluator had
+  asserted a single product was native and funneled to it.
+- Pricing and integrations were volunteered without being asked in every draw.
+
+## Interpretation (not established)
+
+In this category, the part the run measures, the elimination of the leaders and
+the migration to a higher tier, repeated on both evaluators. What differed was
+the endpoint shape and the evaluator's stated posture: one funneled to a single
+product and asserted it was native, the other kept a broad set and refused that
+claim. This is a single category on two evaluators. It is first cross-surface
+evidence for the pattern, not a demonstration that the pattern is
+surface-independent in general.
+
+## Outcome and remaining uncertainty
+
+Supported: the pattern reproduced on a second evaluator in all three draws,
+which is the outcome the run was built to detect. The scope is narrow. One
+category, two evaluators, three draws each, nothing causal. Whether the effect
+holds on a second category across surfaces is left as an open question. The
+difference in endpoint shape and stated posture is registered as a candidate
+observation, held, not as an established finding.
+
+## State note
+
+During the run the browser had become signed in to a personal account between
+draws. The instrument requires a logged-out state for comparability, so the
+signed-in draw was refused and not used, the session was returned to a
+logged-out state, and the remaining draws ran anonymously. No account data was
+captured.
