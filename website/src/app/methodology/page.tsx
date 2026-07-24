@@ -108,7 +108,13 @@ export default function Methodology() {
             </p>
             <p className="muted mt-5 max-w-[64ch]">
               Methodology explains how the evidence is produced. Research holds
-              the observed evidence itself.
+              the observed evidence itself. The five steps below are the{" "}
+              <Link href="/solutions">Upstream Zero measurement workflow</Link>,
+              how the company observes, diagnoses, acts on, and measures the{" "}
+              <Link href="/learn/commercial-evaluation">
+                commercial evaluation lifecycle
+              </Link>{" "}
+              that a buyer moves through.
             </p>
           </div>
         </section>

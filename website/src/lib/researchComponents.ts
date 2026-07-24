@@ -8,7 +8,7 @@ export const RESEARCH_COMPONENTS = [
   "recommendation-set-formation",
   "vendor-elimination",
   "frontrunner-movement",
-  "selection-survivability",
+  "recommendation-survivability",
   "recommendation-stability",
   "competitor-displacement",
   "validation-and-evidence",

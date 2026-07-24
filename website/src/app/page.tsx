@@ -170,10 +170,10 @@ export default function Home() {
           <hr className="rule" />
         </div>
 
-        {/* ── The workflow (observe to measured movement) ─────── */}
+        {/* ── The Upstream Zero measurement workflow ──────────── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">What we do</p>
+            <p className="eyebrow">The Upstream Zero measurement workflow</p>
             <h2 className="mt-5 max-w-[30ch]">
               What must become true, the evidence required, and whether it moved
               the outcome.
@@ -182,6 +182,14 @@ export default function Home() {
               Upstream Zero shows companies what must become true to survive
               AI-mediated evaluation, what evidence is required, and whether the
               resulting changes improve recommendation outcomes.
+            </p>
+            <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
+              The{" "}
+              <Link href="/learn/commercial-evaluation">
+                commercial evaluation lifecycle
+              </Link>{" "}
+              shows how the evaluation unfolds. This measurement workflow is how
+              Upstream Zero observes, diagnoses, acts on, and measures it.
             </p>
             <ol className="steps steps-2 mt-12">
               {WORKFLOW.map((s) => (

@@ -248,6 +248,13 @@ export default async function PillarPage({
               {p.lifecycle && (
                 <p className="mt-7 max-w-[66ch]">{renderLinks(p.lifecycle)}</p>
               )}
+              <p className="muted mt-5 max-w-[66ch] text-[0.9375rem]">
+                This is the commercial evaluation lifecycle: how a buyer&rsquo;s
+                evaluation unfolds. The{" "}
+                <Link href="/solutions">Upstream Zero measurement workflow</Link>{" "}
+                is how the company observes, diagnoses, acts on, and measures
+                that lifecycle.
+              </p>
             </div>
           </section>
         )}

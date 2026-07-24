@@ -1,0 +1,70 @@
+---
+id: E-008
+type: experiment
+title: "Calibration flips: predicted versus observed importance"
+created: "2026-07-12"
+status: Closed
+outcome: Supported
+predictions:
+  - "Calibration holds if the high-predicted flip moves the recommendation substantially and the low-predicted flip does not; any other combination is a calibration gap, measured and logged"
+---
+
+## Research question
+
+Is the evaluator's stated importance ranking calibrated to what actually
+moves its recommendations?
+
+## Why it mattered
+
+The extraction reports which requirements matter. This run tested whether the
+stated ranking predicts which requirements actually move the output when
+flipped.
+
+## Method
+
+Evaluator: ChatGPT, logged out, incognito. Session separation was a hard
+rule: Session A harvested the predicted-importance ranking (banked free from
+E-007), and Session B ran the flips in fresh sessions so the model could not
+honor its own earlier narration. Flip 1 changed a high-predicted variable;
+Flip 2 changed a low-predicted variable. Sample: one draw per flip.
+
+## Direct observations
+
+- The predicted-most-important variable produced category dissolution.
+- The predicted-least-important variable produced a leader swap.
+
+## Interpretation (not established)
+
+Ordinal calibration is supported; absolute calibration is indeterminate. This
+is the first instance of a new measurement legitimately re-scoring a prior
+interpretation without changing a single observation, which is a property
+that distinguishes a measurement system from a narrative.
+
+## Outcome and remaining uncertainty
+
+Supported, for ordinal calibration only, and with a correction. The original
+reading was that a low-ranked variable moved the recommendation. After E-009
+established the baseline variance band, that leader swap was reclassified as
+falling within the measured band. Per the coding record, Flip 2 no longer
+provides strong evidence that a low-ranked variable meaningfully moved the
+output. The claim was weakened by the measured variance, not resolved, which
+would falsely assert evidence of no effect.
+
+## Evidence and methods limitations
+
+Raw outputs for this run are unrecoverable; only the coding survives. One
+draw per flip, single coder. This is an instrument-calibration experiment,
+not a validation.
+
+## Contribution to the research program
+
+C-04 (flip-magnitude classes) and C-05 (baseline variance as a logical
+prerequisite for magnitude work) were born here.
+
+## Follow-on
+
+E-009 measured the baseline variance band that amended this conclusion.
+E-019 reaches the same demotion from a different channel.
+
+*Created from the canonical Upstream Zero research archive (July 2026). Raw
+outputs for this run are unrecoverable; nothing raw is published.*

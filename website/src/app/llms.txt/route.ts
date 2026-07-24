@@ -130,6 +130,15 @@ a company enter an evaluation. Whether a company is then recommended, survives
 requirements, is validated, and is selected is decided in the later stages,
 which is the part Upstream Zero studies and measures.
 
+The site uses two named models, and they are layers, not competing versions of
+the same process. The Commercial Evaluation Lifecycle above describes how a
+buyer's evaluation unfolds. The Upstream Zero Measurement Workflow describes
+what Upstream Zero does in response: observe recommendation behavior, diagnose
+why the outcome occurs, identify the mechanisms most likely to change it,
+operationalize the actions, measure recommendation-state movement, and connect
+that movement to commercial performance. The lifecycle is the buyer process;
+the workflow is how Upstream Zero observes, diagnoses, acts on, and measures it.
+
 # Primary Market Terms
 
 Reference pages that define the terminology buyers and marketers use, each

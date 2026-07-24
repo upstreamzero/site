@@ -51,7 +51,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     description:
       "You appear in the AI recommendation set, then vanish once the buyer adds a requirement. Here is why elimination happens at follow-up, what the evidence shows, and how to find your exact drop-off point.",
     framing: "You were in the set, then a requirement removed you.",
-    components: ["selection-survivability", "vendor-elimination"],
+    components: ["recommendation-survivability", "vendor-elimination"],
     answer:
       "Because an AI evaluator builds its recommendation in stages. You can sit in the opening set for a broad category question and then be removed the moment the buyer adds a requirement your evidence does not clearly satisfy. The removal is usually specific and repeatable: one requirement, at one step, dropping the vendors that do not visibly meet it.",
     problem:
@@ -123,7 +123,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     framing:
       "The requirements you have to satisfy, and the evidence behind them.",
     components: [
-      "selection-survivability",
+      "recommendation-survivability",
       "requirement-interpretation",
       "validation-and-evidence",
     ],
@@ -150,7 +150,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     description:
       "After you change something, did your position in AI recommendations actually move? Here is how recommendation movement is measured against a baseline rather than assumed.",
     framing: "Whether your position actually moves after a change.",
-    components: ["recommendation-stability", "selection-survivability"],
+    components: ["recommendation-stability", "recommendation-survivability"],
     answer:
       "By re-running the same requirement sequence and comparing against a baseline. Improvement is a measured change in recommendation behavior, not an assumption that an action worked. Because outcomes vary run to run, movement only counts when it shows against the noise of repeated sampling.",
     problem:
@@ -178,7 +178,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
       "recommendation-set-formation",
       "vendor-elimination",
       "frontrunner-movement",
-      "selection-survivability",
+      "recommendation-survivability",
     ],
     answer:
       "In stages. An evaluator first forms an opening set for a broad category question, then narrows it as the buyer adds requirements: eliminating vendors that do not visibly satisfy each new requirement, moving the leader when a requirement exposes it, and settling on the vendors that survive the full sequence. The final recommendation reflects the accumulated requirements, not the opening question.",

@@ -98,7 +98,7 @@ export default function Solutions() {
         {/* ── The commercial workflow ─────────────────────────── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">The workflow</p>
+            <p className="eyebrow">The Upstream Zero measurement workflow</p>
             <h2 className="mt-5 max-w-[26ch]">
               From observed behavior to measured movement.
             </h2>
@@ -107,6 +107,16 @@ export default function Solutions() {
               measurement. The recommendations it produces are candidate
               interventions tied to an observed failure and a specific evidence
               gap, not guaranteed levers.
+            </p>
+            <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
+              The{" "}
+              <Link href="/learn/commercial-evaluation">
+                commercial evaluation lifecycle
+              </Link>{" "}
+              describes how a buyer&rsquo;s evaluation unfolds. This is the
+              Upstream Zero measurement workflow: how we observe, diagnose, act
+              on, and measure that lifecycle. They are two layers, not two
+              competing versions of the same process.
             </p>
             <ol className="steps steps-2 mt-12">
               {WORKFLOW.map((s) => (
