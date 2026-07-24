@@ -72,6 +72,12 @@ export const PILLARS: Pillar[] = [
       "A buyer describes a problem. Requirements are inferred and applied. Companies are compared against those requirements. Some are eliminated, one becomes the recommendation. Each new requirement can change who remains.",
     matters:
       "The recommendation a buyer arrives with was produced by an evaluation you usually never see. Understanding that evaluation is how you learn why competitors are chosen and where you are eliminated.",
+    limitations: "Commercial evaluation is a process to understand and measure, not a lever to pull directly. Observing where you are eliminated does not by itself change the outcome; it tells you what must become true. And what is observable today is the AI evaluator's behavior, not the human buying committee, so generalization runs through a bridge hypothesis.",
+    lifecycle: "Commercial evaluation is the lifecycle. It runs from AI-mediated buying through recommendation, requirement evaluation, validation, and selection, and loops back to business outcomes through measurement. Every other term names a part of it.",
+    lifecycleStages: ["ai-mediated-buying", "recommendation", "requirement-evaluation", "validation", "selection", "measurement"],
+    businessLogic: "The evaluation decides who a buyer selects, and selection is where pipeline, win rates, and revenue are realized. Improving your position in the evaluation is the mechanism behind those outcomes, but whether they improve depends on execution across every stage. Upstream Zero measures the movement; it does not promise the number.",
+    relatedTerms: ["ai-visibility", "recommendation-intelligence", "ai-recommendations", "requirement-based-evaluation", "vendor-selection", "evidence-strategy"],
+    relatedComponents: ["selection-survivability", "vendor-elimination", "validation-and-evidence", "recommendation-set-formation"],
     reframe: [
       "Most of the terms below (AI visibility, GEO, AI SEO) describe tactics for being found. Commercial evaluation is about being chosen. Being retrieved is necessary; it is not the same as surviving a real buyer's requirements.",
       "Upstream Zero studies commercial evaluation directly. AI systems are today's mechanism, the place the evaluation is currently easiest to observe. The mechanism will change; the evaluation will not.",
@@ -99,6 +105,12 @@ export const PILLARS: Pillar[] = [
       "It depends on whether your information is reachable, machine-readable, consistent across sources, and current. A system that cannot reconstruct what you do cannot surface you accurately.",
     matters:
       "If a system cannot find or correctly describe you, you cannot be considered at all. Visibility is the entry ticket to the evaluation, not the outcome of it.",
+    limitations: "AI visibility improves whether you are found and mentioned. It does not guarantee recommendation, does not guarantee surviving buyer requirements, and does not guarantee selection. A highly visible company can still be the first eliminated when a real requirement is applied.",
+    lifecycle: "AI visibility acts at discovery and retrieval, the front of the lifecycle. It is the entry condition: it puts you in front of the evaluation that recommendation, requirement evaluation, validation, and selection then carry out.",
+    lifecycleStages: ["discovery", "retrieval"],
+    businessLogic: "Organizations invest in AI visibility because better being found may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming being found alone creates commercial success.",
+    relatedTerms: ["answer-engine-optimization", "generative-engine-optimization", "ai-search-optimization", "commercial-evaluation", "recommendation-intelligence"],
+    relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
       "Visibility answers 'can the system find me?' It does not answer 'does the system recommend me when a real buyer describes their requirements?' Those are different questions, and the second is the one that closes deals.",
       "A commercial evaluation audit starts where visibility work ends: it observes what happens after you are found, when requirements are applied and companies are eliminated.",
@@ -127,6 +139,12 @@ export const PILLARS: Pillar[] = [
       "GEO focuses on clear, structured, quotable content, consistent entity information, and presence in the sources a model draws on, so the system can find and reference you.",
     matters:
       "As buyers ask AI systems for recommendations, being retrievable and citable is a real prerequisite. GEO works on that prerequisite.",
+    limitations: "GEO improves whether generative systems retrieve and represent you accurately. It does not guarantee recommendation, does not guarantee surviving requirements, and does not guarantee selection. Being represented well is not the same as being chosen once requirements narrow the field.",
+    lifecycle: "GEO acts at discovery and retrieval. It shapes whether and how you are surfaced inside a generated answer. The stages that decide who wins happen later, in commercial evaluation.",
+    lifecycleStages: ["discovery", "retrieval"],
+    businessLogic: "Organizations invest in GEO because better representation may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming representation alone creates commercial success.",
+    relatedTerms: ["answer-engine-optimization", "ai-seo", "ai-search-optimization", "ai-visibility", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
       "GEO optimizes for being cited. Commercial evaluation asks whether, once cited, you survive the buyer's specific requirements and become the recommendation. Citation is upstream of selection, not the same as it.",
       "We do not do GEO. We observe the evaluation that runs after retrieval, so you can see which requirement removes you and what evidence would change the outcome.",
@@ -154,6 +172,12 @@ export const PILLARS: Pillar[] = [
       "It extends familiar SEO fundamentals (crawlability, structured data, authoritative content, consistent entities) toward the way AI systems retrieve and synthesize information.",
     matters:
       "When answers replace links, being discoverable and correctly represented still matters. AI SEO addresses that layer.",
+    limitations: "AI SEO improves whether AI systems find and understand you. It does not guarantee recommendation, does not guarantee surviving requirements, and does not guarantee selection. Optimizing discovery does not decide who a buyer selects.",
+    lifecycle: "AI SEO acts at discovery and retrieval, the front of the lifecycle. It influences whether you appear; commercial evaluation decides what happens next.",
+    lifecycleStages: ["discovery", "retrieval"],
+    businessLogic: "Organizations invest in AI SEO because better discovery may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming discovery alone creates commercial success.",
+    relatedTerms: ["ai-search-optimization", "generative-engine-optimization", "answer-engine-optimization", "ai-visibility", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
       "AI SEO improves whether you show up. It does not tell you why a competitor is recommended over you when a buyer adds a hard requirement. That is a commercial evaluation question.",
       "Upstream Zero is not an AI SEO agency. We observe the evaluation itself and report where you are eliminated and what evidence is most likely to matter.",
@@ -181,6 +205,12 @@ export const PILLARS: Pillar[] = [
       "It focuses on the information a model can reach and reconstruct about you, and how consistently that information appears across the sources the model was trained on or can retrieve.",
     matters:
       "How a model represents you shapes whether you enter the consideration set at all. Getting the representation right is real work.",
+    limitations: "LLM optimization improves whether language models retrieve, understand, and represent you. It does not guarantee recommendation, does not guarantee surviving requirements, and does not guarantee selection.",
+    lifecycle: "LLM optimization acts at discovery and retrieval. It shapes how a model represents you; commercial evaluation decides who is recommended and selected.",
+    lifecycleStages: ["discovery", "retrieval"],
+    businessLogic: "Organizations invest in LLM optimization because better model representation may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming model representation alone creates commercial success.",
+    relatedTerms: ["ai-seo", "generative-engine-optimization", "answer-engine-optimization", "ai-visibility", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
       "Representation is an input to commercial evaluation, not the whole of it. The decision that matters is what the system does with that representation once a buyer applies real requirements.",
       "We measure that decision. We do not promise to change what a model outputs, and we are not an LLM optimization vendor.",
@@ -208,6 +238,12 @@ export const PILLARS: Pillar[] = [
       "It spans multiple surfaces at once, working on structured information, authority, and consistency so different AI search experiences can find and describe you.",
     matters:
       "Buyers now search across several AI surfaces. Being present and accurate across them is the ground floor of consideration.",
+    limitations: "AI search optimization improves whether AI search and answer systems surface and represent you. It does not guarantee recommendation, does not guarantee surviving requirements, and does not guarantee selection.",
+    lifecycle: "AI search optimization acts at discovery and retrieval. It affects whether you are surfaced; the recommendation, requirement, validation, and selection stages decide the outcome.",
+    lifecycleStages: ["discovery", "retrieval"],
+    businessLogic: "Organizations invest in AI search optimization because better surfacing may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming surfacing alone creates commercial success.",
+    relatedTerms: ["ai-seo", "generative-engine-optimization", "answer-engine-optimization", "ai-visibility", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
       "Being found across surfaces is the start of the story. The end is whether, on each surface, you survive the requirements a buyer actually applies. That is commercial evaluation, and it is what we measure.",
       "We are not a search-optimization agency. We diagnose the evaluation running on those surfaces.",
@@ -235,6 +271,12 @@ export const PILLARS: Pillar[] = [
       "It interprets the question, forms an initial recommendation, and updates that recommendation as the user adds requirements, testing the companies already recommended against each new constraint.",
     matters:
       "Because it takes follow-up requirements, AI Mode makes the narrowing of a recommendation visible. It is one of the clearest places to watch commercial evaluation happen.",
+    limitations: "Observing one surface tells you about that surface, not others; behavior differs across evaluators, so a result here is not a universal claim. A surface shows where evaluation happens; it does not by itself tell you why you were eliminated or what would change it.",
+    lifecycle: "Google AI Mode is a surface where retrieval and recommendation are observed. It is one window into the evaluation lifecycle, not the lifecycle itself.",
+    lifecycleStages: ["retrieval", "recommendation"],
+    businessLogic: "How you perform on a given surface may affect whether you enter the evaluations that run there. Whether that contributes to pipeline, ICP fit, win rates, or revenue depends on the rest of the evaluation and on how buyers use the surface. Upstream Zero discloses which surface each observation came from and measures movement rather than assuming one surface creates commercial success.",
+    relatedTerms: ["chatgpt-recommendations", "google-ai-overviews", "ai-visibility", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "selection-survivability"],
     reframe: [
       "AI Mode is a place commercial evaluation happens, not a channel to be optimized. What matters is which follow-up removes you and which keeps you.",
       "Upstream Zero observes evaluations on surfaces like this and reports the exact requirement where a company is displaced or survives.",
@@ -262,6 +304,12 @@ export const PILLARS: Pillar[] = [
       "ChatGPT interprets the request, draws on what it can reconstruct about the options, and produces a recommendation that shifts as the user supplies more specific requirements.",
     matters:
       "Buyers increasingly ask ChatGPT for a shortlist. The companies it names, and the ones it drops, shape the buyer's starting point before you are ever contacted.",
+    limitations: "Observing one surface tells you about that surface, not others; behavior differs across evaluators, so a result here is not a universal claim. A surface shows where evaluation happens; it does not by itself tell you why you were eliminated or what would change it.",
+    lifecycle: "ChatGPT recommendations are the recommendation stage as it appears on that surface. It is one window into the evaluation lifecycle, not the whole of it.",
+    lifecycleStages: ["retrieval", "recommendation"],
+    businessLogic: "How you perform on a given surface may affect whether you enter the evaluations that run there. Whether that contributes to pipeline, ICP fit, win rates, or revenue depends on the rest of the evaluation and on how buyers use the surface. Upstream Zero discloses which surface each observation came from and measures movement rather than assuming one surface creates commercial success.",
+    relatedTerms: ["google-ai-mode", "google-ai-overviews", "ai-recommendations", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "selection-survivability"],
     reframe: [
       "The recommendation is the visible tip of an evaluation. Its stated reasons are narration about the evaluation, not proof of the mechanism. We treat them accordingly.",
       "Upstream Zero observes these recommendations, and how they move under requirement pressure, rather than trying to manipulate them.",
@@ -289,6 +337,12 @@ export const PILLARS: Pillar[] = [
       "An overview retrieves and synthesizes information from across the web into a single answer, sometimes citing sources, sometimes naming companies as part of the response.",
     matters:
       "For many queries, the overview is the first and sometimes only thing a buyer reads. Being represented there shapes the initial frame.",
+    limitations: "Observing one surface tells you about that surface, not others; behavior differs across evaluators, so a result here is not a universal claim. A surface shows where evaluation happens; it does not by itself tell you why you were eliminated or what would change it.",
+    lifecycle: "Google AI Overviews sit at retrieval and recommendation on that surface, summarizing a set. They are one window into the evaluation lifecycle, not the lifecycle itself.",
+    lifecycleStages: ["retrieval", "recommendation"],
+    businessLogic: "How you perform on a given surface may affect whether you enter the evaluations that run there. Whether that contributes to pipeline, ICP fit, win rates, or revenue depends on the rest of the evaluation and on how buyers use the surface. Upstream Zero discloses which surface each observation came from and measures movement rather than assuming one surface creates commercial success.",
+    relatedTerms: ["google-ai-mode", "chatgpt-recommendations", "ai-visibility", "commercial-evaluation"],
+    relatedComponents: ["recommendation-set-formation", "selection-survivability"],
     reframe: [
       "Appearing in an overview is a form of visibility. It does not tell you whether you would survive the requirements a serious buyer applies in a deeper, conversational evaluation.",
       "We study the deeper evaluation, and we distinguish being retrieved, being synthesized into an answer, and being the recommendation. They are not the same event.",
@@ -316,6 +370,12 @@ export const PILLARS: Pillar[] = [
       "These systems interpret a buyer's problem, infer requirements, compare available companies, and narrow toward a recommendation, updating as the buyer refines what they need.",
     matters:
       "As more of this happens before direct contact, the evaluation that shapes a buyer's shortlist is increasingly one you never see. That is the shift Upstream Zero exists to make visible.",
+    limitations: "Commercial buying AI names the shift, not a lever. Knowing that buying decisions increasingly begin with AI does not tell you where you are eliminated or what would change it; that has to be observed for your category.",
+    lifecycle: "Commercial buying AI spans the front of the lifecycle, from AI-mediated buying through recommendation, where systems begin to shape the decision before a buyer engages you.",
+    lifecycleStages: ["ai-mediated-buying", "recommendation"],
+    businessLogic: "Organizations care about commercial buying AI because more of the buying decision now forms before a salesperson is involved. Whether that shift helps or hurts your pipeline, fit, win rates, or revenue depends on how you perform in the evaluation those systems run. Upstream Zero measures that performance rather than assuming presence in AI creates commercial success.",
+    relatedTerms: ["commercial-evaluation", "ai-recommendations", "recommendation-intelligence", "ai-visibility"],
+    relatedComponents: ["recommendation-set-formation", "selection-survivability"],
     reframe: [
       "Commercial buying AI is the current mechanism of commercial evaluation. The mechanism will keep changing; the evaluation underneath it is durable, and that is what we study.",
       "We help you see how these systems currently evaluate you, and what would have to change for you to be the logical choice.",
