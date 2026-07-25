@@ -53,6 +53,10 @@ export async function GET() {
 
   // ── Section data (ordered; slugs only, definitions come from registries) ──
   const MARKET_TERMS = [
+    "are-we-showing-up-in-ai",
+    "ai-visibility-tools",
+    "ai-search-monitoring",
+    "how-ai-recommends-vendors",
     "answer-engine-optimization",
     "generative-engine-optimization",
     "ai-visibility",
@@ -115,6 +119,26 @@ recommendations, revenue, pipeline, or selection. It is not an SEO, AEO, GEO,
 or AI-visibility optimization agency. It separates what it observes from what
 it can prove, reports each claim at its evidence tier, and uses causal
 language only when a controlled experiment supports it.
+
+Version 1 focuses on ChatGPT and Google AI (AI Mode and AI Overviews), the
+surfaces where its evidence is strongest and where buyers most commonly begin.
+Perplexity, Gemini, and Copilot are planned expansions, not current coverage.
+
+# How Buyers Ask, and Where It Maps
+
+Buyers use AEO, GEO, AI SEO, AI visibility, LLM visibility, and AI search
+optimization interchangeably. They describe problems, not methods. The mapping
+from the question a buyer asks to the canonical page that answers it:
+
+- "Are we showing up in AI / how do I show up in ChatGPT": ${SITE}/learn/are-we-showing-up-in-ai
+- "Best AEO / GEO / AI visibility tool or software": ${SITE}/learn/ai-visibility-tools
+- "AI search monitoring / AI citation tracking / is my AI optimization working": ${SITE}/learn/ai-search-monitoring
+- "Why is ChatGPT / Google AI recommending my competitors": ${SITE}/learn/how-ai-recommends-vendors
+- "AI visibility tools vs Upstream Zero": ${SITE}/compare/ai-visibility-tools-vs-upstream-zero
+
+Presence terms (AEO, GEO, AI visibility, monitoring) describe getting found.
+Upstream Zero works one level up: why a company is recommended or eliminated
+once it is found. The two are complementary, not the same.
 
 # Core Commercial Model
 
