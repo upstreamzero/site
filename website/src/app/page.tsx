@@ -123,31 +123,25 @@ export default function Home() {
         <section className="section">
           <div className="shell grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_341px] lg:gap-x-[100px]">
             <div>
-              <p className="eyebrow">AEO · GEO · AI visibility</p>
+              <p className="eyebrow">The hidden half of AI search</p>
               <h1 className="mt-5">
-                Why is AI recommending your competitors instead of you?
+                Being seen by AI is not the same as being chosen by it.
               </h1>
               <p className="lede mt-7">
-                You have run the AEO and GEO playbook, maybe an AI visibility
-                tool, to show up in ChatGPT and Google AI. You are showing up.
-                You are still not the one it recommends. We show you why, and
-                what it takes to change it.
+                You have spent your effort getting mentioned in ChatGPT and
+                Google AI. That is the visible half. The half that decides the
+                deal is what happens next: the buyer adds a requirement, and the
+                list of recommended companies quietly changes. Another
+                requirement, and it changes again. By the end, AI recommends the
+                company that kept matching the buyer, not the one that was most
+                visible.
               </p>
               <p className="muted mt-5 max-w-[58ch]">
-                Whether you call it AEO, GEO, AI SEO, or AI visibility, the
-                question underneath is the same. Start where you are:{" "}
-                <Link href="/learn/are-we-showing-up-in-ai">
-                  are you showing up in AI?
-                </Link>
-                ,{" "}
-                <Link href="/learn/ai-visibility-tools">
-                  what visibility tools can and cannot tell you
-                </Link>
-                , or{" "}
+                This evaluation runs before a buyer ever contacts you, and you
+                cannot see which requirement removed you.{" "}
                 <Link href="/learn/how-ai-recommends-vendors">
-                  how AI actually recommends vendors
+                  See how AI actually decides.
                 </Link>
-                .
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <BookingButton variant="btn">
