@@ -123,24 +123,29 @@ export default function Home() {
         <section className="section">
           <div className="shell grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_341px] lg:gap-x-[100px]">
             <div>
-              <p className="eyebrow">The hidden half of AI search</p>
+              <p className="eyebrow">
+                For companies losing deals they should be winning
+              </p>
               <h1 className="mt-5">
-                Being seen by AI is not the same as being chosen by it.
+                You&rsquo;re doing everything right. So why does AI keep
+                recommending your competitors?
               </h1>
               <p className="lede mt-7">
-                You have spent your effort getting mentioned in ChatGPT and
-                Google AI. That is the visible half. The half that decides the
-                deal is what happens next: the buyer adds a requirement, and the
-                list of recommended companies quietly changes. Another
-                requirement, and it changes again. By the end, AI recommends the
-                company that kept matching the buyer, not the one that was most
-                visible.
+                You invested in showing up when buyers ask AI for
+                recommendations, and you are showing up. And yet competitors
+                keep getting recommended instead of you. Here is the part no one
+                explains: AI does not decide the moment it first mentions you.
+                It keeps weighing companies as the buyer asks follow-up
+                questions and spells out what they really need. With each new
+                requirement, the list narrows to whoever still fits, and the
+                most visible company is often not the one left standing. That is
+                why showing up has not turned into winning.
               </p>
               <p className="muted mt-5 max-w-[58ch]">
-                This evaluation runs before a buyer ever contacts you, and you
-                cannot see which requirement removed you.{" "}
+                It is happening in deals you are chasing right now, and you
+                never see the moment you drop off the list.{" "}
                 <Link href="/learn/how-ai-recommends-vendors">
-                  See how AI actually decides.
+                  See how the decision really gets made.
                 </Link>
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
