@@ -749,6 +749,9 @@ a:hover {
   .steps-2 { grid-template-columns: repeat(2, 1fr); }
   .steps-3 { grid-template-columns: repeat(3, 1fr); }
   .steps-4 { grid-template-columns: repeat(4, 1fr); }
+  /* Odd number of steps: let the final one fill the row so no empty cell
+   * shows the grid background as a stray box. */
+  .steps-2 > .step:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 .step {
   background: var(--surface);
