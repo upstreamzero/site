@@ -43,8 +43,9 @@
    * fallback on Linux. */
   --font-sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans",
     system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo,
-    Consolas, monospace;
+  /* Accents (eyebrows, labels, numbers) now use the Helvetica stack too, so
+   * all writing on the site is Helvetica. Was Geist Mono. */
+  --font-mono: var(--font-sans);
 
   /* ── Geometry ── Squared. The mockup uses hard corners everywhere. */
   --radius: 0px;
