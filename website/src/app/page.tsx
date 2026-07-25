@@ -202,7 +202,7 @@ export default function Home() {
           <div className="shell">
             <p className="eyebrow">The questions we answer</p>
             <h2 className="mt-5 max-w-[22ch]">
-              The recommendation is visible. The evaluation behind it is not.
+              The recommendation is visible. The decision behind it is not.
             </h2>
             <ul className="qgrid mt-12">
               {PROBLEMS.map((q, i) => (
