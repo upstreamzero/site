@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/meta";
+import { pageMeta, faqLd } from "@/lib/meta";
 import { byId, byType } from "@/lib/content";
 import { PRODUCTS, productSlugFor } from "@/lib/products";
 import { WORKFLOW } from "@/lib/workflow";
@@ -29,16 +29,17 @@ const PRODUCT_HEADLINE: Record<string, string> = {
  *  evaluation") is carried by the Organization schema, llms.txt, and
  *  company.json, so the visible surfaces can lead with the outcome. */
 const base = pageMeta("/");
-const SHARE_TITLE = "Help Your Business Become the Logical Choice";
+const SHARE_TITLE = "Why Is AI Recommending Your Competitors Instead of You?";
 const SHARE_DESC =
-  "Your buyers decide whether you make the shortlist before they ever contact you. See why you're recommended, why you're eliminated, and what it takes to become the logical choice.";
+  "You show up in ChatGPT and Google AI. You are still not the one they recommend. Upstream Zero shows you why AI recommends competitors over you, and what changes it.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Upstream Zero | Help Your Business Become the Logical Choice",
+    absolute:
+      "Upstream Zero | Why AI Recommends Your Competitors, and What Changes It",
   },
   description:
-    "Your buyers decide whether you make the shortlist long before they ever contact you. Upstream Zero shows you why you're recommended, why you're eliminated, and what it takes to become the logical choice, by studying how AI systems compare and recommend businesses.",
+    "You have tried AEO, GEO, and AI visibility tools to show up in ChatGPT and Google AI. You appear, and still lose the recommendation. Upstream Zero studies why AI recommends competitors over you, which requirement removes you, and what evidence changes the outcome.",
   ...base,
   openGraph: { ...base.openGraph, title: SHARE_TITLE, description: SHARE_DESC },
   twitter: { ...base.twitter, title: SHARE_TITLE, description: SHARE_DESC },
@@ -88,6 +89,27 @@ const FLOW = [
   },
 ];
 
+/** Buyer questions, answered plainly, and emitted as FAQPage schema for
+ *  snippet and AI retrieval. Buyer language first. */
+const HOME_FAQS = [
+  {
+    q: "Why is AI recommending my competitors instead of me?",
+    a: "AI does not rank a fixed list. It builds a recommendation from the buyer's requirements and recommends the company that best fits them. You can appear in the opening answer and be eliminated the moment a real requirement is applied. Upstream Zero shows you which requirement removes you and why a competitor survives.",
+  },
+  {
+    q: "Is this AEO, GEO, or AI visibility?",
+    a: "Those are tactics for being found, and they are the floor. Upstream Zero works one level up: not whether you appear, but why you are chosen or eliminated once you do. We are not an AEO, GEO, or visibility agency, we do not sell a tool, and we do not promise rankings.",
+  },
+  {
+    q: "Which AI systems does Upstream Zero study?",
+    a: "Version 1 focuses on ChatGPT and Google AI (AI Mode and AI Overviews), where our evidence is strongest and where buyers most commonly begin. Perplexity, Gemini, and Copilot are planned expansions.",
+  },
+  {
+    q: "What do I actually get?",
+    a: "A read on why AI recommends competitors over you, which requirements eliminate you, and what evidence would change the recommendation, with the conditions of each observation. It is diagnosis and measurement, not a promise about rankings or pipeline.",
+  },
+];
+
 export default function Home() {
   const products = PRODUCTS.map((p) => byId(p.id)).filter(
     (o): o is NonNullable<typeof o> => Boolean(o) && o!.type === "engagement",
@@ -102,24 +124,29 @@ export default function Home() {
           <div className="shell grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_341px] lg:gap-x-[100px]">
             <div>
               <p className="eyebrow">
-                Commercial intelligence · AI-mediated evaluation
+                For companies losing deals they should be winning
               </p>
               <h1 className="mt-5">
-                Help Your Business Become the Logical Choice
+                You&rsquo;re doing everything right. So why does AI keep
+                recommending your competitors?
               </h1>
               <p className="lede mt-7">
-                Your buyers decide whether you make the shortlist long before
-                they ever contact you. Every question they ask, every
-                requirement they add, quietly narrows the field. Most businesses
-                are cut without ever knowing why. We show you why you're
-                recommended, why you're eliminated, and what it takes to become
-                the logical choice.
+                You invested in showing up when buyers ask AI for
+                recommendations, and you are showing up. And yet competitors
+                keep getting recommended instead of you. Here is the part no one
+                explains: AI does not decide the moment it first mentions you.
+                It keeps weighing companies as the buyer asks follow-up
+                questions and spells out what they really need. With each new
+                requirement, the list narrows to whoever still fits, and the
+                most visible company is often not the one left standing. That is
+                why showing up has not turned into winning.
               </p>
-              <p className="muted mt-5 max-w-[54ch]">
-                Upstream Zero is a commercial intelligence company focused on
-                AI-mediated evaluation. We study how AI systems compare,
-                recommend, and eliminate businesses before a buyer ever makes a
-                decision.
+              <p className="muted mt-5 max-w-[58ch]">
+                It is happening in deals you are chasing right now, and you
+                never see the moment you drop off the list.{" "}
+                <Link href="/learn/how-ai-recommends-vendors">
+                  See how the decision really gets made.
+                </Link>
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <BookingButton variant="btn">
@@ -170,54 +197,12 @@ export default function Home() {
           <hr className="rule" />
         </div>
 
-        {/* ── The Upstream Zero measurement workflow ──────────── */}
-        <section className="section-tight">
-          <div className="shell">
-            <p className="eyebrow">The Upstream Zero measurement workflow</p>
-            <h2 className="mt-5 max-w-[30ch]">
-              What must become true, the evidence required, and whether it moved
-              the outcome.
-            </h2>
-            <p className="lede mt-6 max-w-[64ch]">
-              Upstream Zero shows companies what must become true to survive
-              AI-mediated evaluation, what evidence is required, and whether the
-              resulting changes improve recommendation outcomes.
-            </p>
-            <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
-              The{" "}
-              <Link href="/learn/commercial-evaluation">
-                commercial evaluation lifecycle
-              </Link>{" "}
-              shows how the evaluation unfolds. This measurement workflow is how
-              Upstream Zero observes, diagnoses, acts on, and measures it.
-            </p>
-            <ol className="steps steps-2 mt-12">
-              {WORKFLOW.map((s) => (
-                <li key={s.n} className="step">
-                  <div className="step-n">{s.n}</div>
-                  <h3>{s.name}</h3>
-                  <p>{s.plain}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-9">
-              <Link href="/solutions" className="btn-ghost">
-                See the full workflow and products
-              </Link>
-            </p>
-          </div>
-        </section>
-
-        <div className="shell">
-          <hr className="rule" />
-        </div>
-
         {/* ── The problems (executive questions) ──────────────── */}
         <section className="section">
           <div className="shell">
             <p className="eyebrow">The questions we answer</p>
             <h2 className="mt-5 max-w-[22ch]">
-              The recommendation is visible. The evaluation behind it is not.
+              The recommendation is visible. The decision behind it is not.
             </h2>
             <ul className="qgrid mt-12">
               {PROBLEMS.map((q, i) => (
@@ -250,10 +235,17 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <p className="muted mt-6 max-w-[62ch] text-[0.875rem]">
-              An illustration of how the shortlist narrows. It is not a real
-              case, and it names no companies. See the{" "}
-              <Link href="/research">research</Link> for documented runs.
+            <p className="mt-6 max-w-[64ch]">
+              <strong>What this proves.</strong> AI recommendations are not
+              fixed. They change as requirements emerge, so you can win the
+              general question and lose the specific one.
+            </p>
+            <p className="muted mt-4 max-w-[64ch] text-[0.9375rem]">
+              How we know: in a controlled test we removed a single requirement
+              and the recommendation set changed. It is the one relationship we
+              have verified causally. The walkthrough above is a representative
+              illustration of that behavior and names no companies; the
+              documented runs are in the <Link href="/research">research</Link>.
             </p>
           </div>
         </section>
@@ -331,22 +323,31 @@ export default function Home() {
         <section className="section">
           <div className="shell grid gap-14 lg:grid-cols-[1fr_1fr]">
             <div>
-              <p className="eyebrow">Why trust the answer</p>
+              <p className="eyebrow">What we have learned</p>
               <h2 className="mt-5 max-w-[20ch]">
-                Answers you can stand behind.
+                The category leader is not safe.
               </h2>
             </div>
             <div className="prose-measure">
               <p>
-                We don't guess. Every answer comes from watching how AI actually
-                decides who gets recommended. We record the conditions it
-                happened under, and a person reviews it before it reaches you.
-                We tell you what we can prove, and where the limits are.
+                Leading the opening AI answer does not protect you. When a
+                requirement appears that the leader cannot meet, it is often the
+                first removed, and a lesser-known competitor takes the
+                recommendation.
               </p>
               <p className="mt-5">
-                We've done this enough times to make it repeatable, and we
-                publish the work. {experiments} breakdowns are public today,
-                each showing what we saw and what it doesn't prove.
+                How we know: across five categories, the vendor that led the
+                opening recommendation lost its lead at the first requirement it
+                could not satisfy. In one category the leader changed between
+                runs, yet whichever vendor led was removed at the same step. We
+                hold this as a strong, repeated pattern, mostly on one AI system.
+                It is not yet a proven universal rule, and we say so.
+              </p>
+              <p className="mt-5">
+                We can say this plainly because we are independent. We do not
+                sell traffic, content, or rankings, so we have no stake in the
+                answer. Every observation is recorded with its conditions and
+                its confidence, across the {experiments} runs we have published.
               </p>
               <p className="mt-5">
                 <Link href="/research" className="btn-ghost">
@@ -354,6 +355,68 @@ export default function Home() {
                 </Link>
               </p>
             </div>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── How the work is done (demoted below the buyer story) ── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">How the work is done</p>
+            <h2 className="mt-5 max-w-[30ch]">
+              Why a competitor is recommended, what would change it, and whether
+              it moved.
+            </h2>
+            <p className="lede mt-6 max-w-[64ch]">
+              Every engagement follows the same path: see why a competitor is
+              recommended over you, find where you are eliminated, define what
+              would need to change, and measure whether it moved.
+            </p>
+            <ol className="steps steps-2 mt-12">
+              {WORKFLOW.map((s) => (
+                <li key={s.n} className="step">
+                  <div className="step-n">{s.n}</div>
+                  <h3>{s.name}</h3>
+                  <p>{s.plain}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-9">
+              <Link href="/solutions" className="btn-ghost">
+                See the full workflow and products
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* ── FAQ (buyer questions + FAQPage schema for retrieval) ── */}
+        <section className="section">
+          <div className="shell">
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: faqLd(HOME_FAQS) }}
+            />
+            <p className="eyebrow">Common questions</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              What buyers ask before they book.
+            </h2>
+            <dl className="mt-10 max-w-[74ch]">
+              {HOME_FAQS.map((f) => (
+                <div
+                  key={f.q}
+                  className="border-t py-6"
+                  style={{ borderColor: "var(--line)" }}
+                >
+                  <dt className="text-[1.0625rem] font-medium tracking-[-0.01em]">
+                    {f.q}
+                  </dt>
+                  <dd className="muted mt-2 max-w-[64ch]">{f.a}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 

@@ -25,6 +25,38 @@ export type Comparison = {
 
 export const COMPARISONS: Comparison[] = [
   {
+    slug: "ai-visibility-tools-vs-upstream-zero",
+    a: "AI Visibility Tools",
+    b: "Upstream Zero",
+    title:
+      "AI Visibility Tools vs Upstream Zero: What Is the Difference? | Upstream Zero",
+    summary:
+      "AI visibility tools track whether you appear in AI answers. Upstream Zero studies why AI recommends one company over another. One measures presence; the other explains the outcome.",
+    answer:
+      "AI visibility tools monitor whether and how often you appear in ChatGPT and Google AI, and benchmark you against competitors. Upstream Zero studies the evaluation that decides who is recommended: which requirement removes you, why a competitor survives, and what evidence would change it. Tools tell you if you appear; Upstream Zero tells you why you win or lose once you do.",
+    aDef: "AI visibility tools are software that samples prompts on a schedule and reports your mentions, citations, and share of voice in AI answers over time.",
+    bDef: "Upstream Zero is a research company that observes how AI systems evaluate and recommend vendors, and reports where a company is eliminated and what would change the recommendation, with the conditions of each observation.",
+    overlap:
+      "Both look at how companies appear in AI answers, and both care about competitors. A team may use a visibility tool for presence and Upstream Zero for the evaluation behind it.",
+    difference:
+      "A visibility tool measures presence and reports a number; it does not reconstruct the evaluation or explain a change. Upstream Zero observes the evaluation itself, under repeated and dated conditions, so a change can be attributed to a requirement and a cause. And because Upstream Zero does not sell a visibility product or the fix, it has no stake in the number it reports.",
+    lifecycle:
+      "Visibility tools act at discovery and retrieval and measure the output over time. Upstream Zero acts on recommendation, requirement evaluation, and selection: the steps where who is chosen is actually decided.",
+    lifecycleStages: [
+      "discovery",
+      "retrieval",
+      "recommendation",
+      "requirement-evaluation",
+      "selection",
+    ],
+    relatedTerms: [
+      "ai-visibility-tools",
+      "ai-visibility",
+      "commercial-evaluation",
+      "recommendation-intelligence",
+    ],
+  },
+  {
     slug: "aeo-vs-geo",
     a: "AEO",
     b: "GEO",

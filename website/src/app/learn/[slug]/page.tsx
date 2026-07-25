@@ -152,13 +152,14 @@ export default async function PillarPage({
               <span className="muted"> / {p.term}</span>
             </nav>
             <p className="eyebrow mt-6">
-              {p.kind === "platform"
-                ? "AI buying surface"
-                : p.kind === "tactic"
-                  ? "Discoverability tactic"
-                  : "Concept"}
+              {p.eyebrow ??
+                (p.kind === "platform"
+                  ? "AI buying surface"
+                  : p.kind === "tactic"
+                    ? "Discoverability tactic"
+                    : "Concept")}
             </p>
-            <h1 className="mt-5 max-w-[22ch]">What is {title}?</h1>
+            <h1 className="mt-5 max-w-[22ch]">{p.h1 ?? `What is ${title}?`}</h1>
             <p className="lede mt-7">{p.definition}</p>
           </div>
         </section>
