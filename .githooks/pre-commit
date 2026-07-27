@@ -1,0 +1,26 @@
+#!/bin/sh
+# Hard gate: if any staged file is under website/, the site MUST build cleanly
+# from website/ before the commit is allowed. This makes it impossible to commit
+# a broken build, or to "verify" a build from the wrong directory.
+#
+# Enabled per clone with:  git config core.hooksPath .githooks
+# (already set for this clone; the hook itself is version-controlled here).
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+# Only gate when the website actually changed. Docs/memory-only commits skip it.
+if git diff --cached --name-only | grep -q '^website/'; then
+  echo "pre-commit: website/ changed — building from website/ before commit..."
+  export PATH="$ROOT/.tools/node/bin:$PATH"
+  LOG="$ROOT/.git/uz-precommit-build.log"
+  ( cd "$ROOT/website" && npm run build ) > "$LOG" 2>&1
+  if [ $? -ne 0 ]; then
+    echo ""
+    echo "pre-commit: BUILD FAILED — commit blocked."
+    echo "  Fix the build, then commit again. Last lines:"
+    tail -15 "$LOG" | sed 's/^/    /'
+    exit 1
+  fi
+  echo "pre-commit: build OK."
+fi
+exit 0
