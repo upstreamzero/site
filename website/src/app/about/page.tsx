@@ -88,6 +88,10 @@ export default function About() {
               evaluation process observable, measurable, and understandable
               through evidence.
             </p>
+            <p className="muted mt-6 text-[0.9375rem]">
+              Founded in 2026 by Skyler Meyer. Based in California, United
+              States.
+            </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link href="/solutions" className="btn">
                 See the products

@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteChrome";
+import { PRODUCTS } from "@/lib/products";
 
 /** Fonts ship with the `geist` package as local woff2 files, so the build
  *  makes NO network request. next/font/google fetched these from Google at
@@ -49,6 +50,14 @@ const ORG_JSONLD = {
       description:
         "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
       email: "hello@upstreamzero.com",
+      foundingDate: "2026",
+      founder: [{ "@type": "Person", name: "Skyler Meyer" }],
+      // Region + country only; no locality is asserted because none was given.
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "California",
+        addressCountry: "US",
+      },
       // Entity-disambiguation signals, highest-value first. These separate
       // "Upstream Zero" from other "Upstream" firms in Google's and AI engines'
       // entity graphs. Add Crunchbase / X here as those profiles are claimed.
@@ -56,6 +65,15 @@ const ORG_JSONLD = {
         "https://www.linkedin.com/company/143000092",
         "https://github.com/upstreamzero",
       ],
+      // The organization connects down to what it sells, by canonical @id, so a
+      // machine can enumerate the offerings from the org node and the
+      // org <-> product relationship is bidirectional (product.provider = org).
+      makesOffer: PRODUCTS.map((p) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@id": `https://upstreamzero.com/solutions/${p.slug}#product`,
+        },
+      })),
       knowsAbout: [
         "Commercial evaluation",
         "AI-mediated commercial evaluation",
