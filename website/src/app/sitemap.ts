@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { publicObjects, urlFor } from "@/lib/content";
+import { publicObjects, urlFor, byId } from "@/lib/content";
 import { PRODUCTS } from "@/lib/products";
 import { PILLARS } from "@/lib/pillars";
 import { BUSINESS_QUESTIONS } from "@/lib/businessQuestions";
@@ -32,9 +32,11 @@ const STATIC_ROUTES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Static + registry-driven routes carry no per-item content date, so we omit
+  // lastModified rather than fabricate a uniform build date (a lastmod that is
+  // always "today" on every page is a weak, distrusted signal).
   const routes = [
     ...STATIC_ROUTES,
-    ...PRODUCTS.map((p) => `/solutions/${p.slug}`),
     ...PILLARS.map((p) => `/learn/${p.slug}`),
     ...BUSINESS_QUESTIONS.map((b) => `/questions/${b.slug}`),
     ...COMPARISONS.map((c) => `/compare/${c.slug}`),
@@ -42,8 +44,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = routes.map((r) => ({
     url: `${BASE}${r}`,
   }));
+  // Product pages: dated by their engagement object when we have a real date.
+  for (const p of PRODUCTS) {
+    const eng = byId(p.id);
+    const date = eng?.updated ?? eng?.created;
+    pages.push({
+      url: `${BASE}/solutions/${p.slug}`,
+      ...(date ? { lastModified: date } : {}),
+    });
+  }
+  // Research objects: real publication / revision dates, so crawlers can see
+  // freshness and re-crawl updated evidence.
   for (const obj of publicObjects()) {
-    pages.push({ url: `${BASE}${urlFor(obj)}` });
+    const date = obj.updated ?? obj.created;
+    pages.push({
+      url: `${BASE}${urlFor(obj)}`,
+      ...(date ? { lastModified: date } : {}),
+    });
   }
   return pages;
 }

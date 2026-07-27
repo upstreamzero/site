@@ -54,6 +54,14 @@ export default async function ProductPage({
 
   const name = obj.productName ?? obj.title;
   const path = `/solutions/${slug}`;
+  // The three engagements are a related set; link them so machines can compare
+  // the offerings, not just read them in isolation. Invisible to visitors.
+  const related = PRODUCTS.filter((p) => p.slug !== slug)
+    .map((p) => {
+      const o = byId(p.id);
+      return o ? { name: o.productName ?? o.title, path: `/solutions/${p.slug}` } : null;
+    })
+    .filter((x): x is { name: string; path: string } => Boolean(x));
 
   return (
     <>
@@ -67,6 +75,7 @@ export default async function ProductPage({
               path,
               priceStart: obj.priceStart,
               priceUnit: obj.priceUnit,
+              related,
             }),
           }}
         />

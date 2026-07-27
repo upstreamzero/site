@@ -104,6 +104,7 @@ export function objectLd(
       isPartOf: { "@id": `${SITE_URL}/#website` },
       about: {
         "@type": "DefinedTerm",
+        "@id": `${SITE_URL}${path}#term`,
         name: obj.title,
         ...(opts.summary ? { description: opts.summary } : {}),
         inDefinedTermSet: { "@id": `${SITE_URL}/#website` },
@@ -147,6 +148,7 @@ export function objectLd(
       ? {
           mentions: components.map((c) => ({
             "@type": "DefinedTerm",
+            "@id": `${SITE_URL}${c.path}#term`,
             name: c.name,
             url: `${SITE_URL}${c.path}`,
           })),
@@ -207,6 +209,7 @@ export function productLd(p: {
   path: string;
   priceStart?: string; // "$5,000"
   priceUnit?: string; // "per category"
+  related?: { name: string; path: string }[]; // sibling engagements
 }): string {
   const amount = p.priceStart ? p.priceStart.replace(/[^0-9.]/g, "") : undefined;
   const data: Record<string, unknown> = {
@@ -221,6 +224,13 @@ export function productLd(p: {
     areaServed: "Worldwide",
     url: `${SITE_URL}${p.path}`,
   };
+  if (p.related && p.related.length) {
+    data.isRelatedTo = p.related.map((r) => ({
+      "@type": ["Product", "Service"],
+      name: r.name,
+      url: `${SITE_URL}${r.path}`,
+    }));
+  }
   if (amount) {
     data.offers = {
       "@type": "Offer",
