@@ -49,6 +49,10 @@ const ORG_JSONLD = {
       description:
         "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
       email: "hello@upstreamzero.com",
+      // Entity-disambiguation signals. Add LinkedIn / Crunchbase / X here as
+      // those profiles are claimed, to separate "Upstream Zero" from other
+      // "Upstream" firms in Google's and AI engines' entity graphs.
+      sameAs: ["https://github.com/upstreamzero"],
       knowsAbout: [
         "Commercial evaluation",
         "AI-mediated commercial evaluation",
