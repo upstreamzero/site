@@ -77,12 +77,7 @@ export default function Pricing() {
               that category. We confirm boundaries, complexity, and timing
               before work begins.
             </p>
-          </div>
-        </section>
 
-        {/* ── Table ───────────────────────────────────────────── */}
-        <section className="section">
-          <div className="shell">
             <table className="ptable">
               <thead>
                 <tr>
@@ -129,7 +124,7 @@ export default function Pricing() {
           <div className="shell">
             <p className="eyebrow">Common questions</p>
             <h2 className="mt-5 max-w-[22ch]">Before you ask.</h2>
-            <dl className="mt-10 max-w-[74ch]">
+            <dl className="mt-14 max-w-[74ch]">
               {FAQ.map((f) => (
                 <div
                   key={f.q}

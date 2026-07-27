@@ -403,7 +403,7 @@ export default function Home() {
             <h2 className="mt-5 max-w-[24ch]">
               What buyers ask before they book.
             </h2>
-            <dl className="mt-10 max-w-[74ch]">
+            <dl className="mt-14 max-w-[74ch]">
               {HOME_FAQS.map((f) => (
                 <div
                   key={f.q}

@@ -230,6 +230,32 @@ a:hover {
   max-width: 46ch;
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+ * GLOBAL VERTICAL RHYTHM  —  matches the approved reference build.
+ * The spacing between stacked content blocks is defined here, once, on
+ * shared selectors, so every page is spaced identically instead of
+ * relying on per-page mt-* utilities (which are inconsistent and, being
+ * in Tailwind's utilities layer, are silently defeated by unlayered
+ * component CSS). These rules are unlayered and intentionally win.
+ *   label → heading      24px
+ *   heading → lede/body  28px
+ *   heading/lede → grid  56px  (see the list/grid components)
+ * ═══════════════════════════════════════════════════════════════ */
+.eyebrow {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.eyebrow + h1,
+.eyebrow + h2,
+.eyebrow + h3 {
+  margin-top: 0;
+}
+h1 + .lede,
+h2 + .lede,
+h3 + .lede {
+  margin-top: 1.75rem;
+}
+
 .prose-measure {
   max-width: 62ch;
 }
@@ -451,7 +477,10 @@ a:hover {
  * a main column, and (for products) a right rail. Hairline separators. */
 .num-list {
   list-style: none;
-  margin: 0;
+  /* Consistent gap above every content grid/list. Set here (not via a Tailwind
+   * mt-* utility) because these unlayered component classes would otherwise
+   * defeat the utility and leave the grid touching the heading above it. */
+  margin: 3.5rem 0 0;
   padding: 0;
   border-bottom: 1px solid var(--line);
 }
@@ -560,7 +589,10 @@ a:hover {
  * both 16px, with tight 28px vertical rhythm and no separators. */
 .method-list {
   list-style: none;
-  margin: 0;
+  /* Consistent gap above every content grid/list. Set here (not via a Tailwind
+   * mt-* utility) because these unlayered component classes would otherwise
+   * defeat the utility and leave the grid touching the heading above it. */
+  margin: 3.5rem 0 0;
   padding: 0;
 }
 .method-row {
@@ -764,7 +796,10 @@ a:hover {
   border-radius: var(--radius);
   list-style: none;
   padding: 0;
-  margin: 0;
+  /* Consistent gap above every content grid/list. Set here (not via a Tailwind
+   * mt-* utility) because these unlayered component classes would otherwise
+   * defeat the utility and leave the grid touching the heading above it. */
+  margin: 3.5rem 0 0;
 }
 @media (min-width: 640px) {
   .steps-2 { grid-template-columns: repeat(2, 1fr); }
@@ -804,7 +839,10 @@ a:hover {
   border-block: 1px solid var(--line);
   list-style: none;
   padding: 0;
-  margin: 0;
+  /* Consistent gap above every content grid/list. Set here (not via a Tailwind
+   * mt-* utility) because these unlayered component classes would otherwise
+   * defeat the utility and leave the grid touching the heading above it. */
+  margin: 3.5rem 0 0;
 }
 @media (min-width: 640px) { .qgrid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1000px) { .qgrid { grid-template-columns: repeat(3, 1fr); } }
@@ -1025,6 +1063,10 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   border-top: 1px solid var(--line);
+  /* Consistent gap below the intro lede (the table now shares the intro
+   * section rather than starting a new one two section-paddings away).
+   * Matches the 56px heading/lede → grid rhythm. */
+  margin-top: 3.5rem;
 }
 .ptable th,
 .ptable td {
@@ -1125,7 +1167,10 @@ a:hover {
 /* Compact browse row: the complete library, generated automatically. */
 .browse {
   list-style: none;
-  margin: 0;
+  /* Consistent gap above every content grid/list. Set here (not via a Tailwind
+   * mt-* utility) because these unlayered component classes would otherwise
+   * defeat the utility and leave the grid touching the heading above it. */
+  margin: 3.5rem 0 0;
   padding: 0;
   border-top: 1px solid var(--line);
 }
