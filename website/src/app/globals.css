@@ -412,6 +412,7 @@ a:hover {
   justify-content: space-between;
   gap: 0.75rem 2rem;
   padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
 }
 .built-for__label {
   font-family: var(--font-mono);
@@ -1208,9 +1209,10 @@ a.tag:hover {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--canvas) 96%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Fully opaque so page content never ghosts through the sticky header as it
+   * scrolls (a 96% frosted background bled content through, especially on
+   * mobile and where backdrop-filter is unsupported). */
+  background: var(--canvas);
   border-bottom: 1px solid var(--line);
 }
 /* Wordmark: heavy uppercase, tight tracking, ZERO set in the accent green,

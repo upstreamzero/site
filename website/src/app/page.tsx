@@ -182,7 +182,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="shell mt-14 border-t" style={{ borderColor: "var(--line)" }}>
+          <div className="shell mt-14">
             <div className="built-for">
               <span className="built-for__label">Built for</span>
               <span className="built-for__item">Revenue leaders</span>
