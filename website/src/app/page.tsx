@@ -182,7 +182,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="shell mt-14">
+        </section>
+
+        {/* ── Audience band: full-bleed inset strip, hairline top and bottom ── */}
+        <section className="built-for-band">
+          <div className="shell">
             <div className="built-for">
               <span className="built-for__label">Built for</span>
               <span className="built-for__item">Revenue leaders</span>
@@ -192,10 +196,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <div className="shell">
-          <hr className="rule" />
-        </div>
 
         {/* ── The problems (executive questions) ──────────────── */}
         <section className="section">

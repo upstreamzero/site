@@ -80,10 +80,6 @@ export default function Pricing() {
           </div>
         </section>
 
-        <div className="shell">
-          <hr className="rule" />
-        </div>
-
         {/* ── Table ───────────────────────────────────────────── */}
         <section className="section">
           <div className="shell">
