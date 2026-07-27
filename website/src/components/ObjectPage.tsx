@@ -71,6 +71,13 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
     "finding",
     "hypothesis",
   ]);
+  // Outgoing graph edges to other research objects become machine-readable
+  // citations, so an AI system can traverse how the evidence connects.
+  const relatedResearch = obj.edges
+    .map((e) => byId(e.to))
+    .filter((t): t is UZObject => Boolean(t))
+    .filter((t) => RESEARCH_LISTING.has(t.type))
+    .map((t) => ({ path: urlFor(t), name: t.title }));
   const crumbComponent = isComponent ? obj : primaryComponent;
 
   return (
@@ -86,6 +93,7 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
                 path: urlFor(c),
                 name: c.title,
               })),
+              related: relatedResearch,
               members: isComponent
                 ? [...memberExperiments, ...memberObservations].map((m) => ({
                     path: urlFor(m),
@@ -156,6 +164,9 @@ export function ObjectPage({ obj }: { obj: UZObject }) {
                 </span>
               )}
               <span className="chip">{obj.created}</span>
+              {obj.updated && (
+                <span className="chip">updated · {obj.updated}</span>
+              )}
             </div>
             {isComponent && obj.summary && (
               <p className="lede mt-7 max-w-[62ch]">{obj.summary}</p>

@@ -42,6 +42,7 @@ type LdObject = {
   status: string;
   tier?: string;
   created?: string;
+  updated?: string;
   authors?: string[];
 };
 
@@ -82,6 +83,8 @@ export type ObjectLdOpts = {
   components?: LdLink[];
   /** Evidence that is part of this component (component pages only). */
   members?: LdLink[];
+  /** Other research objects this one cites or builds on, from graph edges. */
+  related?: LdLink[];
 };
 
 export function objectLd(
@@ -158,7 +161,19 @@ export function objectLd(
         headline: obj.title,
         mainEntityOfPage: `${SITE_URL}${path}`,
         ...(obj.created
-          ? { datePublished: obj.created, dateModified: obj.created }
+          ? {
+              datePublished: obj.created,
+              dateModified: obj.updated ?? obj.created,
+            }
+          : {}),
+        ...(opts.related && opts.related.length
+          ? {
+              citation: opts.related.map((r) => ({
+                "@type": "CreativeWork",
+                url: `${SITE_URL}${r.path}`,
+                name: r.name,
+              })),
+            }
           : {}),
         author: { "@id": `${SITE_URL}/#organization` },
         publisher: { "@id": `${SITE_URL}/#organization` },
@@ -196,11 +211,14 @@ export function productLd(p: {
   const amount = p.priceStart ? p.priceStart.replace(/[^0-9.]/g, "") : undefined;
   const data: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": ["Product", "Service"],
     "@id": `${SITE_URL}${p.path}#product`,
     name: p.name,
     description: p.description,
     brand: { "@id": `${SITE_URL}/#organization` },
+    provider: { "@id": `${SITE_URL}/#organization` },
+    serviceType: "AI vendor evaluation",
+    areaServed: "Worldwide",
     url: `${SITE_URL}${p.path}`,
   };
   if (amount) {
