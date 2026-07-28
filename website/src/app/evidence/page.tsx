@@ -36,13 +36,14 @@ export default function Evidence() {
         <section className="section">
           <div className="shell">
             <p className="eyebrow">Evidence</p>
-            <h1 className="mt-5 max-w-[15ch]">
-              We publish what we find. Even when we find nothing.
+            <h1 className="mt-5 max-w-[16ch]">
+              We can see how AI decides. Here&rsquo;s the proof.
             </h1>
             <p className="lede mt-7">
-              This is our evidence, not a blog. Every test is dated, and
-              we&rsquo;re clear about what we&rsquo;ve proven versus what
-              we&rsquo;re still watching.
+              AI weighs companies against what your buyers need, and we can watch
+              it happen. This is our evidence, not a blog. Every test is dated,
+              and we&rsquo;re clear about what we&rsquo;ve proven versus what
+              we&rsquo;re still watching, even when what we find is nothing.
             </p>
           </div>
         </section>

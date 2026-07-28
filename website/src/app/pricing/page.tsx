@@ -18,7 +18,7 @@ const PRICE_SUMMARY = PRICED_PRODUCTS.filter((p) => p.priceStart)
 
 export const metadata: Metadata = {
   title: { absolute: "Product & Pricing: See Where AI Puts You | Upstream Zero" },
-  description: `Fixed-scope ways to see how AI is deciding your deals. ${PRICE_SUMMARY}. Independent measurement and diagnosis, never a promise about rankings or inclusion.`,
+  description: `Three fixed-scope ways to understand what would make you the company AI recommends. ${PRICE_SUMMARY}. Each ends in a plan you can act on, never a promise about where you'll rank.`,
   ...pageMeta("/pricing"),
 };
 
@@ -35,8 +35,8 @@ const FAQ = [
     a: "A visibility tool tells you whether you appear in AI answers. That is one step of four. We measure the whole decision, where you're cut and why, and we sell you no tool to fix it, so our read has no agenda.",
   },
   {
-    q: "Why pay for a diagnosis if you won't fix it?",
-    a: "For the same reason you trust it. A company that sells the cure can't honestly grade the disease. We measure and diagnose only, which is what makes the read worth having.",
+    q: "Why pay for this if you won't do the fix?",
+    a: "Because you leave with the plan, not just a problem. We tell you exactly what would make AI recommend you, ranked by what matters most, so your team or whoever you trust can start on day one. And because we sell no fix, nothing in that plan is steering you toward something we're selling.",
   },
   {
     q: "What if the read is wrong, or unhelpful?",
@@ -74,11 +74,14 @@ export default function Pricing() {
         <section className="section">
           <div className="shell">
             <p className="eyebrow">Product &amp; pricing</p>
-            <h1 className="mt-5 max-w-[16ch]">Find out where you stand.</h1>
+            <h1 className="mt-5 max-w-[16ch]">
+              Buy the plan to become the choice.
+            </h1>
             <p className="lede mt-7">
-              Three ways to see how AI is deciding your deals. Pick the one that
-              fits your situation. You&rsquo;ll know the price before we start,
-              and every one is an honest read, never a promise about where
+              Three ways to understand what would make you the company AI
+              recommends to the buyers you want. Pick the one that fits where
+              you are. You&rsquo;ll know the price before we start, and each one
+              ends in a plan you can act on, never a promise about where
               you&rsquo;ll rank.
             </p>
 
@@ -128,14 +131,15 @@ export default function Pricing() {
             <div>
               <p className="eyebrow">What you get</p>
               <h2 className="mt-5 max-w-[18ch]">
-                Proof, and a ranked list of what to do next.
+                A straight answer, and the plan to act on it.
               </h2>
               <p className="muted mt-7 max-w-[52ch]">
-                Every one ends the same way. You get what we saw, and a ranked
-                list of what to do about it, most important first.{" "}
+                Every one ends the same way. You learn where you stand with AI,
+                why you&rsquo;re being put forward or cut, and the ranked list of
+                what would make you the logical choice, most important first.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
                   Never a promise about where you&rsquo;ll rank or who wins. Just
-                  a straight answer on where you stand and what would move it.
+                  what it would take to become the company AI recommends.
                 </strong>
               </p>
             </div>

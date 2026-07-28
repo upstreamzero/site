@@ -6,7 +6,7 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "How AI Narrows a Vendor Shortlist | Upstream Zero" },
   description:
-    "The method: observe how AI systems recommend vendors, apply real buyer requirements one at a time, and see exactly where a company survives or gets ruled out. How requirements change AI recommendations, shown step by step.",
+    "How do you determine why AI recommends one company instead of another? We find the buyer's problem, the requirements it creates, and how AI reads your fit against them. We apply those requirements one at a time to see exactly where you survive or get ruled out, why competitors are chosen, and what would have to become true for AI to recommend you.",
   ...pageMeta("/methodology"),
 };
 
@@ -31,12 +31,12 @@ const STEPS = [
   {
     n: "04",
     title: "Observe how the recommendation evolves",
-    body: "We identify the exact follow-up where a company is removed, displaced, or remains the obvious choice.",
+    body: "We identify the exact follow-up where you are removed, displaced, or remain the obvious choice, and which requirement got a competitor put forward in your place.",
   },
   {
     n: "05",
     title: "Prioritize evidence-based decisions",
-    body: "We translate what we observed into a ranked set of decisions: what matters most, what to test next, and what the evidence does not yet support.",
+    body: "We translate what we observed into a ranked set of decisions: what would have to become true for AI to recommend you, what matters most, what to test next, and what the evidence does not yet support.",
   },
 ];
 
@@ -96,15 +96,16 @@ export default function Methodology() {
         <section className="section" style={{ paddingBottom: "1.75rem" }}>
           <div className="shell">
             <p className="eyebrow">Methodology</p>
-            <h1 className="mt-5 max-w-[20ch]">
-              A defensible answer to what your company should do next.
+            <h1 className="mt-5 max-w-[24ch]">
+              How do you know why AI recommends one company instead of another?
             </h1>
             <p className="lede mt-7">
-              Upstream Zero studies how AI decides which companies to recommend
-              to buyers. This is how we produce the evidence: we test your
-              company against the buying questions real customers ask, then add
-              requirements through follow-up questions to see whether the
-              recommendation holds or collapses.
+              We start with your buyer&rsquo;s problem and the requirements it
+              creates. Then we test your company against the questions real
+              buyers ask AI, add those requirements one at a time, and watch
+              exactly where the recommendation holds or collapses. That shows us
+              how AI reads your fit, why competitors get put forward instead of
+              you, and what would have to become true for AI to recommend you.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
               Methodology explains how the evidence is produced. Research holds

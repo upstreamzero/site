@@ -46,20 +46,20 @@ export default function Company() {
               <li className="step">
                 <div className="step-n">What we do</div>
                 <p className="mt-3">
-                  We study how AI decides which companies to put in front of
-                  buyers, and why some get left off. Then we show you exactly
-                  what would put you on the list. Everything we say, we&rsquo;ve
-                  watched happen.
+                  Your buyers ask AI for the best option, and AI weighs
+                  companies against what those buyers need. We find why AI leaves
+                  you off, and exactly what would make you the logical choice.
+                  Everything we say, we&rsquo;ve watched happen.
                 </p>
               </li>
               <li className="step">
                 <div className="step-n">Why you can trust it</div>
                 <p className="mt-3">
                   A company that sells you content, links, or rankings
-                  can&rsquo;t honestly tell you whether they work. We don&rsquo;t
-                  sell any of that, so nothing we tell you is steering you toward
-                  something we&rsquo;re selling. Just the plan that would put you
-                  on the list.
+                  can&rsquo;t honestly tell you whether they work. We sell none
+                  of that, so nothing we tell you is steering you toward
+                  something we&rsquo;re selling. Just the plan that would make AI
+                  recommend you.
                 </p>
               </li>
             </ol>

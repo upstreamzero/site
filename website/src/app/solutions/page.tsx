@@ -10,7 +10,7 @@ import BookingButton from "@/components/BookingButton";
 export const metadata: Metadata = {
   title: { absolute: "AI Vendor Evaluation Products | Upstream Zero" },
   description:
-    "AI sizes up companies before a buyer ever speaks with sales. Upstream Zero shows whether you make the list AI recommends, which buyer requirements strengthen or cut your position, what proof AI systems rely on, and what would have to change to stay the obvious choice. It measures the AI behavior that may influence pipeline, win rate, and revenue, and does not promise those outcomes.",
+    "Why isn't ChatGPT recommending your company? Because AI evaluates vendors against what the buyer needs, and it doesn't yet believe you fit those requirements best. Upstream Zero shows how AI is reading your company across ChatGPT and Google AI, which requirements are cutting you, what proof AI relies on, and what would make you the company AI recommends. It measures the AI behavior that may influence pipeline, win rate, and revenue, and does not promise those outcomes.",
   ...pageMeta("/solutions"),
 };
 
@@ -47,15 +47,16 @@ export default function Solutions() {
           <div className="shell">
             <p className="eyebrow">Solutions</p>
             <h1 className="mt-5 max-w-[24ch]">
-              See how AI evaluates your company before a buyer calls.
+              Why isn&rsquo;t ChatGPT recommending your company?
             </h1>
             <p className="lede mt-7">
-              More and more, companies are sized up before a buyer speaks with
-              sales. Upstream Zero shows whether you make the list AI
-              recommends, which buyer requirements strengthen or cut your
-              position, what proof AI systems rely on, and what would have to
-              change for you to stay the obvious choice as the evaluation goes
-              on.
+              Your buyers ask AI for the best option, and it puts a few
+              companies forward. If yours isn&rsquo;t one of them, the reason is
+              simple. AI evaluates vendors against what the buyer actually needs,
+              and right now it doesn&rsquo;t believe you fit those requirements
+              as well as the companies it names. Upstream Zero shows you how AI
+              is reading your company, which requirements are cutting you, and
+              what would make you the company AI recommends.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
               You can weigh this alongside qualified pipeline, ICP fit, win
@@ -66,27 +67,29 @@ export default function Solutions() {
             </p>
 
             <dl className="mt-10 grid max-w-[76ch] gap-x-8 gap-y-4 text-[0.9375rem] sm:grid-cols-[max-content_1fr]">
-              <dt className="font-medium">What it solves</dt>
+              <dt className="font-medium">How do AI models evaluate vendors?</dt>
               <dd className="muted m-0">
-                You cannot see the AI evaluation that decides whether you make
-                the shortlist. This makes it something you can watch.
+                Your buyer&rsquo;s problem comes with requirements, the specific
+                things they need a vendor to do. AI compares companies against
+                those requirements and puts forward the ones it believes fit
+                best. We make that hidden evaluation something you can watch.
               </dd>
-              <dt className="font-medium">What you learn</dt>
+              <dt className="font-medium">Why is AI recommending competitors?</dt>
               <dd className="muted m-0">
-                Whether you make the list AI recommends, which requirements move
-                you up or cut you, what proof the AI relies on, and what would
-                have to change to stay the obvious choice.
+                We show which requirements are getting them put forward instead
+                of you, where AI can&rsquo;t tell that you meet a requirement,
+                and what proof it is trusting to make the call.
+              </dd>
+              <dt className="font-medium">How do I become the recommended company?</dt>
+              <dd className="muted m-0">
+                For every requirement that removes you, we tell you what would
+                have to be true, and provable, for AI to recommend you instead.
+                That is the path to becoming the logical choice.
               </dd>
               <dt className="font-medium">What you can buy</dt>
               <dd className="muted m-0">
                 Three fixed-scope products, from a first category read to
                 ongoing measurement. See them below.
-              </dd>
-              <dt className="font-medium">Decisions it supports</dt>
-              <dd className="muted m-0">
-                Where to invest in proof, which requirements to tackle first,
-                and whether a change moved your position in AI recommendations
-                over time.
               </dd>
             </dl>
           </div>
@@ -356,11 +359,13 @@ export default function Solutions() {
           <div className="shell">
             <div className="callout max-w-[70ch]">
               <p>
-                <strong>Every project is measurement and diagnosis.</strong>{" "}
-                You receive evidence and a prioritized set of decisions, never a
-                promise about rankings, getting included, or getting chosen. We
-                are not an AI SEO, GEO, or visibility agency. See how the work
-                is done in the <Link href="/methodology">methodology</Link>.
+                <strong>Every project ends in a plan, not a promise.</strong>{" "}
+                You get the ranked list of what would make you the company AI
+                recommends, never a guarantee that AI will change its answer or
+                that you&rsquo;ll rank, get included, or get chosen. We show you
+                what to change. We don&rsquo;t sell the AI SEO, GEO, or
+                visibility work itself. See how the work is done in the{" "}
+                <Link href="/methodology">methodology</Link>.
               </p>
             </div>
           </div>
