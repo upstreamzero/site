@@ -51,10 +51,11 @@ const EXAMPLES: {
     q: "Best travel management company for a global law firm",
     cos: ["CTM", "Navan", "Amex GBT", "FCM"],
     reqs: [
-      "Integrates with Elite 3E",
-      "VIP executive servicing",
-      "Global 24/7 servicing",
+      "Integrates with Emburse Enterprise",
+      "VIP executive travel",
+      "Complex client billing",
     ],
+    slug: "travel-management",
   },
   {
     q: "Best customer data platform for a hospital network",

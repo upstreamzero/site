@@ -9,6 +9,7 @@ import {
   getRequirement,
   resolveRequirements,
   categoriesForRequirement,
+  scenariosForRequirement,
 } from "@/lib/evaluations";
 
 /** Requirement page. The durable asset. Answers a single buyer question and
@@ -49,6 +50,7 @@ export default async function RequirementPage({
 
   const related = resolveRequirements(r.related);
   const cats = categoriesForRequirement(r.slug);
+  const scenarios = scenariosForRequirement(r.slug);
 
   const faqs = [
     { q: `Why does ${r.name} matter in AI vendor evaluation?`, a: r.whyItMatters },
@@ -147,10 +149,18 @@ export default async function RequirementPage({
                 </ul>
               </div>
             )}
-            {cats.length > 0 && (
+            {(scenarios.length > 0 || cats.length > 0) && (
               <div>
                 <p className="eyebrow">Where it comes up</p>
                 <ul className="browse mt-8">
+                  {scenarios.map((s) => (
+                    <li key={s.slug}>
+                      <Link href={`/evaluations/${s.categorySlug}/${s.slug}`}>
+                        <span className="browse-title">{s.name}</span>
+                        <span className="browse-meta">Buyer profile</span>
+                      </Link>
+                    </li>
+                  ))}
                   {cats.map((c) => (
                     <li key={c.slug}>
                       <Link href={`/evaluations/${c.slug}`}>

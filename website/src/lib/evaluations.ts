@@ -1,25 +1,42 @@
 /**
- * The Commercial Evidence System, requirement-first.
+ * The Commercial Evaluation Graph.
  *
- * Categories are the doorway; requirements are the invariant and the durable
- * assets. A category page answers "how do buyers actually evaluate this
- * category?" and routes into the requirement pages that decide the outcome.
- * A requirement page answers a single buyer question and links to the
- * requirements evaluated next, so the whole thing reads as one knowledge
- * graph: category -> example -> requirement -> evidence -> related -> audit.
+ * A property graph rendered as a website today, and the schema a product,
+ * API, and dashboards can inherit tomorrow. Three node types make up the
+ * public Evaluation Graph:
  *
- * Governing test for every page: would this help a buyer, or the AI doing the
- * evaluation, become more confident that a company satisfies this requirement?
- * If not, it does not belong here.
+ *   Category   the doorway: a market/product category.
+ *   Scenario   the composition: a buyer profile (industry + persona + use
+ *              case) and the requirement set that actually decides its
+ *              evaluation. This is where the multi-constraint decision lives.
+ *   Requirement  the atom: a single evaluation criterion. Durable, reusable,
+ *              entity-backed. Everything links to it; it links to evidence.
  *
- * Adding a requirement or a category is a data edit; the templates and the
- * internal linking follow automatically.
+ * Edges: Category -groups-> Scenario -requires-> Requirement -satisfied by->
+ * Evidence. Requirement -co-evaluated with-> Requirement. Industry and Persona
+ * are carried as Scenario properties for now (promotable to their own nodes
+ * without changing anything below).
+ *
+ * Governing test for every rendered page: would this help a buyer, or the AI
+ * doing the evaluation, become more confident that a company satisfies this
+ * requirement? If not, it does not belong here.
+ *
+ * Adding a requirement, scenario, or category is a data edit; templates,
+ * links, sitemap, and schema follow automatically.
  */
+
+export type RequirementKind =
+  | "compliance"
+  | "security"
+  | "integration"
+  | "capability"
+  | "certification"
+  | "operational";
 
 export type Requirement = {
   slug: string;
-  /** Short label used in lists and links. */
   name: string;
+  kind: RequirementKind;
   /** Expansion or full name, when the short label is an acronym. */
   full?: string;
   /** One sentence: what the requirement is. */
@@ -36,6 +53,25 @@ export type Requirement = {
   related: string[];
 };
 
+export type Scenario = {
+  slug: string;
+  categorySlug: string;
+  /** Full name, e.g. "Global law firm evaluating travel management". */
+  name: string;
+  /** The industry / vertical (Scenario property; promotable to a node). */
+  industry: string;
+  /** The buyer role driving the evaluation. */
+  persona: string;
+  /** The job being done. */
+  useCase: string;
+  /** The opening buyer question AI is asked. */
+  buyerQuestion: string;
+  /** The companies AI first puts forward. Illustrative. */
+  illustrativeRecommendation: string[];
+  /** The requirement set that decides it, in evaluation order. Slugs. */
+  requirementSlugs: string[];
+};
+
 export type EvalCategory = {
   slug: string;
   name: string;
@@ -43,20 +79,21 @@ export type EvalCategory = {
   buyerQuestion: string;
   /** One line under the H1. */
   intro: string;
-  /** The evaluation example. `reqs` are requirement slugs so each step links
-   *  to its requirement page. */
-  example: { q: string; cos: string[]; reqs: string[] };
-  /** The requirements that typically decide this category, in evaluation
-   *  order. Requirement slugs. */
+  /** The scenarios (buyer profiles) that evaluate in this category. */
+  scenarioSlugs: string[];
+  /** The characteristic ("typical") requirements of the category. The full
+   *  palette; any one scenario uses a subset. Requirement slugs. */
   requirementSlugs: string[];
 };
 
 /* ─────────────────────────────────────────── requirements ── */
 
 export const REQUIREMENTS: Record<string, Requirement> = {
+  // Cybersecurity
   fedramp: {
     slug: "fedramp",
     name: "FedRAMP",
+    kind: "compliance",
     full: "Federal Risk and Authorization Management Program",
     whatItIs:
       "A US government program that authorizes cloud products for federal use at Low, Moderate, or High impact levels.",
@@ -79,6 +116,7 @@ export const REQUIREMENTS: Record<string, Requirement> = {
   "air-gapped": {
     slug: "air-gapped",
     name: "Air-gapped deployment",
+    kind: "operational",
     whatItIs:
       "A deployment fully isolated from external networks, with no internet connectivity.",
     whyItMatters:
@@ -100,6 +138,7 @@ export const REQUIREMENTS: Record<string, Requirement> = {
   "zero-trust": {
     slug: "zero-trust",
     name: "Zero Trust",
+    kind: "security",
     whatItIs:
       "A security model that trusts no user or device by default and verifies every access request.",
     whyItMatters:
@@ -121,6 +160,7 @@ export const REQUIREMENTS: Record<string, Requirement> = {
   "soc-2": {
     slug: "soc-2",
     name: "SOC 2",
+    kind: "compliance",
     full: "SOC 2 Type II",
     whatItIs:
       "An independent audit of a vendor's controls for security, availability, and confidentiality, with Type II covering a period of time.",
@@ -143,6 +183,7 @@ export const REQUIREMENTS: Record<string, Requirement> = {
   crowdstrike: {
     slug: "crowdstrike",
     name: "CrowdStrike integration",
+    kind: "integration",
     whatItIs:
       "Clean interoperability with CrowdStrike Falcon, a widely deployed endpoint protection platform.",
     whyItMatters:
@@ -164,6 +205,7 @@ export const REQUIREMENTS: Record<string, Requirement> = {
   "microsoft-defender": {
     slug: "microsoft-defender",
     name: "Microsoft Defender integration",
+    kind: "integration",
     whatItIs:
       "Interoperability with Microsoft Defender and the wider Microsoft security stack, including Sentinel.",
     whyItMatters:
@@ -182,6 +224,182 @@ export const REQUIREMENTS: Record<string, Requirement> = {
     ],
     related: ["crowdstrike", "zero-trust"],
   },
+
+  // Travel management
+  "emburse-enterprise": {
+    slug: "emburse-enterprise",
+    name: "Emburse Enterprise integration",
+    kind: "integration",
+    whatItIs:
+      "A clean integration with Emburse Enterprise, an enterprise travel and expense platform.",
+    whyItMatters:
+      "Firms standardized on Emburse for expense and reconciliation require their travel program to feed it directly, not through manual exports.",
+    buyerQuestions: [
+      "Do you integrate with Emburse Enterprise?",
+      "Does booking and spend data flow into Emburse automatically?",
+      "Is it a certified integration?",
+    ],
+    howItChangesRecs:
+      "When a buyer names Emburse, AI favors travel providers with a documented integration and drops those that would force manual reconciliation.",
+    evidence: [
+      "A documented or certified Emburse Enterprise integration",
+      "An automated feed of booking and spend data",
+      "Joint customers running both",
+    ],
+    related: ["complex-client-billing", "global-after-hours-servicing"],
+  },
+  "vip-executive-travel": {
+    slug: "vip-executive-travel",
+    name: "VIP executive travel",
+    kind: "capability",
+    whatItIs:
+      "Dedicated, high-touch servicing for senior executives and partners, including proactive rebooking and premium support.",
+    whyItMatters:
+      "For a firm's partners and top executives, a missed connection is a client-facing failure. Buyers require a servicing tier built for them.",
+    buyerQuestions: [
+      "Do you offer dedicated VIP executive servicing?",
+      "Is there a named agent team for our partners?",
+      "How do you handle proactive rebooking for executives?",
+    ],
+    howItChangesRecs:
+      "Adding VIP servicing narrows the set to providers with a real premium tier, not just a standard help desk.",
+    evidence: [
+      "A defined VIP or executive servicing tier",
+      "Named, dedicated agent teams",
+      "Service levels for executive support",
+    ],
+    related: ["global-after-hours-servicing", "complex-client-billing"],
+  },
+  "global-after-hours-servicing": {
+    slug: "global-after-hours-servicing",
+    name: "Global after-hours servicing",
+    kind: "operational",
+    whatItIs:
+      "Live, follow-the-sun support in every region the firm operates, at any hour.",
+    whyItMatters:
+      "A global firm has travelers in the air around the clock. A provider that goes dark outside one region's business hours cannot serve them.",
+    buyerQuestions: [
+      "Do you provide 24/7 servicing in every region?",
+      "Is after-hours support in-house or outsourced?",
+      "What are your overnight response times?",
+    ],
+    howItChangesRecs:
+      "When a buyer requires global 24/7 coverage, regional providers drop out and the set narrows to those with genuine follow-the-sun operations.",
+    evidence: [
+      "Regional service centers with published hours",
+      "Whether after-hours support is in-house or outsourced",
+      "Response-time commitments by region",
+    ],
+    related: ["vip-executive-travel", "emburse-enterprise"],
+  },
+  "complex-client-billing": {
+    slug: "complex-client-billing",
+    name: "Complex client billing",
+    kind: "capability",
+    whatItIs:
+      "Allocating travel to clients and matters, and applying firm and client travel policies at the point of booking.",
+    whyItMatters:
+      "Law firms bill travel back to clients by matter, under strict client-imposed policies. Travel that cannot be allocated correctly creates write-offs and disputes.",
+    buyerQuestions: [
+      "Can you allocate travel to clients and matters?",
+      "Do you support client-specific travel policies?",
+      "Can we enforce billing rules at the point of booking?",
+    ],
+    howItChangesRecs:
+      "This requirement removes consumer-grade and generic corporate tools, leaving providers built for professional-services billing.",
+    evidence: [
+      "Client and matter allocation at booking",
+      "Support for client-specific travel policies",
+      "Integration with the firm's billing system",
+    ],
+    related: ["emburse-enterprise", "vip-executive-travel"],
+  },
+  "duty-of-care": {
+    slug: "duty-of-care",
+    name: "Duty of care",
+    kind: "operational",
+    whatItIs:
+      "The provider's ability to locate, reach, and assist travelers during a disruption or emergency.",
+    whyItMatters:
+      "Employers are legally and reputationally responsible for their travelers' safety. A firm needs to know where its people are and reach them fast when something goes wrong.",
+    buyerQuestions: [
+      "What are your duty-of-care capabilities?",
+      "Can you locate and reach travelers in an emergency?",
+      "Do you provide risk alerts and traveler tracking?",
+    ],
+    howItChangesRecs:
+      "Adding duty of care removes providers without real traveler tracking and risk response, and favors those with a proven emergency operation.",
+    evidence: [
+      "Traveler tracking and location capability",
+      "Risk alerts and 24/7 emergency response",
+      "Integration with a risk-management provider",
+    ],
+    related: ["global-after-hours-servicing", "vip-executive-travel"],
+  },
+  "unused-ticket-management": {
+    slug: "unused-ticket-management",
+    name: "Unused ticket management",
+    kind: "capability",
+    whatItIs:
+      "Tracking and reusing the value of unused or partially used airline tickets before they expire.",
+    whyItMatters:
+      "For a firm with heavy travel, unused tickets are a large, recoverable cost. A provider that lets that value expire is leaving money on the table.",
+    buyerQuestions: [
+      "How do you track and recover unused tickets?",
+      "Do you automatically apply unused ticket value?",
+      "What is your recovery rate?",
+    ],
+    howItChangesRecs:
+      "Cost-focused buyers use this to separate providers with automated recovery from those that track tickets manually or not at all.",
+    evidence: [
+      "Automated unused-ticket tracking and application",
+      "Reporting on recovered value",
+      "Recovery-rate benchmarks",
+    ],
+    related: ["complex-client-billing", "emburse-enterprise"],
+  },
+};
+
+/* ─────────────────────────────────────────────── scenarios ── */
+
+export const SCENARIOS: Record<string, Scenario> = {
+  "global-law-firm": {
+    slug: "global-law-firm",
+    categorySlug: "travel-management",
+    name: "Global law firm evaluating travel management",
+    industry: "Legal",
+    persona: "Firm operations and travel program owners",
+    useCase: "Managing travel for partners and executives across global offices",
+    buyerQuestion: "Best travel management company for a global law firm",
+    illustrativeRecommendation: ["CTM", "Navan", "Amex GBT", "FCM"],
+    requirementSlugs: [
+      "emburse-enterprise",
+      "vip-executive-travel",
+      "global-after-hours-servicing",
+      "complex-client-billing",
+    ],
+  },
+  "federal-contractor": {
+    slug: "federal-contractor",
+    categorySlug: "cybersecurity",
+    name: "Federal contractor evaluating endpoint security",
+    industry: "Public sector and federal contractors",
+    persona: "CISO and security operations",
+    useCase: "Securing endpoints in a federal, classified-capable environment",
+    buyerQuestion: "Best endpoint security for a federal contractor",
+    illustrativeRecommendation: [
+      "CrowdStrike",
+      "SentinelOne",
+      "Microsoft Defender",
+      "Palo Alto",
+    ],
+    requirementSlugs: [
+      "fedramp",
+      "air-gapped",
+      "zero-trust",
+      "microsoft-defender",
+    ],
+  },
 };
 
 /* ─────────────────────────────────────────────── categories ── */
@@ -192,12 +410,8 @@ export const CATEGORIES: EvalCategory[] = [
     name: "Cybersecurity",
     buyerQuestion: "How does AI decide which cybersecurity platform to recommend?",
     intro:
-      "Endpoint, cloud, and network security buyers open with a broad question, then add the requirements that actually govern the purchase. Watch what survives.",
-    example: {
-      q: "Best endpoint security for a global bank",
-      cos: ["CrowdStrike", "SentinelOne", "Microsoft Defender", "Palo Alto"],
-      reqs: ["fedramp", "zero-trust", "air-gapped"],
-    },
+      "Endpoint, cloud, and network security buyers open with a broad question, then add the requirements that actually govern the purchase.",
+    scenarioSlugs: ["federal-contractor"],
     requirementSlugs: [
       "fedramp",
       "soc-2",
@@ -205,6 +419,23 @@ export const CATEGORIES: EvalCategory[] = [
       "air-gapped",
       "crowdstrike",
       "microsoft-defender",
+    ],
+  },
+  {
+    slug: "travel-management",
+    name: "Travel management",
+    buyerQuestion:
+      "How does AI decide which travel management company to recommend?",
+    intro:
+      "Corporate travel buyers open with a broad question, then add the requirements their program actually runs on.",
+    scenarioSlugs: ["global-law-firm"],
+    requirementSlugs: [
+      "emburse-enterprise",
+      "vip-executive-travel",
+      "global-after-hours-servicing",
+      "complex-client-billing",
+      "duty-of-care",
+      "unused-ticket-management",
     ],
   },
 ];
@@ -219,9 +450,35 @@ export function getCategory(slug: string): EvalCategory | undefined {
   return CATEGORIES.find((c) => c.slug === slug);
 }
 
-/** Categories in which this requirement appears (for cross-linking). */
-export function categoriesForRequirement(slug: string): EvalCategory[] {
-  return CATEGORIES.filter((c) => c.requirementSlugs.includes(slug));
+export function getScenario(slug: string): Scenario | undefined {
+  return SCENARIOS[slug];
+}
+
+export function scenariosForCategory(catSlug: string): Scenario[] {
+  const c = getCategory(catSlug);
+  if (!c) return [];
+  return c.scenarioSlugs
+    .map((s) => SCENARIOS[s])
+    .filter(Boolean) as Scenario[];
+}
+
+/** Scenarios whose requirement set includes this requirement (backlink). */
+export function scenariosForRequirement(reqSlug: string): Scenario[] {
+  return Object.values(SCENARIOS).filter((s) =>
+    s.requirementSlugs.includes(reqSlug),
+  );
+}
+
+/** Categories whose typical requirement palette includes this requirement. */
+export function categoriesForRequirement(reqSlug: string): EvalCategory[] {
+  return CATEGORIES.filter((c) => c.requirementSlugs.includes(reqSlug));
+}
+
+/** The characteristic ("typical") requirements of a category. */
+export function requirementsForCategory(catSlug: string): Requirement[] {
+  const c = getCategory(catSlug);
+  if (!c) return [];
+  return resolveRequirements(c.requirementSlugs);
 }
 
 /** Resolve a list of requirement slugs to requirements, dropping unknowns. */

@@ -4,7 +4,7 @@ import { PRODUCTS } from "@/lib/products";
 import { PILLARS } from "@/lib/pillars";
 import { BUSINESS_QUESTIONS } from "@/lib/businessQuestions";
 import { COMPARISONS } from "@/lib/comparisons";
-import { CATEGORIES, REQUIREMENTS } from "@/lib/evaluations";
+import { CATEGORIES, REQUIREMENTS, SCENARIOS } from "@/lib/evaluations";
 
 export const dynamic = "force-static";
 
@@ -44,6 +44,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...BUSINESS_QUESTIONS.map((b) => `/questions/${b.slug}`),
     ...COMPARISONS.map((c) => `/compare/${c.slug}`),
     ...CATEGORIES.map((c) => `/evaluations/${c.slug}`),
+    ...Object.values(SCENARIOS).map(
+      (s) => `/evaluations/${s.categorySlug}/${s.slug}`,
+    ),
     ...Object.keys(REQUIREMENTS).map((slug) => `/requirements/${slug}`),
   ];
   const pages: MetadataRoute.Sitemap = routes.map((r) => ({

@@ -1,18 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { pageMeta, breadcrumbLd, faqLd } from "@/lib/meta";
+import { pageMeta, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 import {
   CATEGORIES,
   getCategory,
-  resolveRequirements,
+  scenariosForCategory,
+  requirementsForCategory,
 } from "@/lib/evaluations";
 
-/** Category page. Purpose: answer "how do buyers actually evaluate this
- *  category?" Show the evaluation, then route into the requirement pages that
- *  decide the outcome. Not a marketing page. */
+/** Category page. Answers "how do buyers actually evaluate this category?"
+ *  Lists the scenarios (buyer profiles) that decide it, and the typical
+ *  requirements. Routes into scenarios and requirements. Not a marketing page. */
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ category: c.slug }));
@@ -30,7 +31,7 @@ export async function generateMetadata({
   if (!c) return {};
   return {
     title: { absolute: `${c.buyerQuestion} | Upstream Zero` },
-    description: `${c.intro} The requirements that decide ${c.name.toLowerCase()} evaluations, and what would keep you the choice.`,
+    description: `${c.intro} The buyer profiles and requirements that decide ${c.name.toLowerCase()} recommendations, and what would keep you the choice.`,
     ...pageMeta(`/evaluations/${c.slug}`),
   };
 }
@@ -44,8 +45,8 @@ export default async function CategoryPage({
   const c = getCategory(category);
   if (!c) notFound();
 
-  const reqs = resolveRequirements(c.requirementSlugs);
-  const exampleReqs = resolveRequirements(c.example.reqs);
+  const scenarios = scenariosForCategory(c.slug);
+  const reqs = requirementsForCategory(c.slug);
 
   return (
     <>
@@ -71,62 +72,43 @@ export default async function CategoryPage({
             </p>
             <h1 className="mt-5 max-w-[22ch]">{c.buyerQuestion}</h1>
             <p className="lede mt-7 max-w-[60ch]">{c.intro}</p>
-
-            {/* The evaluation, shown */}
-            <div className="evex mt-12 max-w-[640px]">
-              <div>
-                <span className="evex__label">Buyer asks AI</span>
-                <p className="evex__q">&ldquo;{c.example.q}&rdquo;</p>
-              </div>
-              <div>
-                <span className="evex__label">AI recommends</span>
-                <div className="evex__rec">
-                  {c.example.cos.map((co) => (
-                    <span key={co} className="evex__co">
-                      {co}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="evex__steps">
-                {exampleReqs.map((r) => (
-                  <div key={r.slug} className="evex__step">
-                    <span className="evex__req">
-                      <b>+</b>{" "}
-                      <Link href={`/requirements/${r.slug}`}>{r.name}</Link>
-                    </span>
-                    <span className="evex__change">Recommendation changes</span>
-                  </div>
-                ))}
-              </div>
-              <p className="evex__note">
-                <b>The opening answer didn&rsquo;t decide the deal.</b> The
-                requirements did.
-              </p>
-            </div>
-            <p className="fade mt-5 text-[0.85rem]">
-              Illustrative. Real companies, but the sequence shows the dynamic,
-              not a specific AI answer.
-            </p>
           </div>
         </section>
 
-        {/* The requirements that decide it */}
+        {/* Scenarios: the buyer profiles that decide it */}
         <section className="section-tight" style={{ paddingTop: 0 }}>
           <div className="shell">
-            <p className="eyebrow">What decides it</p>
+            <p className="eyebrow">Who is evaluating</p>
             <h2 className="mt-5 max-w-[24ch]">
-              The requirements that determine {c.name.toLowerCase()}{" "}
-              recommendations.
+              The buyer profiles that decide the recommendation.
+            </h2>
+            <ul className="browse mt-10">
+              {scenarios.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/evaluations/${c.slug}/${s.slug}`}>
+                    <span className="browse-title">{s.name}</span>
+                    <span className="browse-meta">{s.industry}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Typical requirements */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">What decides it</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              The requirements that typically determine{" "}
+              {c.name.toLowerCase()} recommendations.
             </h2>
             <ul className="browse mt-10">
               {reqs.map((r) => (
                 <li key={r.slug}>
                   <Link href={`/requirements/${r.slug}`}>
                     <span className="browse-title">{r.name}</span>
-                    <span className="browse-meta">
-                      {r.buyerQuestions[0]}
-                    </span>
+                    <span className="browse-meta">{r.buyerQuestions[0]}</span>
                   </Link>
                 </li>
               ))}
