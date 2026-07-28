@@ -105,7 +105,7 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What does an engagement include?",
     plain:
-      "Provisional engagement shapes are published with their deliverable specifications: commercial evaluation audit, requirement and evidence gap analysis, evaluation stability measurement, ongoing monitoring, machine representation advisory, and research partnership. Names, scopes, and pricing are provisional pending founder confirmation, and nothing is bookable until that decision is made.",
+      "Provisional engagement shapes are published with their deliverable specifications: evaluation audit, requirement and evidence gap analysis, evaluation stability measurement, ongoing monitoring, machine representation advisory, and research partnership. Names, scopes, and pricing are provisional pending founder confirmation, and nothing is bookable until that decision is made.",
     a: (
       <>
         Provisional engagement shapes are published with their deliverable

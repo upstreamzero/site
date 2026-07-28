@@ -32,9 +32,9 @@ export default function Company() {
               We show companies how AI is judging them. We fix nothing.
             </h1>
             <p className="lede mt-7">
-              That second sentence is the whole company. We measure and we
-              diagnose. We don&rsquo;t sell the cure, so we have no reason to
-              shade the diagnosis.
+              That second sentence is the whole company. We measure and explain.
+              We don&rsquo;t sell the fix, so we have no reason to bend what we
+              tell you.
             </p>
           </div>
         </section>
@@ -71,12 +71,12 @@ export default function Company() {
             <div>
               <p className="eyebrow">Where we actually are</p>
               <h2 className="mt-5 max-w-[18ch]">
-                We only claim the ground we&rsquo;ve reached.
+                We only claim what we can prove.
               </h2>
               <p className="muted mt-7 max-w-[52ch]">
-                We report what we&rsquo;ve observed, we&rsquo;re careful about
-                what we merely infer, and we never promise revenue, growth, or
-                rankings.{" "}
+                We tell you what we&rsquo;ve seen, we&rsquo;re careful about
+                what we&rsquo;re only guessing, and we never promise revenue,
+                growth, or rankings.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
                   If that sounds like less than other vendors promise, it is.
                   It&rsquo;s also the reason to trust the part we do measure.

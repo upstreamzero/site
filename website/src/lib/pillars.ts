@@ -115,7 +115,7 @@ export const PILLARS: Pillar[] = [
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
       "Visibility answers 'can the system find me?' It does not answer 'does the system recommend me when a real buyer describes their requirements?' Those are different questions, and the second is the one that closes deals.",
-      "A commercial evaluation audit starts where visibility work ends: it observes what happens after you are found, when requirements are applied and companies are eliminated.",
+      "A evaluation audit starts where visibility work ends: it observes what happens after you are found, when requirements are applied and companies are eliminated.",
     ],
     faqs: [
       {
@@ -588,7 +588,7 @@ export const PILLARS: Pillar[] = [
       },
       {
         q: "How do I see how buying AI evaluates my company?",
-        a: "Start with a Commercial Evaluation Audit: a structured observation of how current systems evaluate, recommend, or eliminate you, with prioritized decisions.",
+        a: "Start with a Evaluation Audit: a structured observation of how current systems evaluate, recommend, or eliminate you, with prioritized decisions.",
       },
     ],
   },
@@ -856,7 +856,7 @@ export const PILLARS: Pillar[] = [
       },
       {
         q: "How do we know which requirements eliminate us?",
-        a: "By observing a category run through realistic requirement sequences and recording where you drop out. That is what a Commercial Evaluation Audit produces.",
+        a: "By observing a category run through realistic requirement sequences and recording where you drop out. That is what a Evaluation Audit produces.",
       },
     ],
   },

@@ -37,12 +37,12 @@ export default function Evidence() {
           <div className="shell">
             <p className="eyebrow">Evidence</p>
             <h1 className="mt-5 max-w-[15ch]">
-              We publish what we&rsquo;ve seen. Including the zeros.
+              We publish what we find. Even when we find nothing.
             </h1>
             <p className="lede mt-7">
-              This is our evidence, not a blog. Every test is dated, every claim
-              is held at its honest level, and we say plainly what we&rsquo;ve
-              proven versus what we&rsquo;re still watching.
+              This is our evidence, not a blog. Every test is dated, and
+              we&rsquo;re clear about what we&rsquo;ve proven versus what
+              we&rsquo;re still watching.
             </p>
           </div>
         </section>
@@ -80,16 +80,16 @@ export default function Evidence() {
         <section className="section-tight">
           <div className="shell grid gap-14 lg:grid-cols-[1fr_1fr]">
             <div>
-              <p className="eyebrow">How we hold evidence</p>
+              <p className="eyebrow">How careful we are with evidence</p>
               <h2 className="mt-5 max-w-[20ch]">
                 We separate what we&rsquo;ve seen from what we believe.
               </h2>
               <p className="muted mt-7 max-w-[52ch]">
                 A pattern we&rsquo;ve watched is not a law we&rsquo;ve proven,
-                and we tell you which is which. We use words like
-                &ldquo;caused&rdquo; only when a controlled test supports it.
-                When the count is zero, we print the zero. It&rsquo;s slower,
-                and it&rsquo;s the only way the work is worth trusting.
+                and we always tell you which is which. We only say something
+                &ldquo;caused&rdquo; a result when a real test backs it up. When
+                we find nothing, we say we found nothing. It&rsquo;s slower, and
+                it&rsquo;s the only way the work is worth trusting.
               </p>
             </div>
             <div>
@@ -116,10 +116,9 @@ export default function Evidence() {
                 <summary>What a dated test looks like</summary>
                 <div className="persona-body">
                   <p>
-                    Every experiment is recorded with its question, the
-                    conditions it ran under, the observed result, and its
-                    evidence level. Nothing is presented as more certain than
-                    the test supports.
+                    Every experiment is recorded with its question, the exact
+                    conditions it ran under, what we saw, and how sure we are.
+                    Nothing is presented as more certain than the test supports.
                   </p>
                 </div>
               </details>

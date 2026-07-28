@@ -65,7 +65,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     howWeHelp:
       "Upstream Zero runs your category through the same kind of requirement sequence a buyer would, identifies the exact requirement where you drop out, and diagnoses the evidence gap behind it. That diagnosis is measurement, not a promise about rankings.",
     nextStep:
-      "Find your drop-off point with a Commercial Evaluation Audit.",
+      "Find your drop-off point with a Evaluation Audit.",
   },
   {
     slug: "another-vendor-won",
@@ -88,7 +88,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     howWeHelp:
       "Upstream Zero identifies the requirement where the lead changes hands and which evidence the surviving competitor appears to satisfy that you do not. You receive the diagnosis and a prioritized set of decisions, never a promise about placement.",
     nextStep:
-      "See where the lead changes with a Commercial Evaluation Audit.",
+      "See where the lead changes with a Evaluation Audit.",
   },
   {
     slug: "evidence-missing",
@@ -140,7 +140,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     howWeHelp:
       "Upstream Zero identifies the requirements that decide your category, tells you which ones the evaluator currently credits you for, and defines what must become true for the rest, with the evidence each would need. The intervention is recommended, and its effect is something we then measure.",
     nextStep:
-      "Define what must become true. Start with Selection Intelligence.",
+      "Define what must become true. Start with Selection Tracking.",
   },
   {
     slug: "measure-position-improved",
@@ -164,7 +164,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     howWeHelp:
       "Upstream Zero establishes a baseline, re-runs the sequence after a change, and reports movement in recommendation-set frequency, frontrunner frequency, and survivability against that baseline. The number is a measured outcome, reported with its limits.",
     nextStep:
-      "Measure movement over time with Selection Intelligence.",
+      "Measure movement over time with Selection Tracking.",
   },
   {
     slug: "how-ai-evaluates-vendors",

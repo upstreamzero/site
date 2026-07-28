@@ -240,8 +240,8 @@ export default function Home() {
             </h2>
             <p className="lede mt-6 max-w-[60ch]">
               The shortlist AI builds before anyone calls moves the same numbers
-              you manage. We can&rsquo;t promise you a figure. We can show you
-              the input that is quietly moving all of them.
+              you manage. We can&rsquo;t promise you a number. But we can show
+              you what is quietly moving all of them.
             </p>
             <ul className="outcomes">
               {OUTCOMES.map((o) => (
@@ -267,19 +267,20 @@ export default function Home() {
                 className="mt-4 max-w-[18ch]"
                 style={{ color: "#ffffff" }}
               >
-                We sell you nothing to fix it.
+                We don&rsquo;t sell the fix.
               </h2>
               <p
                 className="mt-5 max-w-[62ch]"
                 style={{ color: "rgba(255,255,255,0.78)" }}
               >
-                We are not an agency, an SEO tool, or a content shop. We measure
-                and we diagnose, and we never touch the thing we would be
-                grading. A company that sells you content, links, or rankings
-                can&rsquo;t honestly tell you whether they work.{" "}
+                We are not an agency, an SEO tool, or a content shop. We only
+                measure and explain what we see. We never sell the thing we
+                would be grading you on. A company that sells you content,
+                links, or rankings can&rsquo;t honestly tell you whether they
+                work.{" "}
                 <strong style={{ color: "#ffffff", fontWeight: 600 }}>
-                  We took that conflict off the table. That independence is the
-                  whole point, and it is why our read is worth having.
+                  We took that conflict off the table, and that is the whole
+                  reason you can trust what we tell you.
                 </strong>
               </p>
               <div className="founder">
@@ -295,9 +296,9 @@ export default function Home() {
                 className="mt-5 max-w-[62ch]"
                 style={{ color: "rgba(255,255,255,0.78)" }}
               >
-                Every finding we publish carries the conditions it was observed
-                under. If we cannot show it, we do not claim it. That standard,
-                and the choice never to sell the fix, is the company.
+                Every finding we publish comes with exactly how and when we saw
+                it. If we can&rsquo;t show it, we don&rsquo;t claim it. That, and
+                never selling the fix, is the whole company.
               </p>
             </div>
           </div>

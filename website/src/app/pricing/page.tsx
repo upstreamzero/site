@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Are these fixed prices?",
-    a: "They are starting prices for the standard scope of one defined category. We confirm boundaries, complexity, and timing before any work begins, so the final price is agreed up front, never after.",
+    a: "They are starting prices for the standard version, covering one market. We agree on exactly what's included and the timing before any work begins, so the final price is set up front, never after.",
   },
   {
     q: "How is this different from an AI-visibility tool?",
@@ -40,7 +40,7 @@ const FAQ = [
   },
   {
     q: "What if the read is wrong, or unhelpful?",
-    a: "Everything we report is tied to something we actually observed, with its conditions. We tell you plainly what we've seen versus what we infer, so you are never asked to take an unsupported claim on faith.",
+    a: "Everything we report is tied to something we actually saw, with the conditions it happened under. We tell you plainly what we've proven versus what we're only guessing, so you are never asked to take anything on faith.",
   },
   {
     q: "How is our data handled?",
@@ -76,10 +76,10 @@ export default function Pricing() {
             <p className="eyebrow">Product &amp; pricing</p>
             <h1 className="mt-5 max-w-[16ch]">Find out where you stand.</h1>
             <p className="lede mt-7">
-              Three fixed-scope ways to see how AI is deciding your deals. Pick
-              the one that matches your situation. The price is set before we
-              start, and every engagement is measurement and diagnosis, never a
-              promise about rankings or inclusion.
+              Three ways to see how AI is deciding your deals. Pick the one that
+              fits your situation. You&rsquo;ll know the price before we start,
+              and every one is an honest read, never a promise about where
+              you&rsquo;ll rank.
             </p>
 
             <table className="ptable">
@@ -115,10 +115,9 @@ export default function Pricing() {
               </tbody>
             </table>
             <p className="muted mt-8 max-w-[62ch] text-[0.9375rem]">
-              These are starting prices for the first commercial release and may
-              evolve as the business matures. Every engagement ends the same
-              way: what we observed, and a prioritized set of decisions, most
-              important first.
+              These are starting prices and may change as we grow. Every one
+              ends the same way: what we saw, and a ranked list of what to do
+              about it, most important first.
             </p>
           </div>
         </section>
@@ -129,15 +128,14 @@ export default function Pricing() {
             <div>
               <p className="eyebrow">What you get</p>
               <h2 className="mt-5 max-w-[18ch]">
-                Evidence, and a ranked set of decisions.
+                Proof, and a ranked list of what to do next.
               </h2>
               <p className="muted mt-7 max-w-[52ch]">
-                Every engagement ends the same way. You receive what we
-                observed, and a prioritized set of decisions, most important
-                first.{" "}
+                Every one ends the same way. You get what we saw, and a ranked
+                list of what to do about it, most important first.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-                  Never a promise about rankings, inclusion, or who wins. Just an
-                  honest read on where you stand and what would move it.
+                  Never a promise about where you&rsquo;ll rank or who wins. Just
+                  a straight answer on where you stand and what would move it.
                 </strong>
               </p>
             </div>
@@ -162,10 +160,10 @@ export default function Pricing() {
         <section className="cta-band">
           <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
             <div>
-              <h2 className="max-w-[20ch]">Start with your category.</h2>
+              <h2 className="max-w-[20ch]">Start with your market.</h2>
               <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
-                We confirm your category, your competitors, and the scope. Then
-                we begin.
+                We confirm your market, who you&rsquo;re up against, and
+                what&rsquo;s included. Then we start.
               </p>
             </div>
             <BookingButton variant="btn-lime">Request an Audit</BookingButton>
