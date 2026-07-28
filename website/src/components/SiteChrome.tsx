@@ -7,6 +7,7 @@ import BookingButton from "@/components/BookingButton";
  *  the footer and in-page links, so every existing URL and machine surface
  *  keeps working. */
 const NAV = [
+  { href: "/evaluations", label: "How AI Evaluates" },
   { href: "/pricing", label: "Product & Pricing" },
   { href: "/evidence", label: "Evidence" },
   { href: "/company", label: "Company" },
@@ -56,6 +57,7 @@ export function SiteHeader() {
 }
 
 const FOOT_PRODUCTS = [
+  { href: "/evaluations", label: "How AI evaluates" },
   { href: "/pricing", label: "Product & Pricing" },
   { href: "/evidence", label: "Evidence" },
   { href: "/company", label: "Company" },

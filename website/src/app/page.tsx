@@ -41,7 +41,12 @@ export const metadata: Metadata = {
 /** The examples are the product. Real category leaders as the opening set;
  *  each requirement changes the recommendation. Illustrative of the dynamic,
  *  not a record of a specific AI answer. */
-const EXAMPLES = [
+const EXAMPLES: {
+  q: string;
+  cos: string[];
+  reqs: string[];
+  slug?: string;
+}[] = [
   {
     q: "Best travel management company for a global law firm",
     cos: ["CTM", "Navan", "Amex GBT", "FCM"],
@@ -68,6 +73,7 @@ const EXAMPLES = [
       "24/7 managed response",
       "Air-gapped deployment",
     ],
+    slug: "cybersecurity",
   },
   {
     q: "Best CRM for a manufacturing enterprise",
@@ -184,6 +190,15 @@ export default function Home() {
                     <b>The opening answer didn&rsquo;t decide the deal.</b> The
                     follow-up questions did.
                   </p>
+                  {ex.slug && (
+                    <Link
+                      href={`/evaluations/${ex.slug}`}
+                      className="font-mono text-[0.72rem] tracking-[0.06em] uppercase"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      See the full evaluation &rarr;
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>
