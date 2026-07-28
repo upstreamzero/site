@@ -97,12 +97,12 @@ export default function Home() {
                 You made the shortlist. You still lost the deal.
               </h1>
               <p className="lede mt-7">
-                Your buyer asks AI, then adds their real requirements one at a
-                time. The recommendation changes with each one, and the best-fit
-                company is often gone before sales ever gets the call.{" "}
+                Your buyer evaluates with AI before they ever call you. As they
+                add requirements, the best-fit company is often eliminated
+                before sales gets involved.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-                  Upstream Zero shows you where your company gets eliminated, and
-                  what would keep you the choice.
+                  Upstream Zero shows you where you get cut, and what would keep
+                  you the choice.
                 </strong>
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -188,9 +188,8 @@ export default function Home() {
               ))}
             </div>
             <p className="fade mt-6 max-w-[64ch] text-[0.85rem]">
-              Illustrative. The companies are real category leaders; the
-              sequence shows how enterprise evaluations narrow, not a record of
-              a specific AI answer.
+              Illustrative. Real companies, but the sequence shows the dynamic,
+              not a specific AI answer.
             </p>
           </div>
         </section>
@@ -205,12 +204,10 @@ export default function Home() {
                   Visibility gets you considered. It doesn&rsquo;t keep you in.
                 </h2>
                 <p className="muted mt-7 max-w-[52ch]">
-                  Appearing in the first answer is worth little if you disappear
-                  the moment the buyer names what actually decides the purchase.
                   The question was never whether you show up.{" "}
                   <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-                    It&rsquo;s whether you&rsquo;re still the logical choice when
-                    the requirements get specific.
+                    It&rsquo;s whether you&rsquo;re still the choice when the
+                    requirements get specific.
                   </strong>
                 </p>
               </div>
@@ -308,10 +305,9 @@ export default function Home() {
                 See where your company gets eliminated.
               </h2>
               <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
-                Tell us your market and who you&rsquo;re up against. We&rsquo;ll
-                show you where AI removes you as requirements build, why
-                competitors survive, and what would keep you the choice. No
-                agenda: we sell nothing to fix it.
+                Tell us your market and your competitors. We&rsquo;ll show you
+                where AI cuts you, why competitors survive, and what would keep
+                you the choice.
               </p>
             </div>
             <BookingButton variant="btn-lime">Request an Audit</BookingButton>
