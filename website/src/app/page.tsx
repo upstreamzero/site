@@ -1,112 +1,94 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta, faqLd } from "@/lib/meta";
-import { byId, byType } from "@/lib/content";
+import { pageMeta } from "@/lib/meta";
+import { byId } from "@/lib/content";
 import { PRODUCTS, productSlugFor } from "@/lib/products";
-import { WORKFLOW } from "@/lib/workflow";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
-
-/** Per-product call to action for the dark products band. Keyed by
- *  engagement id so it stays with the canonical product, not its position. */
-const PRODUCT_CTA: Record<string, string> = {
-  "ENG-7": "Request a Category Report",
-  "ENG-1": "Book an Evaluation Audit",
-  "ENG-4": "Discuss Selection Intelligence",
-};
+import Shortlist from "@/components/Shortlist";
 
 /** Outcome-led headline for each product on the home band. The canonical
  *  product name still renders as the secondary label, so /solutions,
  *  /pricing, and the Product schema stay the source of truth for names. */
 const PRODUCT_HEADLINE: Record<string, string> = {
-  "ENG-7": "Understand How AI Sees Your Category",
-  "ENG-1": "Find Out Why You're Recommended or Eliminated",
-  "ENG-4": "Measure Whether You're Becoming the Logical Choice",
+  "ENG-7": "Understand how AI reads your category",
+  "ENG-1": "Find out where you're being cut, and why",
+  "ENG-4": "Track whether you're gaining or losing ground",
 };
 
-/** Home shares a customer-first message. The company classification
- *  ("commercial intelligence company focused on AI-mediated commercial
- *  evaluation") is carried by the Organization schema, llms.txt, and
- *  company.json, so the visible surfaces can lead with the outcome. */
+const PRODUCT_CTA: Record<string, string> = {
+  "ENG-7": "See the Category Report",
+  "ENG-1": "See the Evaluation Audit",
+  "ENG-4": "See Selection Tracking",
+};
+
 const base = pageMeta("/");
-const SHARE_TITLE = "Why Is AI Recommending Your Competitors Instead of You?";
+const SHARE_TITLE = "Companies aren't chosen. They're eliminated.";
 const SHARE_DESC =
-  "You show up in ChatGPT and Google AI. You are still not the one they recommend. Upstream Zero shows you why AI recommends competitors over you, and what changes it.";
+  "Your buyers start with AI, not with you. It builds their shortlist and rules companies out before anyone calls. Upstream Zero measures where you stand, where you're being cut, and what would change it.";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Upstream Zero | Why AI Recommends Your Competitors, and What Changes It",
+    absolute: "Upstream Zero | See Where AI Puts You Before Buyers Ever Call",
   },
   description:
-    "You have tried AEO, GEO, and AI visibility tools to show up in ChatGPT and Google AI. You appear, and still lose the recommendation. Upstream Zero studies why AI recommends competitors over you, which requirement removes you, and what evidence changes the outcome.",
+    "Your buyers start with AI, not with you. It builds their shortlist and rules companies out before anyone calls. Upstream Zero measures where you stand across ChatGPT and Google AI, where you're being cut, and what would change it. Independent: we measure and diagnose, and we never sell the fix.",
   ...base,
   openGraph: { ...base.openGraph, title: SHARE_TITLE, description: SHARE_DESC },
   twitter: { ...base.twitter, title: SHARE_TITLE, description: SHARE_DESC },
 };
 
-/** The executive questions the products answer. Problems first. */
-const PROBLEMS = [
-  "Why are we not being recommended?",
-  "Why are competitors being selected instead of us?",
-  "How does AI understand our category?",
-  "What evidence actually influences recommendations?",
-  "Why do recommendations change after buyer follow-up questions?",
-  "How do we know if our strategy is working?",
-];
-
-/** An illustrative evaluation flow. Representative, not an observed result:
- *  it teaches how commercial evaluation narrows, without naming vendors or
- *  claiming a specific run. */
-const FLOW = [
+/** The four stages of an AI-mediated buying decision. One thing (AI weighing
+ *  a company against the buyer's requirements) seen at four points. */
+const STAGES = [
   {
-    k: "Initial buyer question",
-    v: "“What is the best customer data platform for a healthcare organization?”",
+    n: "01",
+    name: "Discovery",
+    q: "Who should I look at?",
+    d: "AI builds the first shortlist. If you're not on it, you never enter, and never find out.",
   },
   {
-    k: "Initial recommendation",
-    v: "A broad set of enterprise CDPs, before any real requirement is introduced.",
+    n: "02",
+    name: "Evaluation",
+    q: "Which of these fits?",
+    d: "The buyer adds requirements. AI cuts everyone who doesn't fit. Most companies disappear here.",
   },
   {
-    k: "Requirement follow-up",
-    v: "The buyer adds detail: their EHR, where data already lives, who builds audiences, batch or real time.",
+    n: "03",
+    name: "Validation",
+    q: "Am I sure?",
+    d: "The buyer double-checks. Does it integrate, is it secure, can it scale. Confidence firms up or cracks.",
   },
   {
-    k: "The set narrows",
-    v: "Platforms that do not fit the stated architecture drop out.",
-  },
-  {
-    k: "More requirements",
-    v: "Compliance, data residency, and activation targets are introduced.",
-  },
-  {
-    k: "The set narrows again",
-    v: "Only the companies that match the buyer's full requirement set remain.",
-  },
-  {
-    k: "Final recommendation",
-    v: "It reflects the buyer's complete requirements, not the opening question. The recommendation evolved because the requirements did.",
+    n: "04",
+    name: "Selection",
+    q: "This is the one.",
+    d: "Whoever survives every cut is the obvious choice. Not because they were picked, but because no one could rule them out.",
   },
 ];
 
-/** Buyer questions, answered plainly, and emitted as FAQPage schema for
- *  snippet and AI retrieval. Buyer language first. */
-const HOME_FAQS = [
+/** Consequences a buyer already tracks, each tied to what we can measure.
+ *  Framed by the section intro, which scopes it to the AI input we observe. */
+const OUTCOMES = [
   {
-    q: "Why is AI recommending my competitors instead of me?",
-    a: "AI does not rank a fixed list. It builds a recommendation from the buyer's requirements and recommends the company that best fits them. You can appear in the opening answer and be eliminated the moment a real requirement is applied. Upstream Zero shows you which requirement removes you and why a competitor survives.",
+    t: "The pipeline forming without you.",
+    d: "Some of your best-fit buyers are pointed at you. Others are pointed elsewhere, and you never find out.",
+    chip: "We measure this",
   },
   {
-    q: "Is this AEO, GEO, or AI visibility?",
-    a: "Those are tactics for being found, and they are the floor. Upstream Zero works one level up: not whether you appear, but why you are chosen or eliminated once you do. We are not an AEO, GEO, or visibility agency, we do not sell a tool, and we do not promise rankings.",
+    t: "The deals you never knew you were in.",
+    d: "You're being cut in evaluations that never reach your CRM. Real losses, with no name yet.",
+    chip: "We measure this",
   },
   {
-    q: "Which AI systems does Upstream Zero study?",
-    a: "Version 1 focuses on ChatGPT and Google AI (AI Mode and AI Overviews), where our evidence is strongest and where buyers most commonly begin. Perplexity, Gemini, and Copilot are planned expansions.",
+    t: "A warning before revenue moves.",
+    d: "If AI shifts toward a competitor, you feel it in pipeline months later. When we track it, we can catch the shift well before it reaches revenue.",
+    chip: "We measure this",
   },
   {
-    q: "What do I actually get?",
-    a: "A read on why AI recommends competitors over you, which requirements eliminate you, and what evidence would change the recommendation, with the conditions of each observation. It is diagnosis and measurement, not a promise about rankings or pipeline.",
+    t: "Whether your marketing is working on AI.",
+    d: "You spend on content, PR, and brand. Is any of it changing whether AI recommends you?",
+    chip: "We can test this",
   },
 ];
 
@@ -114,77 +96,57 @@ export default function Home() {
   const products = PRODUCTS.map((p) => byId(p.id)).filter(
     (o): o is NonNullable<typeof o> => Boolean(o) && o!.type === "engagement",
   );
-  const experiments = byType("experiment").length;
 
   return (
     <>
       <main id="main">
-        {/* ── Hero: the problem, why now ──────────────────────── */}
+        {/* ── Hero: the shift, and the signature visual ───────── */}
         <section className="section">
-          <div className="shell grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_341px] lg:gap-x-[100px]">
+          <div className="shell grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-x-[80px]">
             <div>
               <p className="eyebrow">
                 For companies losing deals they should be winning
               </p>
-              <h1 className="mt-5">
-                You&rsquo;re doing everything right. So why does AI keep
-                recommending your competitors?
+              <h1 className="mt-5 max-w-[16ch]">
+                The deal is decided before you know it exists.
               </h1>
               <p className="lede mt-7">
-                You invested in showing up when buyers ask AI for
-                recommendations, and you are showing up. And yet competitors
-                keep getting recommended instead of you. Here is the part no one
-                explains: AI does not decide the moment it first mentions you.
-                It keeps weighing companies as the buyer asks follow-up
-                questions and spells out what they really need. With each new
-                requirement, the list narrows to whoever still fits, and the
-                most visible company is often not the one left standing. That is
-                why showing up has not turned into winning.
-              </p>
-              <p className="muted mt-5 max-w-[58ch]">
-                It is happening in deals you are chasing right now, and you
-                never see the moment you drop off the list.{" "}
-                <Link href="/learn/how-ai-recommends-vendors">
-                  See how the decision really gets made.
-                </Link>
+                Your buyers now start with AI, not with you. It builds their
+                shortlist, decides who fits, and rules companies out, long
+                before anyone calls. You can be the best choice and never make
+                the list.{" "}
+                <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
+                  Upstream Zero shows you where you stand, and what would change
+                  it.
+                </strong>
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <BookingButton variant="btn">
-                  Find Out Where You Stand
-                </BookingButton>
-                <Link href="/pricing" className="btn-ghost">
-                  See products and pricing
-                </Link>
+                <BookingButton variant="btn">Request an Audit</BookingButton>
+                <a href="#belief" className="btn-ghost">
+                  See how it works
+                </a>
               </div>
-            </div>
-
-            <div className="decision-card lg:mt-20">
-              <div className="decision-card__head">
-                <span>The buying decision</span>
-                <span className="decision-card__live">Before you</span>
-              </div>
-              {[
-                ["01", "Problem", "What does the buyer need to solve?"],
-                ["02", "Require", "What must the right company provide?"],
-                ["03", "Compare", "Which company best fits?"],
-                ["04", "Select", "Who is the logical choice?"],
-              ].map(([n, k, q]) => (
-                <div key={n} className="decision-row">
-                  <span className="decision-row__n">{n}</span>
-                  <span className="decision-row__k">{k}</span>
-                  <span className="decision-row__q">{q}</span>
-                </div>
-              ))}
-              <p className="decision-card__foot">
-                By the time a buyer talks to you, the shortlist is set. We show
-                you why, and what would change it.
+              <p className="mt-8 flex items-center gap-2 text-[0.75rem] tracking-[0.02em] text-ink-muted font-mono">
+                <span
+                  aria-hidden="true"
+                  style={{
+                    width: 7,
+                    height: 7,
+                    borderRadius: "50%",
+                    background: "var(--accent)",
+                    flex: "none",
+                  }}
+                />
+                We measure across ChatGPT and Google AI today
               </p>
             </div>
+            <div className="lg:mt-0">
+              <Shortlist />
+            </div>
           </div>
-
         </section>
 
-        {/* ── Audience band: full-bleed inset strip, hairline top and bottom ── */}
+        {/* ── Audience band: full-bleed inset strip ───────────── */}
         <section className="built-for-band">
           <div className="shell">
             <div className="built-for">
@@ -197,65 +159,156 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── The problems (executive questions) ──────────────── */}
-        <section className="section">
+        {/* ── Belief + the first hard proof ───────────────────── */}
+        <section className="section" id="belief">
+          <div className="shell grid gap-14 lg:grid-cols-[1fr_1fr]">
+            <div>
+              <p className="eyebrow">What is really happening</p>
+              <h2 className="mt-5 max-w-[16ch]">
+                Companies aren&rsquo;t chosen. They&rsquo;re eliminated.
+              </h2>
+              <p className="muted mt-7 max-w-[52ch]">
+                AI doesn&rsquo;t reward the best option. It removes whatever
+                doesn&rsquo;t fit the buyer&rsquo;s requirements, until a few are
+                left. Being visible, or being the biggest name, doesn&rsquo;t
+                protect you.{" "}
+                <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
+                  What matters is whether you survive each cut, and most
+                  companies have never checked whether they do.
+                </strong>
+              </p>
+            </div>
+            <div className="card">
+              <p className="eyebrow">How we know</p>
+              <p className="bigquote mt-5">
+                Even the market <mark>leader</mark> is often the{" "}
+                <mark>first</mark> one cut.
+              </p>
+              <div className="proofpts">
+                <p className="proofpt">
+                  In the markets we&rsquo;ve tested so far, the company AI named
+                  first was often the first removed the moment it hit a
+                  requirement it couldn&rsquo;t meet.
+                </p>
+                <p className="proofpt">
+                  <strong>Being on top was the risk, not the protection.</strong>
+                </p>
+                <p className="proofpt is-quiet">
+                  Early evidence, on a small number of markets and mostly one AI
+                  system so far. We hold it as a strong pattern, not a law.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="shell">
+          <hr className="rule" />
+        </div>
+
+        {/* ── AI is in every step, not just the first ─────────── */}
+        <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">The questions we answer</p>
-            <h2 className="mt-5 max-w-[22ch]">
-              The recommendation is visible. The decision behind it is not.
+            <p className="eyebrow">And it doesn&rsquo;t stop at the first search</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              AI is in every step of the decision, not just the first one.
             </h2>
-            <ul className="qgrid mt-12">
-              {PROBLEMS.map((q, i) => (
-                <li key={q}>
-                  <span className="step-n">{String(i + 1).padStart(2, "0")}</span>
-                  <span>{q}</span>
+            <p className="lede mt-6">
+              The moment AI first names you is not the decision. It keeps
+              re-deciding as your buyer gets specific, and again as they
+              double-check their choice.
+            </p>
+            <ol className="steps steps-4 mt-12">
+              {STAGES.map((s) => (
+                <li key={s.n} className="step">
+                  <div className="step-n">{s.n}</div>
+                  <h3>{s.name}</h3>
+                  <span className="step-q">&ldquo;{s.q}&rdquo;</span>
+                  <p>{s.d}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ── Why it matters: the numbers you report ──────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">Why it matters</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              This is already moving the numbers you report.
+            </h2>
+            <p className="lede mt-6 max-w-[60ch]">
+              The shortlist AI builds before anyone calls moves the same numbers
+              you manage. We can&rsquo;t promise you a figure. We can show you
+              the input that is quietly moving all of them.
+            </p>
+            <ul className="outcomes">
+              {OUTCOMES.map((o) => (
+                <li key={o.t} className="outcome">
+                  <p>
+                    <strong>{o.t}</strong> {o.d}
+                  </p>
+                  <span className="chip chip-accent">{o.chip}</span>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* ── How it works (shown, illustrative) ──────────────── */}
+        {/* ── Why us: independence + founder accountability ───── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">How the shortlist forms</p>
-            <h2 className="mt-5 max-w-[24ch]">
-              The shortlist narrows one requirement at a time.
-            </h2>
-            <p className="lede mt-6">
-              The first answer is never the final one. Every follow-up question
-              adds a requirement and quietly changes who stays on the list.
-            </p>
-            <ol className="steps steps-2 mt-12">
-              {FLOW.map((s, i) => (
-                <li key={s.k} className="step">
-                  <div className="step-n">{String(i + 1).padStart(2, "0")}</div>
-                  <h3>{s.k}</h3>
-                  <p>{s.v}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-6 max-w-[64ch]">
-              <strong>What this proves.</strong> AI recommendations are not
-              fixed. They change as requirements emerge, so you can win the
-              general question and lose the specific one.
-            </p>
-            <p className="muted mt-4 max-w-[64ch] text-[0.9375rem]">
-              How we know: in a controlled test we removed a single requirement
-              and the recommendation set changed. It is the one relationship we
-              have verified causally. The walkthrough above is a representative
-              illustration of that behavior and names no companies; the
-              documented runs are in the <Link href="/research">research</Link>.
-            </p>
+            <div className="decision-card">
+              <p className="eyebrow" style={{ color: "var(--highlight)" }}>
+                Why us
+              </p>
+              <h2
+                className="mt-4 max-w-[18ch]"
+                style={{ color: "#ffffff" }}
+              >
+                We sell you nothing to fix it.
+              </h2>
+              <p
+                className="mt-5 max-w-[62ch]"
+                style={{ color: "rgba(255,255,255,0.78)" }}
+              >
+                We are not an agency, an SEO tool, or a content shop. We measure
+                and we diagnose, and we never touch the thing we would be
+                grading. A company that sells you content, links, or rankings
+                can&rsquo;t honestly tell you whether they work.{" "}
+                <strong style={{ color: "#ffffff", fontWeight: 600 }}>
+                  We took that conflict off the table. That independence is the
+                  whole point, and it is why our read is worth having.
+                </strong>
+              </p>
+              <div className="founder">
+                <span className="founder__av">SM</span>
+                <div>
+                  <div className="founder__nm">Skyler Meyer, Founder</div>
+                  <div className="founder__role">
+                    Accountable for every claim on this site
+                  </div>
+                </div>
+              </div>
+              <p
+                className="mt-5 max-w-[62ch]"
+                style={{ color: "rgba(255,255,255,0.78)" }}
+              >
+                Every finding we publish carries the conditions it was observed
+                under. If we cannot show it, we do not claim it. That standard,
+                and the choice never to sell the fix, is the company.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* ── What you can buy ────────────────────────────────── */}
+        {/* ── Products (from canonical engagement data) ───────── */}
         <section className="dark-band">
           <div className="shell">
-            <p className="eyebrow">What you can buy</p>
-            <h2 className="mt-5 max-w-[22ch]">
-              Three ways to find out where you stand.
+            <p className="eyebrow">Find out where you stand</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              Three ways to see how AI is deciding your deals.
             </h2>
             <div className="product-grid mt-14">
               {products.map((p, i) => {
@@ -309,114 +362,9 @@ export default function Home() {
             </div>
             <p className="mt-12">
               <Link href="/pricing" className="btn-ghost">
-                Compare all products and pricing
+                Compare products and pricing
               </Link>
             </p>
-          </div>
-        </section>
-
-        <div className="shell">
-          <hr className="rule" />
-        </div>
-
-        {/* ── Why trust us (research as credibility) ──────────── */}
-        <section className="section">
-          <div className="shell grid gap-14 lg:grid-cols-[1fr_1fr]">
-            <div>
-              <p className="eyebrow">What we have learned</p>
-              <h2 className="mt-5 max-w-[20ch]">
-                The category leader is not safe.
-              </h2>
-            </div>
-            <div className="prose-measure">
-              <p>
-                Leading the opening AI answer does not protect you. When a
-                requirement appears that the leader cannot meet, it is often the
-                first removed, and a lesser-known competitor takes the
-                recommendation.
-              </p>
-              <p className="mt-5">
-                How we know: across five categories, the vendor that led the
-                opening recommendation lost its lead at the first requirement it
-                could not satisfy. In one category the leader changed between
-                runs, yet whichever vendor led was removed at the same step. We
-                hold this as a strong, repeated pattern, mostly on one AI system.
-                It is not yet a proven universal rule, and we say so.
-              </p>
-              <p className="mt-5">
-                We can say this plainly because we are independent. We do not
-                sell traffic, content, or rankings, so we have no stake in the
-                answer. Every observation is recorded with its conditions and
-                its confidence, across the {experiments} runs we have published.
-              </p>
-              <p className="mt-5">
-                <Link href="/research" className="btn-ghost">
-                  See the evidence
-                </Link>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <div className="shell">
-          <hr className="rule" />
-        </div>
-
-        {/* ── How the work is done (demoted below the buyer story) ── */}
-        <section className="section-tight">
-          <div className="shell">
-            <p className="eyebrow">How the work is done</p>
-            <h2 className="mt-5 max-w-[30ch]">
-              Why a competitor is recommended, what would change it, and whether
-              it moved.
-            </h2>
-            <p className="lede mt-6 max-w-[64ch]">
-              Every engagement follows the same path: see why a competitor is
-              recommended over you, find where you are eliminated, define what
-              would need to change, and measure whether it moved.
-            </p>
-            <ol className="steps steps-2 mt-12">
-              {WORKFLOW.map((s) => (
-                <li key={s.n} className="step">
-                  <div className="step-n">{s.n}</div>
-                  <h3>{s.name}</h3>
-                  <p>{s.plain}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-9">
-              <Link href="/solutions" className="btn-ghost">
-                See the full workflow and products
-              </Link>
-            </p>
-          </div>
-        </section>
-
-        {/* ── FAQ (buyer questions + FAQPage schema for retrieval) ── */}
-        <section className="section">
-          <div className="shell">
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: faqLd(HOME_FAQS) }}
-            />
-            <p className="eyebrow">Common questions</p>
-            <h2 className="mt-5 max-w-[24ch]">
-              What buyers ask before they book.
-            </h2>
-            <dl className="mt-14 max-w-[74ch]">
-              {HOME_FAQS.map((f) => (
-                <div
-                  key={f.q}
-                  className="border-t py-6"
-                  style={{ borderColor: "var(--line)" }}
-                >
-                  <dt className="text-[1.0625rem] font-medium tracking-[-0.01em]">
-                    {f.q}
-                  </dt>
-                  <dd className="muted mt-2 max-w-[64ch]">{f.a}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </section>
 
@@ -428,13 +376,12 @@ export default function Home() {
                 See where you stand in your category.
               </h2>
               <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
-                Tell us your category and who you're up against. We'll show you
-                exactly where you stand, and what it takes to win.
+                Tell us your market and who you&rsquo;re up against. We&rsquo;ll
+                show you where AI is putting you, where you&rsquo;re being cut,
+                and what would change it.
               </p>
             </div>
-            <BookingButton variant="btn-lime">
-              Start With Your Category
-            </BookingButton>
+            <BookingButton variant="btn-lime">Request an Audit</BookingButton>
           </div>
         </section>
       </main>

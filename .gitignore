@@ -31,7 +31,9 @@ scripts/validate-manifest.mjs
 scripts/templates/
 protocol/
 references/
-company/
+# Anchored to the repo root so it ignores only the top-level private ops
+# directory, not the public /company app route at website/src/app/company/.
+/company/
 # docs/: only governance and published methodology are public; the rest
 # is internal planning and belongs in the private repo.
 docs/*

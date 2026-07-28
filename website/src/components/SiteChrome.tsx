@@ -1,17 +1,15 @@
 import Link from "next/link";
 import BookingButton from "@/components/BookingButton";
 
-/** Navigation follows the questions a first-time visitor actually asks,
- *  not our internal research model. Research, Methods, and Claims are no
- *  longer primary navigation: they became the research library, reachable
- *  from the footer and from in-page links. Routes are unchanged, so every
- *  existing URL, object page, and machine surface keeps working. */
+/** Navigation is the four destinations a buyer actually seeks: the product,
+ *  the proof, the company behind it, and the way to start. The research
+ *  library, methods, and machine surfaces are preserved and reachable from
+ *  the footer and in-page links, so every existing URL and machine surface
+ *  keeps working. */
 const NAV = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/research", label: "Research" },
-  { href: "/methodology", label: "Methodology" },
-  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Product & Pricing" },
+  { href: "/evidence", label: "Evidence" },
+  { href: "/company", label: "Company" },
 ];
 
 export function SiteHeader() {
@@ -31,9 +29,15 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <BookingButton variant="btn" className="shrink-0">
-          Book Time
-        </BookingButton>
+        {/* Hidden on the narrowest screens, where the wordmark and this wide
+            label cannot share a row without overflowing; the hero carries an
+            identical Request an Audit button immediately below. The wrapper
+            span carries the display toggle because `.btn` sets an unlayered
+            `display: inline-flex` that would defeat a `hidden` utility applied
+            to the button itself. */}
+        <span className="hidden shrink-0 sm:block">
+          <BookingButton variant="btn">Request an Audit</BookingButton>
+        </span>
       </div>
       {/* Small screens: primary nav wraps below the wordmark rather than
           collapsing behind a JavaScript menu. */}
@@ -52,10 +56,10 @@ export function SiteHeader() {
 }
 
 const FOOT_PRODUCTS = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/methodology", label: "Methodology" },
-  { href: "/contact", label: "Talk to us" },
+  { href: "/pricing", label: "Product & Pricing" },
+  { href: "/evidence", label: "Evidence" },
+  { href: "/company", label: "Company" },
+  { href: "/solutions", label: "Solutions & scope" },
 ];
 
 const FOOT_LEARN = [
@@ -126,7 +130,7 @@ export function ProvenanceFooter({
           <p className="eyebrow">Company</p>
           <ul className="mt-3 list-none space-y-1 p-0">
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/company">About</Link>
             </li>
             <li>
               <Link href="/contact">Talk to us</Link>

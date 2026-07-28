@@ -17,27 +17,34 @@ const PRICE_SUMMARY = PRICED_PRODUCTS.filter((p) => p.priceStart)
   .join(", ");
 
 export const metadata: Metadata = {
-  title: { absolute: "Pricing: AI Vendor Evaluation Products | Upstream Zero" },
-  description: `Published, fixed starting prices for measuring how AI evaluates your company. ${PRICE_SUMMARY}. See what each engagement diagnoses.`,
+  title: { absolute: "Product & Pricing: See Where AI Puts You | Upstream Zero" },
+  description: `Fixed-scope ways to see how AI is deciding your deals. ${PRICE_SUMMARY}. Independent measurement and diagnosis, never a promise about rankings or inclusion.`,
   ...pageMeta("/pricing"),
 };
 
+/** Buyer-facing objections, closed at the buying moment. Honesty-forward:
+ *  the independence answer and the "what if the read is wrong" answer are
+ *  the trust assets, not disclaimers. */
 const FAQ = [
   {
     q: "Are these fixed prices?",
-    a: "They are starting prices for the standard scope of one defined category. We confirm category boundaries, complexity, and timing before any work begins, so the final price is agreed up front, never after.",
+    a: "They are starting prices for the standard scope of one defined category. We confirm boundaries, complexity, and timing before any work begins, so the final price is agreed up front, never after.",
   },
   {
-    q: "Do you promise better rankings or recommendations?",
-    a: "No. Every Upstream Zero engagement is measurement and diagnosis. You receive evidence and a prioritized set of decisions, never a promise about what an AI evaluator will do. We are not an AI SEO, GEO, or visibility agency.",
+    q: "How is this different from an AI-visibility tool?",
+    a: "A visibility tool tells you whether you appear in AI answers. That is one step of four. We measure the whole decision, where you're cut and why, and we sell you no tool to fix it, so our read has no agenda.",
   },
   {
-    q: "What is a category?",
-    a: "The market your buyers are asking about, for example healthcare customer data platforms or field service management software. Pricing is per category because each one is evaluated on its own.",
+    q: "Why pay for a diagnosis if you won't fix it?",
+    a: "For the same reason you trust it. A company that sells the cure can't honestly grade the disease. We measure and diagnose only, which is what makes the read worth having.",
   },
   {
-    q: "How do I start?",
-    a: "Tell us your category and the competitors you are evaluated against. We confirm scope and timing, then begin. The fastest first step is a Category Intelligence Report.",
+    q: "What if the read is wrong, or unhelpful?",
+    a: "Everything we report is tied to something we actually observed, with its conditions. We tell you plainly what we've seen versus what we infer, so you are never asked to take an unsupported claim on faith.",
+  },
+  {
+    q: "How is our data handled?",
+    a: "We work from your category and your named competitors. We do not require access to your systems, your CRM, or any customer data to run an evaluation.",
   },
 ];
 
@@ -54,7 +61,7 @@ export default function Pricing() {
           dangerouslySetInnerHTML={{
             __html: breadcrumbLd([
               ["Home", "/"],
-              ["Pricing", "/pricing"],
+              ["Product & Pricing", "/pricing"],
             ]),
           }}
         />
@@ -66,16 +73,13 @@ export default function Pricing() {
         {/* ── Intro ───────────────────────────────────────────── */}
         <section className="section">
           <div className="shell">
-            <p className="eyebrow">Pricing</p>
-            <h1 className="mt-5 max-w-[20ch]">
-              A defined question. A fixed scope. A useful answer.
-            </h1>
+            <p className="eyebrow">Product &amp; pricing</p>
+            <h1 className="mt-5 max-w-[16ch]">Find out where you stand.</h1>
             <p className="lede mt-7">
-              These engagements measure and diagnose how your company performs
-              during AI-mediated commercial evaluation. Every price is for one
-              defined category. Starting prices reflect the standard scope for
-              that category. We confirm boundaries, complexity, and timing
-              before work begins.
+              Three fixed-scope ways to see how AI is deciding your deals. Pick
+              the one that matches your situation. The price is set before we
+              start, and every engagement is measurement and diagnosis, never a
+              promise about rankings or inclusion.
             </p>
 
             <table className="ptable">
@@ -111,20 +115,33 @@ export default function Pricing() {
               </tbody>
             </table>
             <p className="muted mt-8 max-w-[62ch] text-[0.9375rem]">
-              These are starting prices for the first commercial release and
-              may evolve as the business matures. Every engagement is
-              measurement and diagnosis, never a promise about rankings,
-              inclusion, or selection.
+              These are starting prices for the first commercial release and may
+              evolve as the business matures. Every engagement ends the same
+              way: what we observed, and a prioritized set of decisions, most
+              important first.
             </p>
           </div>
         </section>
 
-        {/* ── FAQ ─────────────────────────────────────────────── */}
+        {/* ── What you get ────────────────────────────────────── */}
         <section className="section-tight">
-          <div className="shell">
-            <p className="eyebrow">Common questions</p>
-            <h2 className="mt-5 max-w-[22ch]">Before you ask.</h2>
-            <dl className="mt-14 max-w-[74ch]">
+          <div className="shell grid gap-14 lg:grid-cols-[1fr_1fr]">
+            <div>
+              <p className="eyebrow">What you get</p>
+              <h2 className="mt-5 max-w-[18ch]">
+                Evidence, and a ranked set of decisions.
+              </h2>
+              <p className="muted mt-7 max-w-[52ch]">
+                Every engagement ends the same way. You receive what we
+                observed, and a prioritized set of decisions, most important
+                first.{" "}
+                <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
+                  Never a promise about rankings, inclusion, or who wins. Just an
+                  honest read on where you stand and what would move it.
+                </strong>
+              </p>
+            </div>
+            <dl className="max-w-[74ch]">
               {FAQ.map((f) => (
                 <div
                   key={f.q}
@@ -144,12 +161,14 @@ export default function Pricing() {
         {/* ── Close ───────────────────────────────────────────── */}
         <section className="cta-band">
           <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-            <h2 className="max-w-[24ch]">
-              Not sure which one? Start with the map.
-            </h2>
-            <BookingButton variant="btn-lime">
-              Schedule a Conversation
-            </BookingButton>
+            <div>
+              <h2 className="max-w-[20ch]">Start with your category.</h2>
+              <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
+                We confirm your category, your competitors, and the scope. Then
+                we begin.
+              </p>
+            </div>
+            <BookingButton variant="btn-lime">Request an Audit</BookingButton>
           </div>
         </section>
       </main>
