@@ -1,0 +1,34 @@
+name: IndexNow submit
+
+# After a change to the site is pushed to main, Cloudflare Pages builds and
+# deploys automatically. Once it is live, notify IndexNow (Bing, Yandex, and
+# other participants) so they recrawl. No secrets required: the IndexNow key is
+# public and hosted at the site root, and the script reads the live sitemap.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "website/**"
+      - "content/**"
+
+# Never run more than one submission at a time; cancel an in-flight one so we
+# only notify with the newest deploy.
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Cloudflare Pages typically builds and deploys in 1 to 3 minutes. Wait
+      # for it to go live before pinging, so engines fetch the new content.
+      - name: Wait for Cloudflare Pages to deploy
+        run: sleep 180
+      - name: Submit sitemap URLs to IndexNow
+        run: node website/scripts/indexnow-submit.mjs
