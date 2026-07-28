@@ -4,9 +4,9 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
-  title: { absolute: "Company: We Show How AI Judges You. We Fix Nothing." },
+  title: { absolute: "Company: Become the Company AI Recommends | Upstream Zero" },
   description:
-    "Upstream Zero measures and diagnoses how AI systems decide which companies to recommend. We don't sell the cure, so we have no reason to shade the diagnosis. Founded 2026 by Skyler Meyer, California.",
+    "Upstream Zero finds why AI leaves you off your buyers' shortlists, and exactly what would put you on them. The only thing we sell is that answer, so you can trust it. Founded 2026 by Skyler Meyer, California.",
   ...pageMeta("/company"),
 };
 
@@ -28,13 +28,13 @@ export default function Company() {
         <section className="section">
           <div className="shell">
             <p className="eyebrow">Company</p>
-            <h1 className="mt-5 max-w-[17ch]">
-              We show companies how AI is judging them. We fix nothing.
+            <h1 className="mt-5 max-w-[19ch]">
+              We show you what it takes to become the company AI recommends.
             </h1>
             <p className="lede mt-7">
-              That second sentence is the whole company. We measure and explain.
-              We don&rsquo;t sell the fix, so we have no reason to bend what we
-              tell you.
+              That&rsquo;s the whole company. We find why AI leaves you off your
+              buyers&rsquo; shortlists, and exactly what would put you on them.
+              The only thing we sell is that answer, so you can trust it.
             </p>
           </div>
         </section>
@@ -46,19 +46,20 @@ export default function Company() {
               <li className="step">
                 <div className="step-n">What we do</div>
                 <p className="mt-3">
-                  We study how AI systems decide which companies to recommend to
-                  buyers, and why some get cut. Then we show a company exactly
-                  where it stands, and what would change it. Everything we say,
-                  we&rsquo;ve watched happen.
+                  We study how AI decides which companies to put in front of
+                  buyers, and why some get left off. Then we show you exactly
+                  what would put you on the list. Everything we say, we&rsquo;ve
+                  watched happen.
                 </p>
               </li>
               <li className="step">
-                <div className="step-n">Why independence matters</div>
+                <div className="step-n">Why you can trust it</div>
                 <p className="mt-3">
                   A company that sells you content, links, or rankings
-                  can&rsquo;t honestly tell you whether they work. We took that
-                  conflict off the table. We don&rsquo;t sell the fix, which is
-                  why our read on where you stand can be believed.
+                  can&rsquo;t honestly tell you whether they work. We don&rsquo;t
+                  sell any of that, so nothing we tell you is steering you toward
+                  something we&rsquo;re selling. Just the plan that would put you
+                  on the list.
                 </p>
               </li>
             </ol>
@@ -79,7 +80,9 @@ export default function Company() {
                 growth, or rankings.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
                   If that sounds like less than other vendors promise, it is.
-                  It&rsquo;s also the reason to trust the part we do measure.
+                  It&rsquo;s also why you can trust the one thing we do give you:
+                  the real reason you&rsquo;re being left off, and what would
+                  put you on the list.
                 </strong>
               </p>
             </div>
@@ -118,7 +121,7 @@ export default function Company() {
         <section className="cta-band">
           <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
             <h2 className="max-w-[22ch]">
-              See where your company actually stands.
+              Find out why AI isn&rsquo;t recommending you.
             </h2>
             <BookingButton variant="btn-lime">Request an Audit</BookingButton>
           </div>

@@ -105,19 +105,18 @@ export default function Home() {
           <div className="shell grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-x-[80px]">
             <div>
               <p className="eyebrow">
-                For companies losing deals they should be winning
+                For companies AI isn&rsquo;t recommending
               </p>
-              <h1 className="mt-5 max-w-[16ch]">
-                The deal is decided before you know it exists.
+              <h1 className="mt-5 max-w-[15ch]">
+                AI recommends your competitors. Not you.
               </h1>
               <p className="lede mt-7">
-                Your buyers now start with AI, not with you. It builds their
-                shortlist, decides who fits, and rules companies out, long
-                before anyone calls. You can be the best choice and never make
-                the list.{" "}
+                When your buyers ask AI, it builds a shortlist and puts a few
+                companies forward. Right now you&rsquo;re not one of them, and
+                you can&rsquo;t see why.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-                  Upstream Zero shows you where you stand, and what would change
-                  it.
+                  We show you why AI is leaving you off, and what would make you
+                  the company it recommends.
                 </strong>
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -348,9 +347,9 @@ export default function Home() {
         {/* ── Products (from canonical engagement data) ───────── */}
         <section className="dark-band">
           <div className="shell">
-            <p className="eyebrow">Find out where you stand</p>
+            <p className="eyebrow">Find out why AI skips you</p>
             <h2 className="mt-5 max-w-[24ch]">
-              Three ways to see how AI is deciding your deals.
+              Three ways to find out why, and what would change it.
             </h2>
             <div className="product-grid mt-14">
               {products.map((p, i) => {
@@ -415,12 +414,12 @@ export default function Home() {
           <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <h2 className="max-w-[24ch]">
-                See where you stand in your category.
+                Find out why AI isn&rsquo;t recommending you.
               </h2>
               <p className="lede mt-4" style={{ color: "#ffffff", opacity: 0.9 }}>
                 Tell us your market and who you&rsquo;re up against. We&rsquo;ll
-                show you where AI is putting you, where you&rsquo;re being cut,
-                and what would change it.
+                show you why AI is leaving you off, and what would put you on the
+                list.
               </p>
             </div>
             <BookingButton variant="btn-lime">Request an Audit</BookingButton>
