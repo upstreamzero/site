@@ -264,23 +264,21 @@ export default function Home() {
                 Why us
               </p>
               <h2
-                className="mt-4 max-w-[18ch]"
+                className="mt-4 max-w-[22ch]"
                 style={{ color: "#ffffff" }}
               >
-                We don&rsquo;t sell the fix.
+                You want to fix it. We show you exactly what to fix.
               </h2>
               <p
                 className="mt-5 max-w-[62ch]"
                 style={{ color: "rgba(255,255,255,0.78)" }}
               >
-                We are not an agency, an SEO tool, or a content shop. We only
-                measure and explain what we see. We never sell the thing we
-                would be grading you on. A company that sells you content,
-                links, or rankings can&rsquo;t honestly tell you whether they
-                work.{" "}
+                Then you fix it your way, with whoever you trust. We don&rsquo;t
+                sell SEO, content, or optimization, so when we tell you where
+                you&rsquo;re being cut and what would change it, there&rsquo;s no
+                product behind the advice.{" "}
                 <strong style={{ color: "#ffffff", fontWeight: 600 }}>
-                  We took that conflict off the table, and that is the whole
-                  reason you can trust what we tell you.
+                  Just the honest answer, with no agenda.
                 </strong>
               </p>
               <div className="founder">
@@ -297,8 +295,8 @@ export default function Home() {
                 style={{ color: "rgba(255,255,255,0.78)" }}
               >
                 Every finding we publish comes with exactly how and when we saw
-                it. If we can&rsquo;t show it, we don&rsquo;t claim it. That, and
-                never selling the fix, is the whole company.
+                it. If we can&rsquo;t show it, we don&rsquo;t claim it. That
+                standard is the whole company.
               </p>
             </div>
           </div>
