@@ -143,7 +143,7 @@ export default function Page() {
         {/* the institution, last */}
         <QPart label="Who is behind this">
           <p>
-            <Link href="/about">Upstream Zero</Link> is the commercial
+            <Link href="/company">Upstream Zero</Link> is the commercial
             intelligence company doing this work. The work is what matters here,
             not the company.
           </p>

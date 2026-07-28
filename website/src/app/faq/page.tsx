@@ -27,7 +27,7 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
         observed evidence, and helps organizations understand why they are
         recommended, why they are eliminated, and what must become true to
         become a logical choice. The full answer lives on the{" "}
-        <Link href="/about">What is Upstream Zero?</Link> page.
+        <Link href="/company">Company</Link> page.
       </>
     ),
   },
