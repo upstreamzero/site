@@ -59,12 +59,13 @@ const EXAMPLES: {
   },
   {
     q: "Best customer data platform for a hospital network",
-    cos: ["Segment", "Tealium", "Salesforce", "Adobe"],
+    cos: ["Tealium", "Treasure Data", "Salesforce Data Cloud", "Adobe"],
     reqs: [
       "Integrates with Epic",
-      "HIPAA and data residency",
+      "HIPAA compliance",
       "Real-time activation",
     ],
+    slug: "customer-data-platform",
   },
   {
     q: "Best endpoint security for a global bank",

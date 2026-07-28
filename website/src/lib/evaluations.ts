@@ -358,6 +358,295 @@ export const REQUIREMENTS: Record<string, Requirement> = {
     ],
     related: ["complex-client-billing", "emburse-enterprise"],
   },
+
+  // Customer data platform
+  "epic-integration": {
+    slug: "epic-integration",
+    name: "Epic integration",
+    kind: "integration",
+    whatItIs:
+      "Interoperability with Epic, the electronic health record most large US hospital networks run on.",
+    whyItMatters:
+      "Patient and encounter data lives in Epic. A platform that can't ingest it cleanly can't build a usable patient profile.",
+    buyerQuestions: [
+      "Do you integrate with Epic?",
+      "Do you connect via FHIR or a data warehouse?",
+      "Is it a validated Epic integration?",
+    ],
+    howItChangesRecs:
+      "The moment a hospital names Epic, AI narrows to platforms with a real healthcare data path and drops consumer-marketing tools.",
+    evidence: [
+      "A documented Epic or Epic-on-FHIR integration",
+      "Reference deployments at Epic hospital networks",
+      "How Epic data is ingested and kept current",
+    ],
+    related: ["fhir", "healthcare-data-integration", "hipaa"],
+  },
+  hipaa: {
+    slug: "hipaa",
+    name: "HIPAA",
+    kind: "compliance",
+    full: "Health Insurance Portability and Accountability Act",
+    whatItIs:
+      "The US regulation governing how protected health information is stored, transmitted, and used.",
+    whyItMatters:
+      "A platform handling patient data must be HIPAA compliant and sign a BAA. Without it, legal and security stop the deal.",
+    buyerQuestions: [
+      "Are you HIPAA compliant?",
+      "Will you sign a BAA?",
+      "How is protected health information secured?",
+    ],
+    howItChangesRecs:
+      "Adding HIPAA removes marketing-only platforms that won't sign a BAA, and narrows to those built for regulated data.",
+    evidence: [
+      "A signed BAA and stated HIPAA compliance",
+      "Documentation of how protected health information is handled",
+      "A HITRUST or equivalent certification",
+    ],
+    related: ["privacy-and-compliance", "consent-management", "epic-integration"],
+  },
+  snowflake: {
+    slug: "snowflake",
+    name: "Snowflake integration",
+    kind: "integration",
+    whatItIs:
+      "Working natively with Snowflake, the cloud data warehouse many enterprises run as their system of record.",
+    whyItMatters:
+      "Hospitals want a platform that reads from and writes to Snowflake, not one that copies data into another silo. Governance depends on it.",
+    buyerQuestions: [
+      "Do you run on Snowflake or copy data out of it?",
+      "Do you support a zero-copy, warehouse-native model?",
+      "Can activation run on our Snowflake data?",
+    ],
+    howItChangesRecs:
+      "Warehouse-native buyers use this to separate platforms that operate on Snowflake directly from those that duplicate data.",
+    evidence: [
+      "A Snowflake-native or zero-copy architecture",
+      "A Snowflake partner listing",
+      "A documented read, write, and governance model",
+    ],
+    related: ["warehouse-integration", "epic-integration", "real-time-activation"],
+  },
+  "salesforce-marketing-cloud": {
+    slug: "salesforce-marketing-cloud",
+    name: "Salesforce Marketing Cloud activation",
+    kind: "integration",
+    whatItIs:
+      "Pushing built audiences into Salesforce Marketing Cloud for email, SMS, and journey campaigns.",
+    whyItMatters:
+      "A platform is only useful if the audiences it builds reach the tools the team runs. Many hospitals run on Marketing Cloud.",
+    buyerQuestions: [
+      "Do you activate into Salesforce Marketing Cloud?",
+      "Is it real-time or batch?",
+      "Do you sync consent and suppressions?",
+    ],
+    howItChangesRecs:
+      "When a buyer names their activation destination, AI favors platforms with a proven Marketing Cloud connector.",
+    evidence: [
+      "A documented Salesforce Marketing Cloud integration",
+      "Real-time versus batch activation support",
+      "Consent and suppression sync",
+    ],
+    related: ["crm-marketing-activation", "real-time-activation", "consent-management"],
+  },
+  fhir: {
+    slug: "fhir",
+    name: "FHIR",
+    kind: "integration",
+    full: "Fast Healthcare Interoperability Resources",
+    whatItIs: "The standard for exchanging healthcare data between systems.",
+    whyItMatters:
+      "FHIR is how modern healthcare data moves. A platform that speaks FHIR can pull clinical data without brittle custom pipelines.",
+    buyerQuestions: [
+      "Do you support FHIR?",
+      "Which FHIR resources and version?",
+      "Can you ingest Epic data over FHIR?",
+    ],
+    howItChangesRecs:
+      "Adding FHIR narrows to platforms built for healthcare interoperability and drops those relying on manual data loads.",
+    evidence: [
+      "Documented FHIR support and version",
+      "The FHIR resources you handle",
+      "How FHIR data maps into patient profiles",
+    ],
+    related: ["epic-integration", "healthcare-data-integration", "hipaa"],
+  },
+  "real-time-activation": {
+    slug: "real-time-activation",
+    name: "Real-time activation",
+    kind: "capability",
+    whatItIs:
+      "Building and updating audiences in real time and pushing them to destinations as events happen.",
+    whyItMatters:
+      "Care and marketing moments are time-sensitive. Batch-only activation misses the window that makes the data valuable.",
+    buyerQuestions: [
+      "Is activation real-time or batch?",
+      "What is the end-to-end latency?",
+      "Can it trigger on live events?",
+    ],
+    howItChangesRecs:
+      "When a buyer requires real-time, batch-only platforms drop out and the set narrows to streaming-capable ones.",
+    evidence: [
+      "Documented real-time or streaming activation",
+      "End-to-end latency figures",
+      "Event-triggered use cases",
+    ],
+    related: ["data-ingestion", "salesforce-marketing-cloud", "identity-resolution"],
+  },
+  "identity-resolution": {
+    slug: "identity-resolution",
+    name: "Identity resolution",
+    kind: "capability",
+    whatItIs:
+      "Stitching records from many sources into a single, deduplicated profile per person.",
+    whyItMatters:
+      "A patient appears across the EHR, portals, and marketing systems. Without accurate identity resolution, profiles are fragmented and unusable.",
+    buyerQuestions: [
+      "How do you resolve identity across sources?",
+      "Deterministic, probabilistic, or both?",
+      "How do you handle patient matching?",
+    ],
+    howItChangesRecs:
+      "Weak identity resolution shows up fast in evaluation; AI favors platforms with a proven matching approach.",
+    evidence: [
+      "Your identity-resolution method",
+      "Match-rate and accuracy figures",
+      "How healthcare identifiers are handled",
+    ],
+    related: ["data-ingestion", "healthcare-data-integration", "real-time-activation"],
+  },
+  "data-ingestion": {
+    slug: "data-ingestion",
+    name: "Data ingestion",
+    kind: "capability",
+    whatItIs:
+      "Bringing data in from every source, batch and streaming, structured and event.",
+    whyItMatters:
+      "A platform is only as good as the data it can reach. Gaps in ingestion become blind spots in every downstream use.",
+    buyerQuestions: [
+      "What sources can you ingest?",
+      "Batch, streaming, or both?",
+      "How do you handle schema changes?",
+    ],
+    howItChangesRecs:
+      "Buyers with complex stacks use ingestion breadth to separate real platforms from thin connectors.",
+    evidence: [
+      "Supported sources and connectors",
+      "Batch and streaming ingestion",
+      "How schema changes are handled",
+    ],
+    related: ["identity-resolution", "warehouse-integration", "real-time-activation"],
+  },
+  "warehouse-integration": {
+    slug: "warehouse-integration",
+    name: "Warehouse integration",
+    kind: "integration",
+    whatItIs:
+      "Operating on the customer's cloud data warehouse instead of copying data into a separate store.",
+    whyItMatters:
+      "Enterprises want one governed copy of data. A platform that duplicates it creates cost, drift, and compliance risk.",
+    buyerQuestions: [
+      "Do you run on our warehouse?",
+      "Zero-copy, or do you extract data?",
+      "Which warehouses do you support?",
+    ],
+    howItChangesRecs:
+      "Warehouse-native architecture is now a common requirement, and it splits the field cleanly.",
+    evidence: [
+      "A warehouse-native or composable architecture",
+      "Supported warehouses",
+      "The governance and data-residency model",
+    ],
+    related: ["snowflake", "data-ingestion", "privacy-and-compliance"],
+  },
+  "crm-marketing-activation": {
+    slug: "crm-marketing-activation",
+    name: "CRM and marketing activation",
+    kind: "capability",
+    whatItIs:
+      "Pushing audiences into the CRM and marketing tools the team runs campaigns from.",
+    whyItMatters:
+      "Data creates value only when it reaches the systems that act on it. Activation breadth decides whether the platform is usable day to day.",
+    buyerQuestions: [
+      "Which CRM and marketing tools do you activate into?",
+      "Real-time or batch?",
+      "Do you sync consent and suppressions?",
+    ],
+    howItChangesRecs:
+      "Buyers filter on their exact destinations; platforms missing a key connector drop out.",
+    evidence: [
+      "Your activation destinations",
+      "Real-time versus batch support",
+      "Consent and suppression sync",
+    ],
+    related: ["salesforce-marketing-cloud", "real-time-activation", "consent-management"],
+  },
+  "consent-management": {
+    slug: "consent-management",
+    name: "Consent management",
+    kind: "capability",
+    whatItIs:
+      "Capturing and enforcing consent and preferences everywhere data is used and activated.",
+    whyItMatters:
+      "In healthcare, using data without proper consent is a legal and trust failure. The platform must enforce it end to end.",
+    buyerQuestions: [
+      "How do you manage consent and preferences?",
+      "Do you enforce consent at activation?",
+      "Do you integrate with our consent platform?",
+    ],
+    howItChangesRecs:
+      "Regulated buyers use consent enforcement to remove marketing-first platforms that treat it as an afterthought.",
+    evidence: [
+      "End-to-end consent capture and enforcement",
+      "Enforcement at the point of activation",
+      "Integration with consent platforms",
+    ],
+    related: ["privacy-and-compliance", "hipaa", "crm-marketing-activation"],
+  },
+  "privacy-and-compliance": {
+    slug: "privacy-and-compliance",
+    name: "Privacy and compliance",
+    kind: "compliance",
+    whatItIs:
+      "The controls and certifications that govern how personal data is stored, accessed, and used.",
+    whyItMatters:
+      "A platform centralizes sensitive data, so it becomes a compliance surface. Buyers require proof before trusting it with patient data.",
+    buyerQuestions: [
+      "What certifications do you hold?",
+      "How do you handle data residency and access control?",
+      "How do you support audits?",
+    ],
+    howItChangesRecs:
+      "Missing certifications or weak controls remove a platform before product fit is ever discussed.",
+    evidence: [
+      "Relevant certifications, such as SOC 2 or HITRUST",
+      "Data-residency and access controls",
+      "Audit support",
+    ],
+    related: ["hipaa", "consent-management", "soc-2"],
+  },
+  "healthcare-data-integration": {
+    slug: "healthcare-data-integration",
+    name: "Healthcare data integration",
+    kind: "integration",
+    whatItIs:
+      "Connecting to the clinical systems and standards healthcare data lives in, from EHRs to FHIR.",
+    whyItMatters:
+      "Healthcare data is uniquely complex and regulated. A general platform without healthcare data paths can't serve a hospital.",
+    buyerQuestions: [
+      "Do you integrate with EHRs and clinical systems?",
+      "Do you support healthcare data standards?",
+      "Do you have healthcare references?",
+    ],
+    howItChangesRecs:
+      "This requirement removes horizontal marketing platforms and narrows to those with a healthcare data foundation.",
+    evidence: [
+      "EHR and clinical-system integrations",
+      "Support for healthcare standards like FHIR and HL7",
+      "Healthcare customer references",
+    ],
+    related: ["epic-integration", "fhir", "hipaa"],
+  },
 };
 
 /* ─────────────────────────────────────────────── scenarios ── */
@@ -400,6 +689,33 @@ export const SCENARIOS: Record<string, Scenario> = {
       "microsoft-defender",
     ],
   },
+  "hospital-network": {
+    slug: "hospital-network",
+    categorySlug: "customer-data-platform",
+    name: "Hospital network evaluating a customer data platform",
+    industry: "Healthcare",
+    persona: "Health-system data, marketing, and IT leaders",
+    useCase:
+      "Unifying clinical and marketing data for activation across a hospital network",
+    buyerQuestion: "What is the best customer data platform for a hospital network?",
+    illustrativeRecommendation: [
+      "Tealium",
+      "Treasure Data",
+      "Salesforce Data Cloud",
+      "Adobe Real-Time CDP",
+      "Hightouch",
+      "Twilio Segment",
+      "Freshpaint",
+    ],
+    requirementSlugs: [
+      "epic-integration",
+      "hipaa",
+      "snowflake",
+      "salesforce-marketing-cloud",
+      "fhir",
+      "real-time-activation",
+    ],
+  },
 };
 
 /* ─────────────────────────────────────────────── categories ── */
@@ -436,6 +752,30 @@ export const CATEGORIES: EvalCategory[] = [
       "complex-client-billing",
       "duty-of-care",
       "unused-ticket-management",
+    ],
+  },
+  {
+    slug: "customer-data-platform",
+    name: "Customer data platform",
+    buyerQuestion:
+      "How does AI decide which customer data platform to recommend?",
+    intro:
+      "CDP buyers open with a broad question, then add the data, integration, and compliance requirements their stack actually runs on.",
+    scenarioSlugs: ["hospital-network"],
+    requirementSlugs: [
+      "identity-resolution",
+      "data-ingestion",
+      "real-time-activation",
+      "warehouse-integration",
+      "crm-marketing-activation",
+      "consent-management",
+      "privacy-and-compliance",
+      "healthcare-data-integration",
+      "epic-integration",
+      "hipaa",
+      "snowflake",
+      "salesforce-marketing-cloud",
+      "fhir",
     ],
   },
 ];
