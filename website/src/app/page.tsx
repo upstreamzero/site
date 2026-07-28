@@ -40,30 +40,29 @@ export const metadata: Metadata = {
 
 /** The four stages of an AI-mediated buying decision. One thing (AI weighing
  *  a company against the buyer's requirements) seen at four points. */
-const STAGES = [
+/** What Upstream Zero does, stated as the thesis, in the buyer's order:
+ *  problem, requirements, how AI reads fit, why competitors win, and what
+ *  would make you the logical choice. This is the product. */
+const WHAT_WE_DO = [
   {
-    n: "01",
-    name: "Discovery",
-    q: "Who should I look at?",
-    d: "AI builds the first shortlist. If you're not on it, you never enter, and never find out.",
+    t: "The problem your buyer is solving",
+    d: "The job your buyers are actually trying to get done, in their words.",
   },
   {
-    n: "02",
-    name: "Evaluation",
-    q: "Which of these fits?",
-    d: "The buyer adds requirements. AI cuts everyone who doesn't fit. Most companies disappear here.",
+    t: "The requirements it creates",
+    d: "The specific things they need a vendor to do, which change by industry and by who is making the call.",
   },
   {
-    n: "03",
-    name: "Validation",
-    q: "Am I sure?",
-    d: "The buyer double-checks. Does it integrate, is it secure, can it scale. Confidence firms up or cracks.",
+    t: "How AI reads your fit",
+    d: "Whether AI can tell you meet those requirements, and where it cannot tell.",
   },
   {
-    n: "04",
-    name: "Selection",
-    q: "This is the one.",
-    d: "Whoever survives every cut is the obvious choice. Not because they were picked, but because no one could rule them out.",
+    t: "Why competitors get recommended",
+    d: "Which requirements are getting them put forward instead of you.",
+  },
+  {
+    t: "What must become true",
+    d: "The shortest path to becoming the logical choice for the buyers you want to win.",
   },
 ];
 
@@ -111,12 +110,14 @@ export default function Home() {
                 AI recommends your competitors. Not you.
               </h1>
               <p className="lede mt-7">
-                When your buyers ask AI, it builds a shortlist and puts a few
-                companies forward. Right now you&rsquo;re not one of them, and
-                you can&rsquo;t see why.{" "}
+                When your buyers ask AI for the best option, it puts a few
+                companies forward. Right now it&rsquo;s putting your competitors
+                forward, not you, and not because they have better SEO or more
+                content. It&rsquo;s because AI believes they fit what the buyer
+                needs.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-                  We show you why AI is leaving you off, and what would make you
-                  the company it recommends.
+                  We show you why, and what would make you the company AI
+                  recommends.
                 </strong>
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -162,18 +163,19 @@ export default function Home() {
         <section className="section" id="belief">
           <div className="shell grid gap-14 lg:grid-cols-[1fr_1fr]">
             <div>
-              <p className="eyebrow">What is really happening</p>
-              <h2 className="mt-5 max-w-[16ch]">
-                Companies aren&rsquo;t chosen. They&rsquo;re eliminated.
+              <p className="eyebrow">How AI chooses who to recommend</p>
+              <h2 className="mt-5 max-w-[18ch]">
+                AI recommends the best fit, not the most visible.
               </h2>
-              <p className="muted mt-7 max-w-[52ch]">
-                AI doesn&rsquo;t reward the best option. It removes whatever
-                doesn&rsquo;t fit the buyer&rsquo;s requirements, until a few are
-                left. Being visible, or being the biggest name, doesn&rsquo;t
-                protect you.{" "}
+              <p className="muted mt-7 max-w-[54ch]">
+                Your buyer has a problem, and that problem comes with
+                requirements: the specific things they need a vendor to do. When
+                they ask AI for the best option, AI compares companies against
+                those requirements and puts forward the ones that fit. The
+                company that fits best becomes the logical choice.{" "}
                 <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-                  What matters is whether you survive each cut, and most
-                  companies have never checked whether they do.
+                  Being recommended is the result of fitting what the buyer
+                  needs, not of being the loudest or the biggest name.
                 </strong>
               </p>
             </div>
@@ -206,25 +208,46 @@ export default function Home() {
           <hr className="rule" />
         </div>
 
-        {/* ── AI is in every step, not just the first ─────────── */}
+        {/* ── Differentiation: why AI visibility isn't enough ── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">And it doesn&rsquo;t stop at the first search</p>
-            <h2 className="mt-5 max-w-[26ch]">
-              AI is in every step of the decision, not just the first one.
+            <p className="eyebrow">Why AI visibility isn&rsquo;t enough</p>
+            <h2 className="mt-5 max-w-[24ch]">
+              Getting found is not the same as getting chosen.
             </h2>
-            <p className="lede mt-6">
-              The moment AI first names you is not the decision. It keeps
-              re-deciding as your buyer gets specific, and again as they
-              double-check their choice.
+            <p className="lede mt-6 max-w-[64ch]">
+              AI visibility, AEO, GEO, and LLM optimization all work on one
+              thing: whether AI can find you and mention you. That matters, but
+              it is only the first step. The moment your buyer adds a real
+              requirement, AI narrows to the companies that fit, and the most
+              visible name is often the first one cut. You can show up
+              everywhere in ChatGPT and Google AI and still lose the
+              recommendation.
             </p>
-            <ol className="steps steps-4 mt-12">
-              {STAGES.map((s) => (
-                <li key={s.n} className="step">
-                  <div className="step-n">{s.n}</div>
-                  <h3>{s.name}</h3>
-                  <span className="step-q">&ldquo;{s.q}&rdquo;</span>
-                  <p>{s.d}</p>
+          </div>
+        </section>
+
+        {/* ── What we do: the thesis, as the product ──────────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">What we do</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              We show you what it takes to become the company AI recommends.
+            </h2>
+            <p className="lede mt-6 max-w-[62ch]">
+              For the buyers you want to win, we find what is really deciding who
+              AI puts forward, and what would put you there.
+            </p>
+            <ol className="method-list mt-4">
+              {WHAT_WE_DO.map((s, i) => (
+                <li key={s.t} className="method-row">
+                  <span className="num-row__n">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="method-row__body">
+                    <div className="method-row__title">{s.t}</div>
+                    <div className="method-row__desc">{s.d}</div>
+                  </div>
                 </li>
               ))}
             </ol>
