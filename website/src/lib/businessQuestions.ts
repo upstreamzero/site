@@ -61,7 +61,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     concluded:
       "Across five categories we have watched the field narrow as requirements are added, and the company leading the opening list is frequently the first removed at a requirement it cannot meet. In one category the entire named field was cut at a single requirement and the recommendation moved up to a higher market tier.",
     unknown:
-      "We cannot yet say what about a category predicts who survives, and most of these runs used a single AI system, so the exact drop-off point should be measured for your category rather than assumed.",
+      "We cannot yet say what about a category predicts who survives, so the exact drop-off point should be measured for your category rather than assumed.",
     howWeHelp:
       "Upstream Zero runs your category through the same kind of requirement sequence a buyer would, finds the exact requirement where you drop out, and diagnoses the missing proof behind it. That diagnosis is measurement, not a promise about rankings.",
     nextStep:
@@ -187,7 +187,7 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     whyItMatters:
       "Understanding the stages is what makes the other questions answerable. Each stage is a place where a company can be won or lost, and we study each one on its own.",
     concluded:
-      "We have observed this staged narrowing across several categories: an opening list that is not the final answer, companies cut at specific requirements, the leader exposed at the first requirement it cannot meet, and fields that survive, collapse, or move to a different tier depending on the category. Every observation is held at its honest confidence level and most rest on a single AI system.",
+      "We have observed this staged narrowing across several categories: an opening list that is not the final answer, companies cut at specific requirements, the leader exposed at the first requirement it cannot meet, and fields that survive, collapse, or move to a different tier depending on the category. Every observation is held at its honest confidence level, and we have now seen the pattern on both ChatGPT and Google AI.",
     unknown:
       "How closely this resembles the way a human buying committee evaluates, and how much of it holds across different AI systems and over time, are open questions the research program is built to keep testing.",
     howWeHelp:

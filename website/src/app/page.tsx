@@ -194,8 +194,9 @@ export default function Home() {
                   <strong>Being on top was the risk, not the protection.</strong>
                 </p>
                 <p className="proofpt is-quiet">
-                  Early evidence, on a small number of markets and mostly one AI
-                  system so far. We hold it as a strong pattern, not a law.
+                  Early evidence, on a small number of markets, seen on both
+                  ChatGPT and Google AI so far. We hold it as a strong pattern,
+                  not a law.
                 </p>
               </div>
             </div>
@@ -299,6 +300,48 @@ export default function Home() {
                 standard is the whole company.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* ── What you do about it: what must become true ────── */}
+        <section className="section-tight">
+          <div className="shell">
+            <p className="eyebrow">What you do about it</p>
+            <h2 className="mt-5 max-w-[26ch]">
+              You leave knowing what would put you back on the list.
+            </h2>
+            <p className="lede mt-6 max-w-[60ch]">
+              Being cut isn&rsquo;t the end of it. For every requirement that
+              removes you, we tell you what would have to be true, and provable,
+              for AI to recommend you instead. That&rsquo;s your plan, most
+              important first. You fix what matters.
+            </p>
+            <ul className="outcomes">
+              <li className="outcome">
+                <p>
+                  <strong>
+                    Something you already do, that AI can&rsquo;t see.
+                  </strong>{" "}
+                  Put the proof where AI will read it, and you move back into the
+                  running.
+                </p>
+                <span className="chip chip-accent">Usually fixable</span>
+              </li>
+              <li className="outcome">
+                <p>
+                  <strong>A competitor&rsquo;s claim AI trusts over yours.</strong>{" "}
+                  Show the evidence that outweighs it.
+                </p>
+                <span className="chip chip-accent">Usually fixable</span>
+              </li>
+              <li className="outcome">
+                <p>
+                  <strong>A real gap.</strong> Now you know it&rsquo;s real, and
+                  you can decide whether it&rsquo;s worth closing.
+                </p>
+                <span className="chip chip-accent">Worth knowing</span>
+              </li>
+            </ul>
           </div>
         </section>
 

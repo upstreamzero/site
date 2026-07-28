@@ -67,8 +67,8 @@ export default function Evidence() {
                 </p>
                 <p className="proofpt">
                   <strong>
-                    We hold this as a strong, repeated pattern, mostly on one AI
-                    system so far, and we say so.
+                    We hold this as a strong, repeated pattern, seen on both
+                    ChatGPT and Google AI so far, and we say so.
                   </strong>
                 </p>
               </div>
