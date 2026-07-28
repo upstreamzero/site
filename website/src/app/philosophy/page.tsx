@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const QA_PLAIN: { q: string; a: string }[] = [
   {
     q: "Can commercial evaluation be studied?",
-    a: "We believe it can, and that it must be studied before anyone can claim to improve it. AI evaluators have made portions of commercial evaluation observable and experimentable for the first time; generalizing beyond AI evaluators runs through an open bridge hypothesis.",
+    a: "We believe it can, and that it must be studied before anyone can claim to improve it. AI evaluators have made parts of commercial evaluation observable and open to experiment for the first time; generalizing beyond AI evaluators runs through an open bridge hypothesis.",
   },
   {
     q: "Why should anyone believe what this site says?",
@@ -163,7 +163,7 @@ export default function Philosophy() {
               <Link href="/concepts/evidence-tier">evidence tier</Link> from
               Narrated (asserted, not demonstrated) to Real World Corroborated,
               and a claim can never display more confidence than its evidence
-              edges justify. The site literally fails to build if one tries.
+              justifies. The site literally fails to build if one tries.
             </p>
           </QPart>
           <QPart label="Evidence">

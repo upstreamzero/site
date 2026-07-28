@@ -38,7 +38,7 @@ export async function generateMetadata({
     title: { absolute: `${name} | Upstream Zero` },
     description:
       obj.businessOutcome ??
-      `${name}: a fixed-scope Commercial Evaluation engagement from Upstream Zero.`,
+      `${name}: a fixed-scope project from Upstream Zero.`,
     ...pageMeta(`/solutions/${slug}`),
   };
 }
@@ -99,7 +99,7 @@ export default async function ProductPage({
               </Link>
               <span className="muted"> / {name}</span>
             </nav>
-            <p className="eyebrow mt-6">Commercial Evaluation product</p>
+            <p className="eyebrow mt-6">Upstream Zero product</p>
             <h1 className="mt-5 max-w-[20ch]">{name}</h1>
             {obj.businessProblem && (
               <p className="lede mt-7">
@@ -107,10 +107,9 @@ export default async function ProductPage({
               </p>
             )}
             <p className="muted mt-6 max-w-[64ch] text-[0.9375rem]">
-              Commercial Evaluation is the process through which a buyer, or a
-              system acting on behalf of a buyer, compares, evaluates, and
-              narrows a large field of possible vendors into a smaller
-              recommendation set based on the buyer&apos;s requirements. This
+              This is the process where a buyer, or an AI acting for a buyer,
+              compares a large field of companies and narrows it down to a short
+              list of recommendations, based on what the buyer needs. This
               product measures and diagnoses that process for your company.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -187,7 +186,7 @@ export default async function ProductPage({
                 <p>
                   <strong>What this does not promise.</strong> We measure and
                   diagnose. You receive evidence and a prioritized set of
-                  decisions, never a promise about what an evaluator will do.
+                  decisions, never a promise about what an AI system will do.
                 </p>
                 <ul className="mt-4 list-none space-y-2 p-0 text-[0.9375rem]">
                   {obj.nonPromises.map((n) => (

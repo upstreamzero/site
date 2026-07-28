@@ -9,9 +9,9 @@ import { FounderDecision } from "@/components/FounderDecision";
 
 /** Metadata unchanged by the redesign: presentation only. */
 export const metadata: Metadata = {
-  title: { absolute: "Commercial Evaluation Services | Upstream Zero" },
+  title: { absolute: "What We Measure | Upstream Zero" },
   description:
-    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We help organizations understand how AI systems evaluate, compare, recommend, and eliminate vendors, and what must become true to become a logical choice.",
+    "Upstream Zero studies how AI decides which companies to recommend to buyers. We help you understand how AI systems compare companies, recommend some, and rule others out, and what would have to change to make you the obvious choice.",
   ...pageMeta("/services"),
 };
 
@@ -20,22 +20,22 @@ const ANSWERS = [
   {
     n: "01",
     title: "How you are evaluated today",
-    body: "How systems currently represent, compare, include, recommend, and eliminate your company.",
+    body: "How AI systems currently describe, compare, recommend, and rule out your company.",
   },
   {
     n: "02",
     title: "Why that result happened",
-    body: "The requirements you are measured against, the evidence gaps, and the competitor differences associated with the outcome.",
+    body: "The buyer requirements you are judged against, the proof you are missing, and the ways competitors differ that shaped the result.",
   },
   {
     n: "03",
     title: "What would have to become true",
-    body: "The most important change to test if you want to become a more logical choice.",
+    body: "The single most important change to test if you want to become a more obvious choice.",
   },
   {
     n: "04",
     title: "Whether anything moved",
-    body: "Repeated measurement to see whether the recommendation changed, and whether the change survived another evaluation.",
+    body: "Repeated measurement to see whether the list AI recommends changed, and whether that change held up the next time.",
   },
 ];
 
@@ -53,13 +53,13 @@ export default function Services() {
           <div className="shell">
             <p className="eyebrow">For companies</p>
             <h1 className="mt-5 max-w-[18ch]">
-              Find out why you are not the recommendation.
+              Find out why AI is not recommending you.
             </h1>
             <p className="lede mt-7">
               Deals are being decided in evaluations you never see, before your
-              team is in the room. If a system cannot verify what you do, you
-              are not the recommendation, and you never find out why. We
-              measure what is actually happening and explain what produced it.
+              team is in the room. If an AI system cannot confirm what you do,
+              it does not recommend you, and you never find out why. We measure
+              what is actually happening and explain what caused it.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <BookingButton variant="btn">
@@ -79,7 +79,7 @@ export default function Services() {
         {/* ── What an engagement answers ──────────────────────── */}
         <section className="section">
           <div className="shell">
-            <p className="eyebrow">What an engagement answers</p>
+            <p className="eyebrow">What a project answers</p>
             <h2 className="mt-5 max-w-[20ch]">
               Four questions, answered with evidence.
             </h2>
@@ -101,10 +101,10 @@ export default function Services() {
             <div className="callout max-w-[70ch]">
               <p>
                 <strong>The rule behind all of it never moves.</strong> We
-                measure and diagnose. We never promise to change what an
-                evaluator does. Engagements deliver artifacts, never outcomes,
-                and the object model has no field a promised outcome could
-                even live in.
+                measure and diagnose. We never promise to change what an AI
+                system does. Our projects deliver evidence and analysis, never
+                a promised result, and the site is built so that a promised
+                outcome has nowhere it could even be written down.
               </p>
             </div>
           </div>
@@ -128,9 +128,9 @@ export default function Services() {
               ))}
             </ul>
             <p className="muted mt-6 max-w-[62ch] text-[0.9375rem]">
-              The build itself forbids marking a capability operational until
-              it derives from published method. That is not a promise, it is a
-              compiler error.
+              The site itself refuses to call a capability ready until it comes
+              from published method. That is not a promise, it is a build
+              error.
             </p>
           </div>
         </section>
@@ -138,9 +138,9 @@ export default function Services() {
         {/* ── Engagements ────────────────────────────────────── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">What an engagement produces</p>
+            <p className="eyebrow">What a project produces</p>
             <h2 className="mt-5 max-w-[22ch]">
-              Artifacts you can inspect before you buy.
+              Evidence you can inspect before you buy.
             </h2>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {engagements.map((e) => (
@@ -157,7 +157,7 @@ export default function Services() {
               ))}
             </div>
             <p className="muted mt-8 max-w-[62ch] text-[0.9375rem]">
-              Deliverable specifications are public before you buy:{" "}
+              What each project delivers is public before you buy:{" "}
               {deliverables.map((d, i) => (
                 <span key={d.id}>
                   {i > 0 && " · "}
@@ -168,8 +168,8 @@ export default function Services() {
             </p>
             <div className="mt-8 max-w-[70ch]">
               <FounderDecision id="FD-6">
-                Engagement names, scopes, and pricing are provisional pending
-                founder confirmation. No engagement is bookable until that
+                Project names, scope, and pricing are still provisional until
+                the founder confirms them. Nothing can be booked until that
                 decision is made.
               </FounderDecision>
             </div>
@@ -186,10 +186,10 @@ export default function Services() {
             {outcomes.length === 0 && (
               <div className="mt-8 max-w-[70ch]">
                 <EmptyState>
-                  No measured outcomes yet. Engagement results will publish
-                  here as tiered evidence, with client consent, as they are
-                  measured. This register is what replaces a logo wall. It is
-                  slower, and it is worth more.
+                  No measured outcomes yet. Client results will be published
+                  here as evidence, labeled by how sure we are, with the
+                  client&rsquo;s consent, as they are measured. This is what
+                  replaces a wall of logos. It is slower, and it is worth more.
                 </EmptyState>
               </div>
             )}
@@ -204,9 +204,9 @@ export default function Services() {
                 Start with your category, not a pitch.
               </h2>
               <p className="lede mt-5" style={{ color: "#ffffff", opacity: 0.85 }}>
-                A first conversation covers your evaluation context, what is
-                measurable now, and whether we should work together yet.
-                Sometimes the honest answer is not yet.
+                A first conversation covers your situation, what we can measure
+                now, and whether we should work together yet. Sometimes the
+                honest answer is not yet.
               </p>
             </div>
             <BookingButton variant="btn-lime">

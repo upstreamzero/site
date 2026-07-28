@@ -6,7 +6,7 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "How AI Narrows a Vendor Shortlist | Upstream Zero" },
   description:
-    "The method: observe how AI systems recommend vendors, apply real buyer requirements one at a time, and see exactly where a company survives or is eliminated. How requirements change AI recommendations, shown step by step.",
+    "The method: observe how AI systems recommend vendors, apply real buyer requirements one at a time, and see exactly where a company survives or gets ruled out. How requirements change AI recommendations, shown step by step.",
   ...pageMeta("/methodology"),
 };
 
@@ -21,7 +21,7 @@ const STEPS = [
   {
     n: "02",
     title: "Observe the initial recommendation",
-    body: "We determine how major AI platforms interpret the problem, compare alternatives, and form an initial recommendation set.",
+    body: "We determine how major AI platforms interpret the problem, compare alternatives, and form an initial shortlist.",
   },
   {
     n: "03",
@@ -31,7 +31,7 @@ const STEPS = [
   {
     n: "04",
     title: "Observe how the recommendation evolves",
-    body: "We identify the exact follow-up where a company is removed, displaced, or remains the logical choice.",
+    body: "We identify the exact follow-up where a company is removed, displaced, or remains the obvious choice.",
   },
   {
     n: "05",
@@ -64,7 +64,7 @@ const FLOW = [
   },
   {
     k: "Final recommendation",
-    v: "It reflects the buyer's complete requirement set, not the opening question. The recommendation evolved because the requirements did.",
+    v: "It reflects the buyer's complete list of requirements, not the opening question. The recommendation evolved because the requirements did.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function Methodology() {
               "WebPage",
               "Methodology | Upstream Zero",
               "/methodology",
-              "How Upstream Zero observes commercial evaluation and turns it into prioritized, evidence-based decisions.",
+              "How Upstream Zero observes the way AI sizes up companies and turns it into prioritized, evidence-based decisions.",
             ),
           }}
         />
@@ -100,21 +100,21 @@ export default function Methodology() {
               A defensible answer to what your company should do next.
             </h1>
             <p className="lede mt-7">
-              Upstream Zero is a commercial intelligence company focused on
-              AI-mediated commercial evaluation. This is how we produce the
-              evidence: we evaluate your company across the commercial questions
-              real buyers ask, then add requirements through follow-up questions
-              to determine whether the recommendation holds or collapses.
+              Upstream Zero studies how AI decides which companies to recommend
+              to buyers. This is how we produce the evidence: we test your
+              company against the buying questions real customers ask, then add
+              requirements through follow-up questions to see whether the
+              recommendation holds or collapses.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
               Methodology explains how the evidence is produced. Research holds
               the observed evidence itself. The five steps below are the{" "}
               <Link href="/solutions">Upstream Zero measurement workflow</Link>,
-              how the company observes, diagnoses, acts on, and measures the{" "}
+              how the company observes, diagnoses, acts on, and measures{" "}
               <Link href="/learn/commercial-evaluation">
-                commercial evaluation lifecycle
+                how AI sizes up companies
               </Link>{" "}
-              that a buyer moves through.
+              as a buyer moves toward a decision.
             </p>
           </div>
         </section>
@@ -155,8 +155,8 @@ export default function Methodology() {
               ))}
             </ol>
             <p className="muted mt-6 max-w-[62ch] text-[0.875rem]">
-              Illustrative example, shown to explain how commercial evaluation
-              narrows. It is not a record of a specific evaluation and names no
+              Illustrative example, shown to explain how AI narrows the list it
+              recommends. It is not a record of a specific evaluation and names no
               companies as an observed outcome. Real, condition-specific runs
               live in the <Link href="/research">research library</Link>.
             </p>

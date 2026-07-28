@@ -8,7 +8,7 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "Glossary | Upstream Zero" },
   description:
-    "Definitions for commercial evaluation, AI visibility, GEO, AI SEO, recommendation survivability, and the terms buyers and marketers use in AI-mediated buying.",
+    "Definitions for how AI decides who to recommend, showing up in AI answers, SEO and AI-search tools, whether a recommendation survives, and the terms buyers and marketers use in buying decisions shaped by AI.",
   ...pageMeta("/glossary"),
 };
 
@@ -45,7 +45,7 @@ export default function Glossary() {
               "CollectionPage",
               "Glossary | Upstream Zero",
               "/glossary",
-              "Definitions for commercial evaluation and AI-mediated buying.",
+              "Definitions for how AI decides who to recommend and buying decisions shaped by AI.",
             ),
           }}
         />
@@ -66,8 +66,8 @@ export default function Glossary() {
               The terms, defined once and consistently.
             </h1>
             <p className="lede mt-7">
-              Plain definitions for the vocabulary of AI-mediated buying, each
-              linking to the fuller reference.
+              Plain definitions for the vocabulary of buying decisions shaped by
+              AI, each linking to the fuller reference.
             </p>
           </div>
         </section>

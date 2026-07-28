@@ -213,7 +213,7 @@ export default async function PillarPage({
                   href={`/learn/${HUB_PILLAR.slug}`}
                   className="btn-ghost"
                 >
-                  What commercial evaluation actually is
+                  What actually decides who AI recommends
                 </Link>
               </p>
             </div>
@@ -241,7 +241,7 @@ export default async function PillarPage({
             <div className="shell">
               <hr className="rule" />
               <p className="eyebrow mt-12">
-                Where it fits in the commercial evaluation lifecycle
+                Where it fits in how a buyer decides
               </p>
               <div className="mt-6 max-w-[74ch]">
                 <Lifecycle active={p.lifecycleStages ?? []} />
@@ -250,11 +250,10 @@ export default async function PillarPage({
                 <p className="mt-7 max-w-[66ch]">{renderLinks(p.lifecycle)}</p>
               )}
               <p className="muted mt-5 max-w-[66ch] text-[0.9375rem]">
-                This is the commercial evaluation lifecycle: how a buyer&rsquo;s
-                evaluation unfolds. The{" "}
+                This is how a buyer&rsquo;s decision unfolds, step by step. The{" "}
                 <Link href="/solutions">Upstream Zero measurement workflow</Link>{" "}
-                is how the company observes, diagnoses, acts on, and measures
-                that lifecycle.
+                is how the company watches that decision, diagnoses it, acts on
+                it, and measures it.
               </p>
             </div>
           </section>

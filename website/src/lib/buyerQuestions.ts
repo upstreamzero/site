@@ -34,34 +34,34 @@ export const PROBLEM_AREAS: ProblemArea[] = [
         href: "/questions/why-are-some-companies-recommended",
       },
       { q: "Why are AI systems recommending our competitors instead of us?" },
-      { q: "Can we determine why a company was included, excluded, validated, or rejected?" },
+      { q: "Can we find out why a company was included, cut, trusted, or rejected?" },
     ],
   },
   {
     anchor: "misrepresentation",
-    label: "Misrepresentation and reconstruction",
+    label: "Being misread or misdescribed",
     lead: "Why does AI misunderstand or misrepresent what our company does?",
     questions: [
       { q: "Why does AI misunderstand or misrepresent what our company does?" },
-      { q: "How do we know whether our commercial representation is faithful to the real company?" },
+      { q: "How do we know whether the way AI describes us matches the real company?" },
     ],
   },
   {
     anchor: "requirements",
-    label: "Requirements and evidence gaps",
+    label: "Requirements and missing proof",
     lead: "Which requirements are eliminating us from consideration?",
     questions: [
-      { q: "Which commercial requirements do evaluators believe we satisfy?" },
-      { q: "Which requirements are eliminating us from consideration?" },
-      { q: "What evidence would change an evaluator's recommendation?" },
+      { q: "Which buyer requirements do AI systems believe we meet?" },
+      { q: "Which requirements are getting us cut?" },
+      { q: "What proof would change an AI system's recommendation?" },
     ],
   },
   {
     anchor: "stability",
-    label: "Evaluation stability",
-    lead: "How stable are recommendation outcomes across evaluators, prompts, and time?",
+    label: "How steady the results are",
+    lead: "How steady are AI recommendations across different systems, questions, and time?",
     questions: [
-      { q: "How stable are recommendation outcomes across evaluators, prompts, and time?" },
+      { q: "How steady are AI recommendations across different systems, questions, and over time?" },
       { q: "Why do rankings, visibility, citations, and recommendations produce different results?" },
     ],
   },
@@ -79,7 +79,7 @@ export const PROBLEM_AREAS: ProblemArea[] = [
     lead: "Can AI recommendation behavior actually be measured?",
     questions: [
       { q: "Can AI recommendation behavior actually be measured?" },
-      { q: "How do we know whether an intervention actually changed selection behavior?" },
+      { q: "How do we know whether a change actually moved how AI selects us?" },
     ],
   },
 ];

@@ -22,12 +22,11 @@ const GA_ENABLED = process.env.NODE_ENV === "production" && Boolean(GA_ID);
 export const metadata: Metadata = {
   metadataBase: new URL("https://upstreamzero.com"),
   title: {
-    default:
-      "Upstream Zero · Commercial Intelligence for AI-Mediated Commercial Evaluation",
+    default: "Upstream Zero · See How AI Decides Who to Recommend",
     template: "%s · Upstream Zero",
   },
   description:
-    "Upstream Zero is a commercial intelligence company focused on AI-mediated commercial evaluation. We study how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence. We help organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice.",
+    "Your buyers start with AI, not with you. It builds their shortlist and rules companies out before anyone calls. Upstream Zero shows you where you stand, where you're being cut, and what would change it. We measure and explain. We never sell the fix.",
   /** Site-level sharing defaults. "Upstream Zero" is always the company
    *  name; the descriptor ("Commercial intelligence company focused on
    *  AI-mediated commercial evaluation") never stands alone as a title. */

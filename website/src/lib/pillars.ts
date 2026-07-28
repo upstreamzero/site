@@ -50,7 +50,7 @@ export type LifecycleStageKey =
 
 export const LIFECYCLE: { key: LifecycleStageKey; label: string }[] = [
   { key: "business-outcomes", label: "Business outcomes" },
-  { key: "ai-mediated-buying", label: "AI-mediated buying" },
+  { key: "ai-mediated-buying", label: "Buying through AI" },
   { key: "discovery", label: "Discovery" },
   { key: "retrieval", label: "Retrieval" },
   { key: "recommendation", label: "Recommendation" },
@@ -63,35 +63,35 @@ export const LIFECYCLE: { key: LifecycleStageKey; label: string }[] = [
 export const PILLARS: Pillar[] = [
   {
     slug: "commercial-evaluation",
-    term: "Commercial Evaluation",
+    term: "How AI decides who to recommend",
     kind: "concept",
     hub: true,
     summary:
-      "Commercial evaluation is the process that decides which company a buyer considers, validates, and selects. In AI-mediated buying, much of it happens before you know the buyer exists.",
+      "It is how a buyer decides which company to consider, check out, and finally choose. More and more, that decision happens through AI, before you even know the buyer exists.",
     definition:
-      "Commercial Evaluation is the process through which a buyer, or a system acting on behalf of a buyer, compares, evaluates, and narrows a large field of possible vendors into a smaller recommendation set based on the buyer's requirements.",
+      "Commercial Evaluation is how a buyer, or an AI acting on their behalf, compares a large field of possible vendors and narrows it to a short list, based on what the buyer needs.",
     mechanics:
-      "A buyer describes a problem. Requirements are inferred and applied. Companies are compared against those requirements. Some are eliminated, one becomes the recommendation. Each new requirement can change who remains.",
+      "A buyer describes a problem. The system works out what they need and checks each company against it. Some get cut, one becomes the pick. Every new requirement can change who is left standing.",
     matters:
-      "The recommendation a buyer arrives with was produced by an evaluation you usually never see. Understanding that evaluation is how you learn why competitors are chosen and where you are eliminated.",
-    limitations: "Commercial evaluation is a process to understand and measure, not a lever to pull directly. Observing where you are eliminated does not by itself change the outcome; it tells you what must become true. And what is observable today is the AI evaluator's behavior, not the human buying committee, so generalization runs through a bridge hypothesis.",
-    lifecycle: "Commercial evaluation is the lifecycle. It runs from AI-mediated buying through recommendation, requirement evaluation, validation, and selection, and loops back to business outcomes through measurement. Every other term names a part of it.",
+      "By the time a buyer reaches you, they already have a shortlist, built by a process you usually never see. Understanding that process is how you learn why competitors get chosen and where you get cut.",
+    limitations: "This is something to understand and measure, not a switch you can flip. Seeing where you get cut does not change the result on its own; it tells you what would have to become true. And what we can watch today is how the AI behaves, not the people on the buying committee, so applying one to the other is still an assumption we flag.",
+    lifecycle: "Commercial evaluation is the whole journey. It runs from buying through AI, to the shortlist, to matching what the buyer needs, to checking the evidence, to the final choice, and loops back to business results through measurement. Every other term here names a part of it.",
     lifecycleStages: ["ai-mediated-buying", "recommendation", "requirement-evaluation", "validation", "selection", "measurement"],
-    businessLogic: "The evaluation decides who a buyer selects, and selection is where pipeline, win rates, and revenue are realized. Improving your position in the evaluation is the mechanism behind those outcomes, but whether they improve depends on execution across every stage. Upstream Zero measures the movement; it does not promise the number.",
+    businessLogic: "This decision is where a buyer picks a winner, and that is where pipeline, win rates, and revenue come from. Improving your standing in it is what drives those results, but whether they actually improve depends on how you execute at every step. Upstream Zero measures the movement; it does not promise the number.",
     relatedTerms: ["ai-visibility", "recommendation-intelligence", "ai-recommendations", "requirement-based-evaluation", "vendor-selection", "evidence-strategy"],
     relatedComponents: ["recommendation-survivability", "vendor-elimination", "validation-and-evidence", "recommendation-set-formation"],
     reframe: [
-      "Most of the terms below (AI visibility, GEO, AI SEO) describe tactics for being found. Commercial evaluation is about being chosen. Being retrieved is necessary; it is not the same as surviving a real buyer's requirements.",
-      "Upstream Zero studies commercial evaluation directly. AI systems are today's mechanism, the place the evaluation is currently easiest to observe. The mechanism will change; the evaluation will not.",
+      "Most of the terms below (AI visibility, GEO, AI SEO) are about getting found. Commercial evaluation is about getting chosen. Being found is necessary, but it is not the same as holding up once a real buyer says what they need.",
+      "Upstream Zero studies that decision directly. AI is simply where it is easiest to watch right now. The tools will change; the decision itself will not.",
     ],
     faqs: [
       {
         q: "Is commercial evaluation the same as AI visibility?",
-        a: "No. Visibility is whether a system can find and mention you. Commercial evaluation is whether you survive the requirements a real buyer applies and become the recommendation. You can be highly visible and still eliminated at the first real requirement.",
+        a: "No. Visibility is whether a system can find and mention you. Commercial evaluation is whether you hold up against what a real buyer needs and become the pick. You can be very visible and still get cut at the first real requirement.",
       },
       {
         q: "Can commercial evaluation be measured?",
-        a: "Parts of it can be observed today through AI evaluators: which companies are recommended, which requirements eliminate them, and how the recommendation changes as requirements are added. Upstream Zero measures that layer and reports it with its conditions and limits.",
+        a: "Parts of it, through AI: which companies get recommended, which requirements cut them, and how the shortlist changes as requirements pile up. Upstream Zero measures that and reports it with its conditions and limits.",
       },
     ],
   },
@@ -106,25 +106,25 @@ export const PILLARS: Pillar[] = [
     mechanics:
       "It depends on whether your information is reachable, machine-readable, consistent across sources, and current. A system that cannot reconstruct what you do cannot surface you accurately.",
     matters:
-      "If a system cannot find or correctly describe you, you cannot be considered at all. Visibility is the entry ticket to the evaluation, not the outcome of it.",
-    limitations: "Presence alone does not reveal recommendation strength, recommendation order, requirement fit, validation quality, or selection likelihood. AI visibility tells you that a company appears; it does not tell you whether it is recommended first, whether it survives the requirements a buyer adds, or whether it is [eliminated](/concepts/vendor-elimination) once the field narrows. A company can be highly visible and never become the logical choice.",
-    lifecycle: "AI visibility spans discovery and retrieval: whether and how often a company, product, or brand appears across AI-generated answers and buying environments. It is the broadest of the market terms, because it measures presence rather than any single mechanism. After presence, the evaluation decides what matters: the company may enter but rank behind a better-fitting alternative, be eliminated when a requirement is added, lack validation evidence, or lose frontrunner status during follow-up questions. Visibility is necessary; it is not [recommendation survivability](/concepts/recommendation-survivability).",
+      "If a system cannot find or correctly describe you, you cannot be considered at all. Visibility is the ticket in the door, not the win.",
+    limitations: "Showing up tells you nothing about whether you are recommended first, whether you fit what the buyer needs, whether the evidence holds up, or whether you get chosen. AI visibility tells you a company appears; it does not tell you whether it survives the requirements a buyer adds, or whether it gets [cut](/concepts/vendor-elimination) once the list narrows. A company can be very visible and never become the obvious choice.",
+    lifecycle: "AI visibility covers whether and how often a company, product, or brand shows up across AI answers and buying moments. It is the broadest of these terms, because it measures presence rather than any one thing. After you appear, the real decision takes over: you might enter but rank behind a better fit, get cut when a requirement is added, have no evidence to back you up, or lose the lead during follow-up questions. Showing up is necessary; it is not the same as [holding your spot](/concepts/recommendation-survivability).",
     lifecycleStages: ["discovery", "retrieval"],
-    businessLogic: "Organizations invest in AI visibility to be present in the buying conversations that increasingly happen through AI. That presence can be evaluated alongside qualified pipeline and ICP alignment. But visibility without evaluation survivability may not create qualified opportunity: appearing in an answer is not the same as surviving the requirements that decide the shortlist. Upstream Zero measures whether recommendation behavior moves as requirements are applied; it does not assume presence produces pipeline.",
+    businessLogic: "Companies invest in AI visibility to be present in the buying conversations that increasingly happen through AI. That presence can be weighed alongside qualified pipeline and how well the leads fit your ideal customer. But showing up without holding up may not create real opportunity: appearing in an answer is not the same as surviving the requirements that decide the shortlist. Upstream Zero measures whether the recommendation moves as requirements are applied; it does not assume showing up produces pipeline.",
     relatedTerms: ["answer-engine-optimization", "generative-engine-optimization", "ai-search-optimization", "commercial-evaluation", "recommendation-intelligence"],
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
-      "Visibility answers 'can the system find me?' It does not answer 'does the system recommend me when a real buyer describes their requirements?' Those are different questions, and the second is the one that closes deals.",
-      "A evaluation audit starts where visibility work ends: it observes what happens after you are found, when requirements are applied and companies are eliminated.",
+      "Visibility answers 'can the system find me?' It does not answer 'does the system recommend me when a real buyer says what they need?' Those are different questions, and the second is the one that closes deals.",
+      "An evaluation audit starts where visibility work ends: it watches what happens after you are found, when the buyer's requirements come in and companies start getting cut.",
     ],
     faqs: [
       {
         q: "Do you improve AI visibility?",
-        a: "We are not a visibility agency and we do not promise rankings or inclusion. We measure and diagnose how AI systems currently evaluate you, including whether visibility is even your constraint, and hand you prioritized decisions.",
+        a: "We are not a visibility agency and we do not promise rankings or inclusion. We measure and explain how AI systems weigh you today, including whether visibility is even your real problem, and hand you a ranked list of decisions.",
       },
       {
         q: "Is more visibility always better?",
-        a: "Not on its own. Being visible into an evaluation you then lose at the first requirement does not help. The useful question is where in the evaluation you are actually being removed.",
+        a: "Not on its own. Being visible in a race you then lose at the first requirement does not help. The useful question is where you are actually being knocked out.",
       },
     ],
   },
@@ -144,12 +144,12 @@ export const PILLARS: Pillar[] = [
     matters:
       "If you cannot tell whether AI mentions you, you are working blind in a channel that increasingly shapes buying. Visibility tools give you the first read: whether you are in the conversation at all.",
     limitations:
-      "A visibility score tells you that you appeared. It does not tell you why a competitor was recommended over you, at which requirement you dropped out, or what evidence would change the result. Two tools often report very different scores for the same company because they test different prompts, on different schedules, against different models, and most never show the raw output. Presence is measured; the [evaluation](/learn/commercial-evaluation) that decides who is chosen is not.",
+      "A visibility score tells you that you appeared. It does not tell you why a competitor was recommended over you, at which requirement you dropped out, or what evidence would change the result. Two tools often report very different scores for the same company because they test different prompts, on different schedules, against different models, and most never show the raw output. Showing up is measured; the [decision](/learn/commercial-evaluation) about who gets chosen is not.",
     lifecycle:
-      "AI visibility tools act at discovery and retrieval: whether you appear and how often. They stop where the [recommendation](/concepts/recommendation-set-formation) is decided. After you appear, a buyer adds requirements, the field narrows, and companies are [eliminated](/concepts/vendor-elimination). A tool that tracks mentions cannot see that elimination happen.",
+      "AI visibility tools work at the front, on whether you appear and how often. They stop where the [shortlist](/concepts/recommendation-set-formation) is decided. After you appear, a buyer adds requirements, the field narrows, and companies get [cut](/concepts/vendor-elimination). A tool that counts mentions cannot see that happen.",
     lifecycleStages: ["discovery", "retrieval"],
     businessLogic:
-      "Teams buy visibility tools to prove they are present in AI answers and to benchmark against competitors. Presence can be tracked alongside pipeline, but presence is not the outcome: appearing in an answer is not the same as surviving the requirements that produce the shortlist. Upstream Zero measures whether the recommendation itself moves as requirements are applied, which is a different question than how often you are mentioned.",
+      "Teams buy visibility tools to prove they show up in AI answers and to benchmark against competitors. You can track that alongside pipeline, but showing up is not the win: appearing in an answer is not the same as surviving the requirements that produce the shortlist. Upstream Zero measures whether the recommendation itself moves as requirements are applied, which is a different question than how often you get mentioned.",
     relatedTerms: [
       "ai-visibility",
       "are-we-showing-up-in-ai",
@@ -160,8 +160,8 @@ export const PILLARS: Pillar[] = [
     ],
     relatedComponents: ["recommendation-set-formation", "vendor-elimination"],
     reframe: [
-      "AI visibility tools answer 'am I showing up?' That is a real question and a useful floor. But being mentioned is not being recommended. The moment a buyer says the product must integrate with their systems or meet their compliance requirement, presence does nothing and fit decides the outcome.",
-      "Upstream Zero is not a visibility tool and does not sell one. We study the evaluation that runs after you appear: which requirement removes you, why a competitor survives, and what evidence would change the recommendation. Because we do not sell the fix, we can tell you honestly where you actually stand. See [how visibility tools compare to Upstream Zero](/compare/ai-visibility-tools-vs-upstream-zero).",
+      "AI visibility tools answer 'am I showing up?' That is a real question and a useful floor. But being mentioned is not being recommended. The moment a buyer says the product must plug into their systems or meet their compliance requirement, showing up does nothing and fit decides the outcome.",
+      "Upstream Zero is not a visibility tool and does not sell one. We study what happens after you appear: which requirement removes you, why a competitor survives, and what evidence would change who AI recommends. Because we do not sell the fix, we can tell you honestly where you actually stand. See [how visibility tools compare to Upstream Zero](/compare/ai-visibility-tools-vs-upstream-zero).",
     ],
     faqs: [
       {
@@ -170,7 +170,7 @@ export const PILLARS: Pillar[] = [
       },
       {
         q: "Do AI visibility tools tell you why competitors are recommended?",
-        a: "No. They report that a competitor appeared. They do not reconstruct the evaluation that recommended it, the requirement that eliminated you, or the evidence that would change the result. That is the gap between visibility and being chosen.",
+        a: "No. They report that a competitor appeared. They do not reconstruct why it was recommended, the requirement that cut you, or the evidence that would change the result. That is the gap between showing up and being chosen.",
       },
       {
         q: "Why do AI visibility tools give different scores for the same company?",
@@ -193,12 +193,12 @@ export const PILLARS: Pillar[] = [
     matters:
       "If you never appear, you are never considered, and you will not know it, because there is no lost deal to review. Checking whether you show up is the first honest read on your position in AI-mediated buying.",
     limitations:
-      "Showing up tells you that you were mentioned. It does not tell you whether you were recommended, whether you survived the buyer's next requirement, or why a competitor was chosen instead. The most common and expensive mistake is treating presence as the goal: companies that show up reliably are eliminated every day the moment a real requirement is applied.",
+      "Showing up tells you that you were mentioned. It does not tell you whether you were recommended, whether you survived the buyer's next requirement, or why a competitor was chosen instead. The most common and expensive mistake is treating showing up as the goal: companies that appear reliably get cut every day the moment a real requirement lands.",
     lifecycle:
-      "Showing up is discovery and retrieval, the front of the [commercial evaluation lifecycle](/learn/commercial-evaluation). Everything that decides who is chosen happens after it: the [recommendation forms](/concepts/recommendation-set-formation), requirements narrow the field, and companies are [eliminated](/concepts/vendor-elimination). Presence gets you to the start line.",
+      "Showing up is the very front of [how a buyer decides](/learn/commercial-evaluation). Everything that settles who is chosen happens after it: the [shortlist forms](/concepts/recommendation-set-formation), requirements narrow the field, and companies get [cut](/concepts/vendor-elimination). Showing up gets you to the start line.",
     lifecycleStages: ["discovery", "retrieval"],
     businessLogic:
-      "It is worth confirming you show up in AI, because presence is the precondition for everything after it. But presence is not pipeline. The companies that win in AI-mediated buying are the ones that survive the requirements a buyer adds, which is a different measurement than whether you are mentioned. Upstream Zero measures the second.",
+      "It is worth confirming you show up in AI, because you cannot win a race you are not in. But showing up is not pipeline. The companies that win here are the ones that survive the requirements a buyer adds, which is a different thing to measure than whether you get mentioned. Upstream Zero measures the second.",
     relatedTerms: [
       "ai-visibility",
       "ai-visibility-tools",
@@ -208,8 +208,8 @@ export const PILLARS: Pillar[] = [
     ],
     relatedComponents: ["recommendation-set-formation", "vendor-elimination"],
     reframe: [
-      "'Are we showing up?' is where every company starts, and it is the right place to start. But the more important question arrives one step later: when a buyer describes what they actually need, are you still recommended, or does a competitor take your place?",
-      "Upstream Zero picks up exactly there. We do not sell you more visibility. We show you what happens after you appear, on ChatGPT and Google AI: which requirement removes you, why a competitor survives, and what would have to become true for the recommendation to change.",
+      "'Are we showing up?' is where every company starts, and it is the right place to start. But the bigger question comes one step later: when a buyer spells out what they actually need, are you still recommended, or does a competitor take your place?",
+      "Upstream Zero picks up exactly there. We do not sell you more visibility. We show you what happens after you appear, on ChatGPT and Google AI: which requirement removes you, why a competitor survives, and what would have to become true for the answer to change.",
     ],
     faqs: [
       {
@@ -218,7 +218,7 @@ export const PILLARS: Pillar[] = [
       },
       {
         q: "We show up in AI but still lose. Why?",
-        a: "Because showing up is not being chosen. AI recommends the company that best fits the requirements the buyer adds, and you can appear in the opening answer and be eliminated the moment a real requirement is applied. That elimination is what Upstream Zero studies.",
+        a: "Because showing up is not being chosen. AI recommends the company that best fits the requirements the buyer adds, and you can appear in the opening answer and get cut the moment a real requirement lands. That is what Upstream Zero studies.",
       },
       {
         q: "Is showing up in AI the same as AI visibility?",
@@ -244,10 +244,10 @@ export const PILLARS: Pillar[] = [
     limitations:
       "A trend line shows that something changed. It does not show why. Monitoring cannot tell you which requirement removed you when the recommendation shifted, why a competitor overtook you, or whether your own work caused the movement rather than a model update or a change in the prompts tested. Movement without cause is a number you cannot act on.",
     lifecycle:
-      "AI search monitoring measures the [lifecycle](/learn/commercial-evaluation) from the outside: it observes the output, who is mentioned, over time. It does not observe the mechanism, why. Cause lives in the [recommendation](/concepts/recommendation-set-formation) and [elimination](/concepts/vendor-elimination) steps, which a mention count does not reach.",
+      "AI search monitoring watches [how a buyer decides](/learn/commercial-evaluation) from the outside: it sees the result, who gets mentioned, over time. It does not see why. The cause lives in [how the shortlist forms](/concepts/recommendation-set-formation) and [who gets cut](/concepts/vendor-elimination), which a mention count never reaches.",
     lifecycleStages: ["measurement"],
     businessLogic:
-      "Monitoring is bought to prove progress and justify spend. But a mention trend is a weak proxy for commercial outcome, because being mentioned more often is not the same as surviving the requirements that decide the shortlist, and the trend rarely separates your work from model and prompt changes. Upstream Zero measures whether the recommendation itself moves when requirements are applied, and reports the conditions, so the movement can be attributed rather than merely observed.",
+      "Monitoring is bought to prove progress and justify spend. But a mention trend is a weak stand-in for a real result, because being mentioned more often is not the same as surviving the requirements that decide the shortlist, and the trend rarely separates your own work from model and prompt changes. Upstream Zero measures whether the recommendation itself moves when requirements are applied, and reports the conditions, so you can tell what actually caused the movement rather than just watching a line.",
     relatedTerms: [
       "ai-visibility",
       "ai-visibility-tools",
@@ -257,8 +257,8 @@ export const PILLARS: Pillar[] = [
     ],
     relatedComponents: ["recommendation-stability", "competitor-displacement"],
     reframe: [
-      "Monitoring answers 'did my mentions go up?' The commercial question is 'did the recommendation change, and did my work cause it?' A mention count moving is not evidence that you are more likely to be chosen, or that anything you did moved it.",
-      "Upstream Zero measures the recommendation under controlled, repeated conditions on ChatGPT and Google AI, so a change can be tied to a requirement and a cause, not just charted. Because the runs are conditioned and dated, the movement is attributable.",
+      "Monitoring answers 'did my mentions go up?' The real question is 'did the recommendation change, and did my work cause it?' A mention count moving is not proof that you are more likely to be chosen, or that anything you did moved it.",
+      "Upstream Zero measures the recommendation under controlled, repeated conditions on ChatGPT and Google AI, so a change can be tied to a specific requirement and a cause, not just charted. Because the runs are controlled and dated, you can tell what actually moved the needle.",
     ],
     faqs: [
       {
@@ -290,12 +290,12 @@ export const PILLARS: Pillar[] = [
     matters:
       "This is why you can be recommended for the generic question and gone by the specific one. The recommendation is not a ranking of who is best overall; it is a match against what this buyer needs, rebuilt at each step. Understanding that is how you learn where you are actually lost.",
     limitations:
-      "What is observable today is the AI evaluator's behavior on ChatGPT and Google AI, not the human buying committee behind it. The two are related but not identical, so reading the evaluator is a strong signal about how AI-mediated buying behaves, not a direct readout of a person's decision. Upstream Zero reports what was observed and under what conditions, and marks what remains uncertain.",
+      "What we can watch today is how the AI behaves on ChatGPT and Google AI, not the people on the buying committee behind it. The two are related but not the same, so reading the AI is a strong signal about how buying through AI works, not a direct read of a person's decision. Upstream Zero reports what it saw and under what conditions, and flags what is still uncertain.",
     lifecycle:
-      "This is the core of the [commercial evaluation lifecycle](/learn/commercial-evaluation): [recommendation formation](/concepts/recommendation-set-formation), [requirement evaluation](/learn/requirement-based-evaluation), and [elimination](/concepts/vendor-elimination). Discovery and retrieval get you into the opening answer; this is what decides who survives it.",
+      "This is the heart of [how a buyer decides](/learn/commercial-evaluation): [the shortlist forming](/concepts/recommendation-set-formation), [the buyer's requirements being applied](/learn/requirement-based-evaluation), and [companies getting cut](/concepts/vendor-elimination). Showing up gets you into the opening answer; this is what decides who survives it.",
     lifecycleStages: ["recommendation", "requirement-evaluation", "selection"],
     businessLogic:
-      "Because the recommendation is rebuilt from requirements, the lever that matters is fit and the evidence of fit, not presence. A company improves its position by surviving more of the requirements a real buyer applies, which Upstream Zero measures directly on ChatGPT and Google AI. Whether that improves pipeline depends on execution beyond the evaluation; the evaluation is where it starts.",
+      "Because the recommendation is rebuilt from requirements every time, what matters is fit and the evidence for it, not just showing up. A company improves its standing by surviving more of the requirements a real buyer applies, which Upstream Zero measures directly on ChatGPT and Google AI. Whether that improves pipeline depends on how you execute beyond this decision; this is where it starts.",
     relatedTerms: [
       "chatgpt-recommendations",
       "google-ai-mode",
@@ -309,17 +309,17 @@ export const PILLARS: Pillar[] = [
       "recommendation-survivability",
     ],
     reframe: [
-      "It is tempting to think AI ranks vendors the way a list ranks results. It does not. It constructs a recommendation from the buyer's requirements, and one new requirement can change who is recommended. There is no permanent best; there is the best fit for what is being asked.",
-      "Upstream Zero studies this directly on ChatGPT and Google AI: how the recommendation forms, which requirement removes a company, and what evidence would change the outcome. Perplexity, Gemini, and Copilot are where this expands next, as the evidence base grows.",
+      "It is tempting to think AI ranks vendors the way a list ranks results. It does not. It builds a recommendation from the buyer's requirements, and one new requirement can change who it names. There is no permanent best; there is the best fit for what is being asked.",
+      "Upstream Zero studies this directly on ChatGPT and Google AI: how the recommendation forms, which requirement removes a company, and what evidence would change the outcome. Perplexity, Gemini, and Copilot are where this expands next, as the evidence grows.",
     ],
     faqs: [
       {
         q: "How does ChatGPT decide which vendors to recommend?",
-        a: "It interprets the buyer's question, compares candidates against the requirements it infers, and returns a short recommendation. As the buyer adds requirements, it re-matches and removes candidates that no longer fit, so the final answer reflects the full requirement set, not the opening question.",
+        a: "It reads the buyer's question, compares companies against the requirements it works out, and returns a short recommendation. As the buyer adds requirements, it re-checks and drops companies that no longer fit, so the final answer reflects everything the buyer asked for, not just the opening question.",
       },
       {
         q: "Why does the recommendation change when I add details?",
-        a: "Because the recommendation is a match against requirements, not a fixed ranking. Each requirement you add changes the match, and a company that fit the general question can be eliminated the moment a specific requirement is applied.",
+        a: "Because the recommendation is a match against requirements, not a fixed ranking. Each requirement you add changes the match, and a company that fit the general question can get cut the moment a specific requirement lands.",
       },
       {
         q: "Does Upstream Zero cover Perplexity, Gemini, and Copilot?",
@@ -333,31 +333,31 @@ export const PILLARS: Pillar[] = [
     aka: "GEO",
     kind: "tactic",
     summary:
-      "GEO (Generative Engine Optimization) is the practice of shaping content so generative AI systems cite and recommend it. It targets being found and quoted, not being selected under real requirements.",
+      "GEO (Generative Engine Optimization) is the practice of shaping content so AI systems quote and recommend it. It aims at getting found and quoted, not at being chosen once real requirements come in.",
     definition:
       "Generative Engine Optimization, or GEO, is the practice of structuring and publishing content so that generative AI systems retrieve, cite, and include a company in their answers.",
     mechanics:
       "GEO focuses on clear, structured, quotable content, consistent entity information, and presence in the sources a model draws on, so the system can find and reference you.",
     matters:
       "As buyers ask AI systems for recommendations, being retrievable and citable is a real prerequisite. GEO works on that prerequisite.",
-    limitations: "Being understandable or usable while an answer is generated does not mean the company will be recommended for a buyer's particular requirement set. GEO shapes how a generative system represents you as it composes a response; it does not decide whether you enter the [recommendation set](/concepts/recommendation-set-formation), survive a follow-up requirement, or clear [validation](/concepts/validation-and-evidence). A company can be represented accurately and still be eliminated when a requirement is applied.",
-    lifecycle: "GEO acts at discovery and retrieval, at the moment a generative system interprets sources and synthesizes an answer. Its job is accurate representation while the response is built. After that point the evaluation continues, and the company may fail to enter the recommendation set, enter but rank behind a better-fitting alternative, be eliminated when the buyer adds a requirement, lack the evidence to clear validation, or lose [frontrunner status](/concepts/frontrunner-movement) during follow-up questions. Representation is where [commercial evaluation](/learn/commercial-evaluation) starts, not where it is decided.",
+    limitations: "Being easy to find and quote while an answer is written does not mean the company will be recommended for what a particular buyer needs. GEO shapes how AI describes you as it writes a response; it does not decide whether you make the [shortlist](/concepts/recommendation-set-formation), survive a follow-up requirement, or [prove you can back it up](/concepts/validation-and-evidence). A company can be described accurately and still get cut when a requirement lands.",
+    lifecycle: "GEO works at the front, the moment AI reads its sources and writes an answer. Its job is to get you described accurately as the response is built. After that, the decision keeps going, and the company may not make the shortlist at all, make it but rank behind a better fit, get cut when the buyer adds a requirement, lack the evidence to back its claims, or [lose the lead](/concepts/frontrunner-movement) during follow-up questions. Being described well is where [the decision](/learn/commercial-evaluation) starts, not where it is settled.",
     lifecycleStages: ["discovery", "retrieval"],
-    businessLogic: "Organizations invest in GEO for representation quality: whether they enter the initial consideration set accurately described. That presence can be evaluated alongside qualified pipeline and ICP alignment. Whether it contributes to those outcomes depends on whether the company then fits the requirements the buyer adds and survives [requirement-based evaluation](/learn/requirement-based-evaluation). Upstream Zero measures whether recommendation behavior moves; it does not assume accurate representation produces the outcome.",
+    businessLogic: "Companies invest in GEO to be described well: to enter the first round accurately portrayed. You can weigh that alongside qualified pipeline and how well the leads fit your ideal customer. Whether it pays off depends on whether the company then fits the requirements the buyer adds and survives [that round of matching](/learn/requirement-based-evaluation). Upstream Zero measures whether the recommendation moves; it does not assume being described well produces the outcome.",
     relatedTerms: ["answer-engine-optimization", "ai-seo", "ai-search-optimization", "ai-visibility", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
-      "GEO optimizes for being cited. Commercial evaluation asks whether, once cited, you survive the buyer's specific requirements and become the recommendation. Citation is upstream of selection, not the same as it.",
-      "We do not do GEO. We observe the evaluation that runs after retrieval, so you can see which requirement removes you and what evidence would change the outcome.",
+      "GEO works on getting quoted. The real decision is whether, once quoted, you survive the buyer's specific requirements and become the pick. Getting quoted comes before getting chosen; it is not the same thing.",
+      "We do not do GEO. We watch what happens after you are found, so you can see which requirement removes you and what evidence would change the outcome.",
     ],
     faqs: [
       {
         q: "Is GEO the same as commercial evaluation?",
-        a: "No. GEO is a set of tactics for being retrieved and cited. Commercial evaluation is the decision process that runs on top of retrieval and determines who is actually recommended. We study the second.",
+        a: "No. GEO is a set of tactics for getting found and quoted. Commercial evaluation is the decision that runs on top of that and settles who is actually recommended. We study the second.",
       },
       {
         q: "Do you offer GEO services?",
-        a: "No. We measure and diagnose commercial evaluation. We do not promise citations, rankings, or inclusion, and we are not a GEO agency.",
+        a: "No. We measure and explain how AI decides who to recommend. We do not promise citations, rankings, or inclusion, and we are not a GEO agency.",
       },
     ],
   },
@@ -366,31 +366,31 @@ export const PILLARS: Pillar[] = [
     term: "AI SEO",
     kind: "tactic",
     summary:
-      "AI SEO adapts search optimization for AI-mediated results. It works on discoverability. Commercial evaluation works on whether you are chosen once discovered.",
+      "AI SEO adapts search optimization for AI-generated answers. It works on getting found. Commercial evaluation works on whether you are chosen once you are found.",
     definition:
       "AI SEO is the adaptation of search engine optimization for AI-mediated results: making a company discoverable and correctly represented when AI systems answer questions instead of returning a list of links.",
     mechanics:
       "It extends familiar SEO fundamentals (crawlability, structured data, authoritative content, consistent entities) toward the way AI systems retrieve and synthesize information.",
     matters:
       "When answers replace links, being discoverable and correctly represented still matters. AI SEO addresses that layer.",
-    limitations: "Search discoverability and citation performance do not explain how a company is compared, eliminated, validated, or selected once the evaluation begins. AI SEO improves whether you are found and cited across search experiences; it does not decide whether you fit a buyer's requirement, clear [validation](/concepts/validation-and-evidence), or survive follow-up questions. Being discoverable is the entry, not the decision.",
-    lifecycle: "AI SEO acts at discovery and retrieval, across both traditional and AI-mediated search: making a company discoverable and correctly surfaced. It is an acquisition-and-entry discipline. What happens after entry is decided by fit and evidence: the company may fail to enter the [recommendation set](/concepts/recommendation-set-formation), rank behind a better-fitting alternative, be eliminated when a requirement is added, or fail to clear validation. Discoverability gets you into the evaluation; it does not carry you through it.",
+    limitations: "Being found and quoted does not explain how a company is compared, cut, checked, or chosen once the buyer gets specific. AI SEO improves whether you are found and quoted across search; it does not decide whether you fit a buyer's requirement, [back up your claims](/concepts/validation-and-evidence), or survive follow-up questions. Being found is the way in, not the decision.",
+    lifecycle: "AI SEO works at the front, across both regular and AI search: getting a company found and surfaced correctly. Its job is to get you in the door. What happens after that is decided by fit and evidence: the company may not make the [shortlist](/concepts/recommendation-set-formation), rank behind a better fit, get cut when a requirement is added, or fail to back up its claims. Being found gets you into the running; it does not carry you through.",
     lifecycleStages: ["discovery", "retrieval"],
-    businessLogic: "Organizations invest in AI SEO to acquire attention and enter more evaluations. That entry can be evaluated alongside qualified pipeline and top-of-funnel ICP alignment. Whether it converts depends on downstream fit and evidence: visibility survives only if the company also survives [requirement-based evaluation](/learn/requirement-based-evaluation). Upstream Zero measures whether recommendation behavior moves through that evaluation; it does not assume discoverability produces revenue.",
+    businessLogic: "Companies invest in AI SEO to win attention and get into more of these decisions. You can weigh that alongside qualified pipeline and how well the early leads fit your ideal customer. Whether it converts depends on fit and evidence later on: being found only pays off if the company also survives [the buyer's requirements](/learn/requirement-based-evaluation). Upstream Zero measures whether the recommendation moves through that; it does not assume being found produces revenue.",
     relatedTerms: ["ai-search-optimization", "generative-engine-optimization", "answer-engine-optimization", "ai-visibility", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
-      "AI SEO improves whether you show up. It does not tell you why a competitor is recommended over you when a buyer adds a hard requirement. That is a commercial evaluation question.",
-      "Upstream Zero is not an AI SEO agency. We observe the evaluation itself and report where you are eliminated and what evidence is most likely to matter.",
+      "AI SEO improves whether you show up. It does not tell you why a competitor is recommended over you when a buyer adds a hard requirement. That is a different question, about the decision itself.",
+      "Upstream Zero is not an AI SEO agency. We watch the decision itself and report where you get cut and what evidence is most likely to matter.",
     ],
     faqs: [
       {
         q: "Is AI SEO enough to win recommendations?",
-        a: "Discoverability is necessary but not sufficient. Buyers apply requirements, and companies are eliminated on requirements, not on discoverability alone. Commercial evaluation is where that happens.",
+        a: "Being found is necessary but not enough. Buyers apply requirements, and companies get cut on requirements, not on being found alone. That is where the decision is really made.",
       },
       {
         q: "Do you do AI SEO?",
-        a: "No. We measure how AI systems evaluate you and give you evidence-based, prioritized decisions. We do not promise rankings or inclusion.",
+        a: "No. We measure how AI systems weigh you and give you evidence-based, ranked decisions. We do not promise rankings or inclusion.",
       },
     ],
   },
@@ -399,22 +399,22 @@ export const PILLARS: Pillar[] = [
     term: "LLM Optimization",
     kind: "tactic",
     summary:
-      "LLM optimization aims to influence how large language models represent and recommend a company. It targets representation. Commercial evaluation targets the decision that representation feeds.",
+      "LLM optimization tries to shape how large language models describe and recommend a company. It works on how you are described. Commercial evaluation works on the decision that description feeds into.",
     definition:
       "LLM optimization refers to practices intended to influence how large language models describe, cite, and recommend a company, given that models increasingly mediate what buyers see.",
     mechanics:
       "It focuses on the information a model can reach and reconstruct about you, and how consistently that information appears across the sources the model was trained on or can retrieve.",
     matters:
-      "How a model represents you shapes whether you enter the consideration set at all. Getting the representation right is real work.",
-    limitations: "LLM optimization improves whether language models retrieve, understand, and represent you. It does not guarantee recommendation, does not guarantee surviving requirements, and does not guarantee selection.",
-    lifecycle: "LLM optimization acts at discovery and retrieval. It shapes how a model represents you; commercial evaluation decides who is recommended and selected.",
+      "How a model describes you shapes whether you make the first cut at all. Getting that description right is real work.",
+    limitations: "LLM optimization improves whether language models find, understand, and describe you. It does not guarantee you get recommended, does not guarantee you survive the buyer's requirements, and does not guarantee you get chosen.",
+    lifecycle: "LLM optimization works at the front. It shapes how a model describes you; the decision itself is what settles who gets recommended and chosen.",
     lifecycleStages: ["discovery", "retrieval"],
-    businessLogic: "Organizations invest in LLM optimization because better model representation may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming model representation alone creates commercial success.",
+    businessLogic: "Companies invest in LLM optimization because being described better may make it more likely you get into these AI-driven decisions. Whether that leads to stronger pipeline, better-fit leads, higher win rates, faster deals, revenue, retention, or expansion depends on how you perform through the rest of the decision. Upstream Zero measures those later changes rather than assuming a good description alone wins the business.",
     relatedTerms: ["ai-seo", "generative-engine-optimization", "answer-engine-optimization", "ai-visibility", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
-      "Representation is an input to commercial evaluation, not the whole of it. The decision that matters is what the system does with that representation once a buyer applies real requirements.",
-      "We measure that decision. We do not promise to change what a model outputs, and we are not an LLM optimization vendor.",
+      "How you are described feeds the decision; it is not the whole of it. What matters is what the system does with that description once a buyer applies real requirements.",
+      "We measure that decision. We do not promise to change what a model says, and we are not an LLM optimization vendor.",
     ],
     faqs: [
       {
@@ -423,7 +423,7 @@ export const PILLARS: Pillar[] = [
       },
       {
         q: "How is this different from what you do?",
-        a: "LLM optimization tries to shape the model's representation of you. We observe and diagnose the evaluation the model runs, so you know where you are eliminated and why.",
+        a: "LLM optimization tries to shape how the model describes you. We watch and explain the decision the model makes, so you know where you get cut and why.",
       },
     ],
   },
@@ -432,31 +432,31 @@ export const PILLARS: Pillar[] = [
     term: "AI Search Optimization",
     kind: "tactic",
     summary:
-      "AI search optimization is making a company discoverable and correctly represented across AI-powered search experiences. It is about being found across surfaces, not about surviving a buyer's requirements.",
+      "AI search optimization is making a company easy to find and accurately described across AI-powered search. It is about being found across the different tools, not about surviving a buyer's requirements.",
     definition:
       "AI search optimization is the practice of making a company discoverable and correctly represented across AI-powered search experiences, from AI overviews to conversational search.",
     mechanics:
       "It spans multiple surfaces at once, working on structured information, authority, and consistency so different AI search experiences can find and describe you.",
     matters:
       "Buyers now search across several AI surfaces. Being present and accurate across them is the ground floor of consideration.",
-    limitations: "AI search optimization improves whether AI search and answer systems surface and represent you. It does not guarantee recommendation, does not guarantee surviving requirements, and does not guarantee selection.",
-    lifecycle: "AI search optimization acts at discovery and retrieval. It affects whether you are surfaced; the recommendation, requirement, validation, and selection stages decide the outcome.",
+    limitations: "AI search optimization improves whether AI search and answer tools find and describe you. It does not guarantee you get recommended, does not guarantee you survive the buyer's requirements, and does not guarantee you get chosen.",
+    lifecycle: "AI search optimization works at the front. It affects whether you get found; the later steps, the shortlist, the requirements, the evidence, and the final choice, decide the outcome.",
     lifecycleStages: ["discovery", "retrieval"],
-    businessLogic: "Organizations invest in AI search optimization because better surfacing may increase the likelihood of entering AI-mediated evaluations. Whether that contributes to stronger pipeline, better ICP alignment, higher win rates, faster deal cycles, revenue, retention, or expansion depends on how the organization performs through the remainder of the evaluation. Upstream Zero measures those downstream changes rather than assuming surfacing alone creates commercial success.",
+    businessLogic: "Companies invest in AI search optimization because being found more easily may make it more likely you get into these AI-driven decisions. Whether that leads to stronger pipeline, better-fit leads, higher win rates, faster deals, revenue, retention, or expansion depends on how you perform through the rest of the decision. Upstream Zero measures those later changes rather than assuming being found alone wins the business.",
     relatedTerms: ["ai-seo", "generative-engine-optimization", "answer-engine-optimization", "ai-visibility", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     reframe: [
-      "Being found across surfaces is the start of the story. The end is whether, on each surface, you survive the requirements a buyer actually applies. That is commercial evaluation, and it is what we measure.",
-      "We are not a search-optimization agency. We diagnose the evaluation running on those surfaces.",
+      "Being found across the different tools is the start of the story. The end is whether, in each one, you survive the requirements a buyer actually applies. That is the decision we measure.",
+      "We are not a search-optimization agency. We explain the decision running inside those tools.",
     ],
     faqs: [
       {
-        q: "Which AI surfaces do you look at?",
-        a: "We observe the major AI evaluators buyers use, and we disclose which surface each observation came from. Behavior differs by surface, so we never generalize a single surface into a universal claim.",
+        q: "Which AI tools do you look at?",
+        a: "We watch the major AI tools buyers use, and we tell you which one each observation came from. Behavior differs from one to the next, so we never turn a result in one tool into a claim about all of them.",
       },
       {
-        q: "Do you optimize for these surfaces?",
-        a: "No. We measure and diagnose. You receive evidence and prioritized decisions, not a promise about any surface's output.",
+        q: "Do you optimize for these tools?",
+        a: "No. We measure and explain. You get evidence and a ranked set of decisions, not a promise about what any tool will say.",
       },
     ],
   },
@@ -465,22 +465,22 @@ export const PILLARS: Pillar[] = [
     term: "Google AI Mode",
     kind: "platform",
     summary:
-      "Google AI Mode is a conversational, follow-up-driven AI search experience. Because it takes follow-up requirements, it is where commercial evaluation becomes directly observable.",
+      "Google AI Mode is a conversational AI search where you keep asking follow-up questions. Because it takes those follow-ups, it is where you can actually watch a buyer's decision unfold.",
     definition:
       "Google AI Mode is Google's conversational AI search experience, where a user can ask a question and then refine it through follow-ups rather than reading a list of links.",
     mechanics:
       "It interprets the question, forms an initial recommendation, and updates that recommendation as the user adds requirements, testing the companies already recommended against each new constraint.",
     matters:
-      "Because it takes follow-up requirements, AI Mode makes the narrowing of a recommendation visible. It is one of the clearest places to watch commercial evaluation happen.",
-    limitations: "Observing one surface tells you about that surface, not others; behavior differs across evaluators, so a result here is not a universal claim. A surface shows where evaluation happens; it does not by itself tell you why you were eliminated or what would change it.",
-    lifecycle: "Google AI Mode is a surface where retrieval and recommendation are observed. It is one window into the evaluation lifecycle, not the lifecycle itself.",
+      "Because it takes follow-up requirements, AI Mode lets you see a recommendation narrow in real time. It is one of the clearest places to watch a buyer's decision happen.",
+    limitations: "What you see in one tool is about that tool, not the others; behavior differs from one to the next, so a result here is not a claim about all of them. A tool shows you where the decision happens; it does not by itself tell you why you got cut or what would change it.",
+    lifecycle: "Google AI Mode is one place you can watch a company get found and get recommended. It is one window into the buyer's decision, not the whole of it.",
     lifecycleStages: ["retrieval", "recommendation"],
-    businessLogic: "How you perform on a given surface may affect whether you enter the evaluations that run there. Whether that contributes to pipeline, ICP fit, win rates, or revenue depends on the rest of the evaluation and on how buyers use the surface. Upstream Zero discloses which surface each observation came from and measures movement rather than assuming one surface creates commercial success.",
+    businessLogic: "How you do in a given tool may affect whether you get into the decisions that run there. Whether that leads to pipeline, better-fit leads, win rates, or revenue depends on the rest of the decision and on how buyers use that tool. Upstream Zero tells you which tool each observation came from and measures movement rather than assuming one tool wins the business.",
     relatedTerms: ["chatgpt-recommendations", "google-ai-overviews", "ai-visibility", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "recommendation-survivability"],
     reframe: [
-      "AI Mode is a place commercial evaluation happens, not a channel to be optimized. What matters is which follow-up removes you and which keeps you.",
-      "Upstream Zero observes evaluations on surfaces like this and reports the exact requirement where a company is displaced or survives.",
+      "AI Mode is a place a buyer's decision happens, not a channel to be gamed. What matters is which follow-up removes you and which keeps you.",
+      "Upstream Zero watches these decisions in tools like this and reports the exact requirement where a company is bumped or survives.",
     ],
     faqs: [
       {
@@ -489,7 +489,7 @@ export const PILLARS: Pillar[] = [
       },
       {
         q: "Do you work only with Google AI Mode?",
-        a: "No. It is one observable surface among several. We disclose the surface behind every observation, because behavior is surface-specific.",
+        a: "No. It is one tool among several we can watch. We tell you which tool every observation came from, because behavior differs from one to the next.",
       },
     ],
   },
@@ -498,31 +498,31 @@ export const PILLARS: Pillar[] = [
     term: "ChatGPT Recommendations",
     kind: "platform",
     summary:
-      "ChatGPT recommendations are the companies ChatGPT names when asked what to consider. They are the output of an evaluation, and they change as the buyer's requirements change.",
+      "ChatGPT recommendations are the companies ChatGPT names when asked what to consider. They are the result of a behind-the-scenes decision, and they change as the buyer's requirements change.",
     definition:
       "ChatGPT recommendations are the companies ChatGPT surfaces when a user asks which options to consider for a given problem, along with the reasons it narrates.",
     mechanics:
       "ChatGPT interprets the request, draws on what it can reconstruct about the options, and produces a recommendation that shifts as the user supplies more specific requirements.",
     matters:
       "Buyers increasingly ask ChatGPT for a shortlist. The companies it names, and the ones it drops, shape the buyer's starting point before you are ever contacted.",
-    limitations: "Observing one surface tells you about that surface, not others; behavior differs across evaluators, so a result here is not a universal claim. A surface shows where evaluation happens; it does not by itself tell you why you were eliminated or what would change it.",
-    lifecycle: "ChatGPT recommendations are the recommendation stage as it appears on that surface. It is one window into the evaluation lifecycle, not the whole of it.",
+    limitations: "What you see in one tool is about that tool, not the others; behavior differs from one to the next, so a result here is not a claim about all of them. A tool shows you where the decision happens; it does not by itself tell you why you got cut or what would change it.",
+    lifecycle: "ChatGPT recommendations are the moment a company gets recommended, as it shows up in that tool. It is one window into the buyer's decision, not the whole of it.",
     lifecycleStages: ["retrieval", "recommendation"],
-    businessLogic: "How you perform on a given surface may affect whether you enter the evaluations that run there. Whether that contributes to pipeline, ICP fit, win rates, or revenue depends on the rest of the evaluation and on how buyers use the surface. Upstream Zero discloses which surface each observation came from and measures movement rather than assuming one surface creates commercial success.",
+    businessLogic: "How you do in a given tool may affect whether you get into the decisions that run there. Whether that leads to pipeline, better-fit leads, win rates, or revenue depends on the rest of the decision and on how buyers use that tool. Upstream Zero tells you which tool each observation came from and measures movement rather than assuming one tool wins the business.",
     relatedTerms: ["google-ai-mode", "google-ai-overviews", "ai-recommendations", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "recommendation-survivability"],
     reframe: [
-      "The recommendation is the visible tip of an evaluation. Its stated reasons are narration about the evaluation, not proof of the mechanism. We treat them accordingly.",
-      "Upstream Zero observes these recommendations, and how they move under requirement pressure, rather than trying to manipulate them.",
+      "The recommendation is the visible tip of a decision you do not see. The reasons it gives are the system talking about itself, not proof of how it really decided. We treat them that way.",
+      "Upstream Zero watches these recommendations, and how they move as requirements pile on, rather than trying to game them.",
     ],
     faqs: [
       {
         q: "Can you make ChatGPT recommend us?",
-        a: "No. We do not promise inclusion or ranking. We measure how you are currently evaluated and give you prioritized, evidence-based decisions.",
+        a: "No. We do not promise inclusion or ranking. We measure how you are weighed today and give you a ranked, evidence-based set of decisions.",
       },
       {
         q: "Are the reasons ChatGPT gives reliable?",
-        a: "We treat a system's stated reasons as observations about its narration, not as proof of how it actually decided. That distinction is core to how we read evidence.",
+        a: "We treat the reasons a system gives as the system talking about itself, not as proof of how it actually decided. That difference is core to how we read evidence.",
       },
     ],
   },
@@ -531,31 +531,31 @@ export const PILLARS: Pillar[] = [
     term: "Google AI Overviews",
     kind: "platform",
     summary:
-      "Google AI Overviews are AI-generated summaries at the top of search results. Being cited in an overview is discoverability; surviving a buyer's requirements is a separate question.",
+      "Google AI Overviews are AI-generated summaries at the top of search results. Being cited in an overview means you got found; surviving a buyer's requirements is a separate question.",
     definition:
       "Google AI Overviews are the AI-generated summaries Google places above traditional search results, synthesizing an answer from multiple sources.",
     mechanics:
       "An overview retrieves and synthesizes information from across the web into a single answer, sometimes citing sources, sometimes naming companies as part of the response.",
     matters:
       "For many queries, the overview is the first and sometimes only thing a buyer reads. Being represented there shapes the initial frame.",
-    limitations: "Observing one surface tells you about that surface, not others; behavior differs across evaluators, so a result here is not a universal claim. A surface shows where evaluation happens; it does not by itself tell you why you were eliminated or what would change it.",
-    lifecycle: "Google AI Overviews sit at retrieval and recommendation on that surface, summarizing a set. They are one window into the evaluation lifecycle, not the lifecycle itself.",
+    limitations: "What you see in one tool is about that tool, not the others; behavior differs from one to the next, so a result here is not a claim about all of them. A tool shows you where the decision happens; it does not by itself tell you why you got cut or what would change it.",
+    lifecycle: "Google AI Overviews sit where a company gets found and summarized in that tool. They are one window into the buyer's decision, not the whole of it.",
     lifecycleStages: ["retrieval", "recommendation"],
-    businessLogic: "How you perform on a given surface may affect whether you enter the evaluations that run there. Whether that contributes to pipeline, ICP fit, win rates, or revenue depends on the rest of the evaluation and on how buyers use the surface. Upstream Zero discloses which surface each observation came from and measures movement rather than assuming one surface creates commercial success.",
+    businessLogic: "How you do in a given tool may affect whether you get into the decisions that run there. Whether that leads to pipeline, better-fit leads, win rates, or revenue depends on the rest of the decision and on how buyers use that tool. Upstream Zero tells you which tool each observation came from and measures movement rather than assuming one tool wins the business.",
     relatedTerms: ["google-ai-mode", "chatgpt-recommendations", "ai-visibility", "commercial-evaluation"],
     relatedComponents: ["recommendation-set-formation", "recommendation-survivability"],
     reframe: [
-      "Appearing in an overview is a form of visibility. It does not tell you whether you would survive the requirements a serious buyer applies in a deeper, conversational evaluation.",
-      "We study the deeper evaluation, and we distinguish being retrieved, being synthesized into an answer, and being the recommendation. They are not the same event.",
+      "Appearing in an overview is a form of showing up. It does not tell you whether you would survive the requirements a serious buyer applies in a deeper, back-and-forth conversation.",
+      "We study that deeper decision, and we keep three things separate: being found, being written into an answer, and being the recommendation. They are not the same event.",
     ],
     faqs: [
       {
         q: "Is being in an AI Overview the same as being recommended?",
-        a: "No. Retrieval, synthesis into an answer, and recommendation are distinct. You can be cited in an overview and still not be the company a requirement-driven evaluation selects.",
+        a: "No. Being found, being written into an answer, and being recommended are three different things. You can be cited in an overview and still not be the company a requirement-driven decision picks.",
       },
       {
         q: "Do you optimize for AI Overviews?",
-        a: "No. We measure and diagnose the evaluation, not the overview. We do not promise placement.",
+        a: "No. We measure and explain the decision, not the overview. We do not promise placement.",
       },
     ],
   },
@@ -564,31 +564,31 @@ export const PILLARS: Pillar[] = [
     term: "Commercial Buying AI",
     kind: "concept",
     summary:
-      "Commercial buying AI refers to AI systems that help buyers evaluate and choose companies. It is the mechanism through which more commercial evaluation now happens before direct contact.",
+      "Commercial buying AI refers to AI systems that help buyers size up and choose companies. It is how more of the buyer's decision now happens before they ever contact you.",
     definition:
       "Commercial buying AI refers to the AI systems that help buyers understand a problem, compare companies, and decide who to consider, increasingly before they contact any vendor directly.",
     mechanics:
       "These systems interpret a buyer's problem, infer requirements, compare available companies, and narrow toward a recommendation, updating as the buyer refines what they need.",
     matters:
-      "As more of this happens before direct contact, the evaluation that shapes a buyer's shortlist is increasingly one you never see. That is the shift Upstream Zero exists to make visible.",
-    limitations: "Commercial buying AI names the shift, not a lever. Knowing that buying decisions increasingly begin with AI does not tell you where you are eliminated or what would change it; that has to be observed for your category.",
-    lifecycle: "Commercial buying AI spans the front of the lifecycle, from AI-mediated buying through recommendation, where systems begin to shape the decision before a buyer engages you.",
+      "As more of this happens before any direct contact, the process that shapes a buyer's shortlist is increasingly one you never see. That is the shift Upstream Zero exists to make visible.",
+    limitations: "Commercial buying AI names the shift, not a switch you can flip. Knowing that buying decisions increasingly start with AI does not tell you where you get cut or what would change it; that has to be watched for your own category.",
+    lifecycle: "Commercial buying AI covers the front of the journey, from buying through AI to the shortlist, where these systems start shaping the decision before a buyer ever talks to you.",
     lifecycleStages: ["ai-mediated-buying", "recommendation"],
-    businessLogic: "Organizations care about commercial buying AI because more of the buying decision now forms before a salesperson is involved. Whether that shift helps or hurts your pipeline, fit, win rates, or revenue depends on how you perform in the evaluation those systems run. Upstream Zero measures that performance rather than assuming presence in AI creates commercial success.",
+    businessLogic: "Companies care about commercial buying AI because more of the buying decision now forms before a salesperson is ever involved. Whether that shift helps or hurts your pipeline, lead fit, win rates, or revenue depends on how you do in the decision those systems run. Upstream Zero measures that rather than assuming showing up in AI wins the business.",
     relatedTerms: ["commercial-evaluation", "ai-recommendations", "recommendation-intelligence", "ai-visibility"],
     relatedComponents: ["recommendation-set-formation", "recommendation-survivability"],
     reframe: [
-      "Commercial buying AI is the current mechanism of commercial evaluation. The mechanism will keep changing; the evaluation underneath it is durable, and that is what we study.",
-      "We help you see how these systems currently evaluate you, and what would have to change for you to be the logical choice.",
+      "Commercial buying AI is just today's version of how buyers decide. The tools will keep changing; the decision underneath them lasts, and that is what we study.",
+      "We help you see how these systems weigh you today, and what would have to change for you to be the obvious choice.",
     ],
     faqs: [
       {
         q: "Is this a passing trend?",
-        a: "The specific tools will change. The underlying fact, that commercial evaluation increasingly concludes before a buyer engages you, is the durable shift. We anchor to the evaluation, not the tool.",
+        a: "The specific tools will change. The lasting shift is that the buyer's decision increasingly wraps up before they ever talk to you. We anchor to the decision, not the tool.",
       },
       {
-        q: "How do I see how buying AI evaluates my company?",
-        a: "Start with a Evaluation Audit: a structured observation of how current systems evaluate, recommend, or eliminate you, with prioritized decisions.",
+        q: "How do I see how buying AI sizes up my company?",
+        a: "Start with an Evaluation Audit: a structured look at how today's systems size you up, recommend you, or cut you, with a ranked set of decisions.",
       },
     ],
   },
@@ -598,7 +598,7 @@ export const PILLARS: Pillar[] = [
     aka: "AEO",
     kind: "tactic",
     summary:
-      "Answer Engine Optimization (AEO) structures content so answer engines quote it directly. It improves whether you are cited, which is necessary for consideration but not the same as surviving a buyer's requirements.",
+      "Answer Engine Optimization (AEO) structures content so answer engines quote it directly. It improves whether you get quoted, which you need to be considered but is not the same as surviving a buyer's requirements.",
     definition:
       "Answer Engine Optimization, or AEO, is the practice of structuring content and metadata so that answer engines, the systems that return a direct answer instead of a list of links, retrieve and quote your content when someone asks a question.",
     mechanics:
@@ -606,11 +606,11 @@ export const PILLARS: Pillar[] = [
     matters:
       "If an answer engine never surfaces you, you cannot be considered. AEO raises the odds of being retrieved and cited, which is the entry ticket to the conversation.",
     limitations:
-      "Being cited is not being chosen. AEO optimizes whether you are quoted, not whether you survive the requirements a buyer adds after the first question. A company can be cited in an overview and still be eliminated the moment a real requirement is applied. AEO also acts on the answer surface, not on the commercial evaluation behind the recommendation.",
+      "Being quoted is not being chosen. AEO works on whether you get quoted, not on whether you survive the requirements a buyer adds after the first question. A company can be quoted in an overview and still get cut the moment a real requirement lands. AEO works on the answer itself, not on the decision behind the recommendation.",
     lifecycle:
-      "In the commercial evaluation lifecycle, AEO sits at the very front: retrieval and mention. It helps you enter the recommendation set, where recommendation set formation, vendor elimination, and recommendation survivability take over. Getting quoted is the start of the process, not the decision.",
+      "AEO sits at the very front: getting found and quoted. It helps you make the shortlist, where the real work takes over, how the shortlist forms, who gets cut, and who holds their spot. Getting quoted is the start, not the decision.",
     businessLogic:
-      "The commercial logic runs downstream of citation. Being retrieved puts you in front of the evaluation; surviving that evaluation is what keeps you in the deals that become pipeline. AEO can help you get seen, but the pipeline, fit, and win-rate effects depend on whether you then survive the requirements that decide the shortlist. Upstream Zero measures whether that position moves; it does not promise a number.",
+      "The business payoff comes after the quote. Being found puts you in front of the decision; surviving that decision is what keeps you in the deals that become pipeline. AEO can help you get seen, but the pipeline, fit, and win-rate effects depend on whether you then survive the requirements that decide the shortlist. Upstream Zero measures whether your standing moves; it does not promise a number.",
     relatedComponents: ["recommendation-set-formation", "validation-and-evidence"],
     lifecycleStages: ["discovery", "retrieval"],
     relatedTerms: [
@@ -621,17 +621,17 @@ export const PILLARS: Pillar[] = [
       "commercial-evaluation",
     ],
     reframe: [
-      "AEO is about being quoted. Commercial evaluation is about being chosen. A citation gets you into the room; it does not decide who the buyer selects once requirements are applied.",
-      "Structured content and schema may be recommended when the evidence shows a retrieval gap, but as a candidate mechanism for a specific problem, not as the goal itself.",
+      "AEO is about being quoted. Commercial evaluation is about being chosen. A quote gets you into the room; it does not decide who the buyer picks once requirements come in.",
+      "Structured content and schema may be worth doing when the evidence shows you are hard to find, but as a fix for a specific problem, not as the goal itself.",
     ],
     faqs: [
       {
         q: "Is AEO the same as SEO?",
-        a: "No. SEO optimizes ranking in a list of links; AEO optimizes being quoted as the answer. Both are about being found, not about surviving a buyer's requirements.",
+        a: "No. SEO works on ranking in a list of links; AEO works on being quoted as the answer. Both are about being found, not about surviving a buyer's requirements.",
       },
       {
         q: "Does Upstream Zero do AEO?",
-        a: "No. Upstream Zero studies and measures commercial evaluation. Answer-engine structuring may be a recommended mechanism when observed evidence shows a retrieval gap, but it is not our category.",
+        a: "No. Upstream Zero studies and measures how AI decides who to recommend. Answer-engine structuring may be worth doing when the evidence shows you are hard to find, but it is not our line of work.",
       },
     ],
   },
@@ -640,19 +640,19 @@ export const PILLARS: Pillar[] = [
     term: "Evidence Strategy",
     kind: "concept",
     summary:
-      "Evidence strategy is deciding what must become true for an evaluator to credit you with a requirement, and which specific evidence would make that credible. It connects an observed elimination to a prioritized set of evidence.",
+      "Evidence strategy is figuring out what has to be true for an AI to believe you meet a requirement, and which specific proof would make that believable. It connects where you got cut to a ranked list of evidence to fix it.",
     definition:
-      "Evidence Strategy is the practice of determining, for a requirement where a company is eliminated, what an evaluator must be able to associate with the company, and which specific evidence would make that association credible.",
+      "Evidence Strategy is working out, for a requirement where a company gets cut, what an AI needs to be able to connect to that company, and which specific proof would make the connection believable.",
     mechanics:
-      "It starts from an observed failure: a requirement where you drop out. It names what must become true, compares that against the evidence you already publish, identifies the gap, prioritizes the evidence most likely to close it, and then measures whether the position moves.",
+      "It starts from a real failure: a requirement where you drop out. It names what has to become true, checks that against the evidence you already publish, finds the gap, ranks the proof most likely to close it, and then measures whether your standing moves.",
     matters:
-      "Most companies produce evidence by volume and habit. An evidence strategy produces it by diagnosis: the specific proof, for the specific requirement, in the place an evaluator looks. It is the difference between publishing more and publishing what is missing.",
+      "Most companies produce evidence by volume and habit. An evidence strategy produces it by diagnosis: the specific proof, for the specific requirement, in the place an AI looks. It is the difference between publishing more and publishing what is missing.",
     limitations:
-      "An evidence strategy is grounded in observed behavior and diagnosis, not a guarantee. It recommends candidate interventions tied to an evidence gap; whether a given intervention moves the outcome is measured, not assumed. Evaluator behavior can change, and a stated rationale is a description of narration, not proof of mechanism.",
+      "An evidence strategy is grounded in what we observe and diagnose, not a guarantee. It suggests things to try, tied to a specific gap; whether any one of them moves the outcome is measured, not assumed. AI behavior can change, and the reasons a system gives are it talking about itself, not proof of how it really decided.",
     lifecycle:
-      "Evidence strategy sits in the middle of the commercial evaluation lifecycle: after diagnosis, where and why you are eliminated, and before measurement, whether the intervention moved your position. It turns validation and evidence findings into a prioritized plan.",
+      "Evidence strategy sits in the middle of how a buyer decides: after diagnosis, where and why you get cut, and before measurement, whether the fix moved your standing. It turns evidence findings into a ranked plan.",
     businessLogic:
-      "The commercial logic is direct: buyers eliminate on requirements, and requirements are decided on evidence. Close the evidence gap on the requirement that removes you and you are more likely to survive to the shortlist, which is where fit, pipeline, and win rates are decided. Upstream Zero recommends the evidence and measures whether recommendation behavior changes; it does not promise a revenue outcome.",
+      "The logic is direct: buyers cut on requirements, and requirements are decided on evidence. Close the evidence gap on the requirement that removes you and you are more likely to survive to the shortlist, which is where fit, pipeline, and win rates are decided. Upstream Zero suggests the evidence and measures whether the recommendation changes; it does not promise a revenue outcome.",
     relatedComponents: [
       "validation-and-evidence",
       "requirement-interpretation",
@@ -665,17 +665,17 @@ export const PILLARS: Pillar[] = [
       "ai-visibility",
     ],
     reframe: [
-      "Evidence strategy is where research becomes action. It is the bridge from what we observe an evaluator doing to what a company can actually do about it, kept on the commercial side so recommendations never contaminate the research record.",
-      "It is not content marketing by volume. It is a diagnosis-driven, prioritized set of candidate interventions for a specific requirement and a specific gap.",
+      "Evidence strategy is where research becomes action. It is the bridge from what we watch an AI doing to what a company can actually do about it, kept on the business side so recommendations never taint the research record.",
+      "It is not content marketing by the truckload. It is a diagnosis-driven, ranked set of things to try for a specific requirement and a specific gap.",
     ],
     faqs: [
       {
         q: "Is evidence strategy the same as content marketing?",
-        a: "No. Content marketing produces material to be found. Evidence strategy produces the specific proof an evaluator needs for the requirement that is eliminating you, and measures whether it changes the outcome.",
+        a: "No. Content marketing produces material to be found. Evidence strategy produces the specific proof an AI needs for the requirement that is cutting you, and measures whether it changes the outcome.",
       },
       {
         q: "Does more evidence always help?",
-        a: "No. The system does not recommend every evidence type for every problem. The recommendation depends on the requirement being tested, the evaluator's apparent confidence gap, and your existing coverage.",
+        a: "No. Not every kind of proof helps with every problem. What to publish depends on the requirement being tested, where the AI seems unsure, and what you already have out there.",
       },
     ],
   },
@@ -684,20 +684,20 @@ export const PILLARS: Pillar[] = [
     term: "AI Recommendations",
     kind: "concept",
     summary:
-      "AI recommendations are the vendor suggestions produced when an AI system answers a buying question. They are the output of an evaluation you usually never see, and they change as the buyer adds requirements.",
+      "AI recommendations are the vendor suggestions an AI gives when it answers a buying question. They are the result of a behind-the-scenes decision you usually never see, and they change as the buyer adds requirements.",
     definition:
-      "AI Recommendations are the vendor or product suggestions an AI system returns when a buyer asks what to use, buy, or shortlist. Each is the visible output of a hidden evaluation: the system formed a set, applied the buyer's requirements, eliminated options, and settled on what to recommend.",
+      "AI Recommendations are the vendor or product suggestions an AI returns when a buyer asks what to use, buy, or shortlist. Each is the visible result of a hidden decision: the system built a list, applied the buyer's requirements, cut options, and settled on what to recommend.",
     mechanics:
-      "A buyer asks a question. The system surfaces a set of candidates, then reshapes that set every time the buyer adds a requirement, dropping vendors that do not clearly satisfy it and elevating those that do. The recommendation you see reflects the accumulated requirements, not the opening question.",
+      "A buyer asks a question. The system pulls together a set of candidates, then reshapes it every time the buyer adds a requirement, dropping companies that do not clearly meet it and lifting those that do. The recommendation you see reflects every requirement added so far, not just the opening question.",
     matters:
-      "The recommendation is what the buyer arrives with. If an AI system recommends a competitor, that decision was made before a salesperson was ever involved, in an evaluation you did not observe.",
+      "The recommendation is what the buyer shows up with. If an AI recommends a competitor, that call was made before a salesperson was ever involved, in a process you never saw.",
     limitations:
-      "A recommendation is an output, not a mechanism. Seeing that you were or were not recommended does not by itself tell you which requirement decided it, whether it repeats across evaluators, or what evidence would change it. A recommendation can also vary run to run, so a single instance is an observation, not a law.",
+      "A recommendation is a result, not an explanation. Seeing that you were or were not recommended does not by itself tell you which requirement decided it, whether it repeats in other tools, or what evidence would change it. A recommendation can also change from one run to the next, so a single instance is one data point, not a rule.",
     lifecycle:
-      "AI recommendations are the recommendation stage of the lifecycle, sitting between retrieval and requirement evaluation. They are produced from the retrieved set and then reshaped by every requirement the buyer applies, which is where survivability and elimination take over.",
+      "AI recommendations are the moment a company gets recommended, sitting between being found and the buyer's requirements coming in. They start from the companies that were found, then get reshaped by every requirement the buyer applies, which is where surviving and getting cut take over.",
     lifecycleStages: ["recommendation", "requirement-evaluation"],
     businessLogic:
-      "Organizations care about AI recommendations because being recommended is what puts you in the deal. Whether that contributes to stronger pipeline, better-fit opportunities, higher win rates, or revenue depends on whether you then survive the requirements the buyer adds after the first recommendation. Upstream Zero measures whether your recommendation position moves; it does not assume a recommendation guarantees a sale.",
+      "Companies care about AI recommendations because being recommended is what puts you in the deal. Whether that leads to stronger pipeline, better-fit opportunities, higher win rates, or revenue depends on whether you then survive the requirements the buyer adds after the first recommendation. Upstream Zero measures whether your standing moves; it does not assume a recommendation guarantees a sale.",
     relatedComponents: [
       "recommendation-set-formation",
       "recommendation-survivability",
@@ -710,17 +710,17 @@ export const PILLARS: Pillar[] = [
       "generative-engine-optimization",
     ],
     reframe: [
-      "AI visibility asks whether a system can find you. AI recommendations are whether it puts you forward once a real buyer applies requirements. Being retrieved is necessary; being recommended is the result of the evaluation.",
-      "Upstream Zero studies how recommendations form and change, so a recommendation becomes something you can diagnose rather than something that simply happens to you.",
+      "AI visibility asks whether a system can find you. AI recommendations are whether it puts you forward once a real buyer applies requirements. Being found is necessary; being recommended is the result of the decision.",
+      "Upstream Zero studies how recommendations form and change, so a recommendation becomes something you can explain rather than something that just happens to you.",
     ],
     faqs: [
       {
         q: "Why does an AI recommend our competitor instead of us?",
-        a: "Usually because a specific requirement was applied that the competitor visibly satisfied and you did not. The recommendation is the end of a sequence; the useful question is which requirement decided it.",
+        a: "Usually because a specific requirement came in that the competitor clearly met and you did not. The recommendation is the end of a chain; the useful question is which requirement decided it.",
       },
       {
         q: "Do AI recommendations stay the same?",
-        a: "No. They change as the buyer adds requirements, and they can vary across repeated runs and across evaluators. That is why recommendation movement is measured against a baseline, not assumed.",
+        a: "No. They change as the buyer adds requirements, and they can vary from one run to the next and from one tool to another. That is why we measure movement against a baseline rather than assuming it.",
       },
     ],
   },
@@ -729,20 +729,20 @@ export const PILLARS: Pillar[] = [
     term: "Recommendation Intelligence",
     kind: "concept",
     summary:
-      "Recommendation intelligence is the practice of measuring and diagnosing how AI systems recommend, eliminate, and select vendors, so a company can see why it wins or loses in AI-mediated evaluation.",
+      "Recommendation intelligence is the practice of measuring and explaining how AI systems recommend, cut, and choose vendors, so a company can see why it wins or loses when buyers use AI.",
     definition:
-      "Recommendation Intelligence is the discipline of observing, measuring, and diagnosing how AI systems form vendor recommendations: which companies are surfaced, which requirements eliminate them, how the leader moves, and what evidence appears to drive selection.",
+      "Recommendation Intelligence is the practice of watching, measuring, and explaining how AI systems form vendor recommendations: which companies get surfaced, which requirements cut them, how the leader changes, and what evidence seems to drive the final choice.",
     mechanics:
-      "It runs a category through the requirement sequences a buyer would use, records how the recommendation set forms and changes, and diagnoses where and why a company is eliminated, then measures whether interventions move that position over time.",
+      "It runs a category through the requirement sequences a real buyer would use, records how the shortlist forms and changes, works out where and why a company gets cut, then measures whether fixes move its standing over time.",
     matters:
-      "Companies can now see a layer of commercial evaluation that used to be invisible. Recommendation intelligence turns AI recommendations from an unexplained outcome into a measured, diagnosable process.",
+      "Companies can now see a part of the buying decision that used to be invisible. Recommendation intelligence turns AI recommendations from an unexplained outcome into something you can measure and explain.",
     limitations:
-      "Recommendation intelligence measures and diagnoses; it does not guarantee an outcome. It reports what was observed, at its evidence tier, and separates observation from inference. A stated evaluator rationale is treated as narration, not proof of mechanism, and most observations should be measured for your own category rather than assumed from another.",
+      "Recommendation intelligence measures and explains; it does not guarantee an outcome. It reports what was seen, and how sure it is, and keeps what it saw separate from what it infers. The reasons a system gives are it talking about itself, not proof of how it decided, and most findings should be measured for your own category rather than borrowed from another.",
     lifecycle:
-      "Recommendation intelligence spans the whole lifecycle from recommendation through measurement: it is how the recommendation, requirement-evaluation, validation, selection, and measurement stages are made observable and connected back to business outcomes.",
+      "Recommendation intelligence covers the whole back half of the decision, from the recommendation through to measurement: it is how those steps are made visible and tied back to business results.",
     lifecycleStages: ["recommendation", "validation", "selection", "measurement"],
     businessLogic:
-      "The commercial logic: you cannot improve what you cannot see. Recommendation intelligence shows where you are eliminated and whether an intervention moves your position, which is the input to pipeline, fit, and win-rate decisions. Whether those downstream outcomes improve depends on execution across the rest of the evaluation. Upstream Zero measures the movement rather than promising the revenue.",
+      "The logic: you cannot improve what you cannot see. Recommendation intelligence shows where you get cut and whether a fix moves your standing, which is the input to pipeline, fit, and win-rate decisions. Whether those later outcomes improve depends on how you execute across the rest of the decision. Upstream Zero measures the movement rather than promising the revenue.",
     relatedComponents: [
       "recommendation-survivability",
       "vendor-elimination",
@@ -756,17 +756,17 @@ export const PILLARS: Pillar[] = [
       "ai-visibility",
     ],
     reframe: [
-      "Recommendation intelligence is close to what Upstream Zero does, but the anchor is commercial evaluation: the decision itself. Recommendation intelligence is how that decision is currently measured, because AI evaluators make it observable.",
-      "It is not a visibility dashboard. It is measurement and diagnosis of the evaluation that decides who a buyer selects.",
+      "Recommendation intelligence is close to what Upstream Zero does, but the anchor is the decision itself: how a buyer chooses. Recommendation intelligence is how we measure that today, because AI makes it possible to watch.",
+      "It is not a visibility dashboard. It is measuring and explaining the decision that settles who a buyer chooses.",
     ],
     faqs: [
       {
         q: "Is recommendation intelligence the same as AI visibility tracking?",
-        a: "No. Visibility tracking counts mentions. Recommendation intelligence measures whether you survive requirements and are selected, and diagnoses why, which is a different and later part of the process.",
+        a: "No. Visibility tracking counts mentions. Recommendation intelligence measures whether you survive requirements and get chosen, and explains why, which is a different and later part of the process.",
       },
       {
         q: "Can recommendation intelligence be measured today?",
-        a: "Parts of it can, through AI evaluators: which companies are recommended, which requirements eliminate them, and how the recommendation changes. Upstream Zero measures that layer and reports it with its conditions and limits.",
+        a: "Parts of it can, through AI: which companies get recommended, which requirements cut them, and how the recommendation changes. Upstream Zero measures that and reports it with its conditions and limits.",
       },
     ],
   },
@@ -775,20 +775,20 @@ export const PILLARS: Pillar[] = [
     term: "Vendor Selection",
     kind: "concept",
     summary:
-      "Vendor selection is the point where a buyer, or a system acting for them, chooses one vendor from a shortlist. In AI-mediated buying, much of the narrowing that decides selection happens before you engage.",
+      "Vendor selection is the point where a buyer, or a system acting for them, chooses one vendor from a shortlist. When buyers use AI, much of the narrowing that decides the winner happens before you ever engage.",
     definition:
-      "Vendor Selection is the stage of a buying decision where a shortlist is reduced to the chosen vendor. It is the end of commercial evaluation: the requirements have been applied, the field has narrowed, and one option is selected.",
+      "Vendor Selection is the stage of a buying decision where a shortlist is cut down to the chosen vendor. It is the end of the whole process: the requirements have been applied, the field has narrowed, and one option is picked.",
     mechanics:
-      "Selection follows validation. A buyer confirms which shortlisted vendors credibly meet the requirements, then chooses. When an AI system mediates the early stages, the shortlist a buyer selects from was already shaped by requirements and eliminations you may never have seen.",
+      "The choice comes after the evidence is checked. A buyer confirms which shortlisted vendors can actually back up the requirements, then picks. When AI handles the early stages, the shortlist a buyer picks from was already shaped by requirements and cuts you may never have seen.",
     matters:
-      "Selection is where revenue is won or lost. But by the time selection happens, most of the field has already been removed. Influencing selection means influencing the evaluation that produced the shortlist, not just the final step.",
+      "The final choice is where revenue is won or lost. But by the time it happens, most of the field has already been cut. Influencing the choice means influencing the process that built the shortlist, not just the last step.",
     limitations:
-      "You cannot act directly on selection. Selection is the consequence of everything upstream: retrieval, recommendation, requirement evaluation, and validation. Optimizing the final step without surviving the earlier ones changes nothing, because you were removed before selection was reached.",
+      "You cannot act directly on the final choice. It is the consequence of everything before it: being found, being recommended, meeting the requirements, and backing them up. Polishing the last step without surviving the earlier ones changes nothing, because you were cut before the choice was ever reached.",
     lifecycle:
-      "Vendor selection is the selection stage, near the end of the lifecycle, after validation and before measurement. It is the outcome the earlier stages produce, and it feeds back into business outcomes.",
+      "Vendor selection is the final choice, near the end of the process, after the evidence is checked and before measurement. It is the outcome the earlier steps produce, and it feeds back into business results.",
     lifecycleStages: ["selection"],
     businessLogic:
-      "Selection is the closest stage to revenue, which is exactly why it is the wrong place to intervene. The commercial logic runs backward: to be selected more often you have to survive the requirements that build the shortlist. Upstream Zero measures whether your position through those earlier stages improves; it does not promise a selection rate.",
+      "The choice is the step closest to revenue, which is exactly why it is the wrong place to intervene. The logic runs backward: to be chosen more often you have to survive the requirements that build the shortlist. Upstream Zero measures whether your standing through those earlier steps improves; it does not promise a win rate.",
     relatedComponents: [
       "recommendation-survivability",
       "competitor-displacement",
@@ -801,17 +801,17 @@ export const PILLARS: Pillar[] = [
       "recommendation-intelligence",
     ],
     reframe: [
-      "Vendor selection is the moment everyone focuses on and the moment you can least influence directly. Commercial evaluation is the process that produces it, and it is where the leverage actually sits.",
-      "Being on the shortlist is not being selected, and being selected is decided by requirements applied long before the final choice.",
+      "Vendor selection is the moment everyone fixates on and the moment you can least influence directly. The process that produces it is where the leverage actually sits.",
+      "Being on the shortlist is not being chosen, and being chosen is decided by requirements applied long before the final call.",
     ],
     faqs: [
       {
         q: "How is vendor selection different from being recommended?",
-        a: "A recommendation puts you on the shortlist. Selection is being chosen from it. You can be recommended and still not selected if a later requirement removes you or a competitor validates better.",
+        a: "A recommendation puts you on the shortlist. Selection is being picked from it. You can be recommended and still not chosen if a later requirement removes you or a competitor proves its case better.",
       },
       {
         q: "Can Upstream Zero improve our selection rate?",
-        a: "Upstream Zero measures and diagnoses where you are eliminated before selection and whether interventions move that position. It reports measured movement, not a promised selection rate.",
+        a: "Upstream Zero measures and explains where you get cut before the final choice and whether fixes move your standing. It reports measured movement, not a promised win rate.",
       },
     ],
   },
@@ -820,20 +820,20 @@ export const PILLARS: Pillar[] = [
     term: "Requirement Based Evaluation",
     kind: "concept",
     summary:
-      "Requirement-based evaluation is how a buyer narrows a field: by applying specific requirements that vendors must satisfy. It is the mechanism that decides who survives and who is eliminated.",
+      "Requirement-based evaluation is how a buyer narrows a field: by applying specific requirements that vendors must meet. It is the mechanism that decides who survives and who gets cut.",
     definition:
-      "Requirement-Based Evaluation is the process of narrowing a set of vendors by applying the buyer's specific requirements, one after another, and keeping only the vendors that credibly satisfy each one.",
+      "Requirement-Based Evaluation is narrowing a set of vendors by applying the buyer's specific requirements, one after another, and keeping only the vendors that can credibly meet each one.",
     mechanics:
-      "A buyer states or implies requirements. Each requirement is applied to the current set; vendors that do not visibly satisfy it are dropped. Because requirements are applied in sequence, the surviving set, and the leader, can change at every step.",
+      "A buyer states or implies requirements. Each one is applied to the current set; vendors that do not clearly meet it are dropped. Because the requirements come in one at a time, the survivors, and the leader, can change at every step.",
     matters:
-      "Requirements are the invariant of commercial evaluation. Tools and surfaces change, but buyers always narrow by requirements. Understanding which requirements decide your category is how you learn where you are eliminated.",
+      "Requirements are the one constant. Tools and platforms change, but buyers always narrow by requirements. Understanding which ones decide your category is how you learn where you get cut.",
     limitations:
-      "Knowing the requirements is not the same as satisfying them, and satisfying them is not the same as being credited with them. An evaluator has to be able to associate you with a requirement through evidence. Requirement-based evaluation explains where you are tested; evidence strategy addresses whether you pass.",
+      "Knowing the requirements is not the same as meeting them, and meeting them is not the same as getting credit for them. An AI has to be able to connect you to a requirement through evidence. Requirement-based evaluation explains where you are tested; evidence strategy is about whether you pass.",
     lifecycle:
-      "Requirement-based evaluation is the requirement-evaluation stage, the center of the lifecycle. It sits between recommendation and validation and is where recommendation survivability, vendor elimination, and frontrunner movement all play out.",
+      "Requirement-based evaluation is the heart of the process. It sits between the recommendation and the evidence check, and it is where surviving, getting cut, and the lead changing hands all play out.",
     lifecycleStages: ["requirement-evaluation"],
     businessLogic:
-      "The commercial logic is direct: requirements decide the shortlist, and the shortlist decides the deals you are in. Surviving the requirements that matter in your category is what keeps you in contention for pipeline and win rates. Upstream Zero identifies those requirements and measures whether your position on them moves; it does not promise a downstream number.",
+      "The logic is direct: requirements decide the shortlist, and the shortlist decides the deals you are in. Surviving the requirements that matter in your category is what keeps you in contention for pipeline and win rates. Upstream Zero identifies those requirements and measures whether your standing on them moves; it does not promise a downstream number.",
     relatedComponents: [
       "requirement-interpretation",
       "vendor-elimination",
@@ -846,17 +846,17 @@ export const PILLARS: Pillar[] = [
       "recommendation-intelligence",
     ],
     reframe: [
-      "Requirement-based evaluation is the how of commercial evaluation. It is the mechanism the research studies directly: which requirement removes you, and whether that repeats.",
-      "It is not a checklist you self-assess. It is what an evaluator applies to you, which is why it has to be observed rather than assumed.",
+      "Requirement-based evaluation is the how behind the whole decision. It is what the research studies directly: which requirement removes you, and whether that repeats.",
+      "It is not a checklist you grade yourself on. It is what an AI applies to you, which is why it has to be watched rather than assumed.",
     ],
     faqs: [
       {
         q: "Who defines the requirements?",
-        a: "The buyer, explicitly or implicitly, and the evaluator interprets them. That interpretation can vary, which is why requirement interpretation is studied as its own research component.",
+        a: "The buyer, spelled out or implied, and the AI interprets them. That interpretation can vary, which is why we study requirement interpretation as its own research component.",
       },
       {
-        q: "How do we know which requirements eliminate us?",
-        a: "By observing a category run through realistic requirement sequences and recording where you drop out. That is what a Evaluation Audit produces.",
+        q: "How do we know which requirements cut us?",
+        a: "By running a category through realistic requirement sequences and recording where you drop out. That is what an Evaluation Audit produces.",
       },
     ],
   },

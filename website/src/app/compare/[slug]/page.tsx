@@ -162,7 +162,7 @@ export default async function ComparePage({
           <div className="shell">
             <hr className="rule" />
             <p className="eyebrow mt-12">
-              Where both fit in the commercial evaluation lifecycle
+              Where both fit as AI decides who to recommend
             </p>
             <div className="mt-6 max-w-[74ch]">
               <Lifecycle active={c.lifecycleStages} />
@@ -190,7 +190,7 @@ export default async function ComparePage({
             </ul>
             <p className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-[0.9375rem]">
               <Link href="/learn/commercial-evaluation">
-                What commercial evaluation is
+                How AI decides who to recommend
               </Link>
               <Link href="/research">The research evidence</Link>
               <Link href="/solutions">Solutions</Link>

@@ -9,7 +9,7 @@ import type { LifecycleStageKey } from "@/lib/pillars";
 export function Lifecycle({ active = [] }: { active?: LifecycleStageKey[] }) {
   const set = new Set(active);
   return (
-    <div className="lifecycle" role="list" aria-label="Commercial evaluation lifecycle">
+    <div className="lifecycle" role="list" aria-label="The stages of how AI sizes up a company">
       {LIFECYCLE.map((s, i) => (
         <span
           key={s.key}

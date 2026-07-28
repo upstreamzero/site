@@ -9,7 +9,7 @@ import { QPart, RelatedQuestions } from "@/components/ResolvedQuestion";
 export const metadata: Metadata = {
   title: "Why do some companies consistently make the shortlist while others are never evaluated?",
   description:
-    "Because evaluation runs on requirements: companies whose fit can't be verified against the requirements of the situation are filtered out before anyone compares them. The current answer, its evidence tier, and its limitations.",
+    "Because evaluation runs on requirements: companies whose fit can't be verified against what the buyer needs are filtered out before anyone compares them. The current answer, how sure we are of it, and its limitations.",
   ...pageMeta("/questions/why-are-some-companies-recommended"),
 };
 
@@ -89,12 +89,13 @@ export default function Page() {
         </QPart>
 
         {/* evidence, honest tier */}
-        <QPart label="Evidence and its tier">
+        <QPart label="Evidence and how sure we are">
           <p>
             This answer is a <strong>founding position</strong>, not a
             demonstrated result. We have published zero
             observations, and the claims beneath this answer sit at the lowest{" "}
-            <Link href="/concepts/evidence-tier">evidence tier</Link>:
+            <Link href="/concepts/evidence-tier">confidence level</Link> we
+            track:
           </p>
           <ul className="m-0 list-none space-y-4 p-0">
             {[c1, c3].filter(Boolean).map((c) => (
@@ -134,7 +135,7 @@ export default function Page() {
             capture how evaluators assess you today, which requirements they
             seem to credit you with, and where the gaps are that keep you out.
             That is what{" "}
-            <Link href="/services">an engagement measures</Link>. It doesn&apos;t
+            <Link href="/services">a project measures</Link>. It doesn&apos;t
             promise to change any evaluator&apos;s behavior, and the answer
             above should be useful even if you never work with us.
           </p>
@@ -143,9 +144,9 @@ export default function Page() {
         {/* the institution, last */}
         <QPart label="Who is behind this">
           <p>
-            <Link href="/company">Upstream Zero</Link> is the commercial
-            intelligence company doing this work. The work is what matters here,
-            not the company.
+            <Link href="/company">Upstream Zero</Link> is the company doing this
+            work. We study how AI decides which companies to recommend. The work
+            is what matters here, not the company.
           </p>
         </QPart>
 

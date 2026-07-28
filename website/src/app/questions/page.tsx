@@ -9,7 +9,7 @@ import { PROBLEM_AREAS } from "@/lib/buyerQuestions";
  *  navigation. The old "Research Questions" framing described a research
  *  index; this page answers why the shift matters commercially. */
 export const metadata: Metadata = {
-  title: { absolute: "Why Commercial Evaluation Changed | Upstream Zero" },
+  title: { absolute: "Why AI Now Sizes Up Companies Before Buyers Do | Upstream Zero" },
   description:
     "Why buyers now evaluate companies before contacting them, what that costs you, and the specific commercial problems Upstream Zero investigates.",
   ...pageMeta("/questions"),
@@ -37,7 +37,7 @@ export default function Questions() {
           dangerouslySetInnerHTML={{
             __html: pageLd(
               "CollectionPage",
-              "Why Commercial Evaluation Changed | Upstream Zero",
+              "Why AI Now Sizes Up Companies Before Buyers Do | Upstream Zero",
               "/questions",
               "Why buyers now evaluate companies before contacting them, what that costs you, and the specific commercial problems Upstream Zero investigates.",
             ),
@@ -132,10 +132,10 @@ export default function Questions() {
             </div>
             <p className="muted mt-8 max-w-[62ch] text-[0.9375rem]">
               How these earned their place: we wrote them to help you find your
-              problem. None is yet backed by captured evidence that buyers
-              actually ask it. When that evidence exists, the question moves to
-              observed in a recorded revision. Linked questions have an answer
-              page; the rest are still being written.
+              own problem. None is yet backed by captured evidence that buyers
+              actually ask it. When that evidence exists, we mark the question
+              as observed in a recorded, dated change. Linked questions have an
+              answer page; the rest are still being written.
             </p>
           </div>
         </section>

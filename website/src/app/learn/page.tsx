@@ -6,9 +6,9 @@ import { pageMeta, pageLd, breadcrumbLd } from "@/lib/meta";
 import { ProvenanceFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "Learn: AI, Search, and Commercial Evaluation | Upstream Zero" },
+  title: { absolute: "Learn: How AI Decides Who Buyers Choose | Upstream Zero" },
   description:
-    "Plain-language references on AI visibility, GEO, AI SEO, Google AI Mode, ChatGPT recommendations, and how they relate to commercial evaluation: the decision that determines who a buyer selects.",
+    "Plain-language guides to showing up in AI answers, Google AI Mode, and ChatGPT recommendations, and how AI decides which companies buyers end up choosing.",
   ...pageMeta("/learn"),
 };
 
@@ -27,9 +27,9 @@ export default function Learn() {
           dangerouslySetInnerHTML={{
             __html: pageLd(
               "CollectionPage",
-              "Learn: AI, Search, and Commercial Evaluation | Upstream Zero",
+              "Learn: How AI Decides Who Buyers Choose | Upstream Zero",
               "/learn",
-              "References on AI visibility, GEO, AI SEO, AI buying surfaces, and commercial evaluation.",
+              "Guides to showing up in AI answers, AI buying tools, and how AI decides who buyers choose.",
             ),
           }}
         />
@@ -47,23 +47,24 @@ export default function Learn() {
           <div className="shell">
             <p className="eyebrow">Learn</p>
             <h1 className="mt-5 max-w-[22ch]">
-              The vocabulary of AI-mediated buying, defined plainly.
+              How buyers use AI to choose companies, in plain words.
             </h1>
             <p className="lede mt-7">
-              Clear references on the terms buyers and marketers use, and how
-              each one relates to the question underneath them all: how a buyer
-              decides which company to choose.
+              Clear explanations of the terms buyers and marketers throw around,
+              and how each one connects to the question underneath them all: how
+              a buyer decides which company to choose.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
-              Learn explains the concepts and terminology of commercial
-              evaluation. Research contains the observed evidence.
+              Learn explains the ideas and the words behind how AI decides who
+              to recommend. Research is where we keep what we have actually
+              observed.
             </p>
             <p className="mt-8">
               <Link
                 href={`/learn/${HUB_PILLAR.slug}`}
                 className="btn-ghost"
               >
-                Start with commercial evaluation
+                Start with how AI decides who wins
               </Link>
             </p>
           </div>
@@ -108,8 +109,9 @@ export default function Learn() {
               How the terms relate, side by side.
             </h2>
             <p className="lede mt-6 max-w-[62ch]">
-              The questions buyers actually ask, answered by placing two terms
-              against each other and in the wider evaluation lifecycle.
+              The questions buyers actually ask, answered by putting two terms
+              side by side and showing where each one sits in how a buyer
+              decides.
             </p>
             <ul className="browse mt-8">
               {COMPARISONS.map((c) => (

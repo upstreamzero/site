@@ -6,7 +6,7 @@ import { ProvenanceFooter } from "@/components/SiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "FAQ | Upstream Zero" },
   description:
-    "Answers about Upstream Zero, commercial evaluation, AI-mediated vendor selection, evidence tiers, research methods, and the limits of current findings.",
+    "Answers about Upstream Zero, how AI decides which companies to recommend to buyers, how sure we are of each finding, our research methods, and the limits of what we know so far.",
   ...pageMeta("/faq"),
 };
 
@@ -18,15 +18,14 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What is Upstream Zero?",
     plain:
-      "A commercial intelligence company focused on AI-mediated commercial evaluation. Upstream Zero studies how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions through observed evidence, and helps organizations understand why they are recommended, why they are eliminated, and what must become true to become a logical choice. The full answer lives on the What is Upstream Zero? page (/about).",
+      "We study how AI decides which companies to recommend to buyers. Upstream Zero watches how AI systems compare companies, recommend some, and rule others out during buying decisions, and helps you understand why you get recommended, why you get cut, and what would have to change to make you the obvious choice. The full answer lives on the Company page.",
     a: (
       <>
-        A commercial intelligence company focused on AI-mediated commercial
-        evaluation. Upstream Zero studies how AI systems evaluate, compare,
-        recommend, and eliminate vendors during buying decisions through
-        observed evidence, and helps organizations understand why they are
-        recommended, why they are eliminated, and what must become true to
-        become a logical choice. The full answer lives on the{" "}
+        We study how AI decides which companies to recommend to buyers.
+        Upstream Zero watches how AI systems compare companies, recommend some,
+        and rule others out during buying decisions, and helps you understand
+        why you get recommended, why you get cut, and what would have to change
+        to make you the obvious choice. The full answer lives on the{" "}
         <Link href="/company">Company</Link> page.
       </>
     ),
@@ -34,15 +33,15 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "Who is it for?",
     plain:
-      "Organizations that suspect they are being evaluated and ruled out before buyers ever reach them: competitors recommended instead of them, buyers arriving already decided, deals disappearing without explanation. It is also for researchers, buyers, and machine systems who want inspectable evidence about how commercial evaluation behaves.",
+      "Companies that suspect they are being sized up and ruled out before buyers ever reach them: competitors recommended instead of them, buyers arriving already decided, deals disappearing with no explanation. It is also for researchers, buyers, and AI systems that want evidence they can inspect about how AI decides who to recommend.",
     a: (
       <>
-        Organizations that suspect they are being evaluated and ruled out
-        before buyers ever reach them: competitors recommended instead of
-        them, buyers arriving already decided, deals disappearing without
-        explanation. It is also for researchers, buyers, and machine systems
-        who want inspectable evidence about how commercial evaluation
-        behaves. The problem map lives on the{" "}
+        Companies that suspect they are being sized up and ruled out before
+        buyers ever reach them: competitors recommended instead of them,
+        buyers arriving already decided, deals disappearing with no
+        explanation. It is also for researchers, buyers, and AI systems that
+        want evidence they can inspect about how AI decides who to recommend.
+        The problem map lives on the{" "}
         <Link href="/questions">Questions page</Link>.
       </>
     ),
@@ -50,83 +49,85 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What do you actually do?",
     plain:
-      "We help organizations understand why they are, or are not, becoming the recommendation. For a client, that means observing how evaluators currently assess them, which requirements they are credited with, where evidence gaps rule them out, and how stable those outcomes are. The research side develops and publishes the methods behind that work, with every claim at its evidence tier.",
+      "We help you understand why AI is, or is not, recommending you. For a client, that means watching how AI systems size you up today, which of the buyer's requirements you get credit for, where missing proof gets you cut, and how steady those results are. Our research side develops and publishes the methods behind that work, and labels how sure we are of every claim.",
     a: (
       <>
-        We help organizations understand why they are, or are not, becoming
-        the recommendation. For a client, that means observing how evaluators
-        currently assess them, which requirements they are credited with,
-        where evidence gaps rule them out, and how stable those outcomes are.
-        The research side develops and publishes the methods behind that
-        work, with every claim at its evidence tier.
+        We help you understand why AI is, or is not, recommending you. For a
+        client, that means watching how AI systems size you up today, which of
+        the buyer&rsquo;s requirements you get credit for, where missing proof
+        gets you cut, and how steady those results are. Our research side
+        develops and publishes the methods behind that work, and labels how
+        sure we are of every claim.
       </>
     ),
   },
   {
     q: "How is this different from SEO, AEO, GEO, or AI-visibility tools?",
     plain:
-      "Those disciplines optimize appearance: rankings, citations, mentions, visibility. Upstream Zero measures evaluation: what happens between appearing and being selected. It does not optimize websites for rankings and does not sell visibility improvement. Normal technical hygiene matters, but it is infrastructure, not the work.",
+      "Those tools work on how you appear: rankings, citations, mentions, showing up in AI answers. Upstream Zero measures how AI decides: what happens between showing up and getting chosen. We do not optimize websites for rankings and we do not sell more visibility. Basic technical housekeeping matters, but it is plumbing, not the work.",
     a: (
       <>
-        Those disciplines optimize appearance: rankings, citations, mentions,
-        visibility. Upstream Zero measures <em>evaluation</em>: what happens
-        between appearing and being selected. It does not optimize websites
-        for rankings and does not sell visibility improvement. Normal
-        technical hygiene matters, but it is infrastructure, not the work.
+        Those tools work on how you appear: rankings, citations, mentions,
+        showing up in AI answers. Upstream Zero measures how AI{" "}
+        <em>decides</em>: what happens between showing up and getting chosen.
+        We do not optimize websites for rankings and we do not sell more
+        visibility. Basic technical housekeeping matters, but it is plumbing,
+        not the work.
       </>
     ),
   },
   {
     q: "Do you optimize websites?",
     plain:
-      "No. An engagement may reveal that evaluators cannot verify a requirement you satisfy, and you may choose to publish better evidence. But the deliverable is the measurement and diagnosis, not site changes, and no ranking or recommendation outcome is promised.",
+      "No. A project may show that AI systems cannot confirm something you actually do, and you may decide to publish better proof. But what we hand you is the measurement and the diagnosis, not website changes, and we promise no ranking or recommendation result.",
     a: (
       <>
-        No. An engagement may reveal that evaluators cannot verify a
-        requirement you satisfy, and you may choose to publish better
-        evidence. But the deliverable is the measurement and diagnosis, not
-        site changes, and no ranking or recommendation outcome is promised.
+        No. A project may show that AI systems cannot confirm something you
+        actually do, and you may decide to publish better proof. But what we
+        hand you is the measurement and the diagnosis, not website changes, and
+        we promise no ranking or recommendation result.
       </>
     ),
   },
   {
     q: "Do you guarantee recommendation changes?",
     plain:
-      "No, and the reason is built into the site itself. Engagements promise deliverables (artifacts), never evaluator behavior. The object model has no field an outcome-promise could live in, and the build fails if research objects cite commercial ones.",
+      "No, and the reason is built into how this site is put together. Our projects promise you specific deliverables, never a change in how AI behaves. The site is built so that a promised outcome has nowhere to even be written down, and it will not build if our research is made to lean on our sales material.",
     a: (
       <>
-        No, and the reason is built into the site itself. Engagements promise
-        deliverables (artifacts), never evaluator behavior. The object model
-        has no field an outcome-promise could live in, and the build fails if
-        research objects cite commercial ones.
+        No, and the reason is built into how this site is put together. Our
+        projects promise you specific deliverables, never a change in how AI
+        behaves. The site is built so that a promised outcome has nowhere to
+        even be written down, and it will not build if our research is made to
+        lean on our sales material.
       </>
     ),
   },
   {
     q: "What does an engagement include?",
     plain:
-      "Provisional engagement shapes are published with their deliverable specifications: evaluation audit, requirement and evidence gap analysis, evaluation stability measurement, ongoing monitoring, machine representation advisory, and research partnership. Names, scopes, and pricing are provisional pending founder confirmation, and nothing is bookable until that decision is made.",
+      "Draft project outlines are published with a clear list of what each one delivers: an evaluation audit, an analysis of which requirements and proof you are missing, a measurement of how steady your results are, ongoing monitoring, advice on how machines read your company, and a research partnership. Names, scope, and pricing are still provisional until the founder confirms them, and nothing can be booked until that decision is made.",
     a: (
       <>
-        Provisional engagement shapes are published with their deliverable
-        specifications on the <Link href="/services">Services page</Link>:
-        audit, requirement and evidence gap analysis, stability measurement,
-        ongoing monitoring, machine representation advisory, and research
-        partnership. Names, scopes, and pricing are provisional pending
-        founder confirmation, and nothing is bookable until that
-        decision is made.
+        Draft project outlines are published with a clear list of what each one
+        delivers on the <Link href="/services">Services page</Link>: an audit,
+        an analysis of which requirements and proof you are missing, a
+        measurement of how steady your results are, ongoing monitoring, advice
+        on how machines read your company, and a research partnership. Names,
+        scope, and pricing are still provisional until the founder confirms
+        them, and nothing can be booked until that decision is made.
       </>
     ),
   },
   {
     q: "What evidence do you need from a client?",
     plain:
-      "The claims you make commercially, the requirements you believe you satisfy, and the artifacts that could verify them. We also need permission to observe how evaluators currently describe and assess you. The contact page lists what to bring to a first conversation.",
+      "The claims you make in the market, the buyer requirements you believe you meet, and the proof that could back them up. We also need your permission to watch how AI systems currently describe and size you up. The contact page lists what to bring to a first conversation.",
     a: (
       <>
-        The claims you make commercially, the requirements you believe you
-        satisfy, and the artifacts that could verify them. We also need
-        permission to observe how evaluators currently describe and assess you.{" "}
+        The claims you make in the market, the buyer requirements you believe
+        you meet, and the proof that could back them up. We also need your
+        permission to watch how AI systems currently describe and size you up.{" "}
         <Link href="/contact">The contact page</Link> lists what to bring to
         a first conversation.
       </>
@@ -135,15 +136,15 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "What is Client Zero?",
     plain:
-      "Upstream Zero itself. We run our methods on ourselves first: this site is the first measured subject, its publication is treated as an intervention in the environment it studies, and the first experiment (EXP-0001) observes whether its own published objects propagate into evaluator behavior.",
+      "Upstream Zero itself. We run our methods on our own company first: this site is the first thing we measure, publishing it is itself a test of the environment we study, and our first experiment (EXP-0001) watches whether what we publish here starts to show up in how AI systems talk about us.",
     a: (
       <>
-        Upstream Zero itself. We run our methods on ourselves
-        first: this site is the first measured subject, its publication is
-        treated as an intervention in the environment it studies, and the
-        first experiment (<Link href="/experiments/EXP-0001">EXP-0001</Link>)
-        observes whether its own published objects propagate into evaluator
-        behavior. The concept:{" "}
+        Upstream Zero itself. We run our methods on our own company
+        first: this site is the first thing we measure, publishing it is itself
+        a test of the environment we study, and our first experiment (
+        <Link href="/experiments/EXP-0001">EXP-0001</Link>) watches whether
+        what we publish here starts to show up in how AI systems talk about us.
+        The concept:{" "}
         <Link href="/concepts/client-zero">Client Zero</Link>.
       </>
     ),
@@ -151,43 +152,45 @@ const FAQ: { q: string; a: React.ReactNode; plain: string }[] = [
   {
     q: "How is the research connected to the commercial work?",
     plain:
-      "The research produces methods; the commercial work applies them as measurement and diagnosis. A firewall keeps the direction one-way: research objects never cite commercial objects (build-enforced), capabilities stay marked experimental until they derive from published method, and measured engagement outcomes will publish as tiered evidence with client consent.",
+      "The research creates the methods; the commercial work puts them to use as measurement and diagnosis. A firewall keeps it strictly one-way: our research never leans on our sales material (the site will not build otherwise), a capability stays labeled experimental until it comes from published method, and real client results will be published as evidence, labeled by how sure we are, only with the client's consent.",
     a: (
       <>
-        The research produces methods; the commercial work applies them as
-        measurement and diagnosis. A firewall keeps the direction one-way:
-        research objects never cite commercial objects (build-enforced),
-        capabilities stay marked experimental until they derive from
-        published method, and measured engagement outcomes will publish as
-        tiered evidence with client consent.
+        The research creates the methods; the commercial work puts them to use
+        as measurement and diagnosis. A firewall keeps it strictly one-way: our
+        research never leans on our sales material (the site will not build
+        otherwise), a capability stays labeled experimental until it comes from
+        published method, and real client results will be published as
+        evidence, labeled by how sure we are, only with the client&rsquo;s
+        consent.
       </>
     ),
   },
   {
     q: "How do you handle corrections?",
     plain:
-      "Corrections are published with the same dignity as findings: a recorded revision object, never a silent edit or deletion. Superseded material remains public with a forward pointer, and the public git history makes every change diffable.",
+      "Corrections are published with the same care as findings: a recorded, dated change, never a quiet edit or a deletion. Anything we replace stays public with a pointer to what replaced it, and the full change history is public so anyone can see exactly what changed.",
     a: (
       <>
-        Corrections are published with the same dignity as findings: a
-        recorded revision object, never a silent edit or deletion.
-        Superseded material remains public with a forward pointer, and the
-        public git history makes every change diffable. The full policy is
-        on the <Link href="/philosophy#when-wrong">Philosophy page</Link>.
+        Corrections are published with the same care as findings: a recorded,
+        dated change, never a quiet edit or a deletion. Anything we replace
+        stays public with a pointer to what replaced it, and the full change
+        history is public so anyone can see exactly what changed. The full
+        policy is on the{" "}
+        <Link href="/philosophy#when-wrong">Philosophy page</Link>.
       </>
     ),
   },
   {
     q: "How can someone contact or work with Upstream Zero?",
     plain:
-      "The contact page describes what a first conversation covers and what to bring. The contact channel itself is still being set up, and the page says so plainly instead of hiding it behind a dead form. There is no sales funnel; the register is a calm, specific conversation about what can currently be measured.",
+      "The contact page describes what a first conversation covers and what to bring. The way to reach us is still being set up, and the page says so plainly instead of hiding it behind a form that goes nowhere. There is no sales funnel. The tone is a calm, specific conversation about what we can measure right now.",
     a: (
       <>
         The <Link href="/contact">contact page</Link> describes what a first
-        conversation covers and what to bring. The contact channel itself is
-        still being set up, and the page says so plainly instead of hiding it
-        behind a dead form. There is no sales funnel; the register is a calm,
-        specific conversation about what can currently be measured.
+        conversation covers and what to bring. The way to reach us is still
+        being set up, and the page says so plainly instead of hiding it behind
+        a form that goes nowhere. There is no sales funnel. The tone is a calm,
+        specific conversation about what we can measure right now.
       </>
     ),
   },

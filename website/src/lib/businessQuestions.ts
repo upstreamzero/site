@@ -49,69 +49,69 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     q: "Why did we disappear after follow-up questions?",
     title: "Why Did We Disappear After Follow-Up Questions? | Upstream Zero",
     description:
-      "You appear in the AI recommendation set, then vanish once the buyer adds a requirement. Here is why elimination happens at follow-up, what the evidence shows, and how to find your exact drop-off point.",
-    framing: "You were in the set, then a requirement removed you.",
+      "You appear on the list AI recommends, then vanish once the buyer adds a requirement. Here is why you get cut at follow-up, what the evidence shows, and how to find your exact drop-off point.",
+    framing: "You were on the list, then a requirement removed you.",
     components: ["recommendation-survivability", "vendor-elimination"],
     answer:
-      "Because an AI evaluator builds its recommendation in stages. You can sit in the opening set for a broad category question and then be removed the moment the buyer adds a requirement your evidence does not clearly satisfy. The removal is usually specific and repeatable: one requirement, at one step, dropping the vendors that do not visibly meet it.",
+      "Because an AI system builds its recommendation in stages. You can sit on the opening list for a broad category question and then be removed the moment the buyer adds a requirement your evidence does not clearly meet. The removal is usually specific and repeatable: one requirement, at one step, dropping the companies that do not visibly meet it.",
     problem:
-      "Most companies only see the final answer, not the sequence that produced it. So a loss looks like bad luck rather than a precise elimination at a requirement they could name and address.",
+      "Most companies only see the final answer, not the sequence that produced it. So a loss looks like bad luck rather than a precise cut at a requirement they could name and fix.",
     whyItMatters:
-      "If you cannot see the requirement that removed you, you cannot fix it. Budget goes to broad visibility work when the real problem is a single requirement where the evaluator is not confident you qualify.",
+      "If you cannot see the requirement that removed you, you cannot fix it. Budget goes to broad visibility work when the real problem is a single requirement where the AI is not confident you qualify.",
     concluded:
-      "Across five categories we have observed the field narrowing as requirements are added, and the vendor leading the opening list is frequently the first removed at a requirement it cannot satisfy. In one category the entire named field was eliminated at a single requirement and the recommendation relocated to a higher market tier.",
+      "Across five categories we have watched the field narrow as requirements are added, and the company leading the opening list is frequently the first removed at a requirement it cannot meet. In one category the entire named field was cut at a single requirement and the recommendation moved up to a higher market tier.",
     unknown:
-      "We cannot yet say which property of a category predicts who survives, and most of these runs used a single evaluator, so the exact drop-off point should be measured for your category rather than assumed.",
+      "We cannot yet say what about a category predicts who survives, and most of these runs used a single AI system, so the exact drop-off point should be measured for your category rather than assumed.",
     howWeHelp:
-      "Upstream Zero runs your category through the same kind of requirement sequence a buyer would, identifies the exact requirement where you drop out, and diagnoses the evidence gap behind it. That diagnosis is measurement, not a promise about rankings.",
+      "Upstream Zero runs your category through the same kind of requirement sequence a buyer would, finds the exact requirement where you drop out, and diagnoses the missing proof behind it. That diagnosis is measurement, not a promise about rankings.",
     nextStep:
-      "Find your drop-off point with a Evaluation Audit.",
+      "Find your drop-off point with an Evaluation Audit.",
   },
   {
     slug: "another-vendor-won",
     q: "Why did another vendor become the recommendation?",
     title: "Why Did Another Vendor Become the Recommendation? | Upstream Zero",
     description:
-      "The lead changed, or a competitor replaced you in the AI recommendation. Here is what the evidence shows about how the frontrunner moves and how to see where you lost the top position.",
+      "The lead changed, or a competitor replaced you in the AI recommendation. Here is what the evidence shows about how the lead moves and how to see where you lost the top spot.",
     framing: "The lead changed, or a competitor took your place.",
     components: ["frontrunner-movement", "competitor-displacement"],
     answer:
-      "Because the leading position is not fixed. As a buyer adds requirements, the vendor at the front can be demoted or replaced by one that more clearly satisfies the next requirement. The change often targets the leading position itself rather than any single vendor, so whoever leads is exposed at the first requirement they cannot meet.",
+      "Because the leading position is not fixed. As a buyer adds requirements, the company at the front can be pushed down or replaced by one that more clearly meets the next requirement. The change often targets the leading position itself rather than any single company, so whoever leads is exposed at the first requirement they cannot meet.",
     problem:
-      "A competitor becoming the recommendation reads as a branding or awareness loss. More often it is a specific handoff: a requirement appeared that the other vendor visibly satisfied and you did not.",
+      "A competitor becoming the recommendation reads as a branding or awareness loss. More often it is a specific handoff: a requirement appeared that the other company visibly met and you did not.",
     whyItMatters:
-      "Knowing which requirement moved the lead tells you exactly where a competitor is out-evidencing you, instead of guessing that they simply have more visibility.",
+      "Knowing which requirement moved the lead tells you exactly where a competitor is out-proving you, instead of guessing that they simply have more visibility.",
     concluded:
-      "We have observed the opening leader losing its lead at the first requirement it structurally could not satisfy, sometimes demoted and sometimes eliminated. In one category the leader varied between runs, yet whichever vendor led was removed at the same step, which suggests the position is what is exposed.",
+      "We have watched the opening leader lose its lead at the first requirement it simply could not meet, sometimes pushed down and sometimes cut. In one category the leader varied between runs, yet whichever company led was removed at the same step, which suggests the position is what is exposed.",
     unknown:
-      "Whether the same position-based movement holds across different evaluators is not yet confirmed, so the specific handoff should be measured on the evaluators your buyers use.",
+      "Whether the same position-based movement holds across different AI systems is not yet confirmed, so the specific handoff should be measured on the AI systems your buyers use.",
     howWeHelp:
-      "Upstream Zero identifies the requirement where the lead changes hands and which evidence the surviving competitor appears to satisfy that you do not. You receive the diagnosis and a prioritized set of decisions, never a promise about placement.",
+      "Upstream Zero finds the requirement where the lead changes hands and which proof the surviving competitor appears to have that you do not. You receive the diagnosis and a prioritized set of decisions, never a promise about placement.",
     nextStep:
-      "See where the lead changes with a Evaluation Audit.",
+      "See where the lead changes with an Evaluation Audit.",
   },
   {
     slug: "evidence-missing",
     q: "What evidence are we missing?",
     title: "What Evidence Are We Missing for AI Evaluation? | Upstream Zero",
     description:
-      "AI evaluators lean on specific proof when they decide whether a vendor meets a requirement. Here is how to tell which evidence you are missing and where the gap is costing you.",
-    framing: "What proof an evaluator relies on that you have not shown.",
+      "AI systems lean on specific proof when they decide whether a company meets a requirement. Here is how to tell which proof you are missing and where the gap is costing you.",
+    framing: "What proof an AI system relies on that you have not shown.",
     components: ["validation-and-evidence", "requirement-interpretation"],
     answer:
-      "The evidence that an evaluator needs to confidently associate you with a requirement, and cannot currently find. That is rarely everything at once. It is usually a specific proof for a specific requirement: the thing the evaluator looks for to validate a claim, that your public footprint does not clearly demonstrate.",
+      "The proof an AI system needs to confidently connect you with a requirement, and cannot currently find. That is rarely everything at once. It is usually a specific proof for a specific requirement: the thing the AI looks for to back up a claim, that your public footprint does not clearly show.",
     problem:
-      "Companies produce a lot of content and still lose, because volume is not the same as the specific proof an evaluator needs for the requirement that is eliminating them.",
+      "Companies produce a lot of content and still lose, because volume is not the same as the specific proof an AI needs for the requirement that is cutting them.",
     whyItMatters:
-      "The missing evidence is the difference between claiming a capability and being credited with it. Filling the right gap is far cheaper than a broad content program that does not address the requirement in question.",
+      "The missing proof is the difference between claiming a capability and being credited with it. Filling the right gap is far cheaper than a broad content program that does not address the requirement in question.",
     concluded:
-      "We have observed that what an evaluator appears to rely on when validating a vendor is specific to the requirement being tested, and that its stated reasoning is a description of its narration rather than proof of mechanism. So evidence gaps are diagnosed per requirement, and held at their honest confidence level.",
+      "We have observed that what an AI appears to rely on when checking a company is specific to the requirement being tested, and that its stated reasoning describes how it narrates the answer rather than proving how it actually works inside. So proof gaps are diagnosed one requirement at a time, and held at their honest confidence level.",
     unknown:
-      "How much of an evaluator's stated reasoning reflects the actual mechanism is not established, which is why any evidence recommendation is a candidate tied to an observed gap, not a guaranteed lever.",
+      "How much of an AI's stated reasoning reflects what it actually did inside is not established, which is why any recommendation about proof is a candidate tied to an observed gap, not a guaranteed lever.",
     howWeHelp:
-      "Upstream Zero maps the requirement that eliminates you to the evidence an evaluator appears to need, compares it against what you already publish, and identifies the most likely gap. Which evidence to create, and where, is a recommendation grounded in the observed failure, not a generic checklist.",
+      "Upstream Zero maps the requirement that cuts you to the proof an AI appears to need, compares it against what you already publish, and identifies the most likely gap. Which proof to create, and where, is a recommendation grounded in the observed failure, not a generic checklist.",
     nextStep:
-      "Get your evidence gap diagnosed. See Solutions.",
+      "Get your missing proof diagnosed. See Solutions.",
   },
   {
     slug: "what-must-become-true",
@@ -119,26 +119,26 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     title:
       "What Must Become True to Survive AI Evaluation? | Upstream Zero",
     description:
-      "Surviving AI-mediated evaluation means satisfying the requirements a buyer adds. Here is how to determine what must become true for your company, and the evidence behind it.",
+      "Surviving AI evaluation means meeting the requirements a buyer adds. Here is how to work out what must become true for your company, and the evidence behind it.",
     framing:
-      "The requirements you have to satisfy, and the evidence behind them.",
+      "The requirements you have to meet, and the proof behind them.",
     components: [
       "recommendation-survivability",
       "requirement-interpretation",
       "validation-and-evidence",
     ],
     answer:
-      "The specific things an evaluator must confidently associate with your company for you to remain in the set as requirements are added. That is a short, concrete list per category: the requirements you have to satisfy, and the evidence that makes each one credible. It is the core question Upstream Zero is built to answer.",
+      "The specific things an AI must confidently connect with your company for you to stay on the list as requirements are added. That is a short, concrete list per category: the requirements you have to meet, and the proof that makes each one credible. It is the core question Upstream Zero is built to answer.",
     problem:
-      "\"Improve our AI presence\" is not actionable. What is actionable is the exact set of requirements a buyer introduces and, for each, whether the evaluator currently credits you.",
+      "\"Improve our AI presence\" is not something you can act on. What you can act on is the exact set of requirements a buyer introduces and, for each, whether the AI currently credits you.",
     whyItMatters:
       "This turns an abstract fear about AI into a defined, prioritized list of what to make true first, which is where the leverage is.",
     concluded:
-      "We have observed that survival is decided requirement by requirement, that the field can survive, collapse, or relocate depending on the category, and that the leader is exposed at the first requirement it cannot meet. So what must become true is specific and testable, not a universal formula.",
+      "We have observed that survival is decided one requirement at a time, that the field can survive, collapse, or move to a different tier depending on the category, and that the leader is exposed at the first requirement it cannot meet. So what must become true is specific and testable, not a universal formula.",
     unknown:
-      "What drives a category to behave one way rather than another is not yet established, so the requirement set that matters should be measured for your category rather than transferred from another.",
+      "What drives a category to behave one way rather than another is not yet established, so the requirements that matter should be measured for your category rather than borrowed from another.",
     howWeHelp:
-      "Upstream Zero identifies the requirements that decide your category, tells you which ones the evaluator currently credits you for, and defines what must become true for the rest, with the evidence each would need. The intervention is recommended, and its effect is something we then measure.",
+      "Upstream Zero finds the requirements that decide your category, tells you which ones the AI currently credits you for, and defines what must become true for the rest, with the proof each would need. The fix is recommended, and its effect is something we then measure.",
     nextStep:
       "Define what must become true. Start with Selection Tracking.",
   },
@@ -152,17 +152,17 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     framing: "Whether your position actually moves after a change.",
     components: ["recommendation-stability", "recommendation-survivability"],
     answer:
-      "By re-running the same requirement sequence and comparing against a baseline. Improvement is a measured change in recommendation behavior, not an assumption that an action worked. Because outcomes vary run to run, movement only counts when it shows against the noise of repeated sampling.",
+      "By running the same requirement sequence again and comparing against a starting point. Improvement is a measured change in how AI recommends you, not an assumption that an action worked. Because results vary run to run, movement only counts when it stands out against that normal variation.",
     problem:
-      "Most changes are made on faith. Without a baseline and a repeatable measurement, you cannot tell whether an intervention moved your position or the result simply varied.",
+      "Most changes are made on faith. Without a starting point and a repeatable measurement, you cannot tell whether a change moved your position or the result simply varied on its own.",
     whyItMatters:
-      "Measured movement is what separates an intervention that worked from one that felt productive. It is also what lets you stop spending on things that do not move the outcome.",
+      "Measured movement is what separates a change that worked from one that only felt productive. It is also what lets you stop spending on things that do not move the outcome.",
     concluded:
-      "We have observed that recommendation outcomes vary across repeated runs, which is exactly why measurement has to be against a baseline and across multiple draws. Movement reported against a baseline is a real result; a single run is not.",
+      "We have observed that AI recommendations vary across repeated runs, which is exactly why measurement has to be against a starting point and across many runs. Movement reported against a starting point is a real result; a single run is not.",
     unknown:
-      "How much variation is normal for a given category, and whether an observed movement is caused by a specific change, requires a controlled before-and-after design rather than a single comparison.",
+      "How much variation is normal for a given category, and whether an observed movement was actually caused by a specific change, needs a controlled before-and-after test rather than a single comparison.",
     howWeHelp:
-      "Upstream Zero establishes a baseline, re-runs the sequence after a change, and reports movement in recommendation-set frequency, frontrunner frequency, and survivability against that baseline. The number is a measured outcome, reported with its limits.",
+      "Upstream Zero sets a starting point, runs the sequence again after a change, and reports the movement against it: how often you make the shortlist, how often you lead it, and how often you survive to the end. The number is a measured outcome, reported with its limits.",
     nextStep:
       "Measure movement over time with Selection Tracking.",
   },
@@ -172,8 +172,8 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
     title:
       "How Do AI Systems Evaluate and Recommend Vendors? | Upstream Zero",
     description:
-      "AI systems build a vendor recommendation in stages: form an opening set, apply requirements, eliminate vendors, and settle on a shortlist. Here is what the published evidence shows about each stage.",
-    framing: "The full pipeline, from opening set to final recommendation.",
+      "AI systems build a recommendation in stages: form an opening list, apply requirements, cut companies, and settle on a shortlist. Here is what the published evidence shows about each stage.",
+    framing: "The full process, from opening list to final recommendation.",
     components: [
       "recommendation-set-formation",
       "vendor-elimination",
@@ -181,19 +181,19 @@ export const BUSINESS_QUESTIONS: BusinessQuestion[] = [
       "recommendation-survivability",
     ],
     answer:
-      "In stages. An evaluator first forms an opening set for a broad category question, then narrows it as the buyer adds requirements: eliminating vendors that do not visibly satisfy each new requirement, moving the leader when a requirement exposes it, and settling on the vendors that survive the full sequence. The final recommendation reflects the accumulated requirements, not the opening question.",
+      "In stages. An AI first forms an opening list for a broad category question, then narrows it as the buyer adds requirements: cutting companies that do not visibly meet each new requirement, moving the leader when a requirement exposes it, and settling on the companies that survive the full sequence. The final recommendation reflects all the requirements added along the way, not the opening question.",
     problem:
-      "Treated as a black box, AI recommendation looks arbitrary. Seen as a staged process, it becomes something you can locate yourself within: where you enter, where you are removed, and where you survive.",
+      "Treated as a black box, AI recommendation looks random. Seen as a staged process, it becomes something you can place yourself inside: where you enter, where you are removed, and where you survive.",
     whyItMatters:
-      "Understanding the stages is what makes the other questions answerable. Each stage is a place where a company can be won or lost, and each is studied as its own research component.",
+      "Understanding the stages is what makes the other questions answerable. Each stage is a place where a company can be won or lost, and we study each one on its own.",
     concluded:
-      "We have observed this staged narrowing across several categories: an opening set that is not the final answer, elimination at specific requirements, the leader exposed at the first requirement it cannot meet, and fields that survive, collapse, or relocate depending on the category. Every observation is held at its evidence level and most rest on a single evaluator.",
+      "We have observed this staged narrowing across several categories: an opening list that is not the final answer, companies cut at specific requirements, the leader exposed at the first requirement it cannot meet, and fields that survive, collapse, or move to a different tier depending on the category. Every observation is held at its honest confidence level and most rest on a single AI system.",
     unknown:
-      "How closely this resembles human buying-committee evaluation, and how much of it generalizes across evaluators and over time, are open questions the research program is built to keep testing.",
+      "How closely this resembles the way a human buying committee evaluates, and how much of it holds across different AI systems and over time, are open questions the research program is built to keep testing.",
     howWeHelp:
-      "Upstream Zero studies each stage as a research component and turns that into a per-company diagnosis: where you enter, where you are eliminated, and what must become true to survive. The research is public; the diagnosis is the product.",
+      "Upstream Zero studies each stage and turns that into a diagnosis for your company: where you enter, where you are cut, and what must become true to survive. The research is public; the diagnosis is the product.",
     nextStep:
-      "See the research components, or how the work is done in the methodology.",
+      "See the research, or how the work is done in the methodology.",
   },
 ];
 

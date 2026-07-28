@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     absolute: "Research: How AI Evaluates & Recommends Vendors | Upstream Zero",
   },
   description:
-    "Upstream Zero's public evidence layer documenting dated experiments, observations, findings, and hypotheses about how AI systems evaluate companies, apply requirements, eliminate vendors, and build recommendation sets.",
+    "Upstream Zero's public evidence layer documenting dated experiments, observations, findings, and hypotheses about how AI systems evaluate companies, apply requirements, rule vendors out, and build the shortlists they recommend.",
   ...pageMeta("/research"),
 };
 
@@ -63,7 +63,7 @@ export default function Research() {
               "CollectionPage",
               "What We Study | Upstream Zero",
               "/research",
-              "Research into how AI systems and reasoning engines evaluate companies, construct requirements, retrieve evidence, and generate commercial recommendations.",
+              "Research into how AI systems evaluate companies, weigh requirements, pull evidence, and decide which companies to recommend.",
             ),
           }}
         />
@@ -78,8 +78,8 @@ export default function Research() {
             <p className="lede mt-7">
               This is Upstream Zero's public evidence layer, not a blog. Every
               experiment, observation, and hypothesis is preserved and dated, so
-              the chronology of what we have learned about AI-mediated
-              commercial evaluation stays transparent.
+              the chronology of what we have learned about how AI decides who to
+              recommend stays transparent.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
               We study how AI systems evaluate, compare, recommend, and
@@ -158,10 +158,10 @@ export default function Research() {
             <hr className="rule" />
             <p className="eyebrow mt-12">Research components</p>
             <h2 className="mt-5 max-w-[28ch]">
-              The components of AI-mediated commercial evaluation we study.
+              The parts of how AI recommends companies that we study.
             </h2>
             <p className="lede mt-6 max-w-[64ch]">
-              The canonical organization of the evidence. Every experiment
+              The main way we organize the evidence. Every experiment
               reinforces one of these enduring components, so the work builds
               toward defined questions rather than a stream of one-off tests.
             </p>
@@ -402,7 +402,7 @@ export default function Research() {
                 <div className="stat-n">{methods.length}</div>
                 <div className="stat-label">Methods</div>
                 <p className="muted mt-4 text-[0.9375rem]">
-                  How anything here earns its evidence tier.{" "}
+                  How anything here earns its evidence level.{" "}
                   <Link href="/methods">How we work</Link>.
                 </p>
               </div>

@@ -10,7 +10,7 @@ import { TIERS } from "@/lib/schema";
 export const metadata: Metadata = {
   title: { absolute: "How We Work | Upstream Zero" },
   description:
-    "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization.",
+    "How Upstream Zero observes, records, and measures how AI sizes up companies across AI systems, while keeping what it measures separate from trying to change the result.",
   ...pageMeta("/methods"),
 };
 
@@ -19,7 +19,7 @@ const STEPS = [
   {
     n: "01",
     title: "Start with a commercial question",
-    body: "The run has to connect to a real decision, exclusion, requirement, or evidence problem.",
+    body: "The run has to connect to a real decision, a company being ruled out, a requirement, or an evidence problem.",
   },
   {
     n: "02",
@@ -63,7 +63,7 @@ export default function Methods() {
               "CollectionPage",
               "How We Work | Upstream Zero",
               "/methods",
-              "How Upstream Zero observes, records, and measures commercial evaluation events across AI systems while separating observation from optimization.",
+              "How Upstream Zero observes, records, and measures how AI sizes up companies across AI systems, while keeping what it measures separate from trying to change the result.",
             ),
           }}
         />

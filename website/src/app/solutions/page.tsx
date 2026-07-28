@@ -10,7 +10,7 @@ import BookingButton from "@/components/BookingButton";
 export const metadata: Metadata = {
   title: { absolute: "AI Vendor Evaluation Products | Upstream Zero" },
   description:
-    "Companies are evaluated by AI before a buyer speaks with sales. Upstream Zero shows whether your company enters the recommendation set, which requirements strengthen or eliminate your position, what evidence AI systems rely on, and what must become true to remain a logical choice. It measures the evaluation behavior that may influence pipeline, win rate, and revenue, and does not promise those outcomes.",
+    "AI sizes up companies before a buyer ever speaks with sales. Upstream Zero shows whether you make the list AI recommends, which buyer requirements strengthen or cut your position, what proof AI systems rely on, and what would have to change to stay the obvious choice. It measures the AI behavior that may influence pipeline, win rate, and revenue, and does not promise those outcomes.",
   ...pageMeta("/solutions"),
 };
 
@@ -29,7 +29,7 @@ export default function Solutions() {
               "CollectionPage",
               "Solutions | Upstream Zero",
               "/solutions",
-              "Fixed-scope Commercial Evaluation products from Upstream Zero.",
+              "Fixed-scope ways to see how AI is deciding your deals.",
             ),
           }}
         />
@@ -50,32 +50,32 @@ export default function Solutions() {
               See how AI evaluates your company before a buyer calls.
             </h1>
             <p className="lede mt-7">
-              Companies are increasingly evaluated before a buyer speaks with
-              sales. Upstream Zero shows whether your company enters the
-              recommendation set, which requirements strengthen or eliminate
-              your position, what evidence AI systems rely on, and what must
-              become true for your company to remain a logical choice as the
-              evaluation continues.
+              More and more, companies are sized up before a buyer speaks with
+              sales. Upstream Zero shows whether you make the list AI
+              recommends, which buyer requirements strengthen or cut your
+              position, what proof AI systems rely on, and what would have to
+              change for you to stay the obvious choice as the evaluation goes
+              on.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
-              This intelligence can be evaluated alongside qualified pipeline,
-              ICP alignment, win rate, sales-cycle movement, revenue, retention,
-              and expansion. Upstream Zero measures the evaluation behavior that
-              may influence those outcomes. It does not promise that changing
-              recommendation behavior will produce them.
+              You can weigh this alongside qualified pipeline, ICP fit, win
+              rate, sales-cycle movement, revenue, retention, and expansion.
+              Upstream Zero measures the AI behavior that may influence those
+              results. It does not promise that changing how AI recommends you
+              will produce them.
             </p>
 
             <dl className="mt-10 grid max-w-[76ch] gap-x-8 gap-y-4 text-[0.9375rem] sm:grid-cols-[max-content_1fr]">
               <dt className="font-medium">What it solves</dt>
               <dd className="muted m-0">
                 You cannot see the AI evaluation that decides whether you make
-                the shortlist. This makes it observable.
+                the shortlist. This makes it something you can watch.
               </dd>
               <dt className="font-medium">What you learn</dt>
               <dd className="muted m-0">
-                Whether you enter the recommendation set, which requirements
-                move or eliminate you, what evidence the evaluator relies on,
-                and what must become true to remain a logical choice.
+                Whether you make the list AI recommends, which requirements move
+                you up or cut you, what proof the AI relies on, and what would
+                have to change to stay the obvious choice.
               </dd>
               <dt className="font-medium">What you can buy</dt>
               <dd className="muted m-0">
@@ -84,8 +84,9 @@ export default function Solutions() {
               </dd>
               <dt className="font-medium">Decisions it supports</dt>
               <dd className="muted m-0">
-                Where to invest evidence, which requirements to prioritize, and
-                whether a change moved your recommendation position over time.
+                Where to invest in proof, which requirements to tackle first,
+                and whether a change moved your position in AI recommendations
+                over time.
               </dd>
             </dl>
           </div>
@@ -103,20 +104,20 @@ export default function Solutions() {
               From observed behavior to measured movement.
             </h2>
             <p className="lede mt-6 max-w-[62ch]">
-              Every engagement follows the same path. Each step is diagnosis or
-              measurement. The recommendations it produces are candidate
-              interventions tied to an observed failure and a specific evidence
-              gap, not guaranteed levers.
+              Every project follows the same path. Each step is diagnosis or
+              measurement. The recommendations it produces are possible fixes
+              tied to a specific failure we observed and a specific gap in your
+              proof, not guaranteed levers.
             </p>
             <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
-              The{" "}
+              See{" "}
               <Link href="/learn/commercial-evaluation">
-                commercial evaluation lifecycle
-              </Link>{" "}
-              describes how a buyer&rsquo;s evaluation unfolds. This is the
-              Upstream Zero measurement workflow: how we observe, diagnose, act
-              on, and measure that lifecycle. They are two layers, not two
-              competing versions of the same process.
+                how AI decides who to recommend
+              </Link>
+              , step by step, from the first shortlist to the final pick.
+              This measurement workflow is how we observe, diagnose, act on, and
+              measure that lifecycle. They are two layers, not two competing
+              versions of the same thing.
             </p>
             <ol className="steps steps-2 mt-12">
               {WORKFLOW.map((s) => (
@@ -205,17 +206,17 @@ export default function Solutions() {
             </h2>
             <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
               Illustrative, not a real company or a promised result. It shows
-              how one observed elimination becomes a specific, prioritized set
-              of candidate interventions.
+              how one company being cut becomes a specific, prioritized set of
+              possible fixes.
             </p>
 
             <div className="card mt-10 max-w-[74ch]">
               <dl className="exrec">
                 <dt className="eyebrow">Observed evaluation failure</dt>
                 <dd>
-                  A healthcare software company appears in the initial
-                  recommendation set but disappears when the buyer adds Epic
-                  integration and HIPAA compliance.
+                  A healthcare software company shows up on the initial
+                  shortlist but disappears when the buyer adds Epic integration
+                  and HIPAA compliance.
                 </dd>
 
                 <dt className="eyebrow mt-6">Evidence diagnosis</dt>
@@ -227,8 +228,8 @@ export default function Solutions() {
 
                 <dt className="eyebrow mt-6">What must become true</dt>
                 <dd>
-                  AI evaluators must consistently associate the company with
-                  native Epic integration and successful healthcare deployments.
+                  AI systems must consistently connect the company with native
+                  Epic integration and successful healthcare deployments.
                 </dd>
 
                 <dt className="eyebrow mt-6">Existing evidence</dt>
@@ -285,22 +286,23 @@ export default function Solutions() {
 
                 <dt className="eyebrow mt-6">Measurement</dt>
                 <dd>
-                  Re-run the same requirement sequence and measure
-                  recommendation-set frequency, frontrunner frequency, selection
-                  survivability, competitor displacement, validation failure
-                  points, and before-and-after recommendation movement.
+                  Run the same set of requirements again and measure how often
+                  you make the shortlist, how often you lead it, how often you
+                  survive to the end, how often a competitor takes your place,
+                  where the AI stops trusting your claims, and how your
+                  recommendations moved before and after.
                 </dd>
               </dl>
             </div>
 
             <p className="muted mt-8 max-w-[70ch] text-[0.9375rem]">
-              Evidence recommendations may include technical documentation,
-              product and integration pages, customer case studies, video
-              walkthroughs, partner directories, marketplace listings, PR and
-              industry coverage, review platforms, developer documentation, and
-              structured data. Each is a candidate intervention selected because
-              of an observed failure and a specific evidence gap, not a generic
-              tactic. The system does not recommend every evidence type for
+              Recommended proof may include technical documentation, product and
+              integration pages, customer case studies, video walkthroughs,
+              partner directories, marketplace listings, PR and industry
+              coverage, review sites, developer documentation, and structured
+              data. Each is a possible fix chosen because of a specific failure
+              we observed and a specific gap in your proof, not a generic
+              tactic. The system does not recommend every kind of proof for
               every problem.
             </p>
           </div>
@@ -313,17 +315,17 @@ export default function Solutions() {
         {/* ── How this differs from GEO and AEO ───────────────── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">How this differs from GEO and AEO</p>
+            <p className="eyebrow">How this differs from AI-search and visibility tools</p>
             <h2 className="mt-5 max-w-[24ch]">
-              Mechanisms, not the category.
+              Those are tactics, not our category.
             </h2>
             <div className="mt-10 grid gap-10 lg:grid-cols-2">
               <div>
-                <p className="eyebrow">GEO and AEO typically focus on</p>
+                <p className="eyebrow">AI-search and visibility tools typically focus on</p>
                 <ul className="mt-3 list-none space-y-2 p-0 text-[0.9375rem]">
                   <li className="muted">Visibility</li>
                   <li className="muted">Mentions and citations</li>
-                  <li className="muted">Retrieval</li>
+                  <li className="muted">Getting found</li>
                   <li className="muted">Content structure</li>
                   <li className="muted">Schema</li>
                 </ul>
@@ -331,21 +333,21 @@ export default function Solutions() {
               <div>
                 <p className="eyebrow">Upstream Zero focuses on</p>
                 <ul className="mt-3 list-none space-y-2 p-0 text-[0.9375rem]">
-                  <li>Recommendation set formation</li>
-                  <li>Vendor elimination</li>
-                  <li>Frontrunner movement</li>
-                  <li>Selection survivability</li>
-                  <li>Evidence gaps</li>
-                  <li>Measured recommendation movement</li>
+                  <li>How the shortlist forms</li>
+                  <li>Why companies get cut</li>
+                  <li>How the lead changes hands</li>
+                  <li>Whether you survive to the end</li>
+                  <li>Gaps in your proof</li>
+                  <li>Measured change in what AI recommends</li>
                 </ul>
               </div>
             </div>
             <p className="muted mt-8 max-w-[70ch] text-[0.9375rem]">
-              Schema, PR, video, documentation, case studies, and third-party
+              Schema, PR, video, documentation, case studies, and outside
               validation may be recommended when the evidence supports them.
-              They are candidate mechanisms, not the product category. The
-              platform decides whether a mechanism is relevant based on the
-              observed evaluation evidence.
+              They are possible tactics, not our product category. The platform
+              decides whether a tactic is relevant based on what we actually
+              observe.
             </p>
           </div>
         </section>
@@ -354,11 +356,11 @@ export default function Solutions() {
           <div className="shell">
             <div className="callout max-w-[70ch]">
               <p>
-                <strong>Every engagement is measurement and diagnosis.</strong>{" "}
+                <strong>Every project is measurement and diagnosis.</strong>{" "}
                 You receive evidence and a prioritized set of decisions, never a
-                promise about rankings, inclusion, or selection. We are not an
-                AI SEO, GEO, or visibility agency. See how the work is done in
-                the <Link href="/methodology">methodology</Link>.
+                promise about rankings, getting included, or getting chosen. We
+                are not an AI SEO, GEO, or visibility agency. See how the work
+                is done in the <Link href="/methodology">methodology</Link>.
               </p>
             </div>
           </div>

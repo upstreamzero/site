@@ -7,7 +7,7 @@ import BookingButton from "@/components/BookingButton";
 export const metadata: Metadata = {
   title: { absolute: "Contact Upstream Zero" },
   description:
-    "Contact Upstream Zero, a commercial intelligence company focused on AI-mediated commercial evaluation. Start a conversation about how AI systems evaluate, compare, recommend, and eliminate vendors during buying decisions.",
+    "Contact Upstream Zero. We study how AI decides which companies to recommend to buyers. Start a conversation about how AI systems evaluate, compare, recommend, and rule out vendors during buying decisions.",
   ...pageMeta("/contact"),
 };
 
@@ -20,7 +20,7 @@ const COVERS = [
   {
     n: "02",
     title: "What is measurable now",
-    body: "Every current capability comes with its experimental maturity attached. You will hear what we cannot measure yet.",
+    body: "Every current capability comes with a clear note on how experimental it still is. You will hear what we cannot measure yet.",
   },
   {
     n: "03",
@@ -65,7 +65,7 @@ export default function Contact() {
             </ol>
             <p className="lede mt-12">
               Worth bringing: your category definition, the competitors you are
-              evaluated against, and any evaluator output about you that
+              evaluated against, and anything an AI has said about you that
               prompted the visit.
             </p>
             <div className="card mt-12 max-w-[62ch]">

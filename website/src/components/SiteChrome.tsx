@@ -64,8 +64,8 @@ const FOOT_PRODUCTS = [
 
 const FOOT_LEARN = [
   { href: "/learn", label: "Learn" },
-  { href: "/learn/commercial-evaluation", label: "Commercial evaluation" },
-  { href: "/learn/ai-visibility", label: "AI visibility" },
+  { href: "/learn/commercial-evaluation", label: "How AI decides who to recommend" },
+  { href: "/learn/ai-visibility", label: "Showing up in AI answers" },
   { href: "/glossary", label: "Glossary" },
 ];
 
@@ -151,8 +151,8 @@ export function ProvenanceFooter({
       <div className="shell mt-10">
         <hr className="rule" />
         <p className="mt-4 text-[0.875rem]">
-          Version 0.1. Every claim is published at its evidence tier, and the
-          zeros are printed honestly.
+          Version 0.1. Every claim shows how sure we are, and we publish the
+          tests that turned up nothing too.
         </p>
       </div>
     </footer>

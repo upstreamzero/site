@@ -71,7 +71,7 @@ export function JourneyShift() {
       <div>
         <Row
           title="Now"
-          note="today's mechanism: an LLM"
+          note="today's mechanism: AI"
           steps={AFTER}
         />
         {/* the annotation IS the aha: the moved cluster, named with the
@@ -84,8 +84,8 @@ export function JourneyShift() {
         </div>
       </div>
       <p className="max-w-[52ch] pt-1 italic" style={{ color: "var(--ink-60)" }}>
-        The mechanism will keep changing. The shift is durable: more of
-        commercial evaluation concludes before you know it began.
+        The mechanism will keep changing. The shift is durable: more of how you
+        get evaluated concludes before you know it began.
       </p>
     </div>
   );
