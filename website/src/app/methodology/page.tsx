@@ -108,14 +108,9 @@ export default function Methodology() {
               you, and what would have to become true for AI to recommend you.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
-              Methodology explains how the evidence is produced. Research holds
-              the observed evidence itself. The five steps below are the{" "}
-              <Link href="/solutions">Upstream Zero measurement workflow</Link>,
-              how the company observes, diagnoses, acts on, and measures{" "}
-              <Link href="/learn/commercial-evaluation">
-                how AI sizes up companies
-              </Link>{" "}
-              as a buyer moves toward a decision.
+              The five steps below are how we do it, the same way every time.
+              The runs themselves live in the{" "}
+              <Link href="/research">research library</Link>.
             </p>
           </div>
         </section>
@@ -181,7 +176,7 @@ export default function Methodology() {
         <section className="cta-band">
           <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
             <h2 className="max-w-[24ch]">
-              See the method applied to your category.
+              See why AI is picking your competitors.
             </h2>
             <Link href="/solutions" className="btn-lime">
               View the products

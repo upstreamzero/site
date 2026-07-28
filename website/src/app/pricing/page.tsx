@@ -32,7 +32,7 @@ const FAQ = [
   },
   {
     q: "How is this different from an AI-visibility tool?",
-    a: "A visibility tool tells you whether you appear in AI answers. That is one step of four. We measure the whole decision, where you're cut and why, and we sell you no tool to fix it, so our read has no agenda.",
+    a: "A visibility tool tells you whether you show up in AI answers. That's the first step, not the decision. We look at the whole decision, why AI is putting competitors ahead of you and what would change it, and we sell you nothing to fix it, so the answer has no agenda.",
   },
   {
     q: "Why pay for this if you won't do the fix?",

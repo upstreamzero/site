@@ -59,11 +59,10 @@ export default function Solutions() {
               what would make you the company AI recommends.
             </p>
             <p className="muted mt-5 max-w-[64ch]">
-              You can weigh this alongside qualified pipeline, ICP fit, win
-              rate, sales-cycle movement, revenue, retention, and expansion.
-              Upstream Zero measures the AI behavior that may influence those
-              results. It does not promise that changing how AI recommends you
-              will produce them.
+              This shows up in the numbers you already watch, from pipeline to
+              win rate to revenue. We show you the AI behavior behind them. We
+              can&rsquo;t promise those numbers move, only what would change how
+              AI recommends you.
             </p>
 
             <dl className="mt-10 grid max-w-[76ch] gap-x-8 gap-y-4 text-[0.9375rem] sm:grid-cols-[max-content_1fr]">
@@ -102,25 +101,15 @@ export default function Solutions() {
         {/* ── The commercial workflow ─────────────────────────── */}
         <section className="section-tight">
           <div className="shell">
-            <p className="eyebrow">The Upstream Zero measurement workflow</p>
+            <p className="eyebrow">How the work goes</p>
             <h2 className="mt-5 max-w-[26ch]">
-              From observed behavior to measured movement.
+              From why you&rsquo;re losing to what would win.
             </h2>
             <p className="lede mt-6 max-w-[62ch]">
-              Every project follows the same path. Each step is diagnosis or
-              measurement. The recommendations it produces are possible fixes
-              tied to a specific failure we observed and a specific gap in your
-              proof, not guaranteed levers.
-            </p>
-            <p className="muted mt-5 max-w-[64ch] text-[0.9375rem]">
-              See{" "}
-              <Link href="/learn/commercial-evaluation">
-                how AI decides who to recommend
-              </Link>
-              , step by step, from the first shortlist to the final pick.
-              This measurement workflow is how we observe, diagnose, act on, and
-              measure that lifecycle. They are two layers, not two competing
-              versions of the same thing.
+              Every project runs the same way. We watch how AI recommends in
+              your market, find the requirements putting competitors ahead of
+              you, and hand you the ranked list of what would make you the one
+              AI recommends.
             </p>
             <ol className="steps steps-2 mt-12">
               {WORKFLOW.map((s) => (
